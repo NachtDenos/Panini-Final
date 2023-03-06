@@ -1,0 +1,13 @@
+﻿Revisar el  doc para ver que entregamos
+Correciones
+Restricciones:
+		Triggers
+		Procedures
+		Views
+		Diseño, Programacion sql y c#
+		Normalizacion paso a paso
+		Falta el diccionario
+		 ice guiso
+		 a
+		 e
+		 i
