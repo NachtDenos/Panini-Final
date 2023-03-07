@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
-using static Punto_de_Venta.DatabaseBool;
+
 using Punto_de_Venta;
 using System.Data.SqlTypes;
 

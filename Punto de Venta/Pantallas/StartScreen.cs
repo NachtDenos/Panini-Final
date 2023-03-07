@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Punto_de_Venta.DatabaseBool;
+
 
 namespace Punto_de_Venta
 {

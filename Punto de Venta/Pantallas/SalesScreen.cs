@@ -12,26 +12,8 @@ namespace Punto_de_Venta
 {
     public partial class SalesScreen : Form
     {
-        Procedures proc = new Procedures();
-        int CodProd;
-        string fecha;
-        string nombreCajeroAux;
-        int cajeroIdAux;
-        string NombreProducto;
-        string NombreProductoEliminar;
-        int Caja;
-        bool itExists;
-        int catnAllevarFinal;
-        int cantCarritoEliminar;
-        string Precio;
-        string PrecioNUEVO;
-        string PrecioAEliminar;
-        float PrecioInicial;
-        string laCaja;
-        int CantAmultiplicar;
-        float precioLbl = 0.0f;
-        float precioLblAux = 0.0f;
-        float UltimoPrecio;
+        
+       
         public SalesScreen()
         {
             InitializeComponent();
