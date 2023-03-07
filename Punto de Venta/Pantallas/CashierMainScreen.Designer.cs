@@ -221,7 +221,7 @@
             this.panelChildFormSales.Name = "panelChildFormSales";
             this.panelChildFormSales.Size = new System.Drawing.Size(950, 670);
             this.panelChildFormSales.TabIndex = 1;
-            this.panelChildFormSales.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChildFormSales_Paint);
+            
             // 
             // label10
             // 
@@ -237,12 +237,12 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            
             // 
             // timer2
             // 
             this.timer2.Enabled = true;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            
             // 
             // CashierMainScreen
             // 

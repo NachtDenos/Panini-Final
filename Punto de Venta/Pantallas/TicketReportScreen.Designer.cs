@@ -43,7 +43,6 @@ namespace Punto_de_Venta
             this.txtIdTicketReportNota = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnReprintTicketRecibo = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.cbRecibo = new System.Windows.Forms.CheckBox();
             this.cbNota = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridTicketReport)).BeginInit();
@@ -208,13 +207,6 @@ namespace Punto_de_Venta
             this.btnReprintTicketRecibo.UseVisualStyleBackColor = false;
             this.btnReprintTicketRecibo.Click += new System.EventHandler(this.btnReprintTicketRecibo_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(43, 434);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(258, 165);
-            this.panel1.TabIndex = 104;
-            // 
             // cbRecibo
             // 
             this.cbRecibo.AutoSize = true;
@@ -245,7 +237,6 @@ namespace Punto_de_Venta
             this.ClientSize = new System.Drawing.Size(934, 631);
             this.Controls.Add(this.cbNota);
             this.Controls.Add(this.cbRecibo);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnReprintTicketRecibo);
             this.Controls.Add(this.btnConsultTicketReportNota);
             this.Controls.Add(this.txtIdTicketReportNota);
@@ -285,7 +276,6 @@ namespace Punto_de_Venta
         private System.Windows.Forms.TextBox txtIdTicketReportNota;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnReprintTicketRecibo;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox cbRecibo;
         private System.Windows.Forms.CheckBox cbNota;
     }

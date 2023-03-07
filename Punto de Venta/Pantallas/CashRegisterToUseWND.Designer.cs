@@ -36,9 +36,6 @@
             this.dtpCajaCobro = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbNombreCajero = new System.Windows.Forms.ComboBox();
-            this.cbIdCajero = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +87,6 @@
             this.RegisterToUseCB.Size = new System.Drawing.Size(166, 21);
             this.RegisterToUseCB.TabIndex = 1;
             this.RegisterToUseCB.Text = "Seleccione la caja a cobrar";
-            this.RegisterToUseCB.SelectedIndexChanged += new System.EventHandler(this.RegisterToUseCB_SelectedIndexChanged);
             // 
             // GoToSellerScreenbUTTN
             // 
@@ -105,7 +101,7 @@
             this.GoToSellerScreenbUTTN.TabIndex = 2;
             this.GoToSellerScreenbUTTN.Text = "Listo";
             this.GoToSellerScreenbUTTN.UseVisualStyleBackColor = false;
-            this.GoToSellerScreenbUTTN.Click += new System.EventHandler(this.GoToSellerScreenbUTTN_Click);
+            this.GoToSellerScreenbUTTN.Click += new System.EventHandler(this.GoToSellerScreenbUTTN_Click_1);
             // 
             // dtpCajaCobro
             // 
@@ -133,38 +129,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Seleccione la fecha de hoy";
             // 
-            // cbNombreCajero
-            // 
-            this.cbNombreCajero.FormattingEnabled = true;
-            this.cbNombreCajero.Location = new System.Drawing.Point(459, 195);
-            this.cbNombreCajero.Name = "cbNombreCajero";
-            this.cbNombreCajero.Size = new System.Drawing.Size(32, 21);
-            this.cbNombreCajero.TabIndex = 6;
-            // 
-            // cbIdCajero
-            // 
-            this.cbIdCajero.FormattingEnabled = true;
-            this.cbIdCajero.Location = new System.Drawing.Point(497, 195);
-            this.cbIdCajero.Name = "cbIdCajero";
-            this.cbIdCajero.Size = new System.Drawing.Size(32, 21);
-            this.cbIdCajero.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(449, 195);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(151, 57);
-            this.panel2.TabIndex = 8;
-            // 
             // CashRegisterToUseWND
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(600, 249);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.cbIdCajero);
-            this.Controls.Add(this.cbNombreCajero);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtpCajaCobro);
@@ -193,8 +163,5 @@
         private System.Windows.Forms.DateTimePicker dtpCajaCobro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbNombreCajero;
-        private System.Windows.Forms.ComboBox cbIdCajero;
-        private System.Windows.Forms.Panel panel2;
     }
 }
