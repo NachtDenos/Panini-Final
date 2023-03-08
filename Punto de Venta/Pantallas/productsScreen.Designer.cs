@@ -243,11 +243,11 @@ namespace Punto_de_Venta
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(364, 9);
+            this.label2.Location = new System.Drawing.Point(386, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(198, 44);
+            this.label2.Size = new System.Drawing.Size(153, 44);
             this.label2.TabIndex = 30;
-            this.label2.Text = "Productos";
+            this.label2.Text = "Hoteles";
             // 
             // txtIdProduct
             // 
@@ -262,11 +262,11 @@ namespace Punto_de_Venta
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 71);
+            this.label1.Location = new System.Drawing.Point(76, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 22);
+            this.label1.Size = new System.Drawing.Size(169, 22);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Código de Producto";
+            this.label1.Text = "Nombre del Hotel";
             // 
             // txtExistenceProduct
             // 

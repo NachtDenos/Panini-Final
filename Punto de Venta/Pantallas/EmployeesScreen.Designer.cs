@@ -34,7 +34,6 @@ namespace Punto_de_Venta
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -43,12 +42,10 @@ namespace Punto_de_Venta
             this.label11 = new System.Windows.Forms.Label();
             this.txtLastName1Employees = new System.Windows.Forms.TextBox();
             this.txtLastName2Employees = new System.Windows.Forms.TextBox();
-            this.txtCurpEmployees = new System.Windows.Forms.TextBox();
             this.txtEmailEmployees = new System.Windows.Forms.TextBox();
             this.txtPayrollEmployees = new System.Windows.Forms.TextBox();
             this.txtIdEmployees = new System.Windows.Forms.TextBox();
             this.txtPassEmployees = new System.Windows.Forms.TextBox();
-            this.dtpJoinBusiness = new System.Windows.Forms.DateTimePicker();
             this.dtpBirth = new System.Windows.Forms.DateTimePicker();
             this.btnAddEmployees = new System.Windows.Forms.Button();
             this.btnEditEmployees = new System.Windows.Forms.Button();
@@ -56,6 +53,9 @@ namespace Punto_de_Venta
             this.dataGridEmployees = new System.Windows.Forms.DataGridView();
             this.txtFilterEmployees = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,9 +84,9 @@ namespace Punto_de_Venta
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(330, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(219, 44);
+            this.label2.Size = new System.Drawing.Size(216, 44);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Empleados";
+            this.label2.Text = "Operativos";
             // 
             // label3
             // 
@@ -108,21 +108,11 @@ namespace Punto_de_Venta
             this.label4.TabIndex = 5;
             this.label4.Text = "Apellido materno";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(160, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 22);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "CURP";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 247);
+            this.label6.Location = new System.Drawing.Point(12, 196);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(208, 22);
             this.label6.TabIndex = 7;
@@ -132,17 +122,17 @@ namespace Punto_de_Venta
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(54, 426);
+            this.label7.Location = new System.Drawing.Point(53, 372);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 22);
+            this.label7.Size = new System.Drawing.Size(167, 22);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Clave de Usuario";
+            this.label7.Text = "Teléfono de casa";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(101, 476);
+            this.label8.Location = new System.Drawing.Point(101, 464);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(119, 22);
             this.label8.TabIndex = 9;
@@ -152,7 +142,7 @@ namespace Punto_de_Venta
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(33, 334);
+            this.label9.Location = new System.Drawing.Point(33, 283);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(187, 22);
             this.label9.TabIndex = 10;
@@ -162,7 +152,7 @@ namespace Punto_de_Venta
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(39, 290);
+            this.label10.Location = new System.Drawing.Point(39, 239);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(181, 22);
             this.label10.TabIndex = 11;
@@ -172,11 +162,11 @@ namespace Punto_de_Venta
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(52, 379);
+            this.label11.Location = new System.Drawing.Point(131, 327);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(168, 22);
+            this.label11.Size = new System.Drawing.Size(89, 22);
             this.label11.TabIndex = 12;
-            this.label11.Text = "Fecha de ingreso";
+            this.label11.Text = "Domicilio";
             // 
             // txtLastName1Employees
             // 
@@ -196,17 +186,9 @@ namespace Punto_de_Venta
             this.txtLastName2Employees.TabIndex = 14;
             this.txtLastName2Employees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName2Employees_KeyPress);
             // 
-            // txtCurpEmployees
-            // 
-            this.txtCurpEmployees.Location = new System.Drawing.Point(236, 201);
-            this.txtCurpEmployees.Multiline = true;
-            this.txtCurpEmployees.Name = "txtCurpEmployees";
-            this.txtCurpEmployees.Size = new System.Drawing.Size(146, 22);
-            this.txtCurpEmployees.TabIndex = 15;
-            // 
             // txtEmailEmployees
             // 
-            this.txtEmailEmployees.Location = new System.Drawing.Point(236, 290);
+            this.txtEmailEmployees.Location = new System.Drawing.Point(236, 239);
             this.txtEmailEmployees.Multiline = true;
             this.txtEmailEmployees.Name = "txtEmailEmployees";
             this.txtEmailEmployees.Size = new System.Drawing.Size(146, 22);
@@ -214,7 +196,7 @@ namespace Punto_de_Venta
             // 
             // txtPayrollEmployees
             // 
-            this.txtPayrollEmployees.Location = new System.Drawing.Point(236, 334);
+            this.txtPayrollEmployees.Location = new System.Drawing.Point(236, 283);
             this.txtPayrollEmployees.Multiline = true;
             this.txtPayrollEmployees.Name = "txtPayrollEmployees";
             this.txtPayrollEmployees.Size = new System.Drawing.Size(146, 22);
@@ -223,7 +205,7 @@ namespace Punto_de_Venta
             // 
             // txtIdEmployees
             // 
-            this.txtIdEmployees.Location = new System.Drawing.Point(236, 426);
+            this.txtIdEmployees.Location = new System.Drawing.Point(236, 376);
             this.txtIdEmployees.Multiline = true;
             this.txtIdEmployees.Name = "txtIdEmployees";
             this.txtIdEmployees.Size = new System.Drawing.Size(146, 22);
@@ -232,24 +214,15 @@ namespace Punto_de_Venta
             // 
             // txtPassEmployees
             // 
-            this.txtPassEmployees.Location = new System.Drawing.Point(236, 476);
+            this.txtPassEmployees.Location = new System.Drawing.Point(236, 464);
             this.txtPassEmployees.Multiline = true;
             this.txtPassEmployees.Name = "txtPassEmployees";
             this.txtPassEmployees.Size = new System.Drawing.Size(146, 22);
             this.txtPassEmployees.TabIndex = 19;
             // 
-            // dtpJoinBusiness
-            // 
-            this.dtpJoinBusiness.Location = new System.Drawing.Point(236, 381);
-            this.dtpJoinBusiness.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.dtpJoinBusiness.Name = "dtpJoinBusiness";
-            this.dtpJoinBusiness.Size = new System.Drawing.Size(146, 20);
-            this.dtpJoinBusiness.TabIndex = 20;
-            this.dtpJoinBusiness.Value = new System.DateTime(2022, 11, 8, 0, 0, 0, 0);
-            // 
             // dtpBirth
             // 
-            this.dtpBirth.Location = new System.Drawing.Point(236, 249);
+            this.dtpBirth.Location = new System.Drawing.Point(236, 198);
             this.dtpBirth.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
             this.dtpBirth.Name = "dtpBirth";
             this.dtpBirth.Size = new System.Drawing.Size(146, 20);
@@ -332,12 +305,41 @@ namespace Punto_de_Venta
             this.label12.TabIndex = 26;
             this.label12.Text = "Filtro:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(236, 327);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 22);
+            this.textBox1.TabIndex = 28;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(236, 423);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(146, 22);
+            this.textBox2.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(64, 423);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(156, 22);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Teléfono Celular";
+            // 
             // EmployeesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtFilterEmployees);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dataGridEmployees);
@@ -345,12 +347,10 @@ namespace Punto_de_Venta
             this.Controls.Add(this.btnEditEmployees);
             this.Controls.Add(this.btnAddEmployees);
             this.Controls.Add(this.dtpBirth);
-            this.Controls.Add(this.dtpJoinBusiness);
             this.Controls.Add(this.txtPassEmployees);
             this.Controls.Add(this.txtIdEmployees);
             this.Controls.Add(this.txtPayrollEmployees);
             this.Controls.Add(this.txtEmailEmployees);
-            this.Controls.Add(this.txtCurpEmployees);
             this.Controls.Add(this.txtLastName2Employees);
             this.Controls.Add(this.txtLastName1Employees);
             this.Controls.Add(this.label11);
@@ -359,7 +359,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -380,7 +379,6 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -389,12 +387,10 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtLastName1Employees;
         private System.Windows.Forms.TextBox txtLastName2Employees;
-        private System.Windows.Forms.TextBox txtCurpEmployees;
         private System.Windows.Forms.TextBox txtEmailEmployees;
         private System.Windows.Forms.TextBox txtPayrollEmployees;
         private System.Windows.Forms.TextBox txtIdEmployees;
         private System.Windows.Forms.TextBox txtPassEmployees;
-        private System.Windows.Forms.DateTimePicker dtpJoinBusiness;
         private System.Windows.Forms.DateTimePicker dtpBirth;
         private System.Windows.Forms.Button btnAddEmployees;
         private System.Windows.Forms.Button btnEditEmployees;
@@ -402,5 +398,8 @@ namespace Punto_de_Venta
         private System.Windows.Forms.DataGridView dataGridEmployees;
         private System.Windows.Forms.TextBox txtFilterEmployees;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label5;
     }
 }
