@@ -36,17 +36,16 @@
             this.label8 = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelIdCashRegister = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.buttonSales = new System.Windows.Forms.Button();
-            this.labelNamePerson = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panelChildFormSales = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panelLeftSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildFormSales.SuspendLayout();
@@ -55,17 +54,16 @@
             // panelLeftSales
             // 
             this.panelLeftSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
+            this.panelLeftSales.Controls.Add(this.button3);
+            this.panelLeftSales.Controls.Add(this.button2);
+            this.panelLeftSales.Controls.Add(this.button1);
             this.panelLeftSales.Controls.Add(this.pictureBox1);
             this.panelLeftSales.Controls.Add(this.labelHour);
             this.panelLeftSales.Controls.Add(this.label8);
             this.panelLeftSales.Controls.Add(this.labelDate);
             this.panelLeftSales.Controls.Add(this.label6);
-            this.panelLeftSales.Controls.Add(this.labelIdCashRegister);
-            this.panelLeftSales.Controls.Add(this.label4);
             this.panelLeftSales.Controls.Add(this.button8);
             this.panelLeftSales.Controls.Add(this.buttonSales);
-            this.panelLeftSales.Controls.Add(this.labelNamePerson);
-            this.panelLeftSales.Controls.Add(this.label2);
             this.panelLeftSales.Controls.Add(this.label1);
             this.panelLeftSales.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -125,26 +123,6 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "Fecha:";
             // 
-            // labelIdCashRegister
-            // 
-            this.labelIdCashRegister.AutoSize = true;
-            this.labelIdCashRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelIdCashRegister.Location = new System.Drawing.Point(191, 130);
-            this.labelIdCashRegister.Name = "labelIdCashRegister";
-            this.labelIdCashRegister.Size = new System.Drawing.Size(13, 13);
-            this.labelIdCashRegister.TabIndex = 27;
-            this.labelIdCashRegister.Text = "1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(145, 130);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 13);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "N. Caja:";
-            // 
             // button8
             // 
             this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -175,29 +153,9 @@
             this.buttonSales.Name = "buttonSales";
             this.buttonSales.Size = new System.Drawing.Size(250, 40);
             this.buttonSales.TabIndex = 18;
-            this.buttonSales.Text = "Ventas";
+            this.buttonSales.Text = "Reservaciones";
             this.buttonSales.UseVisualStyleBackColor = true;
             this.buttonSales.Click += new System.EventHandler(this.buttonSales_Click);
-            // 
-            // labelNamePerson
-            // 
-            this.labelNamePerson.AutoSize = true;
-            this.labelNamePerson.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelNamePerson.Location = new System.Drawing.Point(60, 130);
-            this.labelNamePerson.Name = "labelNamePerson";
-            this.labelNamePerson.Size = new System.Drawing.Size(60, 13);
-            this.labelNamePerson.TabIndex = 17;
-            this.labelNamePerson.Text = "Juan Perez";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(23, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Cajero:";
             // 
             // label1
             // 
@@ -205,11 +163,11 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             this.label1.Font = new System.Drawing.Font("Broadway", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(42, -4);
+            this.label1.Location = new System.Drawing.Point(12, -4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 55);
+            this.label1.Size = new System.Drawing.Size(209, 55);
             this.label1.TabIndex = 15;
-            this.label1.Text = "AXXA";
+            this.label1.Text = "Panini";
             // 
             // panelChildFormSales
             // 
@@ -221,7 +179,6 @@
             this.panelChildFormSales.Name = "panelChildFormSales";
             this.panelChildFormSales.Size = new System.Drawing.Size(950, 670);
             this.panelChildFormSales.TabIndex = 1;
-            
             // 
             // label10
             // 
@@ -237,12 +194,58 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            
             // 
             // timer2
             // 
             this.timer2.Enabled = true;
-            
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 211);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(250, 40);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Check In";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 257);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(250, 40);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Check Out";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(0, 303);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(250, 40);
+            this.button3.TabIndex = 35;
+            this.button3.Text = "Clientes";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // CashierMainScreen
             // 
@@ -271,19 +274,18 @@
         private System.Windows.Forms.Panel panelLeftSales;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button buttonSales;
-        private System.Windows.Forms.Label labelNamePerson;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelHour;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panelChildFormSales;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.Label labelIdCashRegister;
         public System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

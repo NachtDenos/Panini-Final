@@ -47,14 +47,10 @@ namespace Punto_de_Venta.Pantallas
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewReorder = new System.Windows.Forms.DataGridView();
-            this.productReorder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.existReorder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label10 = new System.Windows.Forms.Label();
             this.MainMenuVerti.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildForm.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReorder)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenuVerti
@@ -88,11 +84,11 @@ namespace Punto_de_Venta.Pantallas
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             this.label5.Font = new System.Drawing.Font("Broadway", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(35, -2);
+            this.label5.Location = new System.Drawing.Point(12, -2);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(176, 55);
+            this.label5.Size = new System.Drawing.Size(209, 55);
             this.label5.TabIndex = 16;
-            this.label5.Text = "AXXA";
+            this.label5.Text = "Panini";
             // 
             // buttonDiscounts
             // 
@@ -107,7 +103,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonDiscounts.Name = "buttonDiscounts";
             this.buttonDiscounts.Size = new System.Drawing.Size(250, 40);
             this.buttonDiscounts.TabIndex = 14;
-            this.buttonDiscounts.Text = "Descuentos";
+            this.buttonDiscounts.Text = "Cancelaciones";
             this.buttonDiscounts.UseVisualStyleBackColor = true;
             this.buttonDiscounts.Click += new System.EventHandler(this.buttonDiscounts_Click);
             // 
@@ -141,7 +137,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonDepartaments.Name = "buttonDepartaments";
             this.buttonDepartaments.Size = new System.Drawing.Size(250, 40);
             this.buttonDepartaments.TabIndex = 12;
-            this.buttonDepartaments.Text = "Departamentos";
+            this.buttonDepartaments.Text = "Habitaciones";
             this.buttonDepartaments.UseVisualStyleBackColor = true;
             this.buttonDepartaments.Click += new System.EventHandler(this.buttonDepartaments_Click);
             // 
@@ -192,7 +188,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonReportSells.Name = "buttonReportSells";
             this.buttonReportSells.Size = new System.Drawing.Size(250, 40);
             this.buttonReportSells.TabIndex = 9;
-            this.buttonReportSells.Text = "Reporte de Ventas";
+            this.buttonReportSells.Text = "Historial del Cliente";
             this.buttonReportSells.UseVisualStyleBackColor = true;
             this.buttonReportSells.Click += new System.EventHandler(this.buttonReportSells_Click);
             // 
@@ -209,7 +205,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonBoxes.Name = "buttonBoxes";
             this.buttonBoxes.Size = new System.Drawing.Size(250, 40);
             this.buttonBoxes.TabIndex = 8;
-            this.buttonBoxes.Text = "Cajas";
+            this.buttonBoxes.Text = "Reporte de Ocupación";
             this.buttonBoxes.UseVisualStyleBackColor = true;
             this.buttonBoxes.Click += new System.EventHandler(this.buttonBoxes_Click);
             // 
@@ -226,7 +222,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonDevolutions.Name = "buttonDevolutions";
             this.buttonDevolutions.Size = new System.Drawing.Size(250, 40);
             this.buttonDevolutions.TabIndex = 7;
-            this.buttonDevolutions.Text = "Devoluciones";
+            this.buttonDevolutions.Text = "Reporte de Ventas";
             this.buttonDevolutions.UseVisualStyleBackColor = true;
             this.buttonDevolutions.Click += new System.EventHandler(this.buttonDevolutions_Click);
             // 
@@ -243,7 +239,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonTickets.Name = "buttonTickets";
             this.buttonTickets.Size = new System.Drawing.Size(250, 40);
             this.buttonTickets.TabIndex = 6;
-            this.buttonTickets.Text = "Recibos";
+            this.buttonTickets.Text = "Activar Usuario";
             this.buttonTickets.UseVisualStyleBackColor = true;
             this.buttonTickets.Click += new System.EventHandler(this.buttonTickets_Click);
             // 
@@ -260,7 +256,7 @@ namespace Punto_de_Venta.Pantallas
             this.buttonProducts.Name = "buttonProducts";
             this.buttonProducts.Size = new System.Drawing.Size(250, 40);
             this.buttonProducts.TabIndex = 5;
-            this.buttonProducts.Text = "Productos";
+            this.buttonProducts.Text = "Hoteles";
             this.buttonProducts.UseVisualStyleBackColor = true;
             this.buttonProducts.Click += new System.EventHandler(this.buttonProducts_Click);
             // 
@@ -314,54 +310,23 @@ namespace Punto_de_Venta.Pantallas
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
-            this.panelChildForm.Controls.Add(this.label4);
-            this.panelChildForm.Controls.Add(this.dataGridViewReorder);
+            this.panelChildForm.Controls.Add(this.label10);
             this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelChildForm.Location = new System.Drawing.Point(250, 0);
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(950, 670);
             this.panelChildForm.TabIndex = 1;
             // 
-            // label4
+            // label10
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(309, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(339, 44);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Punto de Reorden";
-            // 
-            // dataGridViewReorder
-            // 
-            this.dataGridViewReorder.AllowUserToAddRows = false;
-            this.dataGridViewReorder.AllowUserToDeleteRows = false;
-            this.dataGridViewReorder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewReorder.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridViewReorder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewReorder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productReorder,
-            this.existReorder});
-            this.dataGridViewReorder.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dataGridViewReorder.Location = new System.Drawing.Point(106, 158);
-            this.dataGridViewReorder.Name = "dataGridViewReorder";
-            this.dataGridViewReorder.ReadOnly = true;
-            this.dataGridViewReorder.RowHeadersWidth = 51;
-            this.dataGridViewReorder.Size = new System.Drawing.Size(754, 376);
-            this.dataGridViewReorder.TabIndex = 0;
-            // 
-            // productReorder
-            // 
-            this.productReorder.HeaderText = "Producto";
-            this.productReorder.Name = "productReorder";
-            this.productReorder.ReadOnly = true;
-            // 
-            // existReorder
-            // 
-            this.existReorder.HeaderText = "Existencia";
-            this.existReorder.Name = "existReorder";
-            this.existReorder.ReadOnly = true;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label10.Location = new System.Drawing.Point(193, 279);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(565, 112);
+            this.label10.TabIndex = 3;
+            this.label10.Text = "Bienvenido";
             // 
             // MainMenuAdmin
             // 
@@ -380,7 +345,6 @@ namespace Punto_de_Venta.Pantallas
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             this.panelChildForm.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewReorder)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -400,13 +364,10 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Button buttonProducts;
         private System.Windows.Forms.Button buttonSignOff;
         private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridViewReorder;
         private System.Windows.Forms.Button buttonDepartaments;
         private System.Windows.Forms.Button buttonInventary;
         private System.Windows.Forms.Button buttonDiscounts;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productReorder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn existReorder;
+        private System.Windows.Forms.Label label10;
     }
 }

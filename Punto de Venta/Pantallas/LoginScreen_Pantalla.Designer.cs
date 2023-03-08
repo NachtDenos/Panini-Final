@@ -97,7 +97,7 @@
             this.UserNameSQLSideTextBox.Name = "UserNameSQLSideTextBox";
             this.UserNameSQLSideTextBox.Size = new System.Drawing.Size(359, 49);
             this.UserNameSQLSideTextBox.TabIndex = 3;
-            this.UserNameSQLSideTextBox.Text = "Introduzca el Usuario";
+            this.UserNameSQLSideTextBox.Text = "Introduzca su Email";
             this.UserNameSQLSideTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
@@ -146,7 +146,7 @@
             this.comboBoxUser.FormattingEnabled = true;
             this.comboBoxUser.Items.AddRange(new object[] {
             "Administrador",
-            "Cajero"});
+            "Operativo"});
             this.comboBoxUser.Location = new System.Drawing.Point(312, 58);
             this.comboBoxUser.Name = "comboBoxUser";
             this.comboBoxUser.Size = new System.Drawing.Size(162, 21);

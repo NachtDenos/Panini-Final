@@ -31,7 +31,7 @@ namespace Punto_de_Venta
 
         private void LoginScreenWnD_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
         private void comboBoxUser_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,9 +49,9 @@ namespace Punto_de_Venta
                 if (indexBox == 1)
                 {
                     // int claveUserI = Int32.Parse(UserNameSQLSideTextBox.Text);
-                    Pantallas.CashRegisterToUseWND theRegisterToUse = new Pantallas.CashRegisterToUseWND();
+                    Pantallas.CashierMainScreen cashierMainScreen = new Pantallas.CashierMainScreen();
                     this.Hide();
-                    theRegisterToUse.ShowDialog();
+                    cashierMainScreen.ShowDialog();
                     this.Show();
                 }
                 if (indexBox == 0)
