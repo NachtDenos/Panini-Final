@@ -52,12 +52,19 @@ namespace Punto_de_Venta.Pantallas
             openChildForm(new SalesScreen());
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            openChildForm(new InventaryScreen());
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
 
+        }
 
-
-
-
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            openChildForm(new SellerReportScreen());
+        }
     }
 }

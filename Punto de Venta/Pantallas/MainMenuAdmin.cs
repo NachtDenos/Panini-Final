@@ -36,52 +36,42 @@ namespace Punto_de_Venta.Pantallas
             childForm.Show();
         }
 
-        private void buttonEmployees_Click(object sender, EventArgs e)
+        private void buttonEmployees_Click(object sender, EventArgs e) //-
         {
             openChildForm(new EmployeesScreen());
         }
 
-        private void buttonProducts_Click(object sender, EventArgs e)
+        private void buttonProducts_Click(object sender, EventArgs e) //-
         {
             openChildForm(new productsScreen());
         }
 
-        private void buttonDepartaments_Click(object sender, EventArgs e)
+        private void buttonDepartaments_Click(object sender, EventArgs e)//-
         {
             openChildForm(new departamentScreen());
         }
 
-        private void buttonReportSells_Click(object sender, EventArgs e)
+        private void buttonReportSells_Click(object sender, EventArgs e)//-
         {
             openChildForm(new SalesReportScreen());
         }
 
-        private void buttonInventary_Click(object sender, EventArgs e)
-        {
-            openChildForm(new InventaryScreen());
-        }
-
-        private void buttonReportSeller_Click(object sender, EventArgs e)
-        {
-            openChildForm(new SellerReportScreen());
-        }
-
-        private void buttonTickets_Click(object sender, EventArgs e)
+        private void buttonTickets_Click(object sender, EventArgs e)//-
         {
             openChildForm(new TicketReportScreen());
         }
 
-        private void buttonDevolutions_Click(object sender, EventArgs e)
+        private void buttonDevolutions_Click(object sender, EventArgs e)//-
         {
             openChildForm(new ReturnScreen());
         }
 
-        private void buttonBoxes_Click(object sender, EventArgs e)
+        private void buttonBoxes_Click(object sender, EventArgs e)//-
         {
             openChildForm(new CashRegisterScreen());
         }
 
-        private void buttonDiscounts_Click(object sender, EventArgs e)
+        private void buttonDiscounts_Click(object sender, EventArgs e)//-
         {
             openChildForm(new DiscountsScreen());
         }
