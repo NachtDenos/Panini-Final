@@ -33,19 +33,24 @@ namespace Punto_de_Venta
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridSalesReport = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dtpSalesReport1 = new System.Windows.Forms.DateTimePicker();
-            this.dtpSalesReport2 = new System.Windows.Forms.DateTimePicker();
             this.txtVentaCajaReport = new System.Windows.Forms.TextBox();
             this.txtVentaDepaReport = new System.Windows.Forms.TextBox();
-            this.btnFiltroFechaVentas = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblSubtotalVenta = new System.Windows.Forms.Label();
-            this.lblVentaVenta = new System.Windows.Forms.Label();
-            this.lblUtilidadVenta = new System.Windows.Forms.Label();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Personas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anticipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Hospedaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Servicios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSalesReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,17 +58,17 @@ namespace Punto_de_Venta
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(118, 123);
+            this.label3.Location = new System.Drawing.Point(336, 136);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 22);
+            this.label3.Size = new System.Drawing.Size(74, 22);
             this.label3.TabIndex = 88;
-            this.label3.Text = "Caja";
+            this.label3.Text = "Cliente";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(46, 93);
+            this.label12.Location = new System.Drawing.Point(194, 136);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 22);
             this.label12.TabIndex = 86;
@@ -75,6 +80,22 @@ namespace Punto_de_Venta
             this.dataGridSalesReport.AllowUserToDeleteRows = false;
             this.dataGridSalesReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridSalesReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSalesReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Nombre,
+            this.Ciudad,
+            this.Hotel,
+            this.Tipo,
+            this.numero,
+            this.Personas,
+            this.Código,
+            this.fecha,
+            this.checkIn,
+            this.CheckOut,
+            this.Estatus,
+            this.Anticipo,
+            this.Hospedaje,
+            this.Servicios,
+            this.Total});
             this.dataGridSalesReport.Location = new System.Drawing.Point(94, 228);
             this.dataGridSalesReport.Name = "dataGridSalesReport";
             this.dataGridSalesReport.ReadOnly = true;
@@ -85,49 +106,25 @@ namespace Punto_de_Venta
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(297, 21);
+            this.label2.Location = new System.Drawing.Point(304, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(351, 44);
+            this.label2.Size = new System.Drawing.Size(374, 44);
             this.label2.TabIndex = 84;
-            this.label2.Text = "Reporte de Ventas";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(662, 123);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 22);
-            this.label1.TabIndex = 82;
-            this.label1.Text = "Rango de fechas";
+            this.label2.Text = "Historial del Cliente ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(349, 123);
+            this.label4.Location = new System.Drawing.Point(569, 136);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 22);
+            this.label4.Size = new System.Drawing.Size(49, 22);
             this.label4.TabIndex = 90;
-            this.label4.Text = "Departamento";
-            // 
-            // dtpSalesReport1
-            // 
-            this.dtpSalesReport1.Location = new System.Drawing.Point(622, 158);
-            this.dtpSalesReport1.Name = "dtpSalesReport1";
-            this.dtpSalesReport1.Size = new System.Drawing.Size(110, 20);
-            this.dtpSalesReport1.TabIndex = 93;
-            // 
-            // dtpSalesReport2
-            // 
-            this.dtpSalesReport2.Location = new System.Drawing.Point(783, 158);
-            this.dtpSalesReport2.Name = "dtpSalesReport2";
-            this.dtpSalesReport2.Size = new System.Drawing.Size(110, 20);
-            this.dtpSalesReport2.TabIndex = 94;
+            this.label4.Text = "Año";
             // 
             // txtVentaCajaReport
             // 
-            this.txtVentaCajaReport.Location = new System.Drawing.Point(94, 161);
+            this.txtVentaCajaReport.Location = new System.Drawing.Point(312, 174);
             this.txtVentaCajaReport.Name = "txtVentaCajaReport";
             this.txtVentaCajaReport.Size = new System.Drawing.Size(123, 20);
             this.txtVentaCajaReport.TabIndex = 106;
@@ -136,85 +133,101 @@ namespace Punto_de_Venta
             // 
             // txtVentaDepaReport
             // 
-            this.txtVentaDepaReport.Location = new System.Drawing.Point(353, 161);
+            this.txtVentaDepaReport.Location = new System.Drawing.Point(520, 174);
             this.txtVentaDepaReport.Name = "txtVentaDepaReport";
             this.txtVentaDepaReport.Size = new System.Drawing.Size(134, 20);
             this.txtVentaDepaReport.TabIndex = 107;
             this.txtVentaDepaReport.TextChanged += new System.EventHandler(this.txtVentaDepaReport_TextChanged);
             // 
-            // btnFiltroFechaVentas
+            // Nombre
             // 
-            this.btnFiltroFechaVentas.BackColor = System.Drawing.Color.Navy;
-            this.btnFiltroFechaVentas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFiltroFechaVentas.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltroFechaVentas.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnFiltroFechaVentas.Location = new System.Drawing.Point(716, 184);
-            this.btnFiltroFechaVentas.Name = "btnFiltroFechaVentas";
-            this.btnFiltroFechaVentas.Size = new System.Drawing.Size(81, 28);
-            this.btnFiltroFechaVentas.TabIndex = 108;
-            this.btnFiltroFechaVentas.Text = "Filtrar";
-            this.btnFiltroFechaVentas.UseVisualStyleBackColor = false;
-            this.btnFiltroFechaVentas.Click += new System.EventHandler(this.btnFiltroFechaVentas_Click);
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
-            // label5
+            // Ciudad
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(223, 547);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 22);
-            this.label5.TabIndex = 109;
-            this.label5.Text = "Subtotal:";
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            this.Ciudad.ReadOnly = true;
             // 
-            // label6
+            // Hotel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(413, 547);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 22);
-            this.label6.TabIndex = 110;
-            this.label6.Text = "Venta:";
+            this.Hotel.HeaderText = "Hotel";
+            this.Hotel.Name = "Hotel";
+            this.Hotel.ReadOnly = true;
             // 
-            // label7
+            // Tipo
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(586, 547);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 22);
-            this.label7.TabIndex = 111;
-            this.label7.Text = "Utilidad:";
+            this.Tipo.HeaderText = "Tipo Habitación";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
             // 
-            // lblSubtotalVenta
+            // numero
             // 
-            this.lblSubtotalVenta.AutoSize = true;
-            this.lblSubtotalVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtotalVenta.Location = new System.Drawing.Point(223, 580);
-            this.lblSubtotalVenta.Name = "lblSubtotalVenta";
-            this.lblSubtotalVenta.Size = new System.Drawing.Size(75, 22);
-            this.lblSubtotalVenta.TabIndex = 112;
-            this.lblSubtotalVenta.Text = "$ 00.00";
+            this.numero.HeaderText = "Número Habitación";
+            this.numero.Name = "numero";
+            this.numero.ReadOnly = true;
             // 
-            // lblVentaVenta
+            // Personas
             // 
-            this.lblVentaVenta.AutoSize = true;
-            this.lblVentaVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVentaVenta.Location = new System.Drawing.Point(413, 580);
-            this.lblVentaVenta.Name = "lblVentaVenta";
-            this.lblVentaVenta.Size = new System.Drawing.Size(75, 22);
-            this.lblVentaVenta.TabIndex = 113;
-            this.lblVentaVenta.Text = "$ 00.00";
+            this.Personas.HeaderText = "Personas Hospedadas";
+            this.Personas.Name = "Personas";
+            this.Personas.ReadOnly = true;
             // 
-            // lblUtilidadVenta
+            // Código
             // 
-            this.lblUtilidadVenta.AutoSize = true;
-            this.lblUtilidadVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUtilidadVenta.Location = new System.Drawing.Point(586, 580);
-            this.lblUtilidadVenta.Name = "lblUtilidadVenta";
-            this.lblUtilidadVenta.Size = new System.Drawing.Size(75, 22);
-            this.lblUtilidadVenta.TabIndex = 114;
-            this.lblUtilidadVenta.Text = "$ 00.00";
+            this.Código.HeaderText = "Código R.";
+            this.Código.Name = "Código";
+            this.Código.ReadOnly = true;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha R.";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
+            // checkIn
+            // 
+            this.checkIn.HeaderText = "CheckIn";
+            this.checkIn.Name = "checkIn";
+            this.checkIn.ReadOnly = true;
+            // 
+            // CheckOut
+            // 
+            this.CheckOut.HeaderText = "CheckOut";
+            this.CheckOut.Name = "CheckOut";
+            this.CheckOut.ReadOnly = true;
+            // 
+            // Estatus
+            // 
+            this.Estatus.HeaderText = "Estatus R.";
+            this.Estatus.Name = "Estatus";
+            this.Estatus.ReadOnly = true;
+            // 
+            // Anticipo
+            // 
+            this.Anticipo.HeaderText = "Anticipo";
+            this.Anticipo.Name = "Anticipo";
+            this.Anticipo.ReadOnly = true;
+            // 
+            // Hospedaje
+            // 
+            this.Hospedaje.HeaderText = "Monto Hospedaje";
+            this.Hospedaje.Name = "Hospedaje";
+            this.Hospedaje.ReadOnly = true;
+            // 
+            // Servicios
+            // 
+            this.Servicios.HeaderText = "Monto Servicios";
+            this.Servicios.Name = "Servicios";
+            this.Servicios.ReadOnly = true;
+            // 
+            // Total
+            // 
+            this.Total.HeaderText = "Total Factura";
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             // 
             // SalesReportScreen
             // 
@@ -222,23 +235,13 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.lblUtilidadVenta);
-            this.Controls.Add(this.lblVentaVenta);
-            this.Controls.Add(this.lblSubtotalVenta);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.btnFiltroFechaVentas);
             this.Controls.Add(this.txtVentaDepaReport);
             this.Controls.Add(this.txtVentaCajaReport);
-            this.Controls.Add(this.dtpSalesReport2);
-            this.Controls.Add(this.dtpSalesReport1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dataGridSalesReport);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "SalesReportScreen";
             this.Text = "Reporte de Ventas";
             this.Load += new System.EventHandler(this.SalesReportScreen_Load);
@@ -253,18 +256,23 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridSalesReport;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpSalesReport1;
-        private System.Windows.Forms.DateTimePicker dtpSalesReport2;
         private System.Windows.Forms.TextBox txtVentaCajaReport;
         private System.Windows.Forms.TextBox txtVentaDepaReport;
-        private System.Windows.Forms.Button btnFiltroFechaVentas;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblSubtotalVenta;
-        private System.Windows.Forms.Label lblVentaVenta;
-        private System.Windows.Forms.Label lblUtilidadVenta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Personas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn checkIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Anticipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Hospedaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Servicios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
     }
 }
