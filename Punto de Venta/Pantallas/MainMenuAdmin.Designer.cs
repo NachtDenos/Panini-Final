@@ -33,10 +33,8 @@ namespace Punto_de_Venta.Pantallas
             this.MainMenuVerti = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonDiscounts = new System.Windows.Forms.Button();
-            this.buttonInventary = new System.Windows.Forms.Button();
             this.buttonDepartaments = new System.Windows.Forms.Button();
             this.buttonSignOff = new System.Windows.Forms.Button();
-            this.buttonReportSeller = new System.Windows.Forms.Button();
             this.buttonReportSells = new System.Windows.Forms.Button();
             this.buttonBoxes = new System.Windows.Forms.Button();
             this.buttonDevolutions = new System.Windows.Forms.Button();
@@ -58,10 +56,8 @@ namespace Punto_de_Venta.Pantallas
             this.MainMenuVerti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
             this.MainMenuVerti.Controls.Add(this.label5);
             this.MainMenuVerti.Controls.Add(this.buttonDiscounts);
-            this.MainMenuVerti.Controls.Add(this.buttonInventary);
             this.MainMenuVerti.Controls.Add(this.buttonDepartaments);
             this.MainMenuVerti.Controls.Add(this.buttonSignOff);
-            this.MainMenuVerti.Controls.Add(this.buttonReportSeller);
             this.MainMenuVerti.Controls.Add(this.buttonReportSells);
             this.MainMenuVerti.Controls.Add(this.buttonBoxes);
             this.MainMenuVerti.Controls.Add(this.buttonDevolutions);
@@ -107,23 +103,6 @@ namespace Punto_de_Venta.Pantallas
             this.buttonDiscounts.UseVisualStyleBackColor = true;
             this.buttonDiscounts.Click += new System.EventHandler(this.buttonDiscounts_Click);
             // 
-            // buttonInventary
-            // 
-            this.buttonInventary.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonInventary.FlatAppearance.BorderSize = 0;
-            this.buttonInventary.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonInventary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventary.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInventary.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonInventary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInventary.Location = new System.Drawing.Point(0, 526);
-            this.buttonInventary.Name = "buttonInventary";
-            this.buttonInventary.Size = new System.Drawing.Size(250, 40);
-            this.buttonInventary.TabIndex = 13;
-            this.buttonInventary.Text = "Inventario";
-            this.buttonInventary.UseVisualStyleBackColor = true;
-            this.buttonInventary.Click += new System.EventHandler(this.buttonInventary_Click);
-            // 
             // buttonDepartaments
             // 
             this.buttonDepartaments.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -157,23 +136,6 @@ namespace Punto_de_Venta.Pantallas
             this.buttonSignOff.Text = "Cerrar Sesión";
             this.buttonSignOff.UseVisualStyleBackColor = true;
             this.buttonSignOff.Click += new System.EventHandler(this.buttonSignOff_Click);
-            // 
-            // buttonReportSeller
-            // 
-            this.buttonReportSeller.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonReportSeller.FlatAppearance.BorderSize = 0;
-            this.buttonReportSeller.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.buttonReportSeller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReportSeller.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonReportSeller.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonReportSeller.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonReportSeller.Location = new System.Drawing.Point(0, 572);
-            this.buttonReportSeller.Name = "buttonReportSeller";
-            this.buttonReportSeller.Size = new System.Drawing.Size(250, 40);
-            this.buttonReportSeller.TabIndex = 10;
-            this.buttonReportSeller.Text = "Reporte por Cajero";
-            this.buttonReportSeller.UseVisualStyleBackColor = true;
-            this.buttonReportSeller.Click += new System.EventHandler(this.buttonReportSeller_Click);
             // 
             // buttonReportSells
             // 
@@ -356,7 +318,6 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Label labelAdminMainMenu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonEmployees;
-        private System.Windows.Forms.Button buttonReportSeller;
         private System.Windows.Forms.Button buttonReportSells;
         private System.Windows.Forms.Button buttonBoxes;
         private System.Windows.Forms.Button buttonDevolutions;
@@ -365,7 +326,6 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Button buttonSignOff;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Button buttonDepartaments;
-        private System.Windows.Forms.Button buttonInventary;
         private System.Windows.Forms.Button buttonDiscounts;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
