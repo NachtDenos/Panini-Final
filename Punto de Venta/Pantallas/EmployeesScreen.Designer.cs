@@ -235,7 +235,7 @@ namespace Punto_de_Venta
             this.btnAddEmployees.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddEmployees.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEmployees.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddEmployees.Location = new System.Drawing.Point(154, 542);
+            this.btnAddEmployees.Location = new System.Drawing.Point(241, 544);
             this.btnAddEmployees.Name = "btnAddEmployees";
             this.btnAddEmployees.Size = new System.Drawing.Size(139, 51);
             this.btnAddEmployees.TabIndex = 22;
@@ -249,7 +249,7 @@ namespace Punto_de_Venta
             this.btnEditEmployees.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditEmployees.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditEmployees.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditEmployees.Location = new System.Drawing.Point(321, 542);
+            this.btnEditEmployees.Location = new System.Drawing.Point(408, 544);
             this.btnEditEmployees.Name = "btnEditEmployees";
             this.btnEditEmployees.Size = new System.Drawing.Size(139, 51);
             this.btnEditEmployees.TabIndex = 23;
@@ -263,7 +263,7 @@ namespace Punto_de_Venta
             this.btnDeleteEmployees.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteEmployees.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteEmployees.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnDeleteEmployees.Location = new System.Drawing.Point(484, 542);
+            this.btnDeleteEmployees.Location = new System.Drawing.Point(571, 544);
             this.btnDeleteEmployees.Name = "btnDeleteEmployees";
             this.btnDeleteEmployees.Size = new System.Drawing.Size(139, 51);
             this.btnDeleteEmployees.TabIndex = 24;
