@@ -95,5 +95,11 @@ namespace Punto_de_Venta
         {
            
         }
+
+        private void btnAddEmployees_Click(object sender, EventArgs e)
+        {
+            QuickSearchScreen TheOtherForm = new QuickSearchScreen();
+            TheOtherForm.ShowDialog();
+        }
     }
 }

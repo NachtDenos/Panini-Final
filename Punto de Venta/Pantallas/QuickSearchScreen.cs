@@ -33,5 +33,10 @@ namespace Punto_de_Venta
         {
             
         }
+
+        private void QuickSearchScreen_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

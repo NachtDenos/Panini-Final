@@ -132,6 +132,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pantallas\checkOutScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pantallas\checkOutScreen.Designer.cs">
+      <DependentUpon>checkOutScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pantallas\DiscountsScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Pantallas\checkOutScreen.resx">
+      <DependentUpon>checkOutScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\DiscountsScreen.resx">
       <DependentUpon>DiscountsScreen.cs</DependentUpon>
     </EmbeddedResource>
