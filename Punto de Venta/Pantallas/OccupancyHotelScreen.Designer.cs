@@ -30,18 +30,11 @@ namespace Punto_de_Venta
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashRegisterScreen));
-            this.txtCasherReport = new System.Windows.Forms.TextBox();
+            this.txtCountryOccupancy = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.dataGridSellerReport = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridOccupancyReport = new System.Windows.Forms.DataGridView();
             this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,20 +42,27 @@ namespace Punto_de_Venta
             this.numRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ocupation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtHotelOccupancy = new System.Windows.Forms.TextBox();
+            this.txtCityOccupancy = new System.Windows.Forms.TextBox();
+            this.txtYearOccupancy = new System.Windows.Forms.TextBox();
+            this.dataGridOccupancyReport2 = new System.Windows.Forms.DataGridView();
             this.city2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameHotel2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ocupacion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSellerReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOccupancyReport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOccupancyReport2)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtCasherReport
+            // txtCountryOccupancy
             // 
-            this.txtCasherReport.Location = new System.Drawing.Point(147, 183);
-            this.txtCasherReport.Name = "txtCasherReport";
-            this.txtCasherReport.Size = new System.Drawing.Size(123, 20);
-            this.txtCasherReport.TabIndex = 116;
+            this.txtCountryOccupancy.Location = new System.Drawing.Point(147, 183);
+            this.txtCountryOccupancy.Name = "txtCountryOccupancy";
+            this.txtCountryOccupancy.Size = new System.Drawing.Size(123, 20);
+            this.txtCountryOccupancy.TabIndex = 116;
             // 
             // label4
             // 
@@ -94,14 +94,14 @@ namespace Punto_de_Venta
             this.label12.TabIndex = 111;
             this.label12.Text = "Filtros:";
             // 
-            // dataGridSellerReport
+            // dataGridOccupancyReport
             // 
-            this.dataGridSellerReport.AllowUserToAddRows = false;
-            this.dataGridSellerReport.AllowUserToDeleteRows = false;
-            this.dataGridSellerReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridSellerReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridSellerReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridSellerReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridOccupancyReport.AllowUserToAddRows = false;
+            this.dataGridOccupancyReport.AllowUserToDeleteRows = false;
+            this.dataGridOccupancyReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridOccupancyReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridOccupancyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridOccupancyReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.city,
             this.NameHotel,
             this.date,
@@ -109,80 +109,11 @@ namespace Punto_de_Venta
             this.numRoom,
             this.ocupation,
             this.clientes});
-            this.dataGridSellerReport.Location = new System.Drawing.Point(147, 219);
-            this.dataGridSellerReport.Name = "dataGridSellerReport";
-            this.dataGridSellerReport.ReadOnly = true;
-            this.dataGridSellerReport.Size = new System.Drawing.Size(640, 265);
-            this.dataGridSellerReport.TabIndex = 110;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(170, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(602, 44);
-            this.label2.TabIndex = 109;
-            this.label2.Text = "Reporte de Ocupación por hotel";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(693, 148);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 22);
-            this.label1.TabIndex = 108;
-            this.label1.Text = "Hotel";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(362, 148);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 22);
-            this.label5.TabIndex = 119;
-            this.label5.Text = "Año";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(664, 183);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(123, 20);
-            this.textBox1.TabIndex = 120;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(492, 183);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 20);
-            this.textBox2.TabIndex = 121;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(323, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 20);
-            this.textBox3.TabIndex = 122;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.city2,
-            this.nameHotel2,
-            this.date2,
-            this.ocupacion2});
-            this.dataGridView1.Location = new System.Drawing.Point(147, 503);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(640, 116);
-            this.dataGridView1.TabIndex = 123;
+            this.dataGridOccupancyReport.Location = new System.Drawing.Point(147, 219);
+            this.dataGridOccupancyReport.Name = "dataGridOccupancyReport";
+            this.dataGridOccupancyReport.ReadOnly = true;
+            this.dataGridOccupancyReport.Size = new System.Drawing.Size(640, 265);
+            this.dataGridOccupancyReport.TabIndex = 110;
             // 
             // city
             // 
@@ -226,6 +157,75 @@ namespace Punto_de_Venta
             this.clientes.Name = "clientes";
             this.clientes.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(170, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(602, 44);
+            this.label2.TabIndex = 109;
+            this.label2.Text = "Reporte de Ocupación por hotel";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(693, 148);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 22);
+            this.label1.TabIndex = 108;
+            this.label1.Text = "Hotel";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(362, 148);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 22);
+            this.label5.TabIndex = 119;
+            this.label5.Text = "Año";
+            // 
+            // txtHotelOccupancy
+            // 
+            this.txtHotelOccupancy.Location = new System.Drawing.Point(664, 183);
+            this.txtHotelOccupancy.Name = "txtHotelOccupancy";
+            this.txtHotelOccupancy.Size = new System.Drawing.Size(123, 20);
+            this.txtHotelOccupancy.TabIndex = 120;
+            // 
+            // txtCityOccupancy
+            // 
+            this.txtCityOccupancy.Location = new System.Drawing.Point(492, 183);
+            this.txtCityOccupancy.Name = "txtCityOccupancy";
+            this.txtCityOccupancy.Size = new System.Drawing.Size(123, 20);
+            this.txtCityOccupancy.TabIndex = 121;
+            // 
+            // txtYearOccupancy
+            // 
+            this.txtYearOccupancy.Location = new System.Drawing.Point(323, 183);
+            this.txtYearOccupancy.Name = "txtYearOccupancy";
+            this.txtYearOccupancy.Size = new System.Drawing.Size(123, 20);
+            this.txtYearOccupancy.TabIndex = 122;
+            // 
+            // dataGridOccupancyReport2
+            // 
+            this.dataGridOccupancyReport2.AllowUserToAddRows = false;
+            this.dataGridOccupancyReport2.AllowUserToDeleteRows = false;
+            this.dataGridOccupancyReport2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridOccupancyReport2.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridOccupancyReport2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridOccupancyReport2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.city2,
+            this.nameHotel2,
+            this.date2,
+            this.ocupacion2});
+            this.dataGridOccupancyReport2.Location = new System.Drawing.Point(147, 503);
+            this.dataGridOccupancyReport2.Name = "dataGridOccupancyReport2";
+            this.dataGridOccupancyReport2.ReadOnly = true;
+            this.dataGridOccupancyReport2.Size = new System.Drawing.Size(640, 116);
+            this.dataGridOccupancyReport2.TabIndex = 123;
+            // 
             // city2
             // 
             this.city2.HeaderText = "Ciudad";
@@ -256,23 +256,23 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dataGridOccupancyReport2);
+            this.Controls.Add(this.txtYearOccupancy);
+            this.Controls.Add(this.txtCityOccupancy);
+            this.Controls.Add(this.txtHotelOccupancy);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtCasherReport);
+            this.Controls.Add(this.txtCountryOccupancy);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.dataGridSellerReport);
+            this.Controls.Add(this.dataGridOccupancyReport);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CashRegisterScreen";
             this.Text = "CashRegisterScreen";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridSellerReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOccupancyReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridOccupancyReport2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,11 +280,11 @@ namespace Punto_de_Venta
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtCasherReport;
+        private System.Windows.Forms.TextBox txtCountryOccupancy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DataGridView dataGridSellerReport;
+        private System.Windows.Forms.DataGridView dataGridOccupancyReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn city;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameHotel;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
@@ -295,10 +295,10 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtHotelOccupancy;
+        private System.Windows.Forms.TextBox txtCityOccupancy;
+        private System.Windows.Forms.TextBox txtYearOccupancy;
+        private System.Windows.Forms.DataGridView dataGridOccupancyReport2;
         private System.Windows.Forms.DataGridViewTextBoxColumn city2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameHotel2;
         private System.Windows.Forms.DataGridViewTextBoxColumn date2;

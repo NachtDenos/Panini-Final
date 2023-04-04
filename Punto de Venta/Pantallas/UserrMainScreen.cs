@@ -13,7 +13,7 @@ using System.IO;
 namespace Punto_de_Venta.Pantallas
 {
 
-    public partial class CashierMainScreen : Form 
+    public partial class UserrMainScreen : Form 
     {
         
         int idCajeroAux;
@@ -22,7 +22,7 @@ namespace Punto_de_Venta.Pantallas
         //UTILIDAD: Costo - Precio Unitario
         //Producto-----> codigo y su descripcion
         //Antes de pagar el cliente puede cancelar un producto
-        public CashierMainScreen()
+        public UserrMainScreen()
         {
             InitializeComponent();
         }

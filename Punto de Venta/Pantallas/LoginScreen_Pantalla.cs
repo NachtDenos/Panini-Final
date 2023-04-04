@@ -49,7 +49,7 @@ namespace Punto_de_Venta
                 if (indexBox == 1)
                 {
                     // int claveUserI = Int32.Parse(UserNameSQLSideTextBox.Text);
-                    Pantallas.CashierMainScreen cashierMainScreen = new Pantallas.CashierMainScreen();
+                    Pantallas.UserrMainScreen cashierMainScreen = new Pantallas.UserrMainScreen();
                     this.Hide();
                     cashierMainScreen.ShowDialog();
                     this.Show();

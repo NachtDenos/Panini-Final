@@ -30,21 +30,21 @@ namespace Punto_de_Venta.Pantallas
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodeCheckOut = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridProduct = new System.Windows.Forms.DataGridView();
-            this.btnAddDepartament = new System.Windows.Forms.Button();
+            this.dataGridServicesCheckOut = new System.Windows.Forms.DataGridView();
+            this.btnConfirmCheckOut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.rbDebitCardPay = new System.Windows.Forms.CheckBox();
-            this.rbCreditCardPay = new System.Windows.Forms.CheckBox();
-            this.txtCreditCardPay = new System.Windows.Forms.TextBox();
-            this.txtDebitCardPay = new System.Windows.Forms.TextBox();
+            this.rbDebitCardCheckOut = new System.Windows.Forms.CheckBox();
+            this.rbCreditCardCheckOut = new System.Windows.Forms.CheckBox();
+            this.txtCreditCardCheckOut = new System.Windows.Forms.TextBox();
+            this.txtDebitCardCheckOut = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pbTicketSell = new System.Windows.Forms.PictureBox();
-            this.btnEditDepartament = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTicketSell)).BeginInit();
+            this.pbBillCheckOut = new System.Windows.Forms.PictureBox();
+            this.btnExtendCheckOut = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridServicesCheckOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBillCheckOut)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -57,13 +57,13 @@ namespace Punto_de_Venta.Pantallas
             this.label2.TabIndex = 138;
             this.label2.Text = "Check Out";
             // 
-            // textBox1
+            // txtCodeCheckOut
             // 
-            this.textBox1.Location = new System.Drawing.Point(298, 129);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 22);
-            this.textBox1.TabIndex = 140;
+            this.txtCodeCheckOut.Location = new System.Drawing.Point(298, 129);
+            this.txtCodeCheckOut.Multiline = true;
+            this.txtCodeCheckOut.Name = "txtCodeCheckOut";
+            this.txtCodeCheckOut.Size = new System.Drawing.Size(310, 22);
+            this.txtCodeCheckOut.TabIndex = 140;
             // 
             // label3
             // 
@@ -75,32 +75,32 @@ namespace Punto_de_Venta.Pantallas
             this.label3.TabIndex = 139;
             this.label3.Text = "Ingresa el Código de reservación";
             // 
-            // dataGridProduct
+            // dataGridServicesCheckOut
             // 
-            this.dataGridProduct.AllowUserToAddRows = false;
-            this.dataGridProduct.AllowUserToDeleteRows = false;
-            this.dataGridProduct.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridProduct.Location = new System.Drawing.Point(48, 197);
-            this.dataGridProduct.Name = "dataGridProduct";
-            this.dataGridProduct.ReadOnly = true;
-            this.dataGridProduct.RowHeadersWidth = 51;
-            this.dataGridProduct.Size = new System.Drawing.Size(333, 272);
-            this.dataGridProduct.TabIndex = 141;
+            this.dataGridServicesCheckOut.AllowUserToAddRows = false;
+            this.dataGridServicesCheckOut.AllowUserToDeleteRows = false;
+            this.dataGridServicesCheckOut.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridServicesCheckOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridServicesCheckOut.Location = new System.Drawing.Point(48, 197);
+            this.dataGridServicesCheckOut.Name = "dataGridServicesCheckOut";
+            this.dataGridServicesCheckOut.ReadOnly = true;
+            this.dataGridServicesCheckOut.RowHeadersWidth = 51;
+            this.dataGridServicesCheckOut.Size = new System.Drawing.Size(333, 272);
+            this.dataGridServicesCheckOut.TabIndex = 141;
             // 
-            // btnAddDepartament
+            // btnConfirmCheckOut
             // 
-            this.btnAddDepartament.BackColor = System.Drawing.Color.Green;
-            this.btnAddDepartament.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDepartament.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDepartament.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddDepartament.Location = new System.Drawing.Point(760, 568);
-            this.btnAddDepartament.Name = "btnAddDepartament";
-            this.btnAddDepartament.Size = new System.Drawing.Size(139, 51);
-            this.btnAddDepartament.TabIndex = 142;
-            this.btnAddDepartament.Text = "Confirmar";
-            this.btnAddDepartament.UseVisualStyleBackColor = false;
-            this.btnAddDepartament.Click += new System.EventHandler(this.btnAddDepartament_Click);
+            this.btnConfirmCheckOut.BackColor = System.Drawing.Color.Green;
+            this.btnConfirmCheckOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmCheckOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConfirmCheckOut.Location = new System.Drawing.Point(760, 568);
+            this.btnConfirmCheckOut.Name = "btnConfirmCheckOut";
+            this.btnConfirmCheckOut.Size = new System.Drawing.Size(139, 51);
+            this.btnConfirmCheckOut.TabIndex = 142;
+            this.btnConfirmCheckOut.Text = "Confirmar";
+            this.btnConfirmCheckOut.UseVisualStyleBackColor = false;
+            this.btnConfirmCheckOut.Click += new System.EventHandler(this.btnAddDepartament_Click);
             // 
             // label1
             // 
@@ -112,41 +112,41 @@ namespace Punto_de_Venta.Pantallas
             this.label1.TabIndex = 143;
             this.label1.Text = "Servicios adicionales usados";
             // 
-            // rbDebitCardPay
+            // rbDebitCardCheckOut
             // 
-            this.rbDebitCardPay.AutoSize = true;
-            this.rbDebitCardPay.Location = new System.Drawing.Point(488, 526);
-            this.rbDebitCardPay.Name = "rbDebitCardPay";
-            this.rbDebitCardPay.Size = new System.Drawing.Size(108, 17);
-            this.rbDebitCardPay.TabIndex = 152;
-            this.rbDebitCardPay.Text = "Tarjeta de Débito";
-            this.rbDebitCardPay.UseVisualStyleBackColor = true;
+            this.rbDebitCardCheckOut.AutoSize = true;
+            this.rbDebitCardCheckOut.Location = new System.Drawing.Point(488, 526);
+            this.rbDebitCardCheckOut.Name = "rbDebitCardCheckOut";
+            this.rbDebitCardCheckOut.Size = new System.Drawing.Size(108, 17);
+            this.rbDebitCardCheckOut.TabIndex = 152;
+            this.rbDebitCardCheckOut.Text = "Tarjeta de Débito";
+            this.rbDebitCardCheckOut.UseVisualStyleBackColor = true;
             // 
-            // rbCreditCardPay
+            // rbCreditCardCheckOut
             // 
-            this.rbCreditCardPay.AutoSize = true;
-            this.rbCreditCardPay.Location = new System.Drawing.Point(339, 526);
-            this.rbCreditCardPay.Name = "rbCreditCardPay";
-            this.rbCreditCardPay.Size = new System.Drawing.Size(110, 17);
-            this.rbCreditCardPay.TabIndex = 151;
-            this.rbCreditCardPay.Text = "Tarjeta de Crédito";
-            this.rbCreditCardPay.UseVisualStyleBackColor = true;
+            this.rbCreditCardCheckOut.AutoSize = true;
+            this.rbCreditCardCheckOut.Location = new System.Drawing.Point(339, 526);
+            this.rbCreditCardCheckOut.Name = "rbCreditCardCheckOut";
+            this.rbCreditCardCheckOut.Size = new System.Drawing.Size(110, 17);
+            this.rbCreditCardCheckOut.TabIndex = 151;
+            this.rbCreditCardCheckOut.Text = "Tarjeta de Crédito";
+            this.rbCreditCardCheckOut.UseVisualStyleBackColor = true;
             // 
-            // txtCreditCardPay
+            // txtCreditCardCheckOut
             // 
-            this.txtCreditCardPay.Location = new System.Drawing.Point(342, 549);
-            this.txtCreditCardPay.Multiline = true;
-            this.txtCreditCardPay.Name = "txtCreditCardPay";
-            this.txtCreditCardPay.Size = new System.Drawing.Size(107, 22);
-            this.txtCreditCardPay.TabIndex = 147;
+            this.txtCreditCardCheckOut.Location = new System.Drawing.Point(342, 549);
+            this.txtCreditCardCheckOut.Multiline = true;
+            this.txtCreditCardCheckOut.Name = "txtCreditCardCheckOut";
+            this.txtCreditCardCheckOut.Size = new System.Drawing.Size(107, 22);
+            this.txtCreditCardCheckOut.TabIndex = 147;
             // 
-            // txtDebitCardPay
+            // txtDebitCardCheckOut
             // 
-            this.txtDebitCardPay.Location = new System.Drawing.Point(488, 548);
-            this.txtDebitCardPay.Multiline = true;
-            this.txtDebitCardPay.Name = "txtDebitCardPay";
-            this.txtDebitCardPay.Size = new System.Drawing.Size(108, 22);
-            this.txtDebitCardPay.TabIndex = 146;
+            this.txtDebitCardCheckOut.Location = new System.Drawing.Point(488, 548);
+            this.txtDebitCardCheckOut.Multiline = true;
+            this.txtDebitCardCheckOut.Name = "txtDebitCardCheckOut";
+            this.txtDebitCardCheckOut.Size = new System.Drawing.Size(108, 22);
+            this.txtDebitCardCheckOut.TabIndex = 146;
             // 
             // label4
             // 
@@ -168,29 +168,29 @@ namespace Punto_de_Venta.Pantallas
             this.label5.TabIndex = 153;
             this.label5.Text = "Factura ";
             // 
-            // pbTicketSell
+            // pbBillCheckOut
             // 
-            this.pbTicketSell.Image = global::Punto_de_Venta.Properties.Resources.EjemploTicket;
-            this.pbTicketSell.Location = new System.Drawing.Point(526, 197);
-            this.pbTicketSell.Name = "pbTicketSell";
-            this.pbTicketSell.Size = new System.Drawing.Size(396, 272);
-            this.pbTicketSell.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbTicketSell.TabIndex = 154;
-            this.pbTicketSell.TabStop = false;
+            this.pbBillCheckOut.Image = global::Punto_de_Venta.Properties.Resources.EjemploTicket;
+            this.pbBillCheckOut.Location = new System.Drawing.Point(526, 197);
+            this.pbBillCheckOut.Name = "pbBillCheckOut";
+            this.pbBillCheckOut.Size = new System.Drawing.Size(396, 272);
+            this.pbBillCheckOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbBillCheckOut.TabIndex = 154;
+            this.pbBillCheckOut.TabStop = false;
             // 
-            // btnEditDepartament
+            // btnExtendCheckOut
             // 
-            this.btnEditDepartament.BackColor = System.Drawing.Color.Navy;
-            this.btnEditDepartament.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEditDepartament.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditDepartament.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEditDepartament.Location = new System.Drawing.Point(48, 568);
-            this.btnEditDepartament.Name = "btnEditDepartament";
-            this.btnEditDepartament.Size = new System.Drawing.Size(139, 51);
-            this.btnEditDepartament.TabIndex = 157;
-            this.btnEditDepartament.Text = "Extender ";
-            this.btnEditDepartament.UseVisualStyleBackColor = false;
-            this.btnEditDepartament.Click += new System.EventHandler(this.btnEditDepartament_Click);
+            this.btnExtendCheckOut.BackColor = System.Drawing.Color.Navy;
+            this.btnExtendCheckOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExtendCheckOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExtendCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnExtendCheckOut.Location = new System.Drawing.Point(48, 568);
+            this.btnExtendCheckOut.Name = "btnExtendCheckOut";
+            this.btnExtendCheckOut.Size = new System.Drawing.Size(139, 51);
+            this.btnExtendCheckOut.TabIndex = 157;
+            this.btnExtendCheckOut.Text = "Extender ";
+            this.btnExtendCheckOut.UseVisualStyleBackColor = false;
+            this.btnExtendCheckOut.Click += new System.EventHandler(this.btnEditDepartament_Click);
             // 
             // checkOutScreen
             // 
@@ -198,24 +198,24 @@ namespace Punto_de_Venta.Pantallas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.btnEditDepartament);
-            this.Controls.Add(this.pbTicketSell);
+            this.Controls.Add(this.btnExtendCheckOut);
+            this.Controls.Add(this.pbBillCheckOut);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.rbDebitCardPay);
-            this.Controls.Add(this.rbCreditCardPay);
-            this.Controls.Add(this.txtCreditCardPay);
-            this.Controls.Add(this.txtDebitCardPay);
+            this.Controls.Add(this.rbDebitCardCheckOut);
+            this.Controls.Add(this.rbCreditCardCheckOut);
+            this.Controls.Add(this.txtCreditCardCheckOut);
+            this.Controls.Add(this.txtDebitCardCheckOut);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAddDepartament);
-            this.Controls.Add(this.dataGridProduct);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnConfirmCheckOut);
+            this.Controls.Add(this.dataGridServicesCheckOut);
+            this.Controls.Add(this.txtCodeCheckOut);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "checkOutScreen";
             this.Text = "checkOut";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbTicketSell)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridServicesCheckOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBillCheckOut)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,18 +223,18 @@ namespace Punto_de_Venta.Pantallas
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodeCheckOut;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridProduct;
-        private System.Windows.Forms.Button btnAddDepartament;
+        private System.Windows.Forms.DataGridView dataGridServicesCheckOut;
+        private System.Windows.Forms.Button btnConfirmCheckOut;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox rbDebitCardPay;
-        private System.Windows.Forms.CheckBox rbCreditCardPay;
-        private System.Windows.Forms.TextBox txtCreditCardPay;
-        private System.Windows.Forms.TextBox txtDebitCardPay;
+        private System.Windows.Forms.CheckBox rbDebitCardCheckOut;
+        private System.Windows.Forms.CheckBox rbCreditCardCheckOut;
+        private System.Windows.Forms.TextBox txtCreditCardCheckOut;
+        private System.Windows.Forms.TextBox txtDebitCardCheckOut;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pbTicketSell;
-        private System.Windows.Forms.Button btnEditDepartament;
+        private System.Windows.Forms.PictureBox pbBillCheckOut;
+        private System.Windows.Forms.Button btnExtendCheckOut;
     }
 }
