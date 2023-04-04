@@ -31,7 +31,7 @@ namespace Punto_de_Venta
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuickSearchScreen));
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelCodeReservation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -44,15 +44,15 @@ namespace Punto_de_Venta
             this.label2.TabIndex = 6;
             this.label2.Text = "Código de reservación";
             // 
-            // label1
+            // labelCodeReservation
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(69, 107);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 44);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "254834ho348r53f5325";
+            this.labelCodeReservation.AutoSize = true;
+            this.labelCodeReservation.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCodeReservation.Location = new System.Drawing.Point(69, 107);
+            this.labelCodeReservation.Name = "labelCodeReservation";
+            this.labelCodeReservation.Size = new System.Drawing.Size(403, 44);
+            this.labelCodeReservation.TabIndex = 7;
+            this.labelCodeReservation.Text = "254834ho348r53f5325";
             // 
             // QuickSearchScreen
             // 
@@ -60,7 +60,7 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(525, 205);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelCodeReservation);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -68,7 +68,7 @@ namespace Punto_de_Venta
             this.MinimizeBox = false;
             this.Name = "QuickSearchScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta rápida";
+            this.Text = "Código de reservación";
             this.Load += new System.EventHandler(this.QuickSearchScreen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -77,6 +77,6 @@ namespace Punto_de_Venta
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelCodeReservation;
     }
 }

@@ -32,11 +32,11 @@ namespace Punto_de_Venta
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtDiscountDiscount = new System.Windows.Forms.TextBox();
-            this.addDiscountBtton = new System.Windows.Forms.Button();
-            this.dtpOutDiscounts = new System.Windows.Forms.DateTimePicker();
-            this.dataGridProduct = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
+            this.txtCodeReservCancel = new System.Windows.Forms.TextBox();
+            this.btnConfirmCancel = new System.Windows.Forms.Button();
+            this.dtpDateCancel = new System.Windows.Forms.DateTimePicker();
+            this.dataGridCancel = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCancel)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -69,48 +69,48 @@ namespace Punto_de_Venta
             this.label1.TabIndex = 36;
             this.label1.Text = "Fecha de la cancelación";
             // 
-            // txtDiscountDiscount
+            // txtCodeReservCancel
             // 
-            this.txtDiscountDiscount.Location = new System.Drawing.Point(333, 153);
-            this.txtDiscountDiscount.Multiline = true;
-            this.txtDiscountDiscount.Name = "txtDiscountDiscount";
-            this.txtDiscountDiscount.Size = new System.Drawing.Size(287, 22);
-            this.txtDiscountDiscount.TabIndex = 54;
-            this.txtDiscountDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscountDiscount_KeyPress);
+            this.txtCodeReservCancel.Location = new System.Drawing.Point(333, 153);
+            this.txtCodeReservCancel.Multiline = true;
+            this.txtCodeReservCancel.Name = "txtCodeReservCancel";
+            this.txtCodeReservCancel.Size = new System.Drawing.Size(287, 22);
+            this.txtCodeReservCancel.TabIndex = 54;
+            this.txtCodeReservCancel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscountDiscount_KeyPress);
             // 
-            // addDiscountBtton
+            // btnConfirmCancel
             // 
-            this.addDiscountBtton.BackColor = System.Drawing.Color.Green;
-            this.addDiscountBtton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addDiscountBtton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addDiscountBtton.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.addDiscountBtton.Location = new System.Drawing.Point(743, 542);
-            this.addDiscountBtton.Name = "addDiscountBtton";
-            this.addDiscountBtton.Size = new System.Drawing.Size(161, 61);
-            this.addDiscountBtton.TabIndex = 55;
-            this.addDiscountBtton.Text = "Confirmar";
-            this.addDiscountBtton.UseVisualStyleBackColor = false;
-            this.addDiscountBtton.Click += new System.EventHandler(this.addDiscountBtton_Click);
+            this.btnConfirmCancel.BackColor = System.Drawing.Color.Green;
+            this.btnConfirmCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmCancel.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmCancel.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConfirmCancel.Location = new System.Drawing.Point(743, 542);
+            this.btnConfirmCancel.Name = "btnConfirmCancel";
+            this.btnConfirmCancel.Size = new System.Drawing.Size(161, 61);
+            this.btnConfirmCancel.TabIndex = 55;
+            this.btnConfirmCancel.Text = "Confirmar";
+            this.btnConfirmCancel.UseVisualStyleBackColor = false;
+            this.btnConfirmCancel.Click += new System.EventHandler(this.addDiscountBtton_Click);
             // 
-            // dtpOutDiscounts
+            // dtpDateCancel
             // 
-            this.dtpOutDiscounts.Location = new System.Drawing.Point(333, 253);
-            this.dtpOutDiscounts.Name = "dtpOutDiscounts";
-            this.dtpOutDiscounts.Size = new System.Drawing.Size(287, 20);
-            this.dtpOutDiscounts.TabIndex = 41;
+            this.dtpDateCancel.Location = new System.Drawing.Point(333, 253);
+            this.dtpDateCancel.Name = "dtpDateCancel";
+            this.dtpDateCancel.Size = new System.Drawing.Size(287, 20);
+            this.dtpDateCancel.TabIndex = 41;
             // 
-            // dataGridProduct
+            // dataGridCancel
             // 
-            this.dataGridProduct.AllowUserToAddRows = false;
-            this.dataGridProduct.AllowUserToDeleteRows = false;
-            this.dataGridProduct.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridProduct.Location = new System.Drawing.Point(178, 309);
-            this.dataGridProduct.Name = "dataGridProduct";
-            this.dataGridProduct.ReadOnly = true;
-            this.dataGridProduct.RowHeadersWidth = 51;
-            this.dataGridProduct.Size = new System.Drawing.Size(582, 201);
-            this.dataGridProduct.TabIndex = 162;
+            this.dataGridCancel.AllowUserToAddRows = false;
+            this.dataGridCancel.AllowUserToDeleteRows = false;
+            this.dataGridCancel.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridCancel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCancel.Location = new System.Drawing.Point(178, 309);
+            this.dataGridCancel.Name = "dataGridCancel";
+            this.dataGridCancel.ReadOnly = true;
+            this.dataGridCancel.RowHeadersWidth = 51;
+            this.dataGridCancel.Size = new System.Drawing.Size(582, 201);
+            this.dataGridCancel.TabIndex = 162;
             // 
             // DiscountsScreen
             // 
@@ -118,17 +118,17 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.dataGridProduct);
-            this.Controls.Add(this.addDiscountBtton);
-            this.Controls.Add(this.txtDiscountDiscount);
-            this.Controls.Add(this.dtpOutDiscounts);
+            this.Controls.Add(this.dataGridCancel);
+            this.Controls.Add(this.btnConfirmCancel);
+            this.Controls.Add(this.txtCodeReservCancel);
+            this.Controls.Add(this.dtpDateCancel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Name = "DiscountsScreen";
             this.Text = "Descuentos";
             this.Load += new System.EventHandler(this.DiscountsScreen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCancel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,9 +139,9 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtDiscountDiscount;
-        private System.Windows.Forms.Button addDiscountBtton;
-        private System.Windows.Forms.DateTimePicker dtpOutDiscounts;
-        private System.Windows.Forms.DataGridView dataGridProduct;
+        private System.Windows.Forms.TextBox txtCodeReservCancel;
+        private System.Windows.Forms.Button btnConfirmCancel;
+        private System.Windows.Forms.DateTimePicker dtpDateCancel;
+        private System.Windows.Forms.DataGridView dataGridCancel;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Punto_de_Venta.Pantallas
 {
-    public partial class MainMenuAdmin : Form
+    public partial class MainAdminScreen : Form
     {
-        public MainMenuAdmin()
+        public MainAdminScreen()
         {
             InitializeComponent();
             //dataGridViewReorder.Rows[0].Cells[0].Value = "Ciel 1L";

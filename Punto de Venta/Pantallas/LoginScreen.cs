@@ -36,7 +36,7 @@ namespace Punto_de_Venta
 
         private void comboBoxUser_SelectedIndexChanged(object sender, EventArgs e)
         {
-            indexBox = comboBoxUser.SelectedIndex;
+            indexBox = cbUserLogin.SelectedIndex;
             selection = true;
         }
 
@@ -56,7 +56,7 @@ namespace Punto_de_Venta
                 }
                 if (indexBox == 0)
                 {
-                    Pantallas.MainMenuAdmin TheOtherForm = new Pantallas.MainMenuAdmin();
+                    Pantallas.MainAdminScreen TheOtherForm = new Pantallas.MainAdminScreen();
                     this.Hide();
                     TheOtherForm.ShowDialog();
                     this.Show();

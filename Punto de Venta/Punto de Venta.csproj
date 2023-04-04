@@ -138,11 +138,11 @@
     <Compile Include="Pantallas\checkOutScreen.Designer.cs">
       <DependentUpon>checkOutScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\DiscountsScreen.cs">
+    <Compile Include="Pantallas\CancellationsScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\DiscountsScreen.Designer.cs">
-      <DependentUpon>DiscountsScreen.cs</DependentUpon>
+    <Compile Include="Pantallas\CancellationsScreen.Designer.cs">
+      <DependentUpon>CancellationsScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\TicketScreen.cs">
       <SubType>Form</SubType>
@@ -156,11 +156,11 @@
     <Compile Include="Pantallas\WaytoPayScreen.Designer.cs">
       <DependentUpon>WaytoPayScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\QuickSearchScreen.cs">
+    <Compile Include="Pantallas\ReservationCodeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\QuickSearchScreen.Designer.cs">
-      <DependentUpon>QuickSearchScreen.cs</DependentUpon>
+    <Compile Include="Pantallas\ReservationCodeScreen.Designer.cs">
+      <DependentUpon>ReservationCodeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\OccupancyHotelScreen.cs">
       <SubType>Form</SubType>
@@ -211,11 +211,11 @@
       <DependentUpon>BedroomsScreen.cs</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\EmployeesScreen.cs">
+    <Compile Include="Pantallas\UsersScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\EmployeesScreen.Designer.cs">
-      <DependentUpon>EmployeesScreen.cs</DependentUpon>
+    <Compile Include="Pantallas\UsersScreen.Designer.cs">
+      <DependentUpon>UsersScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\productsScreen.cs">
       <SubType>Form</SubType>
@@ -229,31 +229,25 @@
     <Compile Include="Pantallas\UserrMainScreen.Designer.cs">
       <DependentUpon>UserrMainScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\MainMenuAdmin.cs">
+    <Compile Include="Pantallas\MainAdminScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\MainMenuAdmin.Designer.cs">
-      <DependentUpon>MainMenuAdmin.cs</DependentUpon>
+    <Compile Include="Pantallas\MainAdminScreen.Designer.cs">
+      <DependentUpon>MainAdminScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pantallas\StartScreen.cs">
+    <Compile Include="Pantallas\LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pantallas\StartScreen.Designer.cs">
-      <DependentUpon>StartScreen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pantallas\LoginScreen_Pantalla.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pantallas\LoginScreen_Pantalla.Designer.cs">
-      <DependentUpon>LoginScreen_Pantalla.cs</DependentUpon>
+    <Compile Include="Pantallas\LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Pantallas\checkOutScreen.resx">
       <DependentUpon>checkOutScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\DiscountsScreen.resx">
-      <DependentUpon>DiscountsScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\CancellationsScreen.resx">
+      <DependentUpon>CancellationsScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\TicketScreen.resx">
       <DependentUpon>TicketScreen.cs</DependentUpon>
@@ -261,8 +255,8 @@
     <EmbeddedResource Include="Pantallas\WaytoPayScreen.resx">
       <DependentUpon>WaytoPayScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\QuickSearchScreen.resx">
-      <DependentUpon>QuickSearchScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\ReservationCodeScreen.resx">
+      <DependentUpon>ReservationCodeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\OccupancyHotelScreen.resx">
       <DependentUpon>OccupancyHotelScreen.cs</DependentUpon>
@@ -288,8 +282,8 @@
     <EmbeddedResource Include="Pantallas\BedroomsScreen.resx">
       <DependentUpon>BedroomsScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\EmployeesScreen.resx">
-      <DependentUpon>EmployeesScreen.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\UsersScreen.resx">
+      <DependentUpon>UsersScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pantallas\productsScreen.resx">
       <DependentUpon>productsScreen.cs</DependentUpon>
@@ -297,14 +291,11 @@
     <EmbeddedResource Include="Pantallas\UserrMainScreen.resx">
       <DependentUpon>UserrMainScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\MainMenuAdmin.resx">
-      <DependentUpon>MainMenuAdmin.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\MainAdminScreen.resx">
+      <DependentUpon>MainAdminScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\StartScreen.resx">
-      <DependentUpon>StartScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pantallas\LoginScreen_Pantalla.resx">
-      <DependentUpon>LoginScreen_Pantalla.cs</DependentUpon>
+    <EmbeddedResource Include="Pantallas\LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
