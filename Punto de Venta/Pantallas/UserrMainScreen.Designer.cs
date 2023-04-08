@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserrMainScreen));
             this.panelLeftSales = new System.Windows.Forms.Panel();
-            this.btnCustomers = new System.Windows.Forms.Button();
-            this.btnCheckOut = new System.Windows.Forms.Button();
-            this.btnCheckIn = new System.Windows.Forms.Button();
+            this.btnCustomersUserMain = new System.Windows.Forms.Button();
+            this.btnCheckOutUserMain = new System.Windows.Forms.Button();
+            this.btnCheckInUserMain = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelHourCashierMain = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.labelDateUserMain = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCloseMain = new System.Windows.Forms.Button();
-            this.btnReservation = new System.Windows.Forms.Button();
+            this.btnCloseUserMain = new System.Windows.Forms.Button();
+            this.btnReservationUserMain = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelChildFormSales = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -54,16 +54,16 @@
             // panelLeftSales
             // 
             this.panelLeftSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(100)))), ((int)(((byte)(145)))));
-            this.panelLeftSales.Controls.Add(this.btnCustomers);
-            this.panelLeftSales.Controls.Add(this.btnCheckOut);
-            this.panelLeftSales.Controls.Add(this.btnCheckIn);
+            this.panelLeftSales.Controls.Add(this.btnCustomersUserMain);
+            this.panelLeftSales.Controls.Add(this.btnCheckOutUserMain);
+            this.panelLeftSales.Controls.Add(this.btnCheckInUserMain);
             this.panelLeftSales.Controls.Add(this.pictureBox1);
             this.panelLeftSales.Controls.Add(this.labelHourCashierMain);
             this.panelLeftSales.Controls.Add(this.label8);
             this.panelLeftSales.Controls.Add(this.labelDateUserMain);
             this.panelLeftSales.Controls.Add(this.label6);
-            this.panelLeftSales.Controls.Add(this.btnCloseMain);
-            this.panelLeftSales.Controls.Add(this.btnReservation);
+            this.panelLeftSales.Controls.Add(this.btnCloseUserMain);
+            this.panelLeftSales.Controls.Add(this.btnReservationUserMain);
             this.panelLeftSales.Controls.Add(this.label1);
             this.panelLeftSales.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftSales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -72,56 +72,56 @@
             this.panelLeftSales.Size = new System.Drawing.Size(250, 670);
             this.panelLeftSales.TabIndex = 0;
             // 
-            // btnCustomers
+            // btnCustomersUserMain
             // 
-            this.btnCustomers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCustomers.FlatAppearance.BorderSize = 0;
-            this.btnCustomers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCustomers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomers.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomers.Location = new System.Drawing.Point(0, 303);
-            this.btnCustomers.Name = "btnCustomers";
-            this.btnCustomers.Size = new System.Drawing.Size(250, 40);
-            this.btnCustomers.TabIndex = 35;
-            this.btnCustomers.Text = "Clientes";
-            this.btnCustomers.UseVisualStyleBackColor = true;
-            this.btnCustomers.Click += new System.EventHandler(this.button3_Click);
+            this.btnCustomersUserMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCustomersUserMain.FlatAppearance.BorderSize = 0;
+            this.btnCustomersUserMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCustomersUserMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomersUserMain.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomersUserMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCustomersUserMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomersUserMain.Location = new System.Drawing.Point(0, 303);
+            this.btnCustomersUserMain.Name = "btnCustomersUserMain";
+            this.btnCustomersUserMain.Size = new System.Drawing.Size(250, 40);
+            this.btnCustomersUserMain.TabIndex = 35;
+            this.btnCustomersUserMain.Text = "Clientes";
+            this.btnCustomersUserMain.UseVisualStyleBackColor = true;
+            this.btnCustomersUserMain.Click += new System.EventHandler(this.button3_Click);
             // 
-            // btnCheckOut
+            // btnCheckOutUserMain
             // 
-            this.btnCheckOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheckOut.FlatAppearance.BorderSize = 0;
-            this.btnCheckOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCheckOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCheckOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckOut.Location = new System.Drawing.Point(0, 257);
-            this.btnCheckOut.Name = "btnCheckOut";
-            this.btnCheckOut.Size = new System.Drawing.Size(250, 40);
-            this.btnCheckOut.TabIndex = 34;
-            this.btnCheckOut.Text = "Check Out";
-            this.btnCheckOut.UseVisualStyleBackColor = true;
-            this.btnCheckOut.Click += new System.EventHandler(this.button2_Click);
+            this.btnCheckOutUserMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckOutUserMain.FlatAppearance.BorderSize = 0;
+            this.btnCheckOutUserMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCheckOutUserMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckOutUserMain.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckOutUserMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCheckOutUserMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckOutUserMain.Location = new System.Drawing.Point(0, 257);
+            this.btnCheckOutUserMain.Name = "btnCheckOutUserMain";
+            this.btnCheckOutUserMain.Size = new System.Drawing.Size(250, 40);
+            this.btnCheckOutUserMain.TabIndex = 34;
+            this.btnCheckOutUserMain.Text = "Check Out";
+            this.btnCheckOutUserMain.UseVisualStyleBackColor = true;
+            this.btnCheckOutUserMain.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btnCheckIn
+            // btnCheckInUserMain
             // 
-            this.btnCheckIn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCheckIn.FlatAppearance.BorderSize = 0;
-            this.btnCheckIn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCheckIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCheckIn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCheckIn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCheckIn.Location = new System.Drawing.Point(0, 211);
-            this.btnCheckIn.Name = "btnCheckIn";
-            this.btnCheckIn.Size = new System.Drawing.Size(250, 40);
-            this.btnCheckIn.TabIndex = 33;
-            this.btnCheckIn.Text = "Check In";
-            this.btnCheckIn.UseVisualStyleBackColor = true;
-            this.btnCheckIn.Click += new System.EventHandler(this.button1_Click);
+            this.btnCheckInUserMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCheckInUserMain.FlatAppearance.BorderSize = 0;
+            this.btnCheckInUserMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCheckInUserMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCheckInUserMain.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckInUserMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCheckInUserMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCheckInUserMain.Location = new System.Drawing.Point(0, 211);
+            this.btnCheckInUserMain.Name = "btnCheckInUserMain";
+            this.btnCheckInUserMain.Size = new System.Drawing.Size(250, 40);
+            this.btnCheckInUserMain.TabIndex = 33;
+            this.btnCheckInUserMain.Text = "Check In";
+            this.btnCheckInUserMain.UseVisualStyleBackColor = true;
+            this.btnCheckInUserMain.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -174,39 +174,39 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "Fecha:";
             // 
-            // btnCloseMain
+            // btnCloseUserMain
             // 
-            this.btnCloseMain.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCloseMain.FlatAppearance.BorderSize = 0;
-            this.btnCloseMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnCloseMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseMain.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCloseMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCloseMain.Location = new System.Drawing.Point(0, 623);
-            this.btnCloseMain.Name = "btnCloseMain";
-            this.btnCloseMain.Size = new System.Drawing.Size(250, 40);
-            this.btnCloseMain.TabIndex = 25;
-            this.btnCloseMain.Text = "Cerrar Sesión";
-            this.btnCloseMain.UseVisualStyleBackColor = true;
-            this.btnCloseMain.Click += new System.EventHandler(this.button8_Click);
+            this.btnCloseUserMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCloseUserMain.FlatAppearance.BorderSize = 0;
+            this.btnCloseUserMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnCloseUserMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCloseUserMain.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseUserMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCloseUserMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCloseUserMain.Location = new System.Drawing.Point(0, 623);
+            this.btnCloseUserMain.Name = "btnCloseUserMain";
+            this.btnCloseUserMain.Size = new System.Drawing.Size(250, 40);
+            this.btnCloseUserMain.TabIndex = 25;
+            this.btnCloseUserMain.Text = "Cerrar Sesión";
+            this.btnCloseUserMain.UseVisualStyleBackColor = true;
+            this.btnCloseUserMain.Click += new System.EventHandler(this.button8_Click);
             // 
-            // btnReservation
+            // btnReservationUserMain
             // 
-            this.btnReservation.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReservation.FlatAppearance.BorderSize = 0;
-            this.btnReservation.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
-            this.btnReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservation.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReservation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReservation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReservation.Location = new System.Drawing.Point(0, 165);
-            this.btnReservation.Name = "btnReservation";
-            this.btnReservation.Size = new System.Drawing.Size(250, 40);
-            this.btnReservation.TabIndex = 18;
-            this.btnReservation.Text = "Reservaciones";
-            this.btnReservation.UseVisualStyleBackColor = true;
-            this.btnReservation.Click += new System.EventHandler(this.buttonSales_Click);
+            this.btnReservationUserMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReservationUserMain.FlatAppearance.BorderSize = 0;
+            this.btnReservationUserMain.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.btnReservationUserMain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservationUserMain.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReservationUserMain.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnReservationUserMain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReservationUserMain.Location = new System.Drawing.Point(0, 165);
+            this.btnReservationUserMain.Name = "btnReservationUserMain";
+            this.btnReservationUserMain.Size = new System.Drawing.Size(250, 40);
+            this.btnReservationUserMain.TabIndex = 18;
+            this.btnReservationUserMain.Text = "Reservaciones";
+            this.btnReservationUserMain.UseVisualStyleBackColor = true;
+            this.btnReservationUserMain.Click += new System.EventHandler(this.buttonSales_Click);
             // 
             // label1
             // 
@@ -275,8 +275,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panelLeftSales;
-        private System.Windows.Forms.Button btnCloseMain;
-        private System.Windows.Forms.Button btnReservation;
+        private System.Windows.Forms.Button btnCloseUserMain;
+        private System.Windows.Forms.Button btnReservationUserMain;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelHourCashierMain;
         private System.Windows.Forms.Label label8;
@@ -287,8 +287,8 @@
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label labelDateUserMain;
-        private System.Windows.Forms.Button btnCustomers;
-        private System.Windows.Forms.Button btnCheckOut;
-        private System.Windows.Forms.Button btnCheckIn;
+        private System.Windows.Forms.Button btnCustomersUserMain;
+        private System.Windows.Forms.Button btnCheckOutUserMain;
+        private System.Windows.Forms.Button btnCheckInUserMain;
     }
 }

@@ -30,12 +30,12 @@ namespace Punto_de_Venta
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridTicketReport = new System.Windows.Forms.DataGridView();
-            this.txtIdProduct = new System.Windows.Forms.TextBox();
+            this.dataGridActiveUser = new System.Windows.Forms.DataGridView();
+            this.txtPassTempActive = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnAddProduct = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTicketReport)).BeginInit();
+            this.btnActiveUser = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridActiveUser)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -48,26 +48,26 @@ namespace Punto_de_Venta
             this.label2.TabIndex = 85;
             this.label2.Text = "Activar Usuario";
             // 
-            // dataGridTicketReport
+            // dataGridActiveUser
             // 
-            this.dataGridTicketReport.AllowUserToAddRows = false;
-            this.dataGridTicketReport.AllowUserToDeleteRows = false;
-            this.dataGridTicketReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridTicketReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridTicketReport.Location = new System.Drawing.Point(40, 234);
-            this.dataGridTicketReport.Name = "dataGridTicketReport";
-            this.dataGridTicketReport.ReadOnly = true;
-            this.dataGridTicketReport.RowHeadersWidth = 51;
-            this.dataGridTicketReport.Size = new System.Drawing.Size(845, 299);
-            this.dataGridTicketReport.TabIndex = 99;
+            this.dataGridActiveUser.AllowUserToAddRows = false;
+            this.dataGridActiveUser.AllowUserToDeleteRows = false;
+            this.dataGridActiveUser.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridActiveUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridActiveUser.Location = new System.Drawing.Point(40, 234);
+            this.dataGridActiveUser.Name = "dataGridActiveUser";
+            this.dataGridActiveUser.ReadOnly = true;
+            this.dataGridActiveUser.RowHeadersWidth = 51;
+            this.dataGridActiveUser.Size = new System.Drawing.Size(845, 299);
+            this.dataGridActiveUser.TabIndex = 99;
             // 
-            // txtIdProduct
+            // txtPassTempActive
             // 
-            this.txtIdProduct.Location = new System.Drawing.Point(339, 115);
-            this.txtIdProduct.Multiline = true;
-            this.txtIdProduct.Name = "txtIdProduct";
-            this.txtIdProduct.Size = new System.Drawing.Size(546, 22);
-            this.txtIdProduct.TabIndex = 101;
+            this.txtPassTempActive.Location = new System.Drawing.Point(339, 115);
+            this.txtPassTempActive.Multiline = true;
+            this.txtPassTempActive.Name = "txtPassTempActive";
+            this.txtPassTempActive.Size = new System.Drawing.Size(546, 22);
+            this.txtPassTempActive.TabIndex = 101;
             // 
             // label1
             // 
@@ -89,18 +89,18 @@ namespace Punto_de_Venta
             this.label3.TabIndex = 102;
             this.label3.Text = "Seleccione el usuario a Activar";
             // 
-            // btnAddProduct
+            // btnActiveUser
             // 
-            this.btnAddProduct.BackColor = System.Drawing.Color.Green;
-            this.btnAddProduct.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddProduct.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProduct.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddProduct.Location = new System.Drawing.Point(746, 556);
-            this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(139, 51);
-            this.btnAddProduct.TabIndex = 103;
-            this.btnAddProduct.Text = "Activar";
-            this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnActiveUser.BackColor = System.Drawing.Color.Green;
+            this.btnActiveUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActiveUser.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActiveUser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnActiveUser.Location = new System.Drawing.Point(746, 556);
+            this.btnActiveUser.Name = "btnActiveUser";
+            this.btnActiveUser.Size = new System.Drawing.Size(139, 51);
+            this.btnActiveUser.TabIndex = 103;
+            this.btnActiveUser.Text = "Activar";
+            this.btnActiveUser.UseVisualStyleBackColor = false;
             // 
             // TicketReportScreen
             // 
@@ -108,16 +108,16 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.btnActiveUser);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtIdProduct);
+            this.Controls.Add(this.txtPassTempActive);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridTicketReport);
+            this.Controls.Add(this.dataGridActiveUser);
             this.Controls.Add(this.label2);
             this.Name = "TicketReportScreen";
             this.Text = "Consulta de Recibos";
             this.Load += new System.EventHandler(this.TicketReportScreen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridTicketReport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridActiveUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,10 +126,10 @@ namespace Punto_de_Venta
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridTicketReport;
-        private System.Windows.Forms.TextBox txtIdProduct;
+        private System.Windows.Forms.DataGridView dataGridActiveUser;
+        private System.Windows.Forms.TextBox txtPassTempActive;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Button btnActiveUser;
     }
 }

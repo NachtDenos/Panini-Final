@@ -30,11 +30,11 @@ namespace Punto_de_Venta
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodeCheckIn = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridProduct = new System.Windows.Forms.DataGridView();
-            this.btnAddDepartament = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).BeginInit();
+            this.dataGridCheckIn = new System.Windows.Forms.DataGridView();
+            this.btnConfirmCheckIn = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCheckIn)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -47,13 +47,13 @@ namespace Punto_de_Venta
             this.label2.TabIndex = 96;
             this.label2.Text = "Check In";
             // 
-            // textBox1
+            // txtCodeCheckIn
             // 
-            this.textBox1.Location = new System.Drawing.Point(310, 156);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(310, 22);
-            this.textBox1.TabIndex = 136;
+            this.txtCodeCheckIn.Location = new System.Drawing.Point(310, 156);
+            this.txtCodeCheckIn.Multiline = true;
+            this.txtCodeCheckIn.Name = "txtCodeCheckIn";
+            this.txtCodeCheckIn.Size = new System.Drawing.Size(310, 22);
+            this.txtCodeCheckIn.TabIndex = 136;
             // 
             // label3
             // 
@@ -65,31 +65,31 @@ namespace Punto_de_Venta
             this.label3.TabIndex = 135;
             this.label3.Text = "Ingresa el Código de reservación";
             // 
-            // dataGridProduct
+            // dataGridCheckIn
             // 
-            this.dataGridProduct.AllowUserToAddRows = false;
-            this.dataGridProduct.AllowUserToDeleteRows = false;
-            this.dataGridProduct.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataGridProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridProduct.Location = new System.Drawing.Point(244, 205);
-            this.dataGridProduct.Name = "dataGridProduct";
-            this.dataGridProduct.ReadOnly = true;
-            this.dataGridProduct.RowHeadersWidth = 51;
-            this.dataGridProduct.Size = new System.Drawing.Size(452, 313);
-            this.dataGridProduct.TabIndex = 134;
+            this.dataGridCheckIn.AllowUserToAddRows = false;
+            this.dataGridCheckIn.AllowUserToDeleteRows = false;
+            this.dataGridCheckIn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridCheckIn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridCheckIn.Location = new System.Drawing.Point(244, 205);
+            this.dataGridCheckIn.Name = "dataGridCheckIn";
+            this.dataGridCheckIn.ReadOnly = true;
+            this.dataGridCheckIn.RowHeadersWidth = 51;
+            this.dataGridCheckIn.Size = new System.Drawing.Size(452, 313);
+            this.dataGridCheckIn.TabIndex = 134;
             // 
-            // btnAddDepartament
+            // btnConfirmCheckIn
             // 
-            this.btnAddDepartament.BackColor = System.Drawing.Color.Green;
-            this.btnAddDepartament.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddDepartament.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDepartament.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddDepartament.Location = new System.Drawing.Point(399, 542);
-            this.btnAddDepartament.Name = "btnAddDepartament";
-            this.btnAddDepartament.Size = new System.Drawing.Size(139, 51);
-            this.btnAddDepartament.TabIndex = 137;
-            this.btnAddDepartament.Text = "Confirmar";
-            this.btnAddDepartament.UseVisualStyleBackColor = false;
+            this.btnConfirmCheckIn.BackColor = System.Drawing.Color.Green;
+            this.btnConfirmCheckIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmCheckIn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConfirmCheckIn.Location = new System.Drawing.Point(399, 542);
+            this.btnConfirmCheckIn.Name = "btnConfirmCheckIn";
+            this.btnConfirmCheckIn.Size = new System.Drawing.Size(139, 51);
+            this.btnConfirmCheckIn.TabIndex = 137;
+            this.btnConfirmCheckIn.Text = "Confirmar";
+            this.btnConfirmCheckIn.UseVisualStyleBackColor = false;
             // 
             // InventaryScreen
             // 
@@ -97,15 +97,15 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.btnAddDepartament);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnConfirmCheckIn);
+            this.Controls.Add(this.txtCodeCheckIn);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridProduct);
+            this.Controls.Add(this.dataGridCheckIn);
             this.Controls.Add(this.label2);
             this.Name = "InventaryScreen";
             this.Text = "Inventario";
             this.Load += new System.EventHandler(this.InventaryScreen_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridCheckIn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,9 +113,9 @@ namespace Punto_de_Venta
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodeCheckIn;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridProduct;
-        private System.Windows.Forms.Button btnAddDepartament;
+        private System.Windows.Forms.DataGridView dataGridCheckIn;
+        private System.Windows.Forms.Button btnConfirmCheckIn;
     }
 }

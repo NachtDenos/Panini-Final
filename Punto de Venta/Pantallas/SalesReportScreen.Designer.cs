@@ -1,7 +1,7 @@
 ﻿
 namespace Punto_de_Venta
 {
-    partial class SalesReportScreen
+    partial class ReturnScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -29,222 +29,190 @@ namespace Punto_de_Venta
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtYearSalesR = new System.Windows.Forms.TextBox();
+            this.txtCitySalesR = new System.Windows.Forms.TextBox();
+            this.txtHotelSalesR = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtCountrySalesR = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridSalesReport = new System.Windows.Forms.DataGridView();
+            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hospedaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.servicios = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtVentaCajaReport = new System.Windows.Forms.TextBox();
-            this.txtVentaDepaReport = new System.Windows.Forms.TextBox();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Personas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anticipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hospedaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Servicios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSalesReport)).BeginInit();
             this.SuspendLayout();
+            // 
+            // txtYearSalesR
+            // 
+            this.txtYearSalesR.Location = new System.Drawing.Point(342, 178);
+            this.txtYearSalesR.Name = "txtYearSalesR";
+            this.txtYearSalesR.Size = new System.Drawing.Size(123, 20);
+            this.txtYearSalesR.TabIndex = 134;
+            // 
+            // txtCitySalesR
+            // 
+            this.txtCitySalesR.Location = new System.Drawing.Point(511, 178);
+            this.txtCitySalesR.Name = "txtCitySalesR";
+            this.txtCitySalesR.Size = new System.Drawing.Size(123, 20);
+            this.txtCitySalesR.TabIndex = 133;
+            // 
+            // txtHotelSalesR
+            // 
+            this.txtHotelSalesR.Location = new System.Drawing.Point(683, 178);
+            this.txtHotelSalesR.Name = "txtHotelSalesR";
+            this.txtHotelSalesR.Size = new System.Drawing.Size(123, 20);
+            this.txtHotelSalesR.TabIndex = 132;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(381, 143);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 22);
+            this.label5.TabIndex = 131;
+            this.label5.Text = "Año";
+            // 
+            // txtCountrySalesR
+            // 
+            this.txtCountrySalesR.Location = new System.Drawing.Point(166, 178);
+            this.txtCountrySalesR.Name = "txtCountrySalesR";
+            this.txtCountrySalesR.Size = new System.Drawing.Size(123, 20);
+            this.txtCountrySalesR.TabIndex = 130;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(533, 143);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 22);
+            this.label4.TabIndex = 129;
+            this.label4.Text = "Ciudad";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(336, 136);
+            this.label3.Location = new System.Drawing.Point(210, 143);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 22);
-            this.label3.TabIndex = 88;
-            this.label3.Text = "Cliente";
+            this.label3.Size = new System.Drawing.Size(44, 22);
+            this.label3.TabIndex = 128;
+            this.label3.Text = "País";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(194, 136);
+            this.label12.Location = new System.Drawing.Point(78, 143);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(62, 22);
-            this.label12.TabIndex = 86;
+            this.label12.TabIndex = 127;
             this.label12.Text = "Filtros:";
             // 
             // dataGridSalesReport
             // 
             this.dataGridSalesReport.AllowUserToAddRows = false;
             this.dataGridSalesReport.AllowUserToDeleteRows = false;
+            this.dataGridSalesReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridSalesReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridSalesReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridSalesReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Ciudad,
-            this.Hotel,
-            this.Tipo,
-            this.numero,
-            this.Personas,
-            this.Código,
-            this.fecha,
-            this.checkIn,
-            this.CheckOut,
-            this.Estatus,
-            this.Anticipo,
-            this.Hospedaje,
-            this.Servicios,
-            this.Total});
-            this.dataGridSalesReport.Location = new System.Drawing.Point(94, 228);
+            this.city,
+            this.NameHotel,
+            this.date,
+            this.hospedaje,
+            this.servicios,
+            this.total});
+            this.dataGridSalesReport.Location = new System.Drawing.Point(166, 238);
             this.dataGridSalesReport.Name = "dataGridSalesReport";
             this.dataGridSalesReport.ReadOnly = true;
-            this.dataGridSalesReport.Size = new System.Drawing.Size(758, 316);
-            this.dataGridSalesReport.TabIndex = 85;
+            this.dataGridSalesReport.Size = new System.Drawing.Size(640, 361);
+            this.dataGridSalesReport.TabIndex = 126;
+            // 
+            // city
+            // 
+            this.city.HeaderText = "Ciudad";
+            this.city.Name = "city";
+            this.city.ReadOnly = true;
+            // 
+            // NameHotel
+            // 
+            this.NameHotel.HeaderText = "Nombre del Hotel";
+            this.NameHotel.Name = "NameHotel";
+            this.NameHotel.ReadOnly = true;
+            // 
+            // date
+            // 
+            this.date.HeaderText = "Año-Mes";
+            this.date.Name = "date";
+            this.date.ReadOnly = true;
+            // 
+            // hospedaje
+            // 
+            this.hospedaje.HeaderText = "Ingresos Hospedaje";
+            this.hospedaje.Name = "hospedaje";
+            this.hospedaje.ReadOnly = true;
+            // 
+            // servicios
+            // 
+            this.servicios.HeaderText = "Ingresos Servicios";
+            this.servicios.Name = "servicios";
+            this.servicios.ReadOnly = true;
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Ingresos Totales";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(304, 40);
+            this.label2.Location = new System.Drawing.Point(321, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(374, 44);
-            this.label2.TabIndex = 84;
-            this.label2.Text = "Historial del Cliente ";
+            this.label2.Size = new System.Drawing.Size(351, 44);
+            this.label2.TabIndex = 125;
+            this.label2.Text = "Reporte de Ventas";
             // 
-            // label4
+            // label1
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(569, 136);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 22);
-            this.label4.TabIndex = 90;
-            this.label4.Text = "Año";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(712, 143);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 22);
+            this.label1.TabIndex = 124;
+            this.label1.Text = "Hotel";
             // 
-            // txtVentaCajaReport
-            // 
-            this.txtVentaCajaReport.Location = new System.Drawing.Point(312, 174);
-            this.txtVentaCajaReport.Name = "txtVentaCajaReport";
-            this.txtVentaCajaReport.Size = new System.Drawing.Size(123, 20);
-            this.txtVentaCajaReport.TabIndex = 106;
-            this.txtVentaCajaReport.TextChanged += new System.EventHandler(this.txtVentaCajaReport_TextChanged);
-            this.txtVentaCajaReport.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVentaCajaReport_KeyPress);
-            // 
-            // txtVentaDepaReport
-            // 
-            this.txtVentaDepaReport.Location = new System.Drawing.Point(520, 174);
-            this.txtVentaDepaReport.Name = "txtVentaDepaReport";
-            this.txtVentaDepaReport.Size = new System.Drawing.Size(134, 20);
-            this.txtVentaDepaReport.TabIndex = 107;
-            this.txtVentaDepaReport.TextChanged += new System.EventHandler(this.txtVentaDepaReport_TextChanged);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            // 
-            // Hotel
-            // 
-            this.Hotel.HeaderText = "Hotel";
-            this.Hotel.Name = "Hotel";
-            this.Hotel.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo Habitación";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // numero
-            // 
-            this.numero.HeaderText = "Número Habitación";
-            this.numero.Name = "numero";
-            this.numero.ReadOnly = true;
-            // 
-            // Personas
-            // 
-            this.Personas.HeaderText = "Personas Hospedadas";
-            this.Personas.Name = "Personas";
-            this.Personas.ReadOnly = true;
-            // 
-            // Código
-            // 
-            this.Código.HeaderText = "Código R.";
-            this.Código.Name = "Código";
-            this.Código.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha R.";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // checkIn
-            // 
-            this.checkIn.HeaderText = "CheckIn";
-            this.checkIn.Name = "checkIn";
-            this.checkIn.ReadOnly = true;
-            // 
-            // CheckOut
-            // 
-            this.CheckOut.HeaderText = "CheckOut";
-            this.CheckOut.Name = "CheckOut";
-            this.CheckOut.ReadOnly = true;
-            // 
-            // Estatus
-            // 
-            this.Estatus.HeaderText = "Estatus R.";
-            this.Estatus.Name = "Estatus";
-            this.Estatus.ReadOnly = true;
-            // 
-            // Anticipo
-            // 
-            this.Anticipo.HeaderText = "Anticipo";
-            this.Anticipo.Name = "Anticipo";
-            this.Anticipo.ReadOnly = true;
-            // 
-            // Hospedaje
-            // 
-            this.Hospedaje.HeaderText = "Monto Hospedaje";
-            this.Hospedaje.Name = "Hospedaje";
-            this.Hospedaje.ReadOnly = true;
-            // 
-            // Servicios
-            // 
-            this.Servicios.HeaderText = "Monto Servicios";
-            this.Servicios.Name = "Servicios";
-            this.Servicios.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total Factura";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            // 
-            // SalesReportScreen
+            // ReturnScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
-            this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.txtVentaDepaReport);
-            this.Controls.Add(this.txtVentaCajaReport);
+            this.ClientSize = new System.Drawing.Size(950, 631);
+            this.Controls.Add(this.txtYearSalesR);
+            this.Controls.Add(this.txtCitySalesR);
+            this.Controls.Add(this.txtHotelSalesR);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtCountrySalesR);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.dataGridSalesReport);
             this.Controls.Add(this.label2);
-            this.Name = "SalesReportScreen";
-            this.Text = "Reporte de Ventas";
-            this.Load += new System.EventHandler(this.SalesReportScreen_Load);
+            this.Controls.Add(this.label1);
+            this.Name = "ReturnScreen";
+            this.Text = "ReturnScreen";
+            this.Load += new System.EventHandler(this.ReturnScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSalesReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -252,27 +220,22 @@ namespace Punto_de_Venta
         }
 
         #endregion
+        private System.Windows.Forms.TextBox txtYearSalesR;
+        private System.Windows.Forms.TextBox txtCitySalesR;
+        private System.Windows.Forms.TextBox txtHotelSalesR;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtCountrySalesR;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridSalesReport;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtVentaCajaReport;
-        private System.Windows.Forms.TextBox txtVentaDepaReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hotel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Personas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Anticipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hospedaje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Servicios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn city;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameHotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hospedaje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn servicios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
     }
 }
