@@ -22,69 +22,38 @@ namespace Punto_de_Venta
             
         }
 
-        private void btnConsultTicketReport2_Click(object sender, EventArgs e)
+        private void btnActiveUser_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnConsultTicketReport1_Click(object sender, EventArgs e)
-        {
+            if (correctPass(txtPassTempActive.Text) == false)
+            {
+                MessageBox.Show("La contraseña tiene que tener 8 caracteres, mayusculas, minusculas, numeros y un caracter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Se asigno la contraseña temporal.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             
         }
 
-        private void txtIdTicketReport_KeyPress(object sender, KeyPressEventArgs e)
+        private bool correctPass(string pass)
         {
-            
+            bool mayus = false, min = false, number = false, charaE = false;
+            for (int i = 0; i < pass.Length; i++)
+            {
+                if (Char.IsUpper(pass, i))
+                    mayus = true;
+                else if (Char.IsLower(pass, i))
+                    min = true;
+                else if (Char.IsDigit(pass, i))
+                    number = true;
+                else
+                    charaE = true;
+            }
+            if (mayus && min && number && charaE && pass.Length >= 8)
+                return true;
+            return false; 
         }
 
-        private void ListarCajasCombo()
-        {
-            
-        }
-
-        private void TicketReportScreen_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbTicketReport_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtpTicketReport_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbNota_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void cbRecibo_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnConsultTicketReportNota_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnReprintTicketRecibo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnReprintTicketNota_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

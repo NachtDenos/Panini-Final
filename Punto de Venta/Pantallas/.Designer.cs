@@ -71,7 +71,7 @@ namespace Punto_de_Venta
             this.btnDeleteBedrooms.TabIndex = 76;
             this.btnDeleteBedrooms.Text = "Eliminar";
             this.btnDeleteBedrooms.UseVisualStyleBackColor = false;
-            this.btnDeleteBedrooms.Click += new System.EventHandler(this.btnDeleteDepartament_Click);
+            this.btnDeleteBedrooms.Click += new System.EventHandler(this.btnDeleteBedrooms_Click);
             // 
             // btnEditBedrooms
             // 
@@ -85,7 +85,7 @@ namespace Punto_de_Venta
             this.btnEditBedrooms.TabIndex = 75;
             this.btnEditBedrooms.Text = "Editar";
             this.btnEditBedrooms.UseVisualStyleBackColor = false;
-            this.btnEditBedrooms.Click += new System.EventHandler(this.btnEditDepartament_Click);
+            this.btnEditBedrooms.Click += new System.EventHandler(this.btnEditBedrooms_Click);
             // 
             // btnAddBedrooms
             // 
@@ -384,7 +384,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label2);
             this.Name = "departamentScreen";
             this.Text = "Departament";
-            this.Load += new System.EventHandler(this.departamentScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridBedrooms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

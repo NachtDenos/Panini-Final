@@ -101,6 +101,7 @@ namespace Punto_de_Venta
             this.btnActiveUser.TabIndex = 103;
             this.btnActiveUser.Text = "Activar";
             this.btnActiveUser.UseVisualStyleBackColor = false;
+            this.btnActiveUser.Click += new System.EventHandler(this.btnActiveUser_Click);
             // 
             // TicketReportScreen
             // 
@@ -116,7 +117,7 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label2);
             this.Name = "TicketReportScreen";
             this.Text = "Consulta de Recibos";
-            this.Load += new System.EventHandler(this.TicketReportScreen_Load);
+            
             ((System.ComponentModel.ISupportInitialize)(this.dataGridActiveUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
