@@ -24,6 +24,7 @@ namespace Punto_de_Venta
 
         private void btnActiveUser_Click(object sender, EventArgs e)
         {
+            //TODO: validacion para seleccionar en el dataGrid desactivando el boton
             if (correctPass(txtPassTempActive.Text) == false)
             {
                 MessageBox.Show("La contraseña tiene que tener 8 caracteres, mayusculas, minusculas, numeros y un caracter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

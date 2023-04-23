@@ -174,6 +174,7 @@ namespace Punto_de_Venta
             this.cbLevelRoomBedroom.Size = new System.Drawing.Size(146, 21);
             this.cbLevelRoomBedroom.TabIndex = 143;
             this.cbLevelRoomBedroom.Text = "Seleccionar";
+            this.cbLevelRoomBedroom.SelectedIndexChanged += new System.EventHandler(this.cbLevelRoomBedroom_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -192,6 +193,7 @@ namespace Punto_de_Venta
             this.txtNumPeopleBedroom.Name = "txtNumPeopleBedroom";
             this.txtNumPeopleBedroom.Size = new System.Drawing.Size(146, 22);
             this.txtNumPeopleBedroom.TabIndex = 141;
+            this.txtNumPeopleBedroom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumPeopleBedroom_KeyPress);
             // 
             // label7
             // 
@@ -210,6 +212,7 @@ namespace Punto_de_Venta
             this.txtPriceNightBedrooms.Name = "txtPriceNightBedrooms";
             this.txtPriceNightBedrooms.Size = new System.Drawing.Size(146, 22);
             this.txtPriceNightBedrooms.TabIndex = 139;
+            this.txtPriceNightBedrooms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPriceNightBedrooms_KeyPress);
             // 
             // label6
             // 
@@ -238,6 +241,7 @@ namespace Punto_de_Venta
             this.txtNumberBedsBedrooms.Name = "txtNumberBedsBedrooms";
             this.txtNumberBedsBedrooms.Size = new System.Drawing.Size(146, 22);
             this.txtNumberBedsBedrooms.TabIndex = 135;
+            this.txtNumberBedsBedrooms.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumberBedsBedrooms_KeyPress);
             // 
             // label4
             // 
@@ -320,6 +324,7 @@ namespace Punto_de_Venta
             this.cbHotelBedrooms.Size = new System.Drawing.Size(146, 21);
             this.cbHotelBedrooms.TabIndex = 152;
             this.cbHotelBedrooms.Text = "Seleccionar";
+            this.cbHotelBedrooms.SelectedIndexChanged += new System.EventHandler(this.cbHotelBedrooms_SelectedIndexChanged);
             // 
             // cbTypeBedBedrooms
             // 
@@ -334,6 +339,7 @@ namespace Punto_de_Venta
             this.cbTypeBedBedrooms.Size = new System.Drawing.Size(146, 21);
             this.cbTypeBedBedrooms.TabIndex = 153;
             this.cbTypeBedBedrooms.Text = "Seleccionar";
+            this.cbTypeBedBedrooms.SelectedIndexChanged += new System.EventHandler(this.cbTypeBedBedrooms_SelectedIndexChanged);
             // 
             // clbAmenitiesBedrooms
             // 
