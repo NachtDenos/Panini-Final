@@ -76,7 +76,7 @@ namespace Punto_de_Venta
             this.txtCodeReservCancel.Name = "txtCodeReservCancel";
             this.txtCodeReservCancel.Size = new System.Drawing.Size(287, 22);
             this.txtCodeReservCancel.TabIndex = 54;
-            this.txtCodeReservCancel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDiscountDiscount_KeyPress);
+            this.txtCodeReservCancel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodeReservCancel_KeyPress);
             // 
             // btnConfirmCancel
             // 
@@ -127,7 +127,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label2);
             this.Name = "DiscountsScreen";
             this.Text = "Descuentos";
-            this.Load += new System.EventHandler(this.DiscountsScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCancel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

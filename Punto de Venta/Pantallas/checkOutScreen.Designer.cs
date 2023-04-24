@@ -43,6 +43,7 @@ namespace Punto_de_Venta.Pantallas
             this.label5 = new System.Windows.Forms.Label();
             this.pbBillCheckOut = new System.Windows.Forms.PictureBox();
             this.btnExtendCheckOut = new System.Windows.Forms.Button();
+            this.btnSearchCheckOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridServicesCheckOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbBillCheckOut)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +65,7 @@ namespace Punto_de_Venta.Pantallas
             this.txtCodeCheckOut.Name = "txtCodeCheckOut";
             this.txtCodeCheckOut.Size = new System.Drawing.Size(310, 22);
             this.txtCodeCheckOut.TabIndex = 140;
+            this.txtCodeCheckOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodeCheckOut_KeyPress);
             // 
             // label3
             // 
@@ -100,7 +102,6 @@ namespace Punto_de_Venta.Pantallas
             this.btnConfirmCheckOut.TabIndex = 142;
             this.btnConfirmCheckOut.Text = "Confirmar";
             this.btnConfirmCheckOut.UseVisualStyleBackColor = false;
-            this.btnConfirmCheckOut.Click += new System.EventHandler(this.btnAddDepartament_Click);
             // 
             // label1
             // 
@@ -121,6 +122,7 @@ namespace Punto_de_Venta.Pantallas
             this.rbDebitCardCheckOut.TabIndex = 152;
             this.rbDebitCardCheckOut.Text = "Tarjeta de Débito";
             this.rbDebitCardCheckOut.UseVisualStyleBackColor = true;
+            this.rbDebitCardCheckOut.Click += new System.EventHandler(this.rbDebitCardCheckOut_Click);
             // 
             // rbCreditCardCheckOut
             // 
@@ -131,6 +133,7 @@ namespace Punto_de_Venta.Pantallas
             this.rbCreditCardCheckOut.TabIndex = 151;
             this.rbCreditCardCheckOut.Text = "Tarjeta de Crédito";
             this.rbCreditCardCheckOut.UseVisualStyleBackColor = true;
+            this.rbCreditCardCheckOut.Click += new System.EventHandler(this.rbCreditCardCheckOut_Click);
             // 
             // txtCreditCardCheckOut
             // 
@@ -139,6 +142,7 @@ namespace Punto_de_Venta.Pantallas
             this.txtCreditCardCheckOut.Name = "txtCreditCardCheckOut";
             this.txtCreditCardCheckOut.Size = new System.Drawing.Size(107, 22);
             this.txtCreditCardCheckOut.TabIndex = 147;
+            this.txtCreditCardCheckOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreditCardCheckOut_KeyPress);
             // 
             // txtDebitCardCheckOut
             // 
@@ -147,6 +151,7 @@ namespace Punto_de_Venta.Pantallas
             this.txtDebitCardCheckOut.Name = "txtDebitCardCheckOut";
             this.txtDebitCardCheckOut.Size = new System.Drawing.Size(108, 22);
             this.txtDebitCardCheckOut.TabIndex = 146;
+            this.txtDebitCardCheckOut.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDebitCardCheckOut_KeyPress);
             // 
             // label4
             // 
@@ -192,12 +197,27 @@ namespace Punto_de_Venta.Pantallas
             this.btnExtendCheckOut.UseVisualStyleBackColor = false;
             this.btnExtendCheckOut.Click += new System.EventHandler(this.btnEditDepartament_Click);
             // 
+            // btnSearchCheckOut
+            // 
+            this.btnSearchCheckOut.BackColor = System.Drawing.Color.Navy;
+            this.btnSearchCheckOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchCheckOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearchCheckOut.Location = new System.Drawing.Point(404, 157);
+            this.btnSearchCheckOut.Name = "btnSearchCheckOut";
+            this.btnSearchCheckOut.Size = new System.Drawing.Size(98, 35);
+            this.btnSearchCheckOut.TabIndex = 158;
+            this.btnSearchCheckOut.Text = "Buscar";
+            this.btnSearchCheckOut.UseVisualStyleBackColor = false;
+            this.btnSearchCheckOut.Click += new System.EventHandler(this.btnSearchCheckOut_Click);
+            // 
             // checkOutScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.btnSearchCheckOut);
             this.Controls.Add(this.btnExtendCheckOut);
             this.Controls.Add(this.pbBillCheckOut);
             this.Controls.Add(this.label5);
@@ -236,5 +256,6 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbBillCheckOut;
         private System.Windows.Forms.Button btnExtendCheckOut;
+        private System.Windows.Forms.Button btnSearchCheckOut;
     }
 }

@@ -54,6 +54,7 @@ namespace Punto_de_Venta
             this.txtCodeCheckIn.Name = "txtCodeCheckIn";
             this.txtCodeCheckIn.Size = new System.Drawing.Size(310, 22);
             this.txtCodeCheckIn.TabIndex = 136;
+            this.txtCodeCheckIn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodeCheckIn_KeyPress);
             // 
             // label3
             // 
@@ -90,6 +91,7 @@ namespace Punto_de_Venta
             this.btnConfirmCheckIn.TabIndex = 137;
             this.btnConfirmCheckIn.Text = "Confirmar";
             this.btnConfirmCheckIn.UseVisualStyleBackColor = false;
+            this.btnConfirmCheckIn.Click += new System.EventHandler(this.btnConfirmCheckIn_Click);
             // 
             // InventaryScreen
             // 
@@ -104,7 +106,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label2);
             this.Name = "InventaryScreen";
             this.Text = "Inventario";
-            this.Load += new System.EventHandler(this.InventaryScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCheckIn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -142,6 +142,7 @@ namespace Punto_de_Venta
             this.btnAddCustomer.TabIndex = 155;
             this.btnAddCustomer.Text = "Agregar";
             this.btnAddCustomer.UseVisualStyleBackColor = false;
+            this.btnAddCustomer.Click += new System.EventHandler(this.btnAddCustomer_Click);
             // 
             // txtCellPhoneCustomers
             // 
@@ -217,6 +218,7 @@ namespace Punto_de_Venta
             this.txtLastName2Customers.Name = "txtLastName2Customers";
             this.txtLastName2Customers.Size = new System.Drawing.Size(146, 22);
             this.txtLastName2Customers.TabIndex = 173;
+            this.txtLastName2Customers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName2Customers_KeyPress);
             // 
             // txtLastName1Customers
             // 
@@ -225,6 +227,7 @@ namespace Punto_de_Venta
             this.txtLastName1Customers.Name = "txtLastName1Customers";
             this.txtLastName1Customers.Size = new System.Drawing.Size(146, 22);
             this.txtLastName1Customers.TabIndex = 172;
+            this.txtLastName1Customers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName1Customers_KeyPress);
             // 
             // label11
             // 
@@ -313,6 +316,7 @@ namespace Punto_de_Venta
             this.txtNameCustomers.Name = "txtNameCustomers";
             this.txtNameCustomers.Size = new System.Drawing.Size(146, 22);
             this.txtNameCustomers.TabIndex = 163;
+            this.txtNameCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameCustomers_KeyPress);
             // 
             // label1
             // 
@@ -406,7 +410,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label2);
             this.Name = "SellerReportScreen";
             this.Text = "Reporte por cajero";
-            this.Load += new System.EventHandler(this.SellerReportScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

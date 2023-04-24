@@ -19,44 +19,26 @@ namespace Punto_de_Venta
             
         }
 
-        private void txtInventaryExiste_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnConfirmCheckIn_Click(object sender, EventArgs e)
         {
-           
+            if (txtCodeCheckIn.TextLength == 0)
+            {
+                MessageBox.Show("Falta de escribir el codigo de reservación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
-        private void txtInventaryExiste_TextChanged(object sender, EventArgs e)
+        private void onlyNumbers(KeyPressEventArgs e)
         {
-            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void txtInventaryDepart_TextChanged(object sender, EventArgs e)
+        private void txtCodeCheckIn_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
-        }
-
-        private void rdYesOutInventary_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void rdNoOutInventary_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void rdYesDecreaseInventary_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void rdNoDecreaseInventary_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void InventaryScreen_Load(object sender, EventArgs e)
-        {
-           
+            onlyNumbers(e);
         }
     }
 }
