@@ -106,6 +106,7 @@ namespace Punto_de_Venta
             this.btnAddRoomExtend.TabIndex = 168;
             this.btnAddRoomExtend.Text = "Agregar";
             this.btnAddRoomExtend.UseVisualStyleBackColor = false;
+            this.btnAddRoomExtend.Click += new System.EventHandler(this.btnAddRoomExtend_Click);
             // 
             // txtPeopleExtend
             // 
@@ -114,6 +115,7 @@ namespace Punto_de_Venta
             this.txtPeopleExtend.Name = "txtPeopleExtend";
             this.txtPeopleExtend.Size = new System.Drawing.Size(219, 22);
             this.txtPeopleExtend.TabIndex = 167;
+            this.txtPeopleExtend.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeopleExtend_KeyPress);
             // 
             // label6
             // 
@@ -198,7 +200,6 @@ namespace Punto_de_Venta
             this.Name = "WaytoPayScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forma de pago";
-            this.Load += new System.EventHandler(this.WaytoPayScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoomsExtend)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoomsExtend2)).EndInit();
             this.ResumeLayout(false);

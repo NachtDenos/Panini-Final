@@ -15,86 +15,42 @@ namespace Punto_de_Venta
 {
     public partial class ReturnScreen : Form
     {
-        bool boton1 = false, boton2 = false;
-        int ticket;
-        string ticketNota;
-        float CostProducto;
-        int CodProducto;
-        int Aeliminar;
-        int Seregreso;
-        DateTime laFecha;
-        string motivo;
-        string NombreProduc;
-        int mermacion;
+
         public ReturnScreen()
         {
             InitializeComponent();
         }
 
-        private void btnOkReturn_Click(object sender, EventArgs e)
+        private void txtCountrySalesR_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+            onlyLetters(e);
         }
 
-        private void txtIdReturn_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtYearSalesR_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            onlyNumbers(e);
         }
 
-        private void txtQuantityReturn_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCitySalesR_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+            onlyLetters(e);
         }
 
-        private void dataGridReturn1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void onlyLetters(KeyPressEventArgs e)
         {
-            
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo se aceptan letras en este campo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
         }
-
-        private void dataGridReturn2_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void onlyNumbers(KeyPressEventArgs e)
         {
-            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
-
-        private void buttonEnableEdit(DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-        private void rbYesReturn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnAddReturn_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void filterBtnticket_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void ReturnScreen_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void rbNoReturn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnDeleteReturn_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
     }
 }

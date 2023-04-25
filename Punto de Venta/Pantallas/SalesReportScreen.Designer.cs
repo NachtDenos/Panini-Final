@@ -55,6 +55,7 @@ namespace Punto_de_Venta
             this.txtYearSalesR.Name = "txtYearSalesR";
             this.txtYearSalesR.Size = new System.Drawing.Size(123, 20);
             this.txtYearSalesR.TabIndex = 134;
+            this.txtYearSalesR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYearSalesR_KeyPress);
             // 
             // txtCitySalesR
             // 
@@ -62,6 +63,7 @@ namespace Punto_de_Venta
             this.txtCitySalesR.Name = "txtCitySalesR";
             this.txtCitySalesR.Size = new System.Drawing.Size(123, 20);
             this.txtCitySalesR.TabIndex = 133;
+            this.txtCitySalesR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCitySalesR_KeyPress);
             // 
             // txtHotelSalesR
             // 
@@ -86,6 +88,7 @@ namespace Punto_de_Venta
             this.txtCountrySalesR.Name = "txtCountrySalesR";
             this.txtCountrySalesR.Size = new System.Drawing.Size(123, 20);
             this.txtCountrySalesR.TabIndex = 130;
+            this.txtCountrySalesR.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCountrySalesR_KeyPress);
             // 
             // label4
             // 
@@ -212,7 +215,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label1);
             this.Name = "ReturnScreen";
             this.Text = "ReturnScreen";
-            this.Load += new System.EventHandler(this.ReturnScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSalesReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

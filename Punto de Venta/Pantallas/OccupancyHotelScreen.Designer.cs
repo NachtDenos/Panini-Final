@@ -63,6 +63,7 @@ namespace Punto_de_Venta
             this.txtCountryOccupancy.Name = "txtCountryOccupancy";
             this.txtCountryOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtCountryOccupancy.TabIndex = 116;
+            this.txtCountryOccupancy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCountryOccupancy_KeyPress);
             // 
             // label4
             // 
@@ -200,6 +201,7 @@ namespace Punto_de_Venta
             this.txtCityOccupancy.Name = "txtCityOccupancy";
             this.txtCityOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtCityOccupancy.TabIndex = 121;
+            this.txtCityOccupancy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCityOccupancy_KeyPress);
             // 
             // txtYearOccupancy
             // 
@@ -207,6 +209,7 @@ namespace Punto_de_Venta
             this.txtYearOccupancy.Name = "txtYearOccupancy";
             this.txtYearOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtYearOccupancy.TabIndex = 122;
+            this.txtYearOccupancy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYearOccupancy_KeyPress);
             // 
             // dataGridOccupancyReport2
             // 

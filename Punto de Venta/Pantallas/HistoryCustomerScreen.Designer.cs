@@ -218,8 +218,7 @@ namespace Punto_de_Venta
             this.txtCustomerHistory.Name = "txtCustomerHistory";
             this.txtCustomerHistory.Size = new System.Drawing.Size(123, 20);
             this.txtCustomerHistory.TabIndex = 106;
-            this.txtCustomerHistory.TextChanged += new System.EventHandler(this.txtVentaCajaReport_TextChanged);
-            this.txtCustomerHistory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtVentaCajaReport_KeyPress);
+            this.txtCustomerHistory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustomerHistory_KeyPress);
             // 
             // txtYearHistory
             // 
@@ -227,7 +226,7 @@ namespace Punto_de_Venta
             this.txtYearHistory.Name = "txtYearHistory";
             this.txtYearHistory.Size = new System.Drawing.Size(134, 20);
             this.txtYearHistory.TabIndex = 107;
-            this.txtYearHistory.TextChanged += new System.EventHandler(this.txtVentaDepaReport_TextChanged);
+            this.txtYearHistory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYearHistory_KeyPress);
             // 
             // SalesReportScreen
             // 
@@ -244,7 +243,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label2);
             this.Name = "SalesReportScreen";
             this.Text = "Reporte de Ventas";
-            this.Load += new System.EventHandler(this.SalesReportScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistoryReport)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

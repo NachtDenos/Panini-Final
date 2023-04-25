@@ -116,6 +116,7 @@ namespace Punto_de_Venta
             this.btnDeleteCustomer.TabIndex = 157;
             this.btnDeleteCustomer.Text = "Eliminar";
             this.btnDeleteCustomer.UseVisualStyleBackColor = false;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // btnEditCustomer
             // 
@@ -129,6 +130,7 @@ namespace Punto_de_Venta
             this.btnEditCustomer.TabIndex = 156;
             this.btnEditCustomer.Text = "Editar";
             this.btnEditCustomer.UseVisualStyleBackColor = false;
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // btnAddCustomer
             // 
@@ -151,6 +153,7 @@ namespace Punto_de_Venta
             this.txtCellPhoneCustomers.Name = "txtCellPhoneCustomers";
             this.txtCellPhoneCustomers.Size = new System.Drawing.Size(146, 22);
             this.txtCellPhoneCustomers.TabIndex = 181;
+            this.txtCellPhoneCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellPhoneCustomers_KeyPress);
             // 
             // label5
             // 
@@ -194,6 +197,7 @@ namespace Punto_de_Venta
             this.txtPhoneCustomers.Name = "txtPhoneCustomers";
             this.txtPhoneCustomers.Size = new System.Drawing.Size(146, 22);
             this.txtPhoneCustomers.TabIndex = 176;
+            this.txtPhoneCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneCustomers_KeyPress);
             // 
             // txtPayrollCustomers
             // 
@@ -202,6 +206,7 @@ namespace Punto_de_Venta
             this.txtPayrollCustomers.Name = "txtPayrollCustomers";
             this.txtPayrollCustomers.Size = new System.Drawing.Size(146, 22);
             this.txtPayrollCustomers.TabIndex = 175;
+            this.txtPayrollCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayrollCustomers_KeyPress);
             // 
             // txtEmailCustomers
             // 
@@ -335,6 +340,7 @@ namespace Punto_de_Venta
             this.txtCivilCustomers.Name = "txtCivilCustomers";
             this.txtCivilCustomers.Size = new System.Drawing.Size(146, 22);
             this.txtCivilCustomers.TabIndex = 183;
+            this.txtCivilCustomers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCivilCustomers_KeyPress);
             // 
             // label13
             // 
@@ -370,6 +376,7 @@ namespace Punto_de_Venta
             this.cbReferenceCustomers.Size = new System.Drawing.Size(146, 21);
             this.cbReferenceCustomers.TabIndex = 185;
             this.cbReferenceCustomers.Text = "Seleccionar";
+            this.cbReferenceCustomers.SelectedIndexChanged += new System.EventHandler(this.cbReferenceCustomers_SelectedIndexChanged);
             // 
             // SellerReportScreen
             // 

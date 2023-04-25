@@ -17,29 +17,31 @@ namespace Punto_de_Venta
             InitializeComponent();
         }
 
-        private void btnFiltroFechaVentas_Click(object sender, EventArgs e)
+        private void txtCustomerHistory_KeyPress(object sender, KeyPressEventArgs e)
         {
-           
+            onlyLetters(e);
         }
 
-        private void txtVentaDepaReport_TextChanged(object sender, EventArgs e)
+        private void txtYearHistory_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            onlyNumbers(e);
         }
 
-        private void txtVentaCajaReport_TextChanged(object sender, EventArgs e)
+        private void onlyLetters(KeyPressEventArgs e)
         {
-           
+            if ((e.KeyChar >= 33 && e.KeyChar <= 64) || (e.KeyChar >= 91 && e.KeyChar <= 96) || (e.KeyChar >= 123 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo se aceptan letras en este campo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Handled = true;
+                return;
+            }
         }
-
-        private void txtVentaCajaReport_KeyPress(object sender, KeyPressEventArgs e)
+        private void onlyNumbers(KeyPressEventArgs e)
         {
-            
-        }
-
-        private void SalesReportScreen_Load(object sender, EventArgs e)
-        {
-           
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
