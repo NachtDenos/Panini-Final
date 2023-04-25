@@ -176,6 +176,7 @@ namespace Punto_de_Venta
             this.cbCityReservations.Size = new System.Drawing.Size(436, 21);
             this.cbCityReservations.TabIndex = 114;
             this.cbCityReservations.Text = "Seleccionar";
+            this.cbCityReservations.SelectedIndexChanged += new System.EventHandler(this.cbCityReservations_SelectedIndexChanged);
             // 
             // dataGridRoomsRe
             // 
@@ -222,6 +223,7 @@ namespace Punto_de_Venta
             this.txtPeopleReservations.Name = "txtPeopleReservations";
             this.txtPeopleReservations.Size = new System.Drawing.Size(219, 22);
             this.txtPeopleReservations.TabIndex = 119;
+            this.txtPeopleReservations.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPeopleReservations_KeyPress);
             // 
             // label6
             // 
@@ -258,6 +260,7 @@ namespace Punto_de_Venta
             this.btnAddReser.TabIndex = 160;
             this.btnAddReser.Text = "Agregar";
             this.btnAddReser.UseVisualStyleBackColor = false;
+            this.btnAddReser.Click += new System.EventHandler(this.btnAddReser_Click);
             // 
             // dtpLodgingReser
             // 
@@ -292,6 +295,7 @@ namespace Punto_de_Venta
             this.rbDebitCardPayRe.TabIndex = 168;
             this.rbDebitCardPayRe.Text = "Tarjeta de Débito";
             this.rbDebitCardPayRe.UseVisualStyleBackColor = true;
+            this.rbDebitCardPayRe.Click += new System.EventHandler(this.rbDebitCardPayRe_Click);
             // 
             // rbCreditCardPayRe
             // 
@@ -302,6 +306,7 @@ namespace Punto_de_Venta
             this.rbCreditCardPayRe.TabIndex = 167;
             this.rbCreditCardPayRe.Text = "Tarjeta de Crédito";
             this.rbCreditCardPayRe.UseVisualStyleBackColor = true;
+            this.rbCreditCardPayRe.Click += new System.EventHandler(this.rbCreditCardPayRe_Click);
             // 
             // txtCreditCardPayRe
             // 
@@ -310,6 +315,7 @@ namespace Punto_de_Venta
             this.txtCreditCardPayRe.Name = "txtCreditCardPayRe";
             this.txtCreditCardPayRe.Size = new System.Drawing.Size(107, 22);
             this.txtCreditCardPayRe.TabIndex = 166;
+            this.txtCreditCardPayRe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCreditCardPayRe_KeyPress);
             // 
             // txtDebitCardPayRe
             // 
@@ -318,6 +324,7 @@ namespace Punto_de_Venta
             this.txtDebitCardPayRe.Name = "txtDebitCardPayRe";
             this.txtDebitCardPayRe.Size = new System.Drawing.Size(108, 22);
             this.txtDebitCardPayRe.TabIndex = 165;
+            this.txtDebitCardPayRe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDebitCardPayRe_KeyPress);
             // 
             // label9
             // 
@@ -338,6 +345,7 @@ namespace Punto_de_Venta
             this.rbTransferPayRe.TabIndex = 170;
             this.rbTransferPayRe.Text = "Transferencia";
             this.rbTransferPayRe.UseVisualStyleBackColor = true;
+            this.rbTransferPayRe.Click += new System.EventHandler(this.rbTransferPayRe_Click);
             // 
             // txtTransferPayRe
             // 
@@ -346,6 +354,7 @@ namespace Punto_de_Venta
             this.txtTransferPayRe.Name = "txtTransferPayRe";
             this.txtTransferPayRe.Size = new System.Drawing.Size(108, 22);
             this.txtTransferPayRe.TabIndex = 169;
+            this.txtTransferPayRe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTransferPayRe_KeyPress);
             // 
             // SalesScreen
             // 

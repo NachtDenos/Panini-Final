@@ -102,6 +102,7 @@ namespace Punto_de_Venta.Pantallas
             this.btnConfirmCheckOut.TabIndex = 142;
             this.btnConfirmCheckOut.Text = "Confirmar";
             this.btnConfirmCheckOut.UseVisualStyleBackColor = false;
+            this.btnConfirmCheckOut.Click += new System.EventHandler(this.btnConfirmCheckOut_Click);
             // 
             // label1
             // 

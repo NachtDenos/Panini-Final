@@ -70,7 +70,6 @@ namespace Punto_de_Venta
             this.txtFilterHotels.Name = "txtFilterHotels";
             this.txtFilterHotels.Size = new System.Drawing.Size(146, 22);
             this.txtFilterHotels.TabIndex = 54;
-            this.txtFilterHotels.TextChanged += new System.EventHandler(this.txtFilterProduct_TextChanged);
             // 
             // label12
             // 
@@ -94,7 +93,7 @@ namespace Punto_de_Venta
             this.btnDeleteHotels.TabIndex = 51;
             this.btnDeleteHotels.Text = "Eliminar";
             this.btnDeleteHotels.UseVisualStyleBackColor = false;
-            this.btnDeleteHotels.Click += new System.EventHandler(this.btnDeleteProduct_Click);
+            this.btnDeleteHotels.Click += new System.EventHandler(this.btnDeleteHotels_Click);
             // 
             // btnEditHotels
             // 
@@ -108,7 +107,7 @@ namespace Punto_de_Venta
             this.btnEditHotels.TabIndex = 50;
             this.btnEditHotels.Text = "Editar";
             this.btnEditHotels.UseVisualStyleBackColor = false;
-            this.btnEditHotels.Click += new System.EventHandler(this.btnEditProduct_Click);
+            this.btnEditHotels.Click += new System.EventHandler(this.btnEditHotels_Click);
             // 
             // btnAddHotels
             // 
@@ -141,7 +140,7 @@ namespace Punto_de_Venta
             this.txtNameHotelHotels.Name = "txtNameHotelHotels";
             this.txtNameHotelHotels.Size = new System.Drawing.Size(146, 22);
             this.txtNameHotelHotels.TabIndex = 29;
-            this.txtNameHotelHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdProduct_KeyPress);
+            this.txtNameHotelHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameHotelHotels_KeyPress);
             // 
             // label1
             // 
@@ -165,7 +164,6 @@ namespace Punto_de_Venta
             this.dataGridHotels.RowHeadersWidth = 51;
             this.dataGridHotels.Size = new System.Drawing.Size(452, 389);
             this.dataGridHotels.TabIndex = 98;
-            this.dataGridHotels.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridProduct_CellClick);
             // 
             // label8
             // 
@@ -191,6 +189,7 @@ namespace Punto_de_Venta
             this.txtCountryHotels.Name = "txtCountryHotels";
             this.txtCountryHotels.Size = new System.Drawing.Size(146, 22);
             this.txtCountryHotels.TabIndex = 103;
+            this.txtCountryHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCountryHotels_KeyPress);
             // 
             // label3
             // 
@@ -209,6 +208,7 @@ namespace Punto_de_Venta
             this.txtCityHotels.Name = "txtCityHotels";
             this.txtCityHotels.Size = new System.Drawing.Size(146, 22);
             this.txtCityHotels.TabIndex = 105;
+            this.txtCityHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCityHotels_KeyPress);
             // 
             // label4
             // 
@@ -227,6 +227,7 @@ namespace Punto_de_Venta
             this.txtStateHotels.Name = "txtStateHotels";
             this.txtStateHotels.Size = new System.Drawing.Size(146, 22);
             this.txtStateHotels.TabIndex = 107;
+            this.txtStateHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStateHotels_KeyPress);
             // 
             // label5
             // 
@@ -245,6 +246,7 @@ namespace Punto_de_Venta
             this.txtFloorsHotels.Name = "txtFloorsHotels";
             this.txtFloorsHotels.Size = new System.Drawing.Size(146, 22);
             this.txtFloorsHotels.TabIndex = 109;
+            this.txtFloorsHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFloorsHotels_KeyPress);
             // 
             // label6
             // 
@@ -263,6 +265,7 @@ namespace Punto_de_Venta
             this.txtRoomsHotels.Name = "txtRoomsHotels";
             this.txtRoomsHotels.Size = new System.Drawing.Size(146, 22);
             this.txtRoomsHotels.TabIndex = 111;
+            this.txtRoomsHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRoomsHotels_KeyPress);
             // 
             // label7
             // 
@@ -285,6 +288,7 @@ namespace Punto_de_Venta
             this.cbZoneHotels.Size = new System.Drawing.Size(146, 21);
             this.cbZoneHotels.TabIndex = 113;
             this.cbZoneHotels.Text = "Seleccionar";
+            this.cbZoneHotels.SelectedIndexChanged += new System.EventHandler(this.cbZoneHotels_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -328,6 +332,7 @@ namespace Punto_de_Venta
             this.txtBeachHotels.Name = "txtBeachHotels";
             this.txtBeachHotels.Size = new System.Drawing.Size(146, 22);
             this.txtBeachHotels.TabIndex = 116;
+            this.txtBeachHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBeachHotels_KeyPress);
             // 
             // txtPoolsHotels
             // 
@@ -336,6 +341,7 @@ namespace Punto_de_Venta
             this.txtPoolsHotels.Name = "txtPoolsHotels";
             this.txtPoolsHotels.Size = new System.Drawing.Size(146, 22);
             this.txtPoolsHotels.TabIndex = 117;
+            this.txtPoolsHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPoolsHotels_KeyPress);
             // 
             // txtEventsHotels
             // 
@@ -344,6 +350,7 @@ namespace Punto_de_Venta
             this.txtEventsHotels.Name = "txtEventsHotels";
             this.txtEventsHotels.Size = new System.Drawing.Size(146, 22);
             this.txtEventsHotels.TabIndex = 118;
+            this.txtEventsHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEventsHotels_KeyPress);
             // 
             // label11
             // 
@@ -414,7 +421,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label1);
             this.Name = "productsScreen";
             this.Text = "Products";
-            this.Load += new System.EventHandler(this.productsScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHotels)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

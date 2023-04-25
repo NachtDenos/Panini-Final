@@ -140,5 +140,10 @@ namespace Punto_de_Venta.Pantallas
             else
                 btnConfirmCheckOut.Enabled = false; 
         }
+
+        private void btnConfirmCheckOut_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

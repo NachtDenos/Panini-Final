@@ -12,94 +12,187 @@ namespace Punto_de_Venta
 {
     public partial class SalesScreen : Form
     {
-        
-       
+        bool check1 = false;
+        bool check2 = false;
+        bool check3 = false;
+        bool selection = false;
+        bool bandera;
+
         public SalesScreen()
         {
             InitializeComponent();
-           
+            btnConfirmReser.Enabled = false;
+            txtTransferPayRe.Enabled = false;
+            txtDebitCardPayRe.Enabled = false;
+            txtCreditCardPayRe.Enabled = false;
         }
 
-        private void btnQuickSearchSales_Click(object sender, EventArgs e)
+
+        private void btnAddEmployees_Click(object sender, EventArgs e)
         {
+            if (txtCustomerReservation.TextLength == 0)
+            {
+                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (selection == false)
+            {
+                MessageBox.Show("Seleccione una ciudad a visitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             QuickSearchScreen TheOtherForm = new QuickSearchScreen();
             TheOtherForm.ShowDialog();
         }
 
-        private void btnPaySales_Click(object sender, EventArgs e)
+        private void btnAddReser_Click(object sender, EventArgs e)
         {
-           
-            WaytoPayScreen TheOtherForm = new WaytoPayScreen();
-            TheOtherForm.ShowDialog();
-        }
+            DateTime fecha1 = dtpLodgingReser.Value;
+            DateTime fecha2 = dtpLodgingReser2.Value;
 
-        private void txtQuantitySales_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            onlyNumbers(sender, e);
-        }
-
-        public bool onlyNumbers(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            if (txtPeopleReservations.TextLength == 0)
             {
-                MessageBox.Show("Solo se aceptan números en este campo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Handled = true;
-                return false;
+                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            return true;
-        }
-
-        private void txtQuantityDeleteSales_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            onlyNumbers(sender, e);
-        }
-
-        private void btnAddSales_Click(object sender, EventArgs e)
-        {
-            
-           
-        }
-
-        private void btnDeleteSales_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtNumberSales_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((e.KeyChar >= 32 && e.KeyChar <= 47) || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            if (fecha1 == fecha2)
             {
-                MessageBox.Show("Solo se aceptan números en este campo", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                e.Handled = true;
+                MessageBox.Show("Las fechas no pueden ser iguales", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (fecha1 > fecha2)
+            {
+                MessageBox.Show("La primer fecha no puede ser mayor que la segunda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
 
-        private void dataGridProductSales_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void txtPeopleReservations_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-        }
-        //Hacer que lo que seleccione al datagrid sea lo que se meta a la tabla temporal,
-        //Ya sabes como es el datgriceelclick, obtener lo seleccionado de esa celda y con eso nada mas le decimos que cuanta cantidad y ya
-        private void btnFilterSales_Click(object sender, EventArgs e)
-        {
-           
+            onlyNumbers(e);
         }
 
-        private void dataGridCarritoSales_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void onlyNumbers(KeyPressEventArgs e)
         {
-            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
-        private void dataGridCarritoSales_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void rbCreditCardPayRe_Click(object sender, EventArgs e)
         {
-           
+            if (txtCreditCardPayRe.Enabled == false)
+            {
+                txtCreditCardPayRe.Enabled = true;
+                check1 = true;
+            }
+            else if (txtCreditCardPayRe.Enabled == true)
+            {
+                txtCreditCardPayRe.Enabled = false;
+                txtCreditCardPayRe.Text = "";
+                check1 = false;
+            }
+            checkButton();
         }
 
-        private void btnAddEmployees_Click(object sender, EventArgs e)
+        private void rbDebitCardPayRe_Click(object sender, EventArgs e)
         {
-            QuickSearchScreen TheOtherForm = new QuickSearchScreen();
-            TheOtherForm.ShowDialog();
+            if (txtDebitCardPayRe.Enabled == false)
+            {
+                txtDebitCardPayRe.Enabled = true;
+                check2 = true;
+            }
+            else if (txtDebitCardPayRe.Enabled == true)
+            {
+                txtDebitCardPayRe.Enabled = false;
+                txtDebitCardPayRe.Text = "";
+                check2 = false;
+            }
+            checkButton();
+        }
+
+        private void rbTransferPayRe_Click(object sender, EventArgs e)
+        {
+            if (txtTransferPayRe.Enabled == false)
+            {
+                txtTransferPayRe.Enabled = true;
+                check3 = true;
+            }
+            else if (txtTransferPayRe.Enabled == true)
+            {
+                txtTransferPayRe.Enabled = false;
+                txtTransferPayRe.Text = "";
+                check3 = false;
+            }
+            checkButton();
+        }
+
+        private void checkButton()
+        {
+            if (check1 == true || check2 == true || check3)
+                btnConfirmReser.Enabled = true;
+            else
+                btnConfirmReser.Enabled = false;
+        }
+
+        private void cbCityReservations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selection = true;
+        }
+
+        private void txtCreditCardPayRe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onePoint(e, txtCreditCardPayRe.Text); 
+        }
+
+        private void onePoint(KeyPressEventArgs e, String cadena)
+        {
+            int cont = 0;
+            String caracter = "";
+            for (int i = 0; i < cadena.Length; i++)
+            {
+                caracter = cadena.Substring(i, 1);
+                if (caracter == ".")
+                {
+                    cont++;
+                }
+            }
+            if (cont == 0)
+            {
+                bandera = true;
+                if (e.KeyChar.ToString().Equals(".") && bandera)
+                {
+                    bandera = false;
+                    e.Handled = false;
+                }
+                else if (Char.IsDigit(e.KeyChar))
+                    e.Handled = false;
+                else if (Char.IsControl(e.KeyChar))
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
+            else
+            {
+                bandera = false;
+                e.Handled = true;
+                if (Char.IsDigit(e.KeyChar))
+                    e.Handled = false;
+                else if (Char.IsControl(e.KeyChar))
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
+        }
+
+        private void txtDebitCardPayRe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onePoint(e, txtDebitCardPayRe.Text);
+        }
+
+        private void txtTransferPayRe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            onePoint(e, txtTransferPayRe.Text);
         }
     }
 }
