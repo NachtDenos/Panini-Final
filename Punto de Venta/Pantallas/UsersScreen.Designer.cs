@@ -76,7 +76,7 @@ namespace Punto_de_Venta
             this.txtNameUsers.Name = "txtNameUsers";
             this.txtNameUsers.Size = new System.Drawing.Size(146, 22);
             this.txtNameUsers.TabIndex = 2;
-            this.txtNameUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameEmployees_KeyPress);
+            this.txtNameUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNameUsers_KeyPress);
             // 
             // label2
             // 
@@ -175,7 +175,7 @@ namespace Punto_de_Venta
             this.txtLastName1Users.Name = "txtLastName1Users";
             this.txtLastName1Users.Size = new System.Drawing.Size(146, 22);
             this.txtLastName1Users.TabIndex = 13;
-            this.txtLastName1Users.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName1Employees_KeyPress);
+            this.txtLastName1Users.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName1Users_KeyPress);
             // 
             // txtLastName2Users
             // 
@@ -184,7 +184,7 @@ namespace Punto_de_Venta
             this.txtLastName2Users.Name = "txtLastName2Users";
             this.txtLastName2Users.Size = new System.Drawing.Size(146, 22);
             this.txtLastName2Users.TabIndex = 14;
-            this.txtLastName2Users.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName2Employees_KeyPress);
+            this.txtLastName2Users.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLastName2Users_KeyPress);
             // 
             // txtEmailUsers
             // 
@@ -201,7 +201,7 @@ namespace Punto_de_Venta
             this.txtPayrollUsers.Name = "txtPayrollUsers";
             this.txtPayrollUsers.Size = new System.Drawing.Size(146, 22);
             this.txtPayrollUsers.TabIndex = 17;
-            this.txtPayrollUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayrollEmployees_KeyPress);
+            this.txtPayrollUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPayrollUsers_KeyPress);
             // 
             // txtPhoneUsers
             // 
@@ -210,7 +210,7 @@ namespace Punto_de_Venta
             this.txtPhoneUsers.Name = "txtPhoneUsers";
             this.txtPhoneUsers.Size = new System.Drawing.Size(146, 22);
             this.txtPhoneUsers.TabIndex = 18;
-            this.txtPhoneUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdEmployees_KeyPress);
+            this.txtPhoneUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhoneUsers_KeyPress);
             // 
             // txtPassUsers
             // 
@@ -241,7 +241,7 @@ namespace Punto_de_Venta
             this.btnAddUsers.TabIndex = 22;
             this.btnAddUsers.Text = "Agregar";
             this.btnAddUsers.UseVisualStyleBackColor = false;
-            this.btnAddUsers.Click += new System.EventHandler(this.btnAddEmployees_Click);
+            this.btnAddUsers.Click += new System.EventHandler(this.btnAddUsers_Click);
             // 
             // btnEditUsers
             // 
@@ -255,7 +255,7 @@ namespace Punto_de_Venta
             this.btnEditUsers.TabIndex = 23;
             this.btnEditUsers.Text = "Editar";
             this.btnEditUsers.UseVisualStyleBackColor = false;
-            this.btnEditUsers.Click += new System.EventHandler(this.btnEditEmployees_Click);
+            this.btnEditUsers.Click += new System.EventHandler(this.btnEditUsers_Click);
             // 
             // btnDeleteUsers
             // 
@@ -269,7 +269,7 @@ namespace Punto_de_Venta
             this.btnDeleteUsers.TabIndex = 24;
             this.btnDeleteUsers.Text = "Eliminar";
             this.btnDeleteUsers.UseVisualStyleBackColor = false;
-            this.btnDeleteUsers.Click += new System.EventHandler(this.btnDeleteEmployees_Click);
+            this.btnDeleteUsers.Click += new System.EventHandler(this.btnDeleteUsers_Click);
             // 
             // dataGridUsers
             // 
@@ -284,7 +284,6 @@ namespace Punto_de_Venta
             this.dataGridUsers.RowHeadersWidth = 51;
             this.dataGridUsers.Size = new System.Drawing.Size(453, 377);
             this.dataGridUsers.TabIndex = 25;
-            this.dataGridUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridEmployees_CellClick);
             // 
             // txtFilterUsers
             // 
@@ -293,7 +292,6 @@ namespace Punto_de_Venta
             this.txtFilterUsers.Name = "txtFilterUsers";
             this.txtFilterUsers.Size = new System.Drawing.Size(146, 22);
             this.txtFilterUsers.TabIndex = 27;
-            this.txtFilterUsers.TextChanged += new System.EventHandler(this.txtFilterEmployees_TextChanged);
             // 
             // label12
             // 
@@ -320,6 +318,7 @@ namespace Punto_de_Venta
             this.txtCellPhoneUsers.Name = "txtCellPhoneUsers";
             this.txtCellPhoneUsers.Size = new System.Drawing.Size(146, 22);
             this.txtCellPhoneUsers.TabIndex = 30;
+            this.txtCellPhoneUsers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCellPhoneUsers_KeyPress);
             // 
             // label5
             // 
@@ -366,7 +365,6 @@ namespace Punto_de_Venta
             this.Controls.Add(this.label1);
             this.Name = "EmployeesScreen";
             this.Text = "EmployeesScreen";
-            this.Load += new System.EventHandler(this.EmployeesScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
