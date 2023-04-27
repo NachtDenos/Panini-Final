@@ -11,14 +11,12 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Text.RegularExpressions;
-using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
     public partial class EmployeesScreen : Form
     {
-        EnlaceCassandra cass = new EnlaceCassandra();
-        Usuario sus = new Usuario();
+        
         public EmployeesScreen()
         {
             InitializeComponent();
@@ -54,23 +52,6 @@ namespace Punto_de_Venta
                 MessageBox.Show("La contraseña tiene que tener 8 caracteres, mayusculas, minusculas, numeros y un caracter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            sus.nombre = txtNameUsers.Text;
-            sus.contrasena = txtPassUsers.Text;
-            sus.apellidoP = txtLastName1Users.Text;
-            sus.apellidoM = txtLastName2Users.Text;
-            
-            string correoGpt;
-            correoGpt = txtEmailUsers.Text;
-           // correoGpt = correoGpt.Replace("@", "\\@");
-            sus.Correo = correoGpt.ToString(); 
-            sus.nomina = txtPayrollUsers.Text;
-            sus.Telefono = txtCellPhoneUsers.Text;
-            sus.telefonoCasa = txtPhoneUsers.Text;
-            sus.Status = true;
-            sus.FechaNacimiento = dtpBirthUsers.Text;
-            sus.FechaIngreso = "2023-04-27";
-            cass.InsertarOperativos(sus);
-           
             clearTxt();
         }
 
