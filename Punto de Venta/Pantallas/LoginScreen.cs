@@ -13,20 +13,21 @@ using System.Data.SqlClient;
 using Punto_de_Venta;
 using System.Data.SqlTypes;
 
+
 namespace Punto_de_Venta
 {
     public partial class LoginScreenWnD : Form
     {
         int indexBox;
         bool selection = false;
-        
+        EnlaceCassandra cass = new EnlaceCassandra();
         public LoginScreenWnD()
         {
             InitializeComponent();
         }
         private void LoginScreenWnd_Load(object sender, EventArgs e)
-        { 
-
+        {
+            cass.ObtenerUsuarios();
         }
 
         private void LoginScreenWnD_FormClosed(object sender, FormClosedEventArgs e)
