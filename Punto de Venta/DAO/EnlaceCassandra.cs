@@ -14,6 +14,7 @@ namespace Punto_de_Venta
 {
     public class EnlaceCassandra
     {
+        //Soy un comentario y puedo dejar en claro que el webito con frijoles es lo maximo
         static private string _dbServer { set; get; }
         static private string _dbKeySpace { set; get; }
         static private Cluster _cluster;
