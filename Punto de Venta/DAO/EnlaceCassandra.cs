@@ -8,6 +8,7 @@ using Cassandra.Mapping;
 using System.Configuration;
 using System.Windows.Forms;
 using Cassandra.Data;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
@@ -91,6 +92,34 @@ namespace Punto_de_Venta
             return false;
         }
 
+        public bool InsertarOperativos(Usuario param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+
+                var query1 = "insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) " +
+                             " values ('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}', '{8}' , {9}, '{10}') if not exists; ";
+                query1 = string.Format(query1, param.nombre, param.contrasena, param.apellidoP, param.apellidoM, param.FechaNacimiento, param.Correo, param.Direccion, param.telefonoCasa, param.Telefono, param.Status, param.FechaIngreso);
+
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
         //public bool InsertUsers(users param)
         //{
         //    var Err = false; // SI no hay error
@@ -120,7 +149,7 @@ namespace Punto_de_Venta
         //    {
         //        // desconectar o cerrar la conexión
         //        desconectar();
-                
+
         //    }
         //    return Err;
         //}
@@ -160,7 +189,7 @@ namespace Punto_de_Venta
         //    try
         //    {
         //        conectar();
-                
+
         //        var query1 = "update clientes ";
         //        query1 += "set ";
         //        if (accion == 1)
@@ -211,7 +240,7 @@ namespace Punto_de_Venta
         //    try
         //    {
         //        conectar();
-                
+
         //        string qry = "insert into ejemplo(campo1, campo2) values(";
         //        qry = qry + id.ToString();
         //        qry = qry + ",'";
@@ -250,13 +279,13 @@ namespace Punto_de_Venta
         //{
         //    string query = "SELECT campo1, campo2 FROM ejemplo;";
         //    conectar();
-            
+
         //    IMapper mapper = new Mapper(_session);
         //    IEnumerable<Ejemplo> users = mapper.Fetch<Ejemplo>(query);
 
         //    desconectar();
         //    return users.ToList();
-            
+
         //}
 
         //// Ejemplo de leer row x row
@@ -268,7 +297,7 @@ namespace Punto_de_Venta
 
         //    // Execute a query on a connection synchronously 
         //    var rs = _session.Execute(query);
-            
+
         //    // Iterate through the RowSet 
         //    foreach (var row in rs)
         //    {
