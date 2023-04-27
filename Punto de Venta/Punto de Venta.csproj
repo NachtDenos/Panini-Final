@@ -132,6 +132,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="DAO\EnlaceCassandra.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Pantallas\checkOutScreen.cs">
       <SubType>Form</SubType>
     </Compile>

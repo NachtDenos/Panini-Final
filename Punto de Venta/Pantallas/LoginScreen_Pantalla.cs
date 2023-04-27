@@ -25,8 +25,13 @@ namespace Punto_de_Venta
             InitializeComponent();
         }
         private void LoginScreenWnd_Load(object sender, EventArgs e)
+<<<<<<< Updated upstream:Punto de Venta/Pantallas/LoginScreen_Pantalla.cs
         { 
 
+=======
+        {
+            cass.ObtenerUsuarios();//si leee el pelado
+>>>>>>> Stashed changes:Punto de Venta/Pantallas/LoginScreen.cs
         }
 
         private void LoginScreenWnD_FormClosed(object sender, FormClosedEventArgs e)
