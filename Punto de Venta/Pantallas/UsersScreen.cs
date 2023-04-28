@@ -250,7 +250,8 @@ namespace Punto_de_Venta
 
         private void btnDeleteUsers_Click(object sender, EventArgs e)
         {
-            //TODO:Hacer eliminacion
+            //SEGURO QUE QUIERES ELIMINAR?
+            cass.Delete_Usuarios(dataGridUsers.CurrentRow.Cells[3].Value.ToString());
         }
     }
 }

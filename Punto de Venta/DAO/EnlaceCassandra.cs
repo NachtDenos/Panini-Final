@@ -103,6 +103,30 @@ namespace Punto_de_Venta
             }
             return Err;
         }
+        public bool Delete_Usuarios(string email)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "delete from usuario where email='{0}' if exists";
+                query1 = string.Format(query1, email);
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
         public bool login(string email, string pass)
         {
             List<Usuario> lista = Obtener_usuarios();
