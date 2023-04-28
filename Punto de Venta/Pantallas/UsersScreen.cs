@@ -23,7 +23,7 @@ namespace Punto_de_Venta
         public EmployeesScreen()
         {
             InitializeComponent();
-            
+            dataGridUsers.DataSource = cass.Obtener_usuarios();
         }
 
         private void btnAddUsers_Click(object sender, EventArgs e)
@@ -60,23 +60,17 @@ namespace Punto_de_Venta
             sus.contrasena = txtPassUsers.Text;
             sus.apellidoP = txtLastName1Users.Text;
             sus.apellidoM = txtLastName2Users.Text;
-            string bolas = txtPayrollUsers.Text;
-            bool kevin;
-            int nomina;
-            kevin = Int32.TryParse(bolas,out nomina);
-            string correoGpt;
-            correoGpt = txtEmailUsers.Text;
-            // correoGpt = correoGpt.Replace("@", "\\@");
             string fechaReal = dtpBirthUsers.Text;
             String.Format("{0:yyyy-MM-dd}", fechaReal);
-            sus.Correo = correoGpt.ToString();
-            sus.Direccion = txtAddressUsers.Text;
-            sus.nomina = nomina;
-            sus.Telefono = txtCellPhoneUsers.Text;
+            sus.correo = txtEmailUsers.Text;
+            sus.direccion = txtAddressUsers.Text;
+            sus.nomina = txtPayrollUsers.Text;
+            sus.telefono = txtCellPhoneUsers.Text;
             sus.telefonoCasa = txtPhoneUsers.Text;
-            sus.Status = true;
+            sus.status = true;
             sus.FechaNacimiento = fechaReal;
-            sus.FechaIngreso = "2023-04-27";
+            sus.FechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
+            sus.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
             cass.InsertarOperativos(sus);
 
 
@@ -208,33 +202,49 @@ namespace Punto_de_Venta
 
         private void btnEditUsers_Click(object sender, EventArgs e)
         {
-            if (txtNameUsers.TextLength == 0 || txtLastName1Users.TextLength == 0 || txtLastName2Users.TextLength == 0 ||
-                txtEmailUsers.TextLength == 0 || txtPayrollUsers.TextLength == 0 || txtAddressUsers.TextLength == 0 ||
-                txtPhoneUsers.TextLength == 0 || txtCellPhoneUsers.TextLength == 0 || txtPassUsers.TextLength == 0)
-            {
-                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (validEmail(txtEmailUsers.Text) == false)
-            {
-                MessageBox.Show("Email no valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dateValidFuture(dtpBirthUsers.Value.Date) == false)
-            {
-                MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dateValidAge(dtpBirthUsers.Value.AddYears(18)) == false)
-            {
-                MessageBox.Show("Fecha no valida. Es menor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (correctPass(txtPassUsers.Text) == false)
-            {
-                MessageBox.Show("La contraseña tiene que tener 8 caracteres, mayusculas, minusculas, numeros y un caracter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (txtNameUsers.TextLength == 0 || txtLastName1Users.TextLength == 0 || txtLastName2Users.TextLength == 0 ||
+            //    txtEmailUsers.TextLength == 0 || txtPayrollUsers.TextLength == 0 || txtAddressUsers.TextLength == 0 ||
+            //    txtPhoneUsers.TextLength == 0 || txtCellPhoneUsers.TextLength == 0 || txtPassUsers.TextLength == 0)
+            //{
+            //    MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //if (validEmail(txtEmailUsers.Text) == false)
+            //{
+            //    MessageBox.Show("Email no valido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (dateValidFuture(dtpBirthUsers.Value.Date) == false)
+            //{
+            //    MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (dateValidAge(dtpBirthUsers.Value.AddYears(18)) == false)
+            //{
+            //    MessageBox.Show("Fecha no valida. Es menor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (correctPass(txtPassUsers.Text) == false)
+            //{
+            //    MessageBox.Show("La contraseña tiene que tener 8 caracteres, mayusculas, minusculas, numeros y un caracter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            sus.nombre = txtNameUsers.Text;
+            sus.contrasena = txtPassUsers.Text;
+            sus.apellidoP = txtLastName1Users.Text;
+            sus.apellidoM = txtLastName2Users.Text;
+            string fechaReal = dtpBirthUsers.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaReal);
+            sus.correo = txtEmailUsers.Text;
+            sus.direccion = txtAddressUsers.Text;
+            sus.nomina = txtPayrollUsers.Text;
+            sus.telefono = txtCellPhoneUsers.Text;
+            sus.telefonoCasa = txtPhoneUsers.Text;
+            sus.status = true;
+            sus.FechaNacimiento = fechaReal;
+            sus.FechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
+            sus.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
+            cass.Modif_Usuarios(sus, dataGridUsers.CurrentRow.Cells[3].Value.ToString());
             clearTxt();
         }
 

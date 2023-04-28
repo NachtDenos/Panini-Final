@@ -57,10 +57,13 @@ namespace Punto_de_Venta
                 }
                 if (indexBox == 0)
                 {
-                    Pantallas.MainAdminScreen TheOtherForm = new Pantallas.MainAdminScreen();
-                    this.Hide();
-                    TheOtherForm.ShowDialog();
-                    this.Show();
+                    if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text))
+                    {
+                        Pantallas.MainAdminScreen TheOtherForm = new Pantallas.MainAdminScreen();
+                        this.Hide();
+                        TheOtherForm.ShowDialog();
+                        this.Show();
+                    }
                 }
             }
         }
