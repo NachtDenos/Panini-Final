@@ -132,6 +132,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DAO\EnlaceCassandra.cs" />
     <Compile Include="Pantallas\checkOutScreen.cs">

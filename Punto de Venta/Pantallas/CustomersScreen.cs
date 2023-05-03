@@ -8,11 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using Cassandra.Data;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
     public partial class SellerReportScreen : Form
     {
+        Clientes client = new Clientes();
+        EnlaceCassandra cass = new EnlaceCassandra();
         bool selection = false;
         public SellerReportScreen()
         {
@@ -55,6 +59,24 @@ namespace Punto_de_Venta
             {
                 MessageBox.Show("Fecha no valida. Es menor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            client.nombre = txtNameCustomers.Text; 
+            client.apellidoP = txtLastName1Customers.Text; 
+            client.apellidoM = txtLastName2Customers.Text;
+            client.fechaNacimiento = dtpBirthCustomers.Text;
+            client.correo = txtEmailCustomers.Text;
+            client.direccion = txtAddressCustomers.Text;
+            client.nomina = txtPayrollCustomers.Text;
+            client.telefonoCasa = txtPhoneCustomers.Text;
+            client.telefonoPersonal = txtCellPhoneCustomers.Text;
+            client.rfc = txtRFCCustomers.Text;
+            client.estado = true;
+            client.situacionCivil = txtCivilCustomers.Text;
+            client.referencias = cbReferenceCustomers.Text;
+           var success = cass.insert_Clientes(client);
+            if (success)
+            {
+                MessageBox.Show("Insercion realizada", "Correcto");
             }
             clearTxt();
         }

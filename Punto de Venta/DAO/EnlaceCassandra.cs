@@ -231,6 +231,34 @@ namespace Punto_de_Venta
             return Err;
         }
 
+        public bool insert_Clientes(Clientes clients)
+        {
+            var Err = true;
+            try
+            {
+                conectar();
+                var query = "insert into cliente(name,p_lastname,m_lastname, birthdate,email,address,phone_home,phone_personal,rfc,marital_status,references,status)"
+                    + "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}'); ";
+                query = string.Format(query, clients.nombre, clients.apellidoP, clients.apellidoM, clients.fechaNacimiento, clients.correo, clients.direccion, clients.telefonoCasa, clients.telefonoPersonal, clients.rfc, clients.situacionCivil, clients.referencias, "Activo");
+                int i = 1;
+                i = 2;
+                _session.Execute(query);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            
+            }
+            finally
+            {
+                desconectar();
+            }
+            return Err;
+        }
+
+
         //public bool InsertUsers(users param)
         //{
         //    var Err = false; // SI no hay error
