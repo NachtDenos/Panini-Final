@@ -87,6 +87,7 @@ namespace Punto_de_Venta
             this.dataGridCustomers.RowHeadersWidth = 51;
             this.dataGridCustomers.Size = new System.Drawing.Size(603, 479);
             this.dataGridCustomers.TabIndex = 161;
+            this.dataGridCustomers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomers_CellClick);
             // 
             // txtFilterCustomer
             // 

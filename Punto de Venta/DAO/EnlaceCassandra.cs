@@ -48,7 +48,7 @@ namespace Punto_de_Venta
         }
         public List<Usuario> Obtener_usuarios()
         {
-            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status, date_register, time_register from usuario;";
+            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status, date_register from usuario;";
             List<Usuario> lista= new List<Usuario>();
             conectar();
             var ResultSet = _session.Execute(query);
@@ -67,7 +67,7 @@ namespace Punto_de_Venta
                 usuarios.telefono = row.GetValue<string>("phone_personal");
                 usuarios.status=row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
                 usuarios.FechaIngreso = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
-                usuarios.horaderegistro = row.GetValue<string>("time_register");
+                //usuarios.horaderegistro = row.GetValue<string>("time_register");
                 lista.Add(usuarios);
             }
             
@@ -238,7 +238,7 @@ namespace Punto_de_Venta
             {
                 conectar();
                 var query = "insert into cliente(name,p_lastname,m_lastname, birthdate,email,address,phone_home,phone_personal,rfc,marital_status,references,status)"
-                    + "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}'); ";
+                    + "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}') if not exists; ";
                 query = string.Format(query, clients.nombre, clients.apellidoP, clients.apellidoM, clients.fechaNacimiento, clients.correo, clients.direccion, clients.telefonoCasa, clients.telefonoPersonal, clients.rfc, clients.situacionCivil, clients.referencias, "Activo");
                 int i = 1;
                 i = 2;
@@ -254,6 +254,89 @@ namespace Punto_de_Venta
             finally
             {
                 desconectar();
+            }
+            return Err;
+        }
+
+        public bool UpdateClientes(Clientes param)
+        {
+            var err = true;
+            try
+            {
+                conectar();
+                //Checar si se permite cambair correo
+                var query = "update cliente set " +
+                    "p_lastname='{0}', m_lastname='{1}', birthdate='{2}'," +
+                    "address='{3}', phone_home='{4}', phone_personal='{5}'," +
+                    "rfc='{6}', marital_status='{7}', references='{8}' where email='{9}' if exists";
+                query = string.Format(query, param.apellidoP, param.apellidoM, param.fechaNacimiento, param.direccion
+                    , param.telefonoCasa, param.telefonoPersonal, param.rfc, param.situacionCivil, param.referencias, param.correo);
+                _session.Execute(query);
+            }
+            catch (Exception E)
+            {
+                err = false;
+                MessageBox.Show(E.ToString());
+                return err;
+                throw;
+            }
+            finally
+            {
+                desconectar();
+            }
+            return err;
+        }
+
+        public List<Clientes> Obtener_clientes()
+        {
+            string query = "select name, p_lastname, m_lastname, email, address, birthdate, phone_home, phone_personal, phone_home, rfc, references, marital_status, status from cliente;";
+            List<Clientes> lista = new List<Clientes>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Clientes clientes = new Clientes();
+                clientes.nombre = row.GetValue<string>("name");
+                clientes.apellidoP = row.GetValue<string>("p_lastname");
+                clientes.apellidoM = row.GetValue<string>("m_lastname");
+                clientes.correo = row.GetValue<string>("email");
+                clientes.direccion = row.GetValue<string>("address");
+                clientes.fechaNacimiento = row.GetValue<object>("birthdate") == null ? "" : row.GetValue<object>("birthdate").ToString();
+                clientes.telefonoCasa = row.GetValue<string>("phone_home");
+                clientes.telefonoPersonal = row.GetValue<string>("phone_personal");
+                clientes.rfc = row.GetValue<string>("rfc");
+                clientes.referencias = row.GetValue<string>("references");
+                clientes.situacionCivil = row.GetValue<string>("marital_status");
+                clientes.estado = row.GetValue<string>("status");
+                lista.Add(clientes);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public bool DeleteClientes(string email)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "delete from cliente where email='{0}' if exists";
+                query1 = string.Format(query1, email);
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
             }
             return Err;
         }

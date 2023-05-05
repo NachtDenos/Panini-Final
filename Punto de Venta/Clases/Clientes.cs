@@ -20,7 +20,7 @@ namespace Punto_de_Venta.Clases
         public string situacionCivil { get; set; }
         public string referencias { get; set; }
         public string nomina { get; set; }
-        public bool estado { get; set; }
+        public string estado { get; set; }
         
 
 

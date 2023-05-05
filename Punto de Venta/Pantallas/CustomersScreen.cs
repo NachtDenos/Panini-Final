@@ -21,7 +21,7 @@ namespace Punto_de_Venta
         public SellerReportScreen()
         {
             InitializeComponent();
-            
+            dataGridCustomers.DataSource = cass.Obtener_clientes();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
@@ -70,7 +70,7 @@ namespace Punto_de_Venta
             client.telefonoCasa = txtPhoneCustomers.Text;
             client.telefonoPersonal = txtCellPhoneCustomers.Text;
             client.rfc = txtRFCCustomers.Text;
-            client.estado = true;
+            client.estado = "activo";
             client.situacionCivil = txtCivilCustomers.Text;
             client.referencias = cbReferenceCustomers.Text;
            var success = cass.insert_Clientes(client);
@@ -219,6 +219,26 @@ namespace Punto_de_Venta
                 MessageBox.Show("Fecha no valida. Es menor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            client.nombre = txtNameCustomers.Text;
+            client.apellidoP = txtLastName1Customers.Text;
+            client.apellidoM = txtLastName2Customers.Text;
+            client.fechaNacimiento = dtpBirthCustomers.Text;
+            client.correo = txtEmailCustomers.Text;
+            client.direccion = txtAddressCustomers.Text;
+            client.nomina = txtPayrollCustomers.Text;
+            client.telefonoCasa = txtPhoneCustomers.Text;
+            client.telefonoPersonal = txtCellPhoneCustomers.Text;
+            client.rfc = txtRFCCustomers.Text;
+            client.estado = "activo";
+            client.situacionCivil = txtCivilCustomers.Text;
+            client.referencias = cbReferenceCustomers.Text;
+            var success = cass.UpdateClientes(client);
+            if (success)
+            {
+                MessageBox.Show("Actualizacion exitosa", "exito");
+                dataGridCustomers.DataSource = cass.Obtener_clientes();
+            }
+
             clearTxt();
         }
 
@@ -240,6 +260,26 @@ namespace Punto_de_Venta
             txtRFCCustomers.Text = "";
             txtCivilCustomers.Text = "";
             cbReferenceCustomers.Text = "Seleccionar";
+        }
+
+        private void dataGridCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridCustomers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dataGridCustomers.CurrentRow.Selected = true;
+                
+                txtNameCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                txtLastName1Customers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["apellidoP"].Value.ToString();
+                txtLastName2Customers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["apellidoM"].Value.ToString();
+                dtpBirthCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["fechaNacimiento"].Value.ToString();
+                txtEmailCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["correo"].Value.ToString();
+                txtAddressCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
+                txtPhoneCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["telefonoCasa"].Value.ToString();
+                txtCellPhoneCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["telefonoPersonal"].Value.ToString();
+                txtRFCCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["rfc"].Value.ToString();
+                txtCivilCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["situacionCivil"].Value.ToString();
+                cbReferenceCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["referencias"].Value.ToString();
+            }
         }
     }
 }
