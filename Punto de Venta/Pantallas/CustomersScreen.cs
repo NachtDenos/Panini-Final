@@ -22,11 +22,14 @@ namespace Punto_de_Venta
         {
             InitializeComponent();
             dataGridCustomers.DataSource = cass.Obtener_clientes();
+            btnEditCustomer.Enabled = false;
+            btnDeleteCustomer.Enabled = false;
+            dataGridCustomers.ClearSelection();
         }
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            if (txtNameCustomers.TextLength == 0 || txtLastName1Customers.TextLength == 0 || txtLastName2Customers.TextLength == 0 ||
+            /*if (txtNameCustomers.TextLength == 0 || txtLastName1Customers.TextLength == 0 || txtLastName2Customers.TextLength == 0 ||
                 txtEmailCustomers.TextLength == 0 || txtPayrollCustomers.TextLength == 0 || txtAddressCustomers.TextLength == 0 ||
                 txtPhoneCustomers.TextLength == 0 || txtCellPhoneCustomers.TextLength == 0 || txtRFCCustomers.TextLength == 0 ||
                 txtCivilCustomers.TextLength == 0)
@@ -59,7 +62,8 @@ namespace Punto_de_Venta
             {
                 MessageBox.Show("Fecha no valida. Es menor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
+            }*/
+
             client.nombre = txtNameCustomers.Text; 
             client.apellidoP = txtLastName1Customers.Text; 
             client.apellidoM = txtLastName2Customers.Text;
@@ -76,9 +80,11 @@ namespace Punto_de_Venta
            var success = cass.insert_Clientes(client);
             if (success)
             {
-                MessageBox.Show("Insercion realizada", "Correcto");
+                dataGridCustomers.DataSource = cass.Obtener_clientes();
+                MessageBox.Show("Se agrego al cliente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             clearTxt();
+            dataGridCustomers.ClearSelection();
         }
 
         private void onlyLetters(KeyPressEventArgs e)
@@ -185,7 +191,7 @@ namespace Punto_de_Venta
 
         private void btnEditCustomer_Click(object sender, EventArgs e)
         {
-            if (txtNameCustomers.TextLength == 0 || txtLastName1Customers.TextLength == 0 || txtLastName2Customers.TextLength == 0 ||
+            /*if (txtNameCustomers.TextLength == 0 || txtLastName1Customers.TextLength == 0 || txtLastName2Customers.TextLength == 0 ||
                 txtEmailCustomers.TextLength == 0 || txtPayrollCustomers.TextLength == 0 || txtAddressCustomers.TextLength == 0 ||
                 txtPhoneCustomers.TextLength == 0 || txtCellPhoneCustomers.TextLength == 0 || txtRFCCustomers.TextLength == 0 ||
                 txtCivilCustomers.TextLength == 0)
@@ -218,7 +224,7 @@ namespace Punto_de_Venta
             {
                 MessageBox.Show("Fecha no valida. Es menor de edad", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }
+            }*/
             client.nombre = txtNameCustomers.Text;
             client.apellidoP = txtLastName1Customers.Text;
             client.apellidoM = txtLastName2Customers.Text;
@@ -235,16 +241,28 @@ namespace Punto_de_Venta
             var success = cass.UpdateClientes(client);
             if (success)
             {
-                MessageBox.Show("Actualizacion exitosa", "exito");
+                MessageBox.Show("Se edito al cliente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dataGridCustomers.DataSource = cass.Obtener_clientes();
             }
 
             clearTxt();
+            btnAddCustomer.Enabled = true;
+            btnEditCustomer.Enabled = false;
+            btnDeleteCustomer.Enabled = false;
+            dataGridCustomers.ClearSelection();
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            //TODO:Eliminar
+            var success = cass.DeleteClientes(dataGridCustomers.CurrentRow.Cells[4].Value.ToString(), dataGridCustomers.CurrentRow.Cells[0].Value.ToString());
+            if (success)
+                MessageBox.Show("Se elimno al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clearTxt();
+            btnAddCustomer.Enabled = true;
+            btnEditCustomer.Enabled = false;
+            btnDeleteCustomer.Enabled = false;
+            dataGridCustomers.ClearSelection();
+            dataGridCustomers.DataSource = cass.Obtener_clientes();
         }
 
         private void clearTxt()
@@ -264,21 +282,32 @@ namespace Punto_de_Venta
 
         private void dataGridCustomers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridCustomers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                dataGridCustomers.CurrentRow.Selected = true;
-                
-                txtNameCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
-                txtLastName1Customers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["apellidoP"].Value.ToString();
-                txtLastName2Customers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["apellidoM"].Value.ToString();
-                dtpBirthCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["fechaNacimiento"].Value.ToString();
-                txtEmailCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["correo"].Value.ToString();
-                txtAddressCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
-                txtPhoneCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["telefonoCasa"].Value.ToString();
-                txtCellPhoneCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["telefonoPersonal"].Value.ToString();
-                txtRFCCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["rfc"].Value.ToString();
-                txtCivilCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["situacionCivil"].Value.ToString();
-                cbReferenceCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["referencias"].Value.ToString();
+                if (dataGridCustomers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridCustomers.CurrentRow.Selected = true;
+
+                    txtNameCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                    txtLastName1Customers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["apellidoP"].Value.ToString();
+                    txtLastName2Customers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["apellidoM"].Value.ToString();
+                    dtpBirthCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["fechaNacimiento"].Value.ToString();
+                    txtEmailCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["correo"].Value.ToString();
+                    txtAddressCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
+                    txtPhoneCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["telefonoCasa"].Value.ToString();
+                    txtCellPhoneCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["telefonoPersonal"].Value.ToString();
+                    txtRFCCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["rfc"].Value.ToString();
+                    txtCivilCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["situacionCivil"].Value.ToString();
+                    cbReferenceCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["referencias"].Value.ToString();
+                    txtPayrollCustomers.Text = dataGridCustomers.Rows[e.RowIndex].Cells["nomina"].Value.ToString();
+                    btnDeleteCustomer.Enabled = true;
+                    btnEditCustomer.Enabled = true;
+                    btnAddCustomer.Enabled = false;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

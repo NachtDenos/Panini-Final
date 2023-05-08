@@ -7,38 +7,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
     public partial class productsScreen : Form
     {
+        Hoteles hotel = new Hoteles();
+        EnlaceCassandra cass = new EnlaceCassandra();
         bool selection = false;
         public productsScreen()
         {
             InitializeComponent();
-            
+            dataGridHotels.DataSource = cass.Obtener_hoteles();
         }
         
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            if (txtNameHotelHotels.TextLength == 0 || txtCountryHotels.TextLength == 0 || txtCityHotels.TextLength == 0 ||
-                txtStateHotels.TextLength == 0 || txtFloorsHotels.TextLength == 0 || txtRoomsHotels.TextLength == 0 ||
-                txtBeachHotels.TextLength == 0 || txtPoolsHotels.TextLength == 0 || txtEventsHotels.TextLength == 0)
+            //if (txtNameHotelHotels.TextLength == 0 || txtCountryHotels.TextLength == 0 || txtCityHotels.TextLength == 0 ||
+            //    txtStateHotels.TextLength == 0 || txtFloorsHotels.TextLength == 0 || txtRoomsHotels.TextLength == 0 ||
+            //    txtBeachHotels.TextLength == 0 || txtPoolsHotels.TextLength == 0 || txtEventsHotels.TextLength == 0)
+            //{
+            //    MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //if (selection == false)
+            //{
+            //    MessageBox.Show("Seleccione una zona turistica", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (dateValidFuture(dtpOperatHotels.Value.Date) == false)
+            //{
+            //    MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            hotel.hotel = txtNameHotelHotels.Text;
+            hotel.pais = txtCountryHotels.Text;
+            hotel.ciudad = txtCityHotels.Text;
+            hotel.estado = txtStateHotels.Text;
+            int numeroPisosReal = int.Parse(txtFloorsHotels.Text);
+            hotel.numeroPisos = numeroPisosReal;
+            int numeroHabitacionesReal = int.Parse(txtRoomsHotels.Text);
+            hotel.cantidadHabitaciones = numeroHabitacionesReal;
+            hotel.zonaTuristica = cbZoneHotels.Text;
+            hotel.frentePlaya = txtBeachHotels.Text;
+            int numeroPiscinasReal = int.Parse(txtPoolsHotels.Text);
+            hotel.cantidadPiscinas = numeroPiscinasReal;
+            int numeroSalonesReal = int.Parse(txtEventsHotels.Text);
+            hotel.salonesEventos = numeroSalonesReal;
+            string fechaReal = dtpOperatHotels.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaReal);
+            hotel.inicioOperaciones = fechaReal;
+
+            var success = cass.InsertarHoteles(hotel);
+            if (success)
             {
-                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (selection == false)
-            {
-                MessageBox.Show("Seleccione una zona turistica", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dateValidFuture(dtpOperatHotels.Value.Date) == false)
-            {
-                MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                dataGridHotels.DataSource = cass.Obtener_hoteles();
+                MessageBox.Show("Se agrego el hotel.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             clearTxt();
+            dataGridHotels.ClearSelection();
         }
 
         private void onlyLetters(KeyPressEventArgs e)
@@ -75,28 +103,28 @@ namespace Punto_de_Venta
 
         private void btnEditHotels_Click(object sender, EventArgs e)
         {
-            if (txtNameHotelHotels.TextLength == 0 || txtCountryHotels.TextLength == 0 || txtCityHotels.TextLength == 0 ||
-                txtStateHotels.TextLength == 0 || txtFloorsHotels.TextLength == 0 || txtRoomsHotels.TextLength == 0 ||
-                txtBeachHotels.TextLength == 0 || txtPoolsHotels.TextLength == 0 || txtEventsHotels.TextLength == 0)
-            {
-                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (selection == false)
-            {
-                MessageBox.Show("Seleccione una zona turistica", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (cbZoneHotels.Text == "Seleccionar")
-            {
-                MessageBox.Show("Seleccione una zona turistica", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (dateValidFuture(dtpOperatHotels.Value.Date) == false)
-            {
-                MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (txtNameHotelHotels.TextLength == 0 || txtCountryHotels.TextLength == 0 || txtCityHotels.TextLength == 0 ||
+            //    txtStateHotels.TextLength == 0 || txtFloorsHotels.TextLength == 0 || txtRoomsHotels.TextLength == 0 ||
+            //    txtBeachHotels.TextLength == 0 || txtPoolsHotels.TextLength == 0 || txtEventsHotels.TextLength == 0)
+            //{
+            //    MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //if (selection == false)
+            //{
+            //    MessageBox.Show("Seleccione una zona turistica", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (cbZoneHotels.Text == "Seleccionar")
+            //{
+            //    MessageBox.Show("Seleccione una zona turistica", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (dateValidFuture(dtpOperatHotels.Value.Date) == false)
+            //{
+            //    MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             clearTxt();
         }
 

@@ -47,6 +47,7 @@ namespace Punto_de_Venta
                 MessageBox.Show("No seleccionó su puesto", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
+                //Empleado
                 if (indexBox == 1)
                 {
                     // int claveUserI = Int32.Parse(UserNameSQLSideTextBox.Text);
@@ -57,6 +58,7 @@ namespace Punto_de_Venta
                 }
                 if (indexBox == 0)
                 {
+                    //Administrador
                     if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text))
                     {
                         Pantallas.MainAdminScreen TheOtherForm = new Pantallas.MainAdminScreen();

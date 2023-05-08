@@ -24,6 +24,9 @@ namespace Punto_de_Venta
         {
             InitializeComponent();
             dataGridUsers.DataSource = cass.Obtener_usuarios();
+            btnEditUsers.Enabled = false;
+            btnDeleteUsers.Enabled = false;
+            dataGridUsers.ClearSelection();
         }
 
         private void btnAddUsers_Click(object sender, EventArgs e)
@@ -71,11 +74,12 @@ namespace Punto_de_Venta
             sus.FechaNacimiento = fechaReal;
             sus.FechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
             sus.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
-            cass.InsertarOperativos(sus);
-
-
-
+            var success = cass.InsertarOperativos(sus);
+            if (success)
+                MessageBox.Show("Se agrego al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             clearTxt();
+            dataGridUsers.DataSource = cass.Obtener_usuarios();
         }
 
         public static bool validEmail(string checkEmail)
@@ -229,6 +233,9 @@ namespace Punto_de_Venta
             //    MessageBox.Show("La contraseña tiene que tener 8 caracteres, mayusculas, minusculas, numeros y un caracter especial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
+
+
+
             sus.nombre = txtNameUsers.Text;
             sus.contrasena = txtPassUsers.Text;
             sus.apellidoP = txtLastName1Users.Text;
@@ -244,14 +251,58 @@ namespace Punto_de_Venta
             sus.FechaNacimiento = fechaReal;
             sus.FechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
             sus.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
-            cass.Modif_Usuarios(sus, dataGridUsers.CurrentRow.Cells[3].Value.ToString());
+            var success = cass.Modif_Usuarios(sus, dataGridUsers.CurrentRow.Cells[3].Value.ToString());
+            if (success)
+                MessageBox.Show("Se edito al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             clearTxt();
+            btnAddUsers.Enabled = true;
+            btnEditUsers.Enabled = false;
+            btnDeleteUsers.Enabled = false;
+            dataGridUsers.ClearSelection();
+            dataGridUsers.DataSource = cass.Obtener_usuarios();
         }
 
         private void btnDeleteUsers_Click(object sender, EventArgs e)
         {
             //SEGURO QUE QUIERES ELIMINAR?
-            cass.Delete_Usuarios(dataGridUsers.CurrentRow.Cells[3].Value.ToString());
+            var success = cass.Delete_Usuarios(dataGridUsers.CurrentRow.Cells[3].Value.ToString());
+            if (success)
+                MessageBox.Show("Se elimno al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnAddUsers.Enabled = true;
+            btnEditUsers.Enabled = false;
+            btnDeleteUsers.Enabled = false;
+            clearTxt();
+            dataGridUsers.ClearSelection();
+            dataGridUsers.DataSource = cass.Obtener_usuarios();
+        }
+
+        private void dataGridUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridUsers.AllowUserToAddRows = false;
+                if (dataGridUsers.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridUsers.CurrentRow.Selected = true;
+                    txtNameUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["nombre"].Value.ToString();
+                    txtPassUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["contrasena"].Value.ToString();
+                    txtLastName1Users.Text = dataGridUsers.Rows[e.RowIndex].Cells["apellidoP"].Value.ToString(); 
+                    txtLastName2Users.Text = dataGridUsers.Rows[e.RowIndex].Cells["apellidoM"].Value.ToString();
+                    dtpBirthUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["FechaNacimiento"].Value.ToString(); 
+                    txtEmailUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["correo"].Value.ToString(); 
+                    txtAddressUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["direccion"].Value.ToString();
+                    txtPayrollUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["nomina"].Value.ToString();
+                    txtCellPhoneUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["telefono"].Value.ToString();
+                    txtPhoneUsers.Text = dataGridUsers.Rows[e.RowIndex].Cells["telefonoCasa"].Value.ToString();
+                    btnEditUsers.Enabled = true;
+                    btnDeleteUsers.Enabled = true;
+                    btnAddUsers.Enabled = false;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
