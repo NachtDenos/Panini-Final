@@ -363,9 +363,9 @@ namespace Punto_de_Venta
                 hotel.cantidadHabitaciones = row.GetValue<string>("rooms_number");
                 hotel.zonaTuristica = row.GetValue<string>("turistic_zone");
                 hotel.serviciosAdicionales = row.GetValue<string>("services_add");
-                hotel.frentePlaya = row.GetValue<string>("beach");
+                hotel.frentePlaya = row.GetValue<bool>("beach").ToString();
                 hotel.cantidadPiscinas = row.GetValue<string>("pool_number");
-                hotel.salonesEventos = row.GetValue<string>("events_room");
+                hotel.salonesEventos = row.GetValue<bool>("events_room").ToString();
                 hotel.inicioOperaciones = row.GetValue<object>("operations_date") == null ? "" : row.GetValue<object>("operations_date").ToString();
                 
                 lista.Add(hotel);
@@ -384,10 +384,10 @@ namespace Punto_de_Venta
                 conectar();
                 //Cambie algo en las tablas
                 var query1 = "insert into hotel(name, country, city, state, floors_number, rooms_number, " +
-                    "turistic_zone, beach, pool_number, events_room, operations_date) " +
-                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}') if not exists; ";
+                    "turistic_zone, beach, pool_number, events_room, operations_date, services_add, status) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', true) if not exists; ";
                 query1 = string.Format(query1, param.hotel, param.pais, param.ciudad, param.estado, param.numeroPisos,
-                    param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones);
+                    param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales);
                 int i = -1;
                 _session.Execute(query1);
             }
@@ -405,7 +405,60 @@ namespace Punto_de_Venta
             }
             return Err;
         }
+        public bool UpdateHotel(Hoteles param)
+        {
+            var err = true;
+            try
+            {
+                conectar();
+                var query = "update hotel set " +
+                    "country='{0}', city='{1}'," +
+                    "state='{2}', floors_number='{3}', rooms_number='{4}'," +
+                    "turistic_zone='{5}', beach='{6}', pool_number='{7}', events_room='{8}', operations_date='{9}',services_add='{10}' where name='{11}' if exists";
+                query = string.Format(query, param.pais, param.ciudad, param.estado, param.numeroPisos,
+                     param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales, param.hotel);
 
+                _session.Execute(query);
+            }
+            catch (Exception E)
+            {
+                err = false;
+                MessageBox.Show(E.ToString());
+                return err;
+                throw;
+            }
+            finally
+            {
+                desconectar();
+            }
+            return err;
+        }
+
+        public bool DeleteHotel(Hoteles param)
+        {
+            var err = true;
+            try
+            {
+                conectar();
+                var query = "update hotel set " +
+                    "status=false where name='{11}' if exists";
+                query = string.Format(query, param.hotel);
+
+                _session.Execute(query);
+            }
+            catch (Exception E)
+            {
+                err = false;
+                MessageBox.Show(E.ToString());
+                return err;
+                throw;
+            }
+            finally
+            {
+                desconectar();
+            }
+            return err;
+        }
 
         //public bool InsertUsers(users param)
         //{

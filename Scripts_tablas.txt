@@ -1,4 +1,13 @@
+CREATE KEYSPACE if not exists pia_hoteles
+WITH replication = {
+	'class' : 'SimpleStrategy',
+	'replication_factor' : 1
+};
+
+
+//Quite la clustery para que jalara el edit
 CREATE TABLE pia_hoteles.usuario (
+id_user uuid,
 name text,
 p_lastname text,
 m_lastname text,
@@ -10,6 +19,7 @@ phone_home text,
 phone_personal text,
 password text,
 status boolean,
+register_date date,
 date_register date,
 time_register text,
 PRIMARY KEY (email)
@@ -21,27 +31,31 @@ last_pass text,
 last_last_pass text,
 PRIMARY KEY (id_user)
 );
+
+
 CREATE TABLE pia_hoteles.hotel (
 id_hotel uuid,
 name text,
 country text,
 city text,
 state text,
-floors_number int,
-rooms_number int,
+floors_number text,
+rooms_number text,
 turistic_zone text,
-services_add list<text>,
-beach boolean,
-pool_number int,
-events_room boolean,
+services_add text,
+beach text,
+pool_number text,
+events_room text,
 register_date date,
 operations_date text,
 status boolean,
 date_register date,
 hour_register text,
 user_register text,
-PRIMARY KEY (id_hotel, name)
+PRIMARY KEY (name)
 );
+
+
 CREATE TABLE pia_hoteles.habitacion (
 id_room uuid,
 type text,
@@ -60,6 +74,8 @@ hour_register text,
 user_register text,
 PRIMARY KEY (id_room, type)
 );
+
+
 CREATE TABLE pia_hoteles.cliente (
 id_clients uuid,
 name text,
@@ -68,16 +84,19 @@ m_lastname text,
 birthdate date,
 email text,
 address text,
-phone_home int,
-phone_personal int,
+phone_home text,
+phone_personal text,
 rfc text,
+payroll_number text,
 marital_status text,
 references text,
-status boolean,
+status text,
 change_date timestamp,
 last_updater UUID,
-PRIMARY KEY (id_clients, p_lastname)
+PRIMARY KEY (name, email)
 );
+
+
 CREATE TABLE pia_hoteles.reserva(
 id_reserva uuid,
 client_own uuid,
@@ -95,6 +114,8 @@ hour_register text,
 user_register text,
 PRIMARY KEY (id_reserva, init_date)
 );
+
+
 CREATE TABLE pia_hoteles.reportehotel(
 name text,
 city text,
@@ -106,6 +127,8 @@ ocupattion float,
 guests text,
 PRIMARY KEY ((name), city, country, date_)
 );
+
+
 CREATE TABLE pia_hoteles.reporteventas(
 name text,
 city text,
@@ -116,6 +139,8 @@ services float,
 total float,
 PRIMARY KEY ((name), city, country, date_)
 );
+
+
 CREATE TABLE pia_hoteles.historialcliente(
 id_customer uuid,
 name_customer text,
@@ -136,6 +161,8 @@ services float,
 total float,
 PRIMARY KEY (date_reservation, lastp_customer)
 );
+
+
 CREATE TABLE pia_hoteles.activarusuario (
 id_user uuid,
 name text,
@@ -145,6 +172,8 @@ email text,
 status text,
 PRIMARY KEY (status, id_user)
 );
+
+
 CREATE TABLE pia_hoteles.cancelaciones (
 id_cancellations uuid,
 id_reservation uuid,
@@ -154,6 +183,8 @@ hour text,
 user_cancellation text,
 PRIMARY KEY (id_cancellations, user_cancellation)
 );
+
+
 CREATE TABLE pia_hoteles.buscarcliente (
 id_user uuid,
 name text,
@@ -163,6 +194,8 @@ email text,
 rfc text,
 PRIMARY KEY (p_lastname, m_lastname)
 );
+
+
 CREATE TABLE pia_hoteles.buscarcliente2 (
 id_user uuid,
 name text,
@@ -172,6 +205,8 @@ email text,
 rfc text,
 PRIMARY KEY (email, p_lastname)
 );
+
+
 CREATE TABLE pia_hoteles.buscarcliente3 (
 id_user uuid,
 name text,
@@ -181,6 +216,8 @@ email text,
 rfc text,
 PRIMARY KEY (rfc, p_lastname)
 );
+
+
 CREATE TABLE pia_hoteles.buscarciudad (
 id_hotel uuid,
 name text,
@@ -196,9 +233,11 @@ pool_number int,
 events_room boolean,
 PRIMARY KEY (city, name)
 );
-
 select * from usuario;
-use pia_hoteles;
+select * from cliente;
+select * from hotel;
+insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
+insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
+insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','Wonder99','Espinoza','Morales','2003-10-16','isaacpro553@gmail.com','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
 
-INSERT INTO usuario (email,password,address,birthdate,date_register,m_lastname,name,p_lastname,payroll_number,phone_home,phone_personal,status,time_register) VALUES ('isaac@gmail.com','contrasena','Escomiedo','2002-03-02','2023-04-28','Morales','Isaac','Espinoza','1231321','1111','12222',true,'14:23:48');
-
+INSERT INTO hotel (name,beach,city,country,date_register,events_room,floors_number,hour_register,id_hotel,operations_date,pool_number,register_date,rooms_number,services_add,state,status,turistic_zone,user_register) VALUES ('Edshotel',true,'ciupapa','de las maravillas',null,true,'2',null,null,'2023-05-09','2',null,'2','WiFi Renta de DVD Masajes Restaurantes','pasivo',null,'Activo',null);

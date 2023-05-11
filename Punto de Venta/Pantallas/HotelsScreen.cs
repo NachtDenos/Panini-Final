@@ -45,20 +45,28 @@ namespace Punto_de_Venta
             hotel.pais = txtCountryHotels.Text;
             hotel.ciudad = txtCityHotels.Text;
             hotel.estado = txtStateHotels.Text;
-            int numeroPisosReal = int.Parse(txtFloorsHotels.Text);
-            hotel.numeroPisos = numeroPisosReal;
-            int numeroHabitacionesReal = int.Parse(txtRoomsHotels.Text);
-            hotel.cantidadHabitaciones = numeroHabitacionesReal;
+            //int numeroPisosReal = int.Parse(txtFloorsHotels.Text);
+            hotel.numeroPisos = txtFloorsHotels.Text;
+            //int numeroHabitacionesReal = int.Parse(txtRoomsHotels.Text);
+            hotel.cantidadHabitaciones = txtRoomsHotels.Text;
             hotel.zonaTuristica = cbZoneHotels.Text;
-            hotel.frentePlaya = txtBeachHotels.Text;
-            int numeroPiscinasReal = int.Parse(txtPoolsHotels.Text);
-            hotel.cantidadPiscinas = numeroPiscinasReal;
-            int numeroSalonesReal = int.Parse(txtEventsHotels.Text);
-            hotel.salonesEventos = numeroSalonesReal;
+           // int numeroPiscinasReal = int.Parse(txtPoolsHotels.Text);
+            hotel.cantidadPiscinas = txtPoolsHotels.Text;
+            //int numeroSalonesReal = int.Parse(txtEventsHotels.Text);
+            hotel.salonesEventos = txtEventsHotels.Text;
+            hotel.frentePlaya = cbBeachHotels.Text; 
             string fechaReal = dtpOperatHotels.Text;
             String.Format("{0:yyyy-MM-dd}", fechaReal);
             hotel.inicioOperaciones = fechaReal;
-
+            string soyservicios="";
+            for(int x = 0; x<clbServicesHotels.CheckedItems.Count; x++)
+            {
+                if (x + 1 == clbServicesHotels.CheckedItems.Count)
+                    soyservicios += clbServicesHotels.CheckedItems[x].ToString();
+                else
+                    soyservicios += clbServicesHotels.CheckedItems[x].ToString() + " ";
+            }
+            hotel.serviciosAdicionales = soyservicios;
             var success = cass.InsertarHoteles(hotel);
             if (success)
             {
@@ -101,7 +109,7 @@ namespace Punto_de_Venta
             return true;
         }
 
-        private void btnEditHotels_Click(object sender, EventArgs e)
+        private void btnEditHotels_Click(object sender, EventArgs e) //NO LO PROBÉ
         {
             //if (txtNameHotelHotels.TextLength == 0 || txtCountryHotels.TextLength == 0 || txtCityHotels.TextLength == 0 ||
             //    txtStateHotels.TextLength == 0 || txtFloorsHotels.TextLength == 0 || txtRoomsHotels.TextLength == 0 ||
@@ -125,12 +133,47 @@ namespace Punto_de_Venta
             //    MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
+            hotel.hotel = txtNameHotelHotels.Text;
+            hotel.pais = txtCountryHotels.Text;
+            hotel.ciudad = txtCityHotels.Text;
+            hotel.estado = txtStateHotels.Text;
+            //int numeroPisosReal = int.Parse(txtFloorsHotels.Text);
+            hotel.numeroPisos = txtFloorsHotels.Text;
+            //int numeroHabitacionesReal = int.Parse(txtRoomsHotels.Text);
+            hotel.cantidadHabitaciones = txtRoomsHotels.Text;
+            hotel.zonaTuristica = cbZoneHotels.Text;
+            // int numeroPiscinasReal = int.Parse(txtPoolsHotels.Text);
+            hotel.cantidadPiscinas = txtPoolsHotels.Text;
+            //int numeroSalonesReal = int.Parse(txtEventsHotels.Text);
+            hotel.salonesEventos = txtEventsHotels.Text;
+            hotel.frentePlaya = cbBeachHotels.Text;
+            string fechaReal = dtpOperatHotels.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaReal);
+            hotel.inicioOperaciones = fechaReal;
+            string soyservicios = "";
+            for (int x = 0; x < clbServicesHotels.CheckedItems.Count; x++)
+            {
+                if (x + 1 == clbServicesHotels.CheckedItems.Count)
+                    soyservicios += clbServicesHotels.CheckedItems[x].ToString();
+                else
+                    soyservicios += clbServicesHotels.CheckedItems[x].ToString() + " ";
+            }
+            hotel.serviciosAdicionales = soyservicios;
+            var success = cass.UpdateHotel(hotel);
+            if (success)
+            {
+                dataGridHotels.DataSource = cass.Obtener_hoteles();
+                MessageBox.Show("Se modificó el hotel.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             clearTxt();
         }
 
         private void btnDeleteHotels_Click(object sender, EventArgs e)
         {
-            //TODO: Bajas
+            //SIN PROBAR
+            var success = cass.Delete_Usuarios(dataGridHotels.CurrentRow.Cells[3].Value.ToString());
+            if (success)
+                MessageBox.Show("Se elimno al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txtNameHotelHotels_KeyPress(object sender, KeyPressEventArgs e)
@@ -186,7 +229,6 @@ namespace Punto_de_Venta
             txtStateHotels.Text = "";
             txtFloorsHotels.Text = "";
             txtRoomsHotels.Text = "";
-            txtBeachHotels.Text = "";
             txtPoolsHotels.Text = "";
             txtEventsHotels.Text = "";
             cbZoneHotels.Text = "Seleccionar";

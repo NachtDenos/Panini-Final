@@ -54,12 +54,12 @@ namespace Punto_de_Venta
             this.label9 = new System.Windows.Forms.Label();
             this.clbServicesHotels = new System.Windows.Forms.CheckedListBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtBeachHotels = new System.Windows.Forms.TextBox();
             this.txtPoolsHotels = new System.Windows.Forms.TextBox();
             this.txtEventsHotels = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.cbBeachHotels = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHotels)).BeginInit();
             this.SuspendLayout();
             // 
@@ -129,7 +129,7 @@ namespace Punto_de_Venta
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(386, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 44);
+            this.label2.Size = new System.Drawing.Size(152, 44);
             this.label2.TabIndex = 30;
             this.label2.Text = "Hoteles";
             // 
@@ -177,6 +177,8 @@ namespace Punto_de_Venta
             // 
             // dtpOperatHotels
             // 
+            this.dtpOperatHotels.CustomFormat = "yyyy-MM-dd";
+            this.dtpOperatHotels.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpOperatHotels.Location = new System.Drawing.Point(273, 520);
             this.dtpOperatHotels.Name = "dtpOperatHotels";
             this.dtpOperatHotels.Size = new System.Drawing.Size(146, 20);
@@ -325,15 +327,6 @@ namespace Punto_de_Venta
             this.label10.TabIndex = 115;
             this.label10.Text = "Servicios adicionales";
             // 
-            // txtBeachHotels
-            // 
-            this.txtBeachHotels.Location = new System.Drawing.Point(273, 405);
-            this.txtBeachHotels.Multiline = true;
-            this.txtBeachHotels.Name = "txtBeachHotels";
-            this.txtBeachHotels.Size = new System.Drawing.Size(146, 22);
-            this.txtBeachHotels.TabIndex = 116;
-            this.txtBeachHotels.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBeachHotels_KeyPress);
-            // 
             // txtPoolsHotels
             // 
             this.txtPoolsHotels.Location = new System.Drawing.Point(273, 442);
@@ -382,18 +375,30 @@ namespace Punto_de_Venta
             this.label14.TabIndex = 121;
             this.label14.Text = "Salones de eventos";
             // 
+            // cbBeachHotels
+            // 
+            this.cbBeachHotels.FormattingEnabled = true;
+            this.cbBeachHotels.Items.AddRange(new object[] {
+            "Si",
+            "No"});
+            this.cbBeachHotels.Location = new System.Drawing.Point(273, 406);
+            this.cbBeachHotels.Name = "cbBeachHotels";
+            this.cbBeachHotels.Size = new System.Drawing.Size(146, 21);
+            this.cbBeachHotels.TabIndex = 122;
+            this.cbBeachHotels.Text = "Seleccionar";
+            // 
             // productsScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.cbBeachHotels);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtEventsHotels);
             this.Controls.Add(this.txtPoolsHotels);
-            this.Controls.Add(this.txtBeachHotels);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.clbServicesHotels);
             this.Controls.Add(this.cbZoneHotels);
@@ -454,11 +459,11 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckedListBox clbServicesHotels;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtBeachHotels;
         private System.Windows.Forms.TextBox txtPoolsHotels;
         private System.Windows.Forms.TextBox txtEventsHotels;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbBeachHotels;
     }
 }
