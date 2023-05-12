@@ -348,7 +348,7 @@ namespace Punto_de_Venta
 
         public List<Hoteles> Obtener_hoteles()
         {
-            string query = "select name, country, city, state, floors_number, rooms_number, turistic_zone, services_add, beach, pool_number, events_room, operations_date from hotel;";
+            string query = "select name, country, city, state, floors_number, rooms_number, turistic_zone, services_add, beach, pool_number, events_room, operations_date, status from hotel;";
             List<Hoteles> lista = new List<Hoteles>();
             conectar();
             var ResultSet = _session.Execute(query);
@@ -363,16 +363,34 @@ namespace Punto_de_Venta
                 hotel.cantidadHabitaciones = row.GetValue<string>("rooms_number");
                 hotel.zonaTuristica = row.GetValue<string>("turistic_zone");
                 hotel.serviciosAdicionales = row.GetValue<string>("services_add");
-                hotel.frentePlaya = row.GetValue<bool>("beach").ToString();
+                hotel.frentePlaya = row.GetValue<string>("beach");
                 hotel.cantidadPiscinas = row.GetValue<string>("pool_number");
-                hotel.salonesEventos = row.GetValue<bool>("events_room").ToString();
+                hotel.salonesEventos = row.GetValue<string>("events_room");
                 hotel.inicioOperaciones = row.GetValue<object>("operations_date") == null ? "" : row.GetValue<object>("operations_date").ToString();
-                
+                hotel.status = row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
                 lista.Add(hotel);
             }
 
             desconectar();
             return lista;
+
+        }
+
+        public List<Hoteles> obtener_hotel_cb()
+        {
+            string query = "select name from hotel;";
+            List<Hoteles> lista2 = new List<Hoteles>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Hoteles hotel = new Hoteles();
+                hotel.hotel = row.GetValue<string>("name");
+                lista2.Add(hotel);
+            }
+
+            desconectar();
+            return lista2;
 
         }
 
@@ -434,15 +452,15 @@ namespace Punto_de_Venta
             return err;
         }
 
-        public bool DeleteHotel(Hoteles param)
+        public bool DeleteHotel(string param)
         {
             var err = true;
             try
             {
                 conectar();
                 var query = "update hotel set " +
-                    "status=false where name='{11}' if exists";
-                query = string.Format(query, param.hotel);
+                    "status=false where name='{0}' if exists";
+                query = string.Format(query, param);
 
                 _session.Execute(query);
             }

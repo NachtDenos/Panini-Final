@@ -20,6 +20,9 @@ namespace Punto_de_Venta
         {
             InitializeComponent();
             dataGridHotels.DataSource = cass.Obtener_hoteles();
+            btnEditHotels.Enabled = false;
+            btnDeleteHotels.Enabled = false;
+            dataGridHotels.ClearSelection();
         }
         
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -166,14 +169,24 @@ namespace Punto_de_Venta
                 MessageBox.Show("Se modificó el hotel.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             clearTxt();
+            btnAddHotels.Enabled = true;
+            btnEditHotels.Enabled = false;
+            btnDeleteHotels.Enabled = false;
+            dataGridHotels.ClearSelection();
+            dataGridHotels.DataSource = cass.Obtener_hoteles();
         }
 
         private void btnDeleteHotels_Click(object sender, EventArgs e)
         {
-            //SIN PROBAR
-            var success = cass.Delete_Usuarios(dataGridHotels.CurrentRow.Cells[3].Value.ToString());
+            var success = cass.DeleteHotel(dataGridHotels.CurrentRow.Cells[0].Value.ToString());
             if (success)
-                MessageBox.Show("Se elimno al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se elimno al hotel.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            clearTxt();
+            btnAddHotels.Enabled = true;
+            btnEditHotels.Enabled = false;
+            btnDeleteHotels.Enabled = false;
+            dataGridHotels.ClearSelection();
+            dataGridHotels.DataSource = cass.Obtener_hoteles();
         }
 
         private void txtNameHotelHotels_KeyPress(object sender, KeyPressEventArgs e)
@@ -232,6 +245,38 @@ namespace Punto_de_Venta
             txtPoolsHotels.Text = "";
             txtEventsHotels.Text = "";
             cbZoneHotels.Text = "Seleccionar";
+            cbBeachHotels.Text = "Seleccionar";
+        }
+
+        private void dataGridHotels_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridHotels.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridHotels.CurrentRow.Selected = true;
+
+                    txtNameHotelHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["hotel"].Value.ToString();
+                    txtCountryHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["pais"].Value.ToString();
+                    txtCityHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["ciudad"].Value.ToString();
+                    txtStateHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["estado"].Value.ToString();
+                    txtFloorsHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["numeroPisos"].Value.ToString();
+                    txtRoomsHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["cantidadHabitaciones"].Value.ToString();
+                    cbZoneHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["zonaTuristica"].Value.ToString();
+                    //txtCellPhoneCustomers.Text = dataGridHotels.Rows[e.RowIndex].Cells["serviciosAdicionales"].Value.ToString();
+                    cbBeachHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["frentePlaya"].Value.ToString();
+                    txtPoolsHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["cantidadPiscinas"].Value.ToString();
+                    txtEventsHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["salonesEventos"].Value.ToString();
+                    dtpOperatHotels.Text = dataGridHotels.Rows[e.RowIndex].Cells["inicioOperaciones"].Value.ToString();
+                    btnDeleteHotels.Enabled = true;
+                    btnEditHotels.Enabled = true;
+                    btnAddHotels.Enabled = false;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

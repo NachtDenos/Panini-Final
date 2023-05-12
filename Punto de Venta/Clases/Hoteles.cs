@@ -20,5 +20,6 @@ namespace Punto_de_Venta.Clases
         public string cantidadPiscinas { get; set; }
         public string salonesEventos { get; set; }
         public string inicioOperaciones { get; set; }
+        public bool status { get; set; }
     }
 }
