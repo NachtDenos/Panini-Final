@@ -4,8 +4,6 @@ WITH replication = {
 	'replication_factor' : 1
 };
 
-
-//Quite la clustery para que jalara el edit
 CREATE TABLE pia_hoteles.usuario (
 id_user uuid,
 name text,
@@ -233,11 +231,13 @@ pool_number int,
 events_room boolean,
 PRIMARY KEY (city, name)
 );
+
+truncate hotel;
 select * from usuario;
 select * from cliente;
 select * from hotel;
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
-insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','Wonder99','Espinoza','Morales','2003-10-16','isaacpro553@gmail.com','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
+insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','123','Espinoza','Morales','2003-10-16','a','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
 
 INSERT INTO hotel (name,beach,city,country,date_register,events_room,floors_number,hour_register,id_hotel,operations_date,pool_number,register_date,rooms_number,services_add,state,status,turistic_zone,user_register) VALUES ('Edshotel',true,'ciupapa','de las maravillas',null,true,'2',null,null,'2023-05-09','2',null,'2','WiFi Renta de DVD Masajes Restaurantes','pasivo',null,'Activo',null);
