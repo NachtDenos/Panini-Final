@@ -133,6 +133,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Clientes.cs" />
+    <Compile Include="Clases\Habitaciones.cs" />
     <Compile Include="Clases\Hoteles.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DAO\EnlaceCassandra.cs" />

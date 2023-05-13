@@ -478,6 +478,63 @@ namespace Punto_de_Venta
             return err;
         }
 
+        public bool InsertarHabitaciones(Habitaciones param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "insert into habitacion(hotel, type, beds_number, beds_type, price, people_number, " +
+                    "room_level, frontof, details, amenities, status) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', true) if not exists; ";
+                query1 = string.Format(query1, param.hotel, param.tipoHabitacion, param.numeroCamas, param.tiposCama, param.precioPorNoche,
+                                        param.cantidadPersonas, param.nivelHabitacion, param.frenteA, param.caracteristicas, param.amenidades);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
+        public List<Habitaciones> Obtener_habitaciones()
+        {
+            string query = "select hotel, type, beds_number, beds_type, price, people_number, room_level, frontof, details, amenities, status from habitacion;";
+            List<Habitaciones> lista = new List<Habitaciones>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Habitaciones habitacion = new Habitaciones();
+                habitacion.hotel = row.GetValue<string>("hotel");
+                habitacion.tipoHabitacion = row.GetValue<string>("type");
+                habitacion.numeroCamas = row.GetValue<string>("beds_number");
+                habitacion.tiposCama = row.GetValue<string>("beds_type");
+                habitacion.precioPorNoche = row.GetValue<string>("price");
+                habitacion.cantidadPersonas = row.GetValue<string>("people_number");
+                habitacion.nivelHabitacion = row.GetValue<string>("room_level");
+                habitacion.frenteA = row.GetValue<string>("frontof");
+                habitacion.caracteristicas = row.GetValue<string>("details");
+                habitacion.amenidades = row.GetValue<string>("amenities");
+                habitacion.estatus = row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
+                lista.Add(habitacion);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
         //public bool InsertUsers(users param)
         //{
         //    var Err = false; // SI no hay error

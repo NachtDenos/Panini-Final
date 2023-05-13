@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
@@ -11,54 +12,94 @@ namespace Punto_de_Venta
         bool selection2 = false;
         bool selection3 = false;
         bool bandera;
+        Habitaciones cuarto = new Habitaciones();
+        EnlaceCassandra cass = new EnlaceCassandra();
 
         public departamentScreen()
         {
             InitializeComponent();
-           
+            var hotel = cass.obtener_hotel_cb();
+            cbHotelBedrooms.DataSource = hotel;
+            cbHotelBedrooms.DisplayMember = "hotel";
+            dataGridBedrooms.DataSource = cass.Obtener_habitaciones();
         }
 
         private void btnAddDepartament_Click(object sender, EventArgs e)
         {
             //Espacios vacios
-            if (txtTypeRoomBedrooms.TextLength == 0 || txtNumberBedsBedrooms.TextLength == 0 || txtPriceNightBedrooms.TextLength == 0 ||
-                txtNumPeopleBedroom.TextLength == 0 || txtCharacteBedrooms.TextLength == 0)
-            {
-                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            //if (txtTypeRoomBedrooms.TextLength == 0 || txtNumberBedsBedrooms.TextLength == 0 || txtPriceNightBedrooms.TextLength == 0 ||
+            //    txtNumPeopleBedroom.TextLength == 0 || txtCharacteBedrooms.TextLength == 0)
+            //{
+            //    MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
             //ComboBox
-            if (selection == false || selection2 == false || selection3 == false)
+            //if (selection == false || selection2 == false || selection3 == false)
+            //{
+            //    if (selection == false)
+            //        MessageBox.Show("Seleccione un Hotel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    else if (selection2 == false)
+            //        MessageBox.Show("Seleccione un tipo de cama", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    else if (selection3 == false)
+            //        MessageBox.Show("Seleccione un nivel de habitación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
+            //if (cbHotelBedrooms.Text == "Seleccionar")
+            //{
+            //    MessageBox.Show("Seleccione un hotel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (cbLevelRoomBedroom.Text == "Seleccionar")
+            //{
+            //    MessageBox.Show("Seleccione un nivel de habitación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (cbTypeBedBedrooms.Text == "Seleccionar")
+            //{
+            //    MessageBox.Show("Seleccione un tipo de habitación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (clbFrontBedroom.CheckedItems.Count == 0)
+            //{
+            //    MessageBox.Show("Seleccione al menos una opción en 'Frente a...'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
+            cuarto.hotel = cbHotelBedrooms.Text;
+            cuarto.tipoHabitacion = txtTypeRoomBedrooms.Text;
+            cuarto.numeroCamas = txtNumberBedsBedrooms.Text;
+            cuarto.tiposCama = cbTypeBedBedrooms.Text;
+            cuarto.precioPorNoche = txtPriceNightBedrooms.Text;
+            cuarto.cantidadPersonas = txtNumPeopleBedroom.Text;
+            cuarto.nivelHabitacion = cbLevelRoomBedroom.Text;
+            string frenteA = "";
+            for (int x = 0; x<clbFrontBedroom.CheckedItems.Count; x++)
             {
-                if (selection == false)
-                    MessageBox.Show("Seleccione un Hotel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (selection2 == false)
-                    MessageBox.Show("Seleccione un tipo de cama", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else if (selection3 == false)
-                    MessageBox.Show("Seleccione un nivel de habitación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (x + 1 == clbFrontBedroom.CheckedItems.Count)
+                    frenteA += clbFrontBedroom.CheckedItems[x].ToString();
+                else
+                    frenteA += clbFrontBedroom.CheckedItems[x].ToString() + "";
+            }
+            cuarto.frenteA = frenteA;
+            cuarto.caracteristicas = txtCharacteBedrooms.Text;
+            string amenidades = "";
+            for (int x = 0; x<clbAmenitiesBedrooms.CheckedItems.Count; x++)
+            {
+                if (x + 1 == clbAmenitiesBedrooms.CheckedItems.Count)
+                    amenidades += clbAmenitiesBedrooms.CheckedItems[x].ToString();
+                else
+                    amenidades += clbAmenitiesBedrooms.CheckedItems[x].ToString();
+            }
+            cuarto.amenidades = amenidades;
+            var success = cass.InsertarHabitaciones(cuarto);
+            if (success)
+            {
+                //dataGridBedrooms.DataSource = cass.Obtener_hoteles();
+                MessageBox.Show("Se agrego la habitación.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            if (cbHotelBedrooms.Text == "Seleccionar")
-            {
-                MessageBox.Show("Seleccione un hotel", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (cbLevelRoomBedroom.Text == "Seleccionar")
-            {
-                MessageBox.Show("Seleccione un nivel de habitación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (cbTypeBedBedrooms.Text == "Seleccionar")
-            {
-                MessageBox.Show("Seleccione un tipo de habitación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (clbFrontBedroom.CheckedItems.Count == 0)
-            {
-                MessageBox.Show("Seleccione al menos una opción en 'Frente a...'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
             clearTxt(); 
         }
 
