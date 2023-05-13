@@ -507,6 +507,60 @@ namespace Punto_de_Venta
             return Err;
         }
 
+        public bool UpdateHabitaciones(Habitaciones param)
+        {
+            var err = true;
+            try
+            {
+                conectar();
+                var query = "update habitacion set " +
+                    "hotel='{0}', beds_number='{1}'," +
+                    "beds_type='{2}', price='{3}', people_number='{4}'," +
+                    "room_level='{5}', frontof='{6}', details='{7}', amenities='{8}' where type='{9}' if exists";
+                query = string.Format(query, param.hotel, param.numeroCamas, param.tiposCama, param.precioPorNoche,
+                     param.cantidadPersonas, param.nivelHabitacion, param.frenteA, param.caracteristicas, param.amenidades, param.tipoHabitacion);
+
+                _session.Execute(query);
+            }
+            catch (Exception E)
+            {
+                err = false;
+                MessageBox.Show(E.ToString());
+                return err;
+                throw;
+            }
+            finally
+            {
+                desconectar();
+            }
+            return err;
+        }
+
+        public bool DeleteHabitaciones(string param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "delete from habitacion where type='{0}' if exists";
+                query1 = string.Format(query1, param);
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
         public List<Habitaciones> Obtener_habitaciones()
         {
             string query = "select hotel, type, beds_number, beds_type, price, people_number, room_level, frontof, details, amenities, status from habitacion;";
