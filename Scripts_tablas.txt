@@ -55,24 +55,22 @@ PRIMARY KEY (name)
 
 
 CREATE TABLE pia_hoteles.habitacion (
-id_room uuid,
+hotel text,
 type text,
-beds_number int,
+beds_number text,
 beds_type text,
-price decimal,
-people_number int,
+price text,
+people_number text,
 room_level text,
 frontof text,
 details text,
 amenities text,
-hotel_parent uuid,
 status boolean,
 date_register date,
 hour_register text,
 user_register text,
-PRIMARY KEY (id_room, type)
+PRIMARY KEY (type)
 );
-
 
 CREATE TABLE pia_hoteles.cliente (
 id_clients uuid,
@@ -236,6 +234,7 @@ truncate hotel;
 select * from usuario;
 select * from cliente;
 select * from hotel;
+select * from habitacion;
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
 insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','123','Espinoza','Morales','2003-10-16','a','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
