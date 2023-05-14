@@ -66,7 +66,7 @@ namespace Punto_de_Venta
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(341, 9);
+            this.label8.Location = new System.Drawing.Point(339, -3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(281, 44);
             this.label8.TabIndex = 38;
@@ -79,7 +79,7 @@ namespace Punto_de_Venta
             this.dataGridCustomerRe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridCustomerRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridCustomerRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridCustomerRe.Location = new System.Drawing.Point(24, 107);
+            this.dataGridCustomerRe.Location = new System.Drawing.Point(14, 69);
             this.dataGridCustomerRe.Name = "dataGridCustomerRe";
             this.dataGridCustomerRe.ReadOnly = true;
             this.dataGridCustomerRe.RowHeadersWidth = 51;
@@ -102,7 +102,7 @@ namespace Punto_de_Venta
             // 
             // txtCustomerReservation
             // 
-            this.txtCustomerReservation.Location = new System.Drawing.Point(109, 79);
+            this.txtCustomerReservation.Location = new System.Drawing.Point(99, 41);
             this.txtCustomerReservation.Multiline = true;
             this.txtCustomerReservation.Name = "txtCustomerReservation";
             this.txtCustomerReservation.Size = new System.Drawing.Size(351, 22);
@@ -112,7 +112,7 @@ namespace Punto_de_Venta
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 79);
+            this.label2.Location = new System.Drawing.Point(10, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 22);
             this.label2.TabIndex = 39;
@@ -122,7 +122,7 @@ namespace Punto_de_Venta
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(632, 82);
+            this.label1.Location = new System.Drawing.Point(622, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 22);
             this.label1.TabIndex = 60;
@@ -135,7 +135,7 @@ namespace Punto_de_Venta
             this.dataGridHotelRe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridHotelRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridHotelRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridHotelRe.Location = new System.Drawing.Point(24, 211);
+            this.dataGridHotelRe.Location = new System.Drawing.Point(14, 173);
             this.dataGridHotelRe.Name = "dataGridHotelRe";
             this.dataGridHotelRe.ReadOnly = true;
             this.dataGridHotelRe.RowHeadersWidth = 51;
@@ -146,7 +146,7 @@ namespace Punto_de_Venta
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(197, 186);
+            this.label3.Location = new System.Drawing.Point(187, 148);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 22);
             this.label3.TabIndex = 63;
@@ -156,7 +156,7 @@ namespace Punto_de_Venta
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(188, 352);
+            this.label4.Location = new System.Drawing.Point(178, 314);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(130, 22);
             this.label4.TabIndex = 66;
@@ -171,7 +171,7 @@ namespace Punto_de_Venta
             "CDMX",
             "Guadalajara",
             "Apodaca"});
-            this.cbCityReservations.Location = new System.Drawing.Point(486, 107);
+            this.cbCityReservations.Location = new System.Drawing.Point(476, 69);
             this.cbCityReservations.Name = "cbCityReservations";
             this.cbCityReservations.Size = new System.Drawing.Size(436, 21);
             this.cbCityReservations.TabIndex = 114;
@@ -185,7 +185,7 @@ namespace Punto_de_Venta
             this.dataGridRoomsRe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridRoomsRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridRoomsRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRoomsRe.Location = new System.Drawing.Point(24, 377);
+            this.dataGridRoomsRe.Location = new System.Drawing.Point(14, 339);
             this.dataGridRoomsRe.Name = "dataGridRoomsRe";
             this.dataGridRoomsRe.ReadOnly = true;
             this.dataGridRoomsRe.RowHeadersWidth = 51;
@@ -199,7 +199,7 @@ namespace Punto_de_Venta
             this.dataGridRoomsChosenRe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridRoomsChosenRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridRoomsChosenRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRoomsChosenRe.Location = new System.Drawing.Point(473, 211);
+            this.dataGridRoomsChosenRe.Location = new System.Drawing.Point(463, 173);
             this.dataGridRoomsChosenRe.Name = "dataGridRoomsChosenRe";
             this.dataGridRoomsChosenRe.ReadOnly = true;
             this.dataGridRoomsChosenRe.RowHeadersWidth = 51;
@@ -210,7 +210,7 @@ namespace Punto_de_Venta
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(595, 175);
+            this.label5.Location = new System.Drawing.Point(585, 137);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(211, 22);
             this.label5.TabIndex = 117;
@@ -218,7 +218,7 @@ namespace Punto_de_Venta
             // 
             // txtPeopleReservations
             // 
-            this.txtPeopleReservations.Location = new System.Drawing.Point(241, 485);
+            this.txtPeopleReservations.Location = new System.Drawing.Point(231, 447);
             this.txtPeopleReservations.Multiline = true;
             this.txtPeopleReservations.Name = "txtPeopleReservations";
             this.txtPeopleReservations.Size = new System.Drawing.Size(219, 22);
@@ -229,7 +229,7 @@ namespace Punto_de_Venta
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 485);
+            this.label6.Location = new System.Drawing.Point(9, 447);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(216, 22);
             this.label6.TabIndex = 118;
@@ -241,12 +241,13 @@ namespace Punto_de_Venta
             this.btnSelectReservation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelectReservation.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelectReservation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSelectReservation.Location = new System.Drawing.Point(181, 319);
+            this.btnSelectReservation.Location = new System.Drawing.Point(171, 281);
             this.btnSelectReservation.Name = "btnSelectReservation";
             this.btnSelectReservation.Size = new System.Drawing.Size(116, 29);
             this.btnSelectReservation.TabIndex = 158;
             this.btnSelectReservation.Text = "Seleccionar";
             this.btnSelectReservation.UseVisualStyleBackColor = false;
+            this.btnSelectReservation.Click += new System.EventHandler(this.btnSelectReservation_Click);
             // 
             // btnAddReser
             // 
@@ -264,14 +265,14 @@ namespace Punto_de_Venta
             // 
             // dtpLodgingReser
             // 
-            this.dtpLodgingReser.Location = new System.Drawing.Point(62, 552);
+            this.dtpLodgingReser.Location = new System.Drawing.Point(52, 514);
             this.dtpLodgingReser.Name = "dtpLodgingReser";
             this.dtpLodgingReser.Size = new System.Drawing.Size(146, 20);
             this.dtpLodgingReser.TabIndex = 161;
             // 
             // dtpLodgingReser2
             // 
-            this.dtpLodgingReser2.Location = new System.Drawing.Point(254, 552);
+            this.dtpLodgingReser2.Location = new System.Drawing.Point(244, 514);
             this.dtpLodgingReser2.Name = "dtpLodgingReser2";
             this.dtpLodgingReser2.Size = new System.Drawing.Size(146, 20);
             this.dtpLodgingReser2.TabIndex = 162;
@@ -280,7 +281,7 @@ namespace Punto_de_Venta
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(125, 513);
+            this.label7.Location = new System.Drawing.Point(115, 475);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(207, 22);
             this.label7.TabIndex = 163;
@@ -289,7 +290,7 @@ namespace Punto_de_Venta
             // rbDebitCardPayRe
             // 
             this.rbDebitCardPayRe.AutoSize = true;
-            this.rbDebitCardPayRe.Location = new System.Drawing.Point(641, 491);
+            this.rbDebitCardPayRe.Location = new System.Drawing.Point(631, 453);
             this.rbDebitCardPayRe.Name = "rbDebitCardPayRe";
             this.rbDebitCardPayRe.Size = new System.Drawing.Size(108, 17);
             this.rbDebitCardPayRe.TabIndex = 168;
@@ -300,7 +301,7 @@ namespace Punto_de_Venta
             // rbCreditCardPayRe
             // 
             this.rbCreditCardPayRe.AutoSize = true;
-            this.rbCreditCardPayRe.Location = new System.Drawing.Point(512, 490);
+            this.rbCreditCardPayRe.Location = new System.Drawing.Point(502, 452);
             this.rbCreditCardPayRe.Name = "rbCreditCardPayRe";
             this.rbCreditCardPayRe.Size = new System.Drawing.Size(110, 17);
             this.rbCreditCardPayRe.TabIndex = 167;
@@ -310,7 +311,7 @@ namespace Punto_de_Venta
             // 
             // txtCreditCardPayRe
             // 
-            this.txtCreditCardPayRe.Location = new System.Drawing.Point(515, 513);
+            this.txtCreditCardPayRe.Location = new System.Drawing.Point(505, 475);
             this.txtCreditCardPayRe.Multiline = true;
             this.txtCreditCardPayRe.Name = "txtCreditCardPayRe";
             this.txtCreditCardPayRe.Size = new System.Drawing.Size(107, 22);
@@ -319,7 +320,7 @@ namespace Punto_de_Venta
             // 
             // txtDebitCardPayRe
             // 
-            this.txtDebitCardPayRe.Location = new System.Drawing.Point(641, 513);
+            this.txtDebitCardPayRe.Location = new System.Drawing.Point(631, 475);
             this.txtDebitCardPayRe.Multiline = true;
             this.txtDebitCardPayRe.Name = "txtDebitCardPayRe";
             this.txtDebitCardPayRe.Size = new System.Drawing.Size(108, 22);
@@ -330,7 +331,7 @@ namespace Punto_de_Venta
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(554, 457);
+            this.label9.Location = new System.Drawing.Point(544, 419);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(282, 22);
             this.label9.TabIndex = 164;
@@ -339,7 +340,7 @@ namespace Punto_de_Venta
             // rbTransferPayRe
             // 
             this.rbTransferPayRe.AutoSize = true;
-            this.rbTransferPayRe.Location = new System.Drawing.Point(770, 491);
+            this.rbTransferPayRe.Location = new System.Drawing.Point(760, 453);
             this.rbTransferPayRe.Name = "rbTransferPayRe";
             this.rbTransferPayRe.Size = new System.Drawing.Size(91, 17);
             this.rbTransferPayRe.TabIndex = 170;
@@ -349,7 +350,7 @@ namespace Punto_de_Venta
             // 
             // txtTransferPayRe
             // 
-            this.txtTransferPayRe.Location = new System.Drawing.Point(770, 513);
+            this.txtTransferPayRe.Location = new System.Drawing.Point(760, 475);
             this.txtTransferPayRe.Multiline = true;
             this.txtTransferPayRe.Name = "txtTransferPayRe";
             this.txtTransferPayRe.Size = new System.Drawing.Size(108, 22);

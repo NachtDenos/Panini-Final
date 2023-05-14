@@ -407,8 +407,15 @@ namespace Punto_de_Venta
                 query1 = string.Format(query1, param.hotel, param.pais, param.ciudad, param.estado, param.numeroPisos,
                     param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales,
                     param.FechaRegistro, param.horaderegistro);
+
                 int i = -1;
                 _session.Execute(query1);
+
+                var query2 = "insert into buscarciudad (city) values ('{0}') if not exists;";
+                query2 = string.Format(query2, param.ciudad);
+
+                _session.Execute(query2);
+
             }
             catch (Exception e)
             {
@@ -587,6 +594,24 @@ namespace Punto_de_Venta
 
             desconectar();
             return lista;
+
+        }
+
+        public List<Hoteles> obtener_ciudad_cb()
+        {
+            string query = "select city from buscarciudad;";
+            List<Hoteles> lista2 = new List<Hoteles>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Hoteles hotel = new Hoteles();
+                hotel.ciudad = row.GetValue<string>("city");
+                lista2.Add(hotel);
+            }
+
+            desconectar();
+            return lista2;
 
         }
 

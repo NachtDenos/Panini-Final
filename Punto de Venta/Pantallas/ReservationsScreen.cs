@@ -17,6 +17,7 @@ namespace Punto_de_Venta
         bool check3 = false;
         bool selection = false;
         bool bandera;
+        EnlaceCassandra cass = new EnlaceCassandra();
 
         public SalesScreen()
         {
@@ -25,21 +26,24 @@ namespace Punto_de_Venta
             txtTransferPayRe.Enabled = false;
             txtDebitCardPayRe.Enabled = false;
             txtCreditCardPayRe.Enabled = false;
+            var ciudad = cass.obtener_ciudad_cb();
+            cbCityReservations.DataSource = ciudad;
+            cbCityReservations.DisplayMember = "ciudad";
         }
 
 
         private void btnAddEmployees_Click(object sender, EventArgs e)
         {
-            if (txtCustomerReservation.TextLength == 0)
-            {
-                MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (selection == false)
-            {
-                MessageBox.Show("Seleccione una ciudad a visitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (txtCustomerReservation.TextLength == 0)
+            //{
+            //    MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
+            //if (selection == false)
+            //{
+            //    MessageBox.Show("Seleccione una ciudad a visitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             QuickSearchScreen TheOtherForm = new QuickSearchScreen();
             TheOtherForm.ShowDialog();
         }
@@ -193,6 +197,11 @@ namespace Punto_de_Venta
         private void txtTransferPayRe_KeyPress(object sender, KeyPressEventArgs e)
         {
             onePoint(e, txtTransferPayRe.Text);
+        }
+
+        private void btnSelectReservation_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

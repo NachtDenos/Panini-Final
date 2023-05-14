@@ -32,7 +32,6 @@ PRIMARY KEY (id_user)
 
 
 CREATE TABLE pia_hoteles.hotel (
-id_hotel uuid,
 name text,
 country text,
 city text,
@@ -44,7 +43,6 @@ services_add text,
 beach text,
 pool_number text,
 events_room text,
-register_date date,
 operations_date text,
 status boolean,
 date_register date,
@@ -73,7 +71,6 @@ PRIMARY KEY (type)
 );
 
 CREATE TABLE pia_hoteles.cliente (
-id_clients uuid,
 name text,
 p_lastname text,
 m_lastname text,
@@ -87,11 +84,11 @@ payroll_number text,
 marital_status text,
 references text,
 status text,
-change_date timestamp,
-last_updater UUID,
+register_date date,
+register_hour text,
+last_updater text,
 PRIMARY KEY (name, email)
 );
-
 
 CREATE TABLE pia_hoteles.reserva(
 id_reserva uuid,
@@ -215,26 +212,16 @@ PRIMARY KEY (rfc, p_lastname)
 
 
 CREATE TABLE pia_hoteles.buscarciudad (
-id_hotel uuid,
-name text,
-country text,
-state text,
 city text,
-floors_number int,
-rooms_number int,
-turistic_zone text,
-services_add list<text>,
-beach boolean,
-pool_number int,
-events_room boolean,
-PRIMARY KEY (city, name)
+PRIMARY KEY (city)
 );
 
-truncate hotel;
+
 select * from usuario;
 select * from cliente;
 select * from hotel;
 select * from habitacion;
+select * from buscarciudad;
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
 insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','123','Espinoza','Morales','2003-10-16','a','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
