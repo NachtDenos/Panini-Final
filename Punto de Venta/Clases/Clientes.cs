@@ -21,8 +21,8 @@ namespace Punto_de_Venta.Clases
         public string referencias { get; set; }
         public string nomina { get; set; }
         public string estado { get; set; }
-        
-
+        public string FechaIngreso { get; set; }
+        public string horaderegistro { get; set; }
 
     }
 }

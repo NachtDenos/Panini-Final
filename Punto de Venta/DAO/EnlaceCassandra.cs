@@ -48,7 +48,7 @@ namespace Punto_de_Venta
         }
         public List<Usuario> Obtener_usuarios()
         {
-            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status, date_register from usuario;";
+            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status from usuario;";
             List<Usuario> lista= new List<Usuario>();
             conectar();
             var ResultSet = _session.Execute(query);
@@ -66,7 +66,7 @@ namespace Punto_de_Venta
                 usuarios.telefonoCasa = row.GetValue<string>("phone_home");
                 usuarios.telefono = row.GetValue<string>("phone_personal");
                 usuarios.status=row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
-                usuarios.FechaIngreso = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
+                //usuarios.FechaIngreso = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
                 //usuarios.horaderegistro = row.GetValue<string>("time_register");
                 lista.Add(usuarios);
             }
@@ -213,7 +213,7 @@ namespace Punto_de_Venta
                 //Cambie algo en las tablas
                 var query1 = "insert into usuario(name, password, email, p_lastname, m_lastname, birthdate, " +
                     "payroll_number, address, phone_home, phone_personal, status, date_register, time_register) " +
-                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}') if not exists; ";
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}') if not exists; ";
                 query1 = string.Format(query1, param.nombre, param.contrasena, param.correo, param.apellidoP, param.apellidoM, 
                     param.FechaNacimiento, param.nomina, param.direccion, param.telefonoCasa, param.telefono, param.status, param.FechaIngreso, param.horaderegistro);
                 int i = -1;
@@ -240,10 +240,10 @@ namespace Punto_de_Venta
             try
             {
                 conectar();
-                var query = "insert into cliente(name,p_lastname,m_lastname, birthdate,email,address,phone_home,phone_personal,rfc,marital_status,references,status,payroll_number)"
-                    + "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}') if not exists; ";
+                var query = "insert into cliente(name,p_lastname,m_lastname, birthdate,email,address,phone_home,phone_personal,rfc,marital_status,references,status,payroll_number, register_date, register_hour)"
+                    + "values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}','{9}','{10}','{11}','{12}', '{13}', '{14}') if not exists; ";
                 query = string.Format(query, clients.nombre, clients.apellidoP, clients.apellidoM, clients.fechaNacimiento, clients.correo, clients.direccion,
-                    clients.telefonoCasa, clients.telefonoPersonal, clients.rfc, clients.situacionCivil, clients.referencias, "Activo", clients.nomina);
+                    clients.telefonoCasa, clients.telefonoPersonal, clients.rfc, clients.situacionCivil, clients.referencias, "Activo", clients.nomina, clients.FechaIngreso, clients.horaderegistro);
                 int i = 1;
                 i = 2;
                 _session.Execute(query);
@@ -402,10 +402,11 @@ namespace Punto_de_Venta
                 conectar();
                 //Cambie algo en las tablas
                 var query1 = "insert into hotel(name, country, city, state, floors_number, rooms_number, " +
-                    "turistic_zone, beach, pool_number, events_room, operations_date, services_add, status) " +
-                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', true) if not exists; ";
+                    "turistic_zone, beach, pool_number, events_room, operations_date, services_add, date_register, hour_register, status) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}', '{13}',true) if not exists; ";
                 query1 = string.Format(query1, param.hotel, param.pais, param.ciudad, param.estado, param.numeroPisos,
-                    param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales);
+                    param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales,
+                    param.FechaRegistro, param.horaderegistro);
                 int i = -1;
                 _session.Execute(query1);
             }
@@ -485,10 +486,10 @@ namespace Punto_de_Venta
             {
                 conectar();
                 var query1 = "insert into habitacion(hotel, type, beds_number, beds_type, price, people_number, " +
-                    "room_level, frontof, details, amenities, status) " +
-                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', true) if not exists; ";
+                    "room_level, frontof, details, amenities, date_register, hour_register ,status) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', true) if not exists; ";
                 query1 = string.Format(query1, param.hotel, param.tipoHabitacion, param.numeroCamas, param.tiposCama, param.precioPorNoche,
-                                        param.cantidadPersonas, param.nivelHabitacion, param.frenteA, param.caracteristicas, param.amenidades);
+                                        param.cantidadPersonas, param.nivelHabitacion, param.frenteA, param.caracteristicas, param.amenidades, param.FechaRegistro, param.horaderegistro);
                 int i = -1;
                 _session.Execute(query1);
             }

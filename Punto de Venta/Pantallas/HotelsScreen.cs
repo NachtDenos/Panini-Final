@@ -61,6 +61,8 @@ namespace Punto_de_Venta
             string fechaReal = dtpOperatHotels.Text;
             String.Format("{0:yyyy-MM-dd}", fechaReal);
             hotel.inicioOperaciones = fechaReal;
+            hotel.FechaRegistro = DateTime.Now.ToString("yyyy-MM-dd");
+            hotel.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
             string soyservicios="";
             for(int x = 0; x<clbServicesHotels.CheckedItems.Count; x++)
             {

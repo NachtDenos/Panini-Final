@@ -21,5 +21,7 @@ namespace Punto_de_Venta.Clases
         public string salonesEventos { get; set; }
         public string inicioOperaciones { get; set; }
         public bool status { get; set; }
+        public string FechaRegistro { get; set; }
+        public string horaderegistro { get; set; }
     }
 }

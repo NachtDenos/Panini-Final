@@ -77,7 +77,9 @@ namespace Punto_de_Venta
             client.estado = "activo";
             client.situacionCivil = txtCivilCustomers.Text;
             client.referencias = cbReferenceCustomers.Text;
-           var success = cass.insert_Clientes(client);
+            client.FechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
+            client.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
+            var success = cass.insert_Clientes(client);
             if (success)
             {
                 dataGridCustomers.DataSource = cass.Obtener_clientes();

@@ -75,6 +75,8 @@ namespace Punto_de_Venta
             cuarto.precioPorNoche = txtPriceNightBedrooms.Text;
             cuarto.cantidadPersonas = txtNumPeopleBedroom.Text;
             cuarto.nivelHabitacion = cbLevelRoomBedroom.Text;
+            cuarto.FechaRegistro = DateTime.Now.ToString("yyyy-MM-dd");
+            cuarto.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
             string frenteA = "";
             for (int x = 0; x<clbFrontBedroom.CheckedItems.Count; x++)
             {

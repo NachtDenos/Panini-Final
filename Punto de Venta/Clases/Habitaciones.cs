@@ -19,5 +19,7 @@ namespace Punto_de_Venta.Clases
         public string caracteristicas { get; set; }
         public string amenidades { get; set; }
         public bool estatus { get; set; }
+        public string FechaRegistro { get; set; }
+        public string horaderegistro { get; set; }
     }
 }
