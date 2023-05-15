@@ -203,5 +203,25 @@ namespace Punto_de_Venta
         {
 
         }
+
+        private void btnSearchNameReservation_Click(object sender, EventArgs e)
+        {
+            dataGridCustomerRe.DataSource = cass.obtClientesNombre(txtCustomerReservation.Text);
+        }
+
+        private void btnSearchRFCReservation_Click(object sender, EventArgs e)
+        {
+            dataGridCustomerRe.DataSource = cass.obtClientesRFC(txtCustomerReservation.Text);
+        }
+
+        private void btnSearchEmailReservation_Click(object sender, EventArgs e)
+        {
+            dataGridCustomerRe.DataSource = cass.obtClientesEmail(txtCustomerReservation.Text);
+        }
+
+        private void btnSelectCityReservation_Click(object sender, EventArgs e)
+        {
+            //dataGridHotelRe.DataSource = cass.
+        }
     }
 }

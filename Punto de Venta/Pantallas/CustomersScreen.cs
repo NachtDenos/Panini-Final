@@ -251,18 +251,24 @@ namespace Punto_de_Venta
             btnAddCustomer.Enabled = true;
             btnEditCustomer.Enabled = false;
             btnDeleteCustomer.Enabled = false;
+            txtNameCustomers.Enabled = true;
+            txtRFCCustomers.Enabled = true;
+            txtEmailCustomers.Enabled = true;
             dataGridCustomers.ClearSelection();
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            var success = cass.DeleteClientes(dataGridCustomers.CurrentRow.Cells[4].Value.ToString(), dataGridCustomers.CurrentRow.Cells[0].Value.ToString());
+            var success = cass.DeleteClientes(dataGridCustomers.CurrentRow.Cells[4].Value.ToString(), dataGridCustomers.CurrentRow.Cells[0].Value.ToString(), dataGridCustomers.CurrentRow.Cells[8].Value.ToString());
             if (success)
                 MessageBox.Show("Se elimno al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             clearTxt();
             btnAddCustomer.Enabled = true;
             btnEditCustomer.Enabled = false;
             btnDeleteCustomer.Enabled = false;
+            txtNameCustomers.Enabled = true;
+            txtRFCCustomers.Enabled = true;
+            txtEmailCustomers.Enabled = true;
             dataGridCustomers.ClearSelection();
             dataGridCustomers.DataSource = cass.Obtener_clientes();
         }
@@ -305,6 +311,9 @@ namespace Punto_de_Venta
                     btnDeleteCustomer.Enabled = true;
                     btnEditCustomer.Enabled = true;
                     btnAddCustomer.Enabled = false;
+                    txtNameCustomers.Enabled = false;
+                    txtRFCCustomers.Enabled = false;
+                    txtEmailCustomers.Enabled = false;
                 }
             }
             catch (Exception ArgumentOutOfRangeException)

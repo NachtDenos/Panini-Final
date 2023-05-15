@@ -272,9 +272,9 @@ namespace Punto_de_Venta
                 var query = "update cliente set " +
                     "p_lastname='{0}', m_lastname='{1}', birthdate='{2}'," +
                     "address='{3}', phone_home='{4}', phone_personal='{5}'," +
-                    "rfc='{6}', marital_status='{7}', references='{8}' where email='{9}' AND name='{10}' if exists";
+                    "marital_status='{6}', references='{7}', payroll_number='{8}' where email='{9}' AND name='{10}' AND rfc='{11}' if exists";
                 query = string.Format(query, param.apellidoP, param.apellidoM, param.fechaNacimiento, param.direccion
-                    , param.telefonoCasa, param.telefonoPersonal, param.rfc, param.situacionCivil, param.referencias, param.correo, param.nombre);
+                    , param.telefonoCasa, param.telefonoPersonal, param.situacionCivil, param.referencias, param.nomina, param.correo, param.nombre, param.rfc);
                 _session.Execute(query);
             }
             catch (Exception E)
@@ -321,14 +321,107 @@ namespace Punto_de_Venta
 
         }
 
-        public bool DeleteClientes(string email, string name)
+        public List<Clientes> obtClientesNombre(string name)
+        {
+            string query = "select name, p_lastname, m_lastname, email, address, birthdate, phone_home, phone_personal, phone_home, rfc, references, marital_status, payroll_number, status from cliente where name='{0}' ALLOW FILTERING;";
+            query = string.Format(query, name);
+            List<Clientes> lista = new List<Clientes>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Clientes clientes = new Clientes();
+                clientes.nombre = row.GetValue<string>("name");
+                clientes.apellidoP = row.GetValue<string>("p_lastname");
+                clientes.apellidoM = row.GetValue<string>("m_lastname");
+                clientes.correo = row.GetValue<string>("email");
+                clientes.direccion = row.GetValue<string>("address");
+                clientes.fechaNacimiento = row.GetValue<object>("birthdate") == null ? "" : row.GetValue<object>("birthdate").ToString();
+                clientes.telefonoCasa = row.GetValue<string>("phone_home");
+                clientes.telefonoPersonal = row.GetValue<string>("phone_personal");
+                clientes.rfc = row.GetValue<string>("rfc");
+                clientes.referencias = row.GetValue<string>("references");
+                clientes.situacionCivil = row.GetValue<string>("marital_status");
+                clientes.nomina = row.GetValue<string>("payroll_number");
+                clientes.estado = row.GetValue<string>("status");
+                lista.Add(clientes);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Clientes> obtClientesEmail(string email)
+        {
+            string query = "select name, p_lastname, m_lastname, email, address, birthdate, phone_home, phone_personal, phone_home, rfc, references, marital_status, payroll_number, status from cliente where email='{0}' ALLOW FILTERING;";
+            query = string.Format(query, email);
+            List<Clientes> lista = new List<Clientes>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Clientes clientes = new Clientes();
+                clientes.nombre = row.GetValue<string>("name");
+                clientes.apellidoP = row.GetValue<string>("p_lastname");
+                clientes.apellidoM = row.GetValue<string>("m_lastname");
+                clientes.correo = row.GetValue<string>("email");
+                clientes.direccion = row.GetValue<string>("address");
+                clientes.fechaNacimiento = row.GetValue<object>("birthdate") == null ? "" : row.GetValue<object>("birthdate").ToString();
+                clientes.telefonoCasa = row.GetValue<string>("phone_home");
+                clientes.telefonoPersonal = row.GetValue<string>("phone_personal");
+                clientes.rfc = row.GetValue<string>("rfc");
+                clientes.referencias = row.GetValue<string>("references");
+                clientes.situacionCivil = row.GetValue<string>("marital_status");
+                clientes.nomina = row.GetValue<string>("payroll_number");
+                clientes.estado = row.GetValue<string>("status");
+                lista.Add(clientes);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Clientes> obtClientesRFC(string rfc)
+        {
+            string query = "select name, p_lastname, m_lastname, email, address, birthdate, phone_home, phone_personal, phone_home, rfc, references, marital_status, payroll_number, status from cliente where rfc='{0}' ALLOW FILTERING;";
+            query = string.Format(query, rfc);
+            List<Clientes> lista = new List<Clientes>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Clientes clientes = new Clientes();
+                clientes.nombre = row.GetValue<string>("name");
+                clientes.apellidoP = row.GetValue<string>("p_lastname");
+                clientes.apellidoM = row.GetValue<string>("m_lastname");
+                clientes.correo = row.GetValue<string>("email");
+                clientes.direccion = row.GetValue<string>("address");
+                clientes.fechaNacimiento = row.GetValue<object>("birthdate") == null ? "" : row.GetValue<object>("birthdate").ToString();
+                clientes.telefonoCasa = row.GetValue<string>("phone_home");
+                clientes.telefonoPersonal = row.GetValue<string>("phone_personal");
+                clientes.rfc = row.GetValue<string>("rfc");
+                clientes.referencias = row.GetValue<string>("references");
+                clientes.situacionCivil = row.GetValue<string>("marital_status");
+                clientes.nomina = row.GetValue<string>("payroll_number");
+                clientes.estado = row.GetValue<string>("status");
+                lista.Add(clientes);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public bool DeleteClientes(string email, string name, string rfc)
         {
             var Err = true; // SI no hay error
             try
             {
                 conectar();
-                var query1 = "delete from cliente where email='{0}' AND name='{1}' if exists";
-                query1 = string.Format(query1, email, name);
+                var query1 = "delete from cliente where email='{0}' AND name='{1}' AND rfc='{2}' if exists";
+                query1 = string.Format(query1, email, name, rfc);
                 _session.Execute(query1);
             }
             catch (Exception e)
@@ -612,6 +705,36 @@ namespace Punto_de_Venta
 
             desconectar();
             return lista2;
+
+        }
+
+        public List<Hoteles> obtHotelesCiudad()
+        {
+            string query = "select name, country, city, state, floors_number, rooms_number, turistic_zone, services_add, beach, pool_number, events_room, operations_date, status from hotel;";
+            List<Hoteles> lista = new List<Hoteles>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Hoteles hotel = new Hoteles();
+                hotel.hotel = row.GetValue<string>("name");
+                hotel.pais = row.GetValue<string>("country");
+                hotel.ciudad = row.GetValue<string>("city");
+                hotel.estado = row.GetValue<string>("state");
+                hotel.numeroPisos = row.GetValue<string>("floors_number");
+                hotel.cantidadHabitaciones = row.GetValue<string>("rooms_number");
+                hotel.zonaTuristica = row.GetValue<string>("turistic_zone");
+                hotel.serviciosAdicionales = row.GetValue<string>("services_add");
+                hotel.frentePlaya = row.GetValue<string>("beach");
+                hotel.cantidadPiscinas = row.GetValue<string>("pool_number");
+                hotel.salonesEventos = row.GetValue<string>("events_room");
+                hotel.inicioOperaciones = row.GetValue<object>("operations_date") == null ? "" : row.GetValue<object>("operations_date").ToString();
+                hotel.status = row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
+                lista.Add(hotel);
+            }
+
+            desconectar();
+            return lista;
 
         }
 
