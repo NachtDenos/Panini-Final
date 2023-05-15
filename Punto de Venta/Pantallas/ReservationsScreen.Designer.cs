@@ -272,6 +272,8 @@ namespace Punto_de_Venta
             // 
             // dtpLodgingReser
             // 
+            this.dtpLodgingReser.CustomFormat = "yyyy-MM-dd";
+            this.dtpLodgingReser.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpLodgingReser.Location = new System.Drawing.Point(45, 559);
             this.dtpLodgingReser.Name = "dtpLodgingReser";
             this.dtpLodgingReser.Size = new System.Drawing.Size(146, 20);
@@ -279,6 +281,8 @@ namespace Punto_de_Venta
             // 
             // dtpLodgingReser2
             // 
+            this.dtpLodgingReser2.CustomFormat = "yyyy-MM-dd";
+            this.dtpLodgingReser2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpLodgingReser2.Location = new System.Drawing.Point(237, 559);
             this.dtpLodgingReser2.Name = "dtpLodgingReser2";
             this.dtpLodgingReser2.Size = new System.Drawing.Size(146, 20);

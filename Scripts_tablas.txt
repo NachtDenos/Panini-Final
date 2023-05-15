@@ -246,19 +246,21 @@ frontof text,
 details text,
 amenities text,
 status boolean,
-date_register date,
-hour_register text,
-user_register text,
-PRIMARY KEY ((type), hotel)
+cant_pers_soli text,
+date_in date,
+date_out date,
+PRIMARY KEY (type)
 );
 
-truncate buscarciudad;
+drop table habitacionTemporal;
+truncate habitacionTemporal;
 
 select * from usuario;
 select * from cliente;
 select * from hotel;
 select * from habitacion;
 select * from buscarciudad;
+select * from habitacionTemporal;
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
 insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','123','Espinoza','Morales','2003-10-16','a','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');

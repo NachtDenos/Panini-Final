@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
+
     public partial class SalesScreen : Form
     {
         bool check1 = false;
@@ -18,6 +20,7 @@ namespace Punto_de_Venta
         bool selection = false;
         bool bandera;
         EnlaceCassandra cass = new EnlaceCassandra();
+        HabitacionesTemporales cuartoTemp = new HabitacionesTemporales();
 
         public SalesScreen()
         {
@@ -46,6 +49,8 @@ namespace Punto_de_Venta
             //}
             QuickSearchScreen TheOtherForm = new QuickSearchScreen();
             TheOtherForm.ShowDialog();
+            bool limpieza = cass.limpiarHabitacionTemporal();
+            dataGridRoomsChosenRe.DataSource = cass.Obtener_habitacionesTemporales();
         }
 
         private void btnAddReser_Click(object sender, EventArgs e)
@@ -77,7 +82,33 @@ namespace Punto_de_Venta
                 MessageBox.Show("El número de personas solicitadas sobrepasa la capacidad de la habitación.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            cuartoTemp.hotel = dataGridRoomsRe.CurrentRow.Cells[0].Value.ToString();
+            cuartoTemp.tipoHabitacion = dataGridRoomsRe.CurrentRow.Cells[1].Value.ToString();
+            cuartoTemp.numeroCamas = dataGridRoomsRe.CurrentRow.Cells[2].Value.ToString();
+            cuartoTemp.tiposCama = dataGridRoomsRe.CurrentRow.Cells[3].Value.ToString();
+            cuartoTemp.precioPorNoche = dataGridRoomsRe.CurrentRow.Cells[4].Value.ToString();
+            cuartoTemp.cantidadPersonas = dataGridRoomsRe.CurrentRow.Cells[5].Value.ToString();
+            cuartoTemp.nivelHabitacion = dataGridRoomsRe.CurrentRow.Cells[6].Value.ToString();
+            cuartoTemp.frenteA = dataGridRoomsRe.CurrentRow.Cells[7].Value.ToString();
+            cuartoTemp.caracteristicas = dataGridRoomsRe.CurrentRow.Cells[8].Value.ToString();
+            cuartoTemp.amenidades = dataGridRoomsRe.CurrentRow.Cells[9].Value.ToString();
+            cuartoTemp.estatus = true;
+            string fechaInicioReal = dtpLodgingReser.Text;
+            string fechaFinalReal = dtpLodgingReser2.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaInicioReal);
+            String.Format("{0:yyyy-MM-dd}", fechaFinalReal);
+            cuartoTemp.fechaEntrada = fechaInicioReal;
+            cuartoTemp.fechaSalida = fechaFinalReal;
+            cuartoTemp.cantidadPersonasSolicitada = txtPeopleReservations.Text;
+            //cuartoTemp.FechaRegistro = dataGridRoomsRe.CurrentRow.Cells[11].Value.ToString();
+            //cuartoTemp.horaderegistro = dataGridRoomsRe.CurrentRow.Cells[12].Value.ToString();
 
+            var success = cass.InsertarHabitacionesTemporales(cuartoTemp);
+            if (success)
+            {
+                MessageBox.Show("Se agrego la habitación.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            dataGridRoomsChosenRe.DataSource = cass.Obtener_habitacionesTemporales();
         }
 
         private void txtPeopleReservations_KeyPress(object sender, KeyPressEventArgs e)
