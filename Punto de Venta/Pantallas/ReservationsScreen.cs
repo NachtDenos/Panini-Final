@@ -221,7 +221,7 @@ namespace Punto_de_Venta
 
         private void btnSelectCityReservation_Click(object sender, EventArgs e)
         {
-            //dataGridHotelRe.DataSource = cass.
+            dataGridHotelRe.DataSource = cass.obtHotelesCiudad(cbCityReservations.Text);
         }
     }
 }

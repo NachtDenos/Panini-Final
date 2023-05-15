@@ -531,11 +531,11 @@ namespace Punto_de_Venta
             {
                 conectar();
                 var query = "update hotel set " +
-                    "country='{0}', city='{1}'," +
-                    "state='{2}', floors_number='{3}', rooms_number='{4}'," +
-                    "turistic_zone='{5}', beach='{6}', pool_number='{7}', events_room='{8}', operations_date='{9}',services_add='{10}' where name='{11}' if exists";
-                query = string.Format(query, param.pais, param.ciudad, param.estado, param.numeroPisos,
-                     param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales, param.hotel);
+                    "country='{0}'," +
+                    "state='{1}', floors_number='{2}', rooms_number='{3}'," +
+                    "turistic_zone='{4}', beach='{5}', pool_number='{6}', events_room='{7}', operations_date='{8}',services_add='{9}' where name='{10}' AND city='{11}' if exists";
+                query = string.Format(query, param.pais, param.estado, param.numeroPisos,
+                     param.cantidadHabitaciones, param.zonaTuristica, param.frentePlaya, param.cantidadPiscinas, param.salonesEventos, param.inicioOperaciones, param.serviciosAdicionales, param.hotel, param.ciudad);
 
                 _session.Execute(query);
             }
@@ -553,15 +553,15 @@ namespace Punto_de_Venta
             return err;
         }
 
-        public bool DeleteHotel(string param)
+        public bool DeleteHotel(string nombre, string ciudad)
         {
             var err = true;
             try
             {
                 conectar();
                 var query = "update hotel set " +
-                    "status=false where name='{0}' if exists";
-                query = string.Format(query, param);
+                    "status=false where name='{0}' AND city='{1}' if exists";
+                query = string.Format(query, nombre, ciudad);
 
                 _session.Execute(query);
             }
@@ -708,9 +708,10 @@ namespace Punto_de_Venta
 
         }
 
-        public List<Hoteles> obtHotelesCiudad()
+        public List<Hoteles> obtHotelesCiudad(string ciudad)
         {
-            string query = "select name, country, city, state, floors_number, rooms_number, turistic_zone, services_add, beach, pool_number, events_room, operations_date, status from hotel;";
+            string query = "select name, country, city, state, floors_number, rooms_number, turistic_zone, services_add, beach, pool_number, events_room, operations_date, status from hotel where city='{0}' ALLOW FILTERING;";
+            query = string.Format(query, ciudad);
             List<Hoteles> lista = new List<Hoteles>();
             conectar();
             var ResultSet = _session.Execute(query);

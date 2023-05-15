@@ -114,7 +114,7 @@ namespace Punto_de_Venta
             return true;
         }
 
-        private void btnEditHotels_Click(object sender, EventArgs e) //NO LO PROBÉ
+        private void btnEditHotels_Click(object sender, EventArgs e) 
         {
             //if (txtNameHotelHotels.TextLength == 0 || txtCountryHotels.TextLength == 0 || txtCityHotels.TextLength == 0 ||
             //    txtStateHotels.TextLength == 0 || txtFloorsHotels.TextLength == 0 || txtRoomsHotels.TextLength == 0 ||
@@ -180,7 +180,7 @@ namespace Punto_de_Venta
 
         private void btnDeleteHotels_Click(object sender, EventArgs e)
         {
-            var success = cass.DeleteHotel(dataGridHotels.CurrentRow.Cells[0].Value.ToString());
+            var success = cass.DeleteHotel(dataGridHotels.CurrentRow.Cells[0].Value.ToString(), dataGridHotels.CurrentRow.Cells[2].Value.ToString());
             if (success)
                 MessageBox.Show("Se elimno al hotel.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             clearTxt();
