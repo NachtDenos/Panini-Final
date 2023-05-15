@@ -136,6 +136,7 @@
     <Compile Include="Clases\Habitaciones.cs" />
     <Compile Include="Clases\HabitacionesTemporales.cs" />
     <Compile Include="Clases\Hoteles.cs" />
+    <Compile Include="Clases\Reservaciones.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="DAO\EnlaceCassandra.cs" />
     <Compile Include="Pantallas\checkOutScreen.cs">

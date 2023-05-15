@@ -21,6 +21,8 @@ namespace Punto_de_Venta
         bool bandera;
         EnlaceCassandra cass = new EnlaceCassandra();
         HabitacionesTemporales cuartoTemp = new HabitacionesTemporales();
+        Reservaciones reservation = new Reservaciones();
+        Random random = new Random();
 
         public SalesScreen()
         {
@@ -47,6 +49,34 @@ namespace Punto_de_Venta
             //    MessageBox.Show("Seleccione una ciudad a visitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
+
+            int codeInt = random.Next(1 , 10001);
+            string codigoReserva = codeInt.ToString(); 
+            //EN PROCESO, ES PARA DAR DE ALTA LA RESERVACION
+            //reservation.codigo = codigoReserva;
+            //reservation.nombreCliente = dataGridCustomerRe.CurrentRow.Cells[0].Value.ToString();
+            //reservation.apellidoPCliente = dataGridCustomerRe.CurrentRow.Cells[1].Value.ToString();
+            //reservation.apellidoMCliente = dataGridCustomerRe.CurrentRow.Cells[2].Value.ToString();
+            //reservation.ciudad = dataGridHotelRe.CurrentRow.Cells[2].Value.ToString();
+
+
+            //reservation.hotel = dataGridHotelRe.CurrentRow.Cells[0].Value.ToString();
+            //reservation.habitacion = dataGridRoomsRe.CurrentRow.Cells[1].Value.ToString();
+            //reservation.cantidadPersonas = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.fechaInicial = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.fechaFinal = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.precio = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.estatus = true;
+
+
+            //reservation.metodoDePago = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.anticipo = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.fechaDeRegistro = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.horaDeRegistro = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+            //reservation.usuarioRegistro = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
+
+
+
             QuickSearchScreen TheOtherForm = new QuickSearchScreen();
             TheOtherForm.ShowDialog();
             bool limpieza = cass.limpiarHabitacionTemporal();
@@ -130,12 +160,16 @@ namespace Punto_de_Venta
             {
                 txtCreditCardPayRe.Enabled = true;
                 check1 = true;
+                rbDebitCardPayRe.Enabled = false;
+                rbTransferPayRe.Enabled = false;
             }
             else if (txtCreditCardPayRe.Enabled == true)
             {
                 txtCreditCardPayRe.Enabled = false;
                 txtCreditCardPayRe.Text = "";
                 check1 = false;
+                rbDebitCardPayRe.Enabled = true;
+                rbTransferPayRe.Enabled = true;
             }
             checkButton();
         }
@@ -146,12 +180,16 @@ namespace Punto_de_Venta
             {
                 txtDebitCardPayRe.Enabled = true;
                 check2 = true;
+                rbCreditCardPayRe.Enabled = false;
+                rbTransferPayRe.Enabled = false;
             }
             else if (txtDebitCardPayRe.Enabled == true)
             {
                 txtDebitCardPayRe.Enabled = false;
                 txtDebitCardPayRe.Text = "";
                 check2 = false;
+                rbCreditCardPayRe.Enabled = true;
+                rbTransferPayRe.Enabled = true;
             }
             checkButton();
         }
@@ -162,12 +200,16 @@ namespace Punto_de_Venta
             {
                 txtTransferPayRe.Enabled = true;
                 check3 = true;
+                rbDebitCardPayRe.Enabled = false;
+                rbCreditCardPayRe.Enabled = false;
             }
             else if (txtTransferPayRe.Enabled == true)
             {
                 txtTransferPayRe.Enabled = false;
                 txtTransferPayRe.Text = "";
                 check3 = false;
+                rbDebitCardPayRe.Enabled = true;
+                rbCreditCardPayRe.Enabled = true;
             }
             checkButton();
         }

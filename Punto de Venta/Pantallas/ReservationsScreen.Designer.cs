@@ -60,6 +60,7 @@ namespace Punto_de_Venta
             this.btnSearchNameReservation = new System.Windows.Forms.Button();
             this.btnSearchRFCReservation = new System.Windows.Forms.Button();
             this.btnSearchEmailReservation = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCustomerRe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHotelRe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoomsRe)).BeginInit();
@@ -424,12 +425,23 @@ namespace Punto_de_Venta
             this.btnSearchEmailReservation.UseVisualStyleBackColor = false;
             this.btnSearchEmailReservation.Click += new System.EventHandler(this.btnSearchEmailReservation_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(597, 543);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(175, 17);
+            this.label10.TabIndex = 175;
+            this.label10.Text = "El anticipo minimo es de $10";
+            // 
             // SalesScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnSearchEmailReservation);
             this.Controls.Add(this.btnSearchRFCReservation);
             this.Controls.Add(this.btnSearchNameReservation);
@@ -504,5 +516,6 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Button btnSearchNameReservation;
         private System.Windows.Forms.Button btnSearchRFCReservation;
         private System.Windows.Forms.Button btnSearchEmailReservation;
+        private System.Windows.Forms.Label label10;
     }
 }

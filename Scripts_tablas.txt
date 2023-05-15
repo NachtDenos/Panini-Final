@@ -71,7 +71,6 @@ PRIMARY KEY ((type), hotel)
 );
 
 
-
 CREATE TABLE pia_hoteles.cliente (
 name text,
 p_lastname text,
@@ -94,21 +93,24 @@ PRIMARY KEY ((email), name, rfc)
 
 
 CREATE TABLE pia_hoteles.reserva(
-id_reserva uuid,
-client_own uuid,
-hotel uuid,
-room set<uuid>,
+id_reserva text,
+client_name text,
+p_lastname text,
+m_lastname text,
+hotel text,
+room text,
 city text,
-people_number int,
+people_number text,
 init_date date,
 end_date date,
-price decimal,
+price text,
 status boolean,
-payment_method map<text, decimal>,
+payment_method_a text,
+advance_payment text,
 date_register date,
 hour_register text,
 user_register text,
-PRIMARY KEY (id_reserva, init_date)
+PRIMARY KEY (id_reserva)
 );
 
 
@@ -219,20 +221,6 @@ city text,
 PRIMARY KEY (city)
 );
 
-CREATE TABLE pia_hoteles.buscarHotelCiudad (
-name text,
-country text,
-state text,
-city text,
-floors_number int,
-rooms_number int,
-turistic_zone text,
-services_add list<text>,
-beach boolean,
-pool_number int,
-events_room boolean,
-PRIMARY KEY (city, name)
-);
 
 CREATE TABLE pia_hoteles.habitacionTemporal (
 hotel text,
