@@ -195,7 +195,7 @@ namespace Punto_de_Venta
 
         private void btnDeleteBedrooms_Click(object sender, EventArgs e)
         {
-            var success = cass.DeleteHabitaciones(dataGridBedrooms.CurrentRow.Cells[1].Value.ToString());
+            var success = cass.DeleteHabitaciones(dataGridBedrooms.CurrentRow.Cells[1].Value.ToString(), dataGridBedrooms.CurrentRow.Cells[0].Value.ToString());
             if (success)
                 MessageBox.Show("Se elimno la habitacion.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             clearTxt();

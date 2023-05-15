@@ -67,8 +67,10 @@ status boolean,
 date_register date,
 hour_register text,
 user_register text,
-PRIMARY KEY (type)
+PRIMARY KEY ((type), hotel)
 );
+
+
 
 CREATE TABLE pia_hoteles.cliente (
 name text,
@@ -230,6 +232,24 @@ beach boolean,
 pool_number int,
 events_room boolean,
 PRIMARY KEY (city, name)
+);
+
+CREATE TABLE pia_hoteles.habitacionTemporal (
+hotel text,
+type text,
+beds_number text,
+beds_type text,
+price text,
+people_number text,
+room_level text,
+frontof text,
+details text,
+amenities text,
+status boolean,
+date_register date,
+hour_register text,
+user_register text,
+PRIMARY KEY ((type), hotel)
 );
 
 truncate buscarciudad;

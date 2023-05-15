@@ -89,6 +89,7 @@ namespace Punto_de_Venta
             this.dataGridCustomerRe.RowHeadersWidth = 51;
             this.dataGridCustomerRe.Size = new System.Drawing.Size(436, 96);
             this.dataGridCustomerRe.TabIndex = 59;
+            this.dataGridCustomerRe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCustomerRe_CellClick);
             // 
             // btnConfirmReser
             // 
@@ -145,6 +146,7 @@ namespace Punto_de_Venta
             this.dataGridHotelRe.RowHeadersWidth = 51;
             this.dataGridHotelRe.Size = new System.Drawing.Size(436, 113);
             this.dataGridHotelRe.TabIndex = 65;
+            this.dataGridHotelRe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridHotelRe_CellClick);
             // 
             // label3
             // 
@@ -195,6 +197,7 @@ namespace Punto_de_Venta
             this.dataGridRoomsRe.RowHeadersWidth = 51;
             this.dataGridRoomsRe.Size = new System.Drawing.Size(436, 111);
             this.dataGridRoomsRe.TabIndex = 115;
+            this.dataGridRoomsRe.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridRoomsRe_CellClick);
             // 
             // dataGridRoomsChosenRe
             // 

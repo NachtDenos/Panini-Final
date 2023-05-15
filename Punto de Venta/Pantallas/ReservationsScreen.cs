@@ -52,6 +52,10 @@ namespace Punto_de_Venta
         {
             DateTime fecha1 = dtpLodgingReser.Value;
             DateTime fecha2 = dtpLodgingReser2.Value;
+            string cantPerson = dataGridRoomsRe.CurrentRow.Cells[5].Value.ToString();
+            string cantPersonSoli = txtPeopleReservations.Text;
+            int cantPersonInt = int.Parse(cantPerson);
+            int cantPersonSoliInt = int.Parse(cantPersonSoli);
 
             if (txtPeopleReservations.TextLength == 0)
             {
@@ -68,6 +72,12 @@ namespace Punto_de_Venta
                 MessageBox.Show("La primer fecha no puede ser mayor que la segunda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if(cantPersonSoliInt > cantPersonInt)
+            {
+                MessageBox.Show("El número de personas solicitadas sobrepasa la capacidad de la habitación.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
         }
 
         private void txtPeopleReservations_KeyPress(object sender, KeyPressEventArgs e)
@@ -201,7 +211,7 @@ namespace Punto_de_Venta
 
         private void btnSelectReservation_Click(object sender, EventArgs e)
         {
-
+            dataGridRoomsRe.DataSource = cass.obtHabitacionesHotel(dataGridHotelRe.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void btnSearchNameReservation_Click(object sender, EventArgs e)
@@ -222,6 +232,51 @@ namespace Punto_de_Venta
         private void btnSelectCityReservation_Click(object sender, EventArgs e)
         {
             dataGridHotelRe.DataSource = cass.obtHotelesCiudad(cbCityReservations.Text);
+        }
+
+        private void dataGridCustomerRe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridCustomerRe.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridCustomerRe.CurrentRow.Selected = true;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridHotelRe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridHotelRe.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridHotelRe.CurrentRow.Selected = true;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dataGridRoomsRe_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (dataGridRoomsRe.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridRoomsRe.CurrentRow.Selected = true;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

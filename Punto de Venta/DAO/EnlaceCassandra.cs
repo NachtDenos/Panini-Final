@@ -615,11 +615,11 @@ namespace Punto_de_Venta
             {
                 conectar();
                 var query = "update habitacion set " +
-                    "hotel='{0}', beds_number='{1}'," +
-                    "beds_type='{2}', price='{3}', people_number='{4}'," +
-                    "room_level='{5}', frontof='{6}', details='{7}', amenities='{8}' where type='{9}' if exists";
-                query = string.Format(query, param.hotel, param.numeroCamas, param.tiposCama, param.precioPorNoche,
-                     param.cantidadPersonas, param.nivelHabitacion, param.frenteA, param.caracteristicas, param.amenidades, param.tipoHabitacion);
+                    "beds_number='{0}'," +
+                    "beds_type='{1}', price='{2}', people_number='{3}'," +
+                    "room_level='{4}', frontof='{5}', details='{6}', amenities='{7}' where type='{8}' AND hotel='{9}' if exists";
+                query = string.Format(query, param.numeroCamas, param.tiposCama, param.precioPorNoche,
+                     param.cantidadPersonas, param.nivelHabitacion, param.frenteA, param.caracteristicas, param.amenidades, param.tipoHabitacion, param.hotel);
 
                 _session.Execute(query);
             }
@@ -637,14 +637,14 @@ namespace Punto_de_Venta
             return err;
         }
 
-        public bool DeleteHabitaciones(string param)
+        public bool DeleteHabitaciones(string tipo, string hotel)
         {
             var Err = true; // SI no hay error
             try
             {
                 conectar();
-                var query1 = "delete from habitacion where type='{0}' if exists";
-                query1 = string.Format(query1, param);
+                var query1 = "delete from habitacion where type='{0}' AND hotel='{1}' if exists";
+                query1 = string.Format(query1, tipo, hotel);
                 _session.Execute(query1);
             }
             catch (Exception e)
@@ -732,6 +732,35 @@ namespace Punto_de_Venta
                 hotel.inicioOperaciones = row.GetValue<object>("operations_date") == null ? "" : row.GetValue<object>("operations_date").ToString();
                 hotel.status = row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
                 lista.Add(hotel);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Habitaciones> obtHabitacionesHotel(string hotel)
+        {
+            string query = "select hotel, type, beds_number, beds_type, price, people_number, room_level, frontof, details, amenities, status from habitacion where hotel='{0}' ALLOW FILTERING;";
+            query = string.Format(query, hotel);
+            List<Habitaciones> lista = new List<Habitaciones>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Habitaciones habitacion = new Habitaciones();
+                habitacion.hotel = row.GetValue<string>("hotel");
+                habitacion.tipoHabitacion = row.GetValue<string>("type");
+                habitacion.numeroCamas = row.GetValue<string>("beds_number");
+                habitacion.tiposCama = row.GetValue<string>("beds_type");
+                habitacion.precioPorNoche = row.GetValue<string>("price");
+                habitacion.cantidadPersonas = row.GetValue<string>("people_number");
+                habitacion.nivelHabitacion = row.GetValue<string>("room_level");
+                habitacion.frenteA = row.GetValue<string>("frontof");
+                habitacion.caracteristicas = row.GetValue<string>("details");
+                habitacion.amenidades = row.GetValue<string>("amenities");
+                habitacion.estatus = row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
+                lista.Add(habitacion);
             }
 
             desconectar();
