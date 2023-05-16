@@ -12,11 +12,16 @@ namespace Punto_de_Venta
 {
     public partial class QuickSearchScreen : Form
     {
-        
         public QuickSearchScreen()
         {
             InitializeComponent();
             
+        }
+
+        public QuickSearchScreen(string codigoRe)
+        {
+            InitializeComponent();
+            labelCodeReservation.Text = codigoRe;
         }
 
         private void txtIdCashRegister_KeyPress(object sender, KeyPressEventArgs e)

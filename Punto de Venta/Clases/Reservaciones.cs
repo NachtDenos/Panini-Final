@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Punto_de_Venta.Clases
 {
-    class Reservaciones
+    public class Reservaciones
     {
         public string codigo { get; set; }
         public string nombreCliente { get; set; }
@@ -19,7 +19,8 @@ namespace Punto_de_Venta.Clases
         public string fechaInicial { get; set; }
         public string fechaFinal { get; set; }
         public string precio { get; set; }
-        public bool estatus { get; set; }
+        public bool checkIn { get; set; }
+        public bool checkOut { get; set; }
         public string metodoDePago { get; set; }
         public string anticipo { get; set; }
         public string fechaDeRegistro { get; set; }

@@ -19,10 +19,15 @@ namespace Punto_de_Venta
         bool check3 = false;
         bool selection = false;
         bool bandera;
+        bool debito;
+        bool credito;
+        bool transferencia;
         EnlaceCassandra cass = new EnlaceCassandra();
         HabitacionesTemporales cuartoTemp = new HabitacionesTemporales();
         Reservaciones reservation = new Reservaciones();
         Random random = new Random();
+        string anticipoGlobal = "";
+        string metodoGlobal = "";
 
         public SalesScreen()
         {
@@ -51,36 +56,59 @@ namespace Punto_de_Venta
             //}
 
             int codeInt = random.Next(1 , 10001);
-            string codigoReserva = codeInt.ToString(); 
+            string codigoReserva = codeInt.ToString();
             //EN PROCESO, ES PARA DAR DE ALTA LA RESERVACION
-            //reservation.codigo = codigoReserva;
-            //reservation.nombreCliente = dataGridCustomerRe.CurrentRow.Cells[0].Value.ToString();
-            //reservation.apellidoPCliente = dataGridCustomerRe.CurrentRow.Cells[1].Value.ToString();
-            //reservation.apellidoMCliente = dataGridCustomerRe.CurrentRow.Cells[2].Value.ToString();
-            //reservation.ciudad = dataGridHotelRe.CurrentRow.Cells[2].Value.ToString();
+            reservation.codigo = codigoReserva;
+            reservation.nombreCliente = dataGridCustomerRe.CurrentRow.Cells[0].Value.ToString();
+            reservation.apellidoPCliente = dataGridCustomerRe.CurrentRow.Cells[1].Value.ToString();
+            reservation.apellidoMCliente = dataGridCustomerRe.CurrentRow.Cells[2].Value.ToString();
+            reservation.ciudad = cbCityReservations.Text;
+            reservation.hotel = dataGridHotelRe.CurrentRow.Cells[0].Value.ToString();
+            reservation.checkIn = false;
+            reservation.checkOut = false;
+            string fechaReal1 = dtpLodgingReser.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaReal1);
+            string fechaReal2 = dtpLodgingReser2.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaReal2);
+            reservation.fechaInicial = fechaReal1;
+            reservation.fechaFinal = fechaReal2;
+            reservation.metodoDePago = metodoGlobal;
+            if (credito == true)
+            {
+                anticipoGlobal = txtCreditCardPayRe.Text;
+            }
+            if (debito == true)
+            {
+                anticipoGlobal = txtDebitCardPayRe.Text;
+            }
+            if (transferencia == true)
+            {
+                anticipoGlobal = txtTransferPayRe.Text;
+            }
+            reservation.anticipo = anticipoGlobal;
+            reservation.fechaDeRegistro = DateTime.Now.ToString("yyyy-MM-dd");
+            reservation.horaDeRegistro = DateTime.Now.ToString("HH:mm:ss"); ;
+            reservation.usuarioRegistro = "Kevin";
+            var success = cass.InsertarReservaciones(reservation);
 
+            foreach (DataGridViewRow row in dataGridRoomsChosenRe.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    reservation.habitacion = row.Cells[1].Value.ToString();
+                    reservation.cantidadPersonas = row.Cells[5].Value.ToString();
+                    reservation.precio = row.Cells[4].Value.ToString();
+                    var success2 = cass.InsertarReservacionesDetalle(reservation);
+                }
+            }
 
-            //reservation.hotel = dataGridHotelRe.CurrentRow.Cells[0].Value.ToString();
-            //reservation.habitacion = dataGridRoomsRe.CurrentRow.Cells[1].Value.ToString();
-            //reservation.cantidadPersonas = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.fechaInicial = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.fechaFinal = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.precio = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.estatus = true;
-
-
-            //reservation.metodoDePago = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.anticipo = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.fechaDeRegistro = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.horaDeRegistro = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-            //reservation.usuarioRegistro = dataGridCustomerRe.CurrentRow.Cells[3].Value.ToString();
-
-
-
-            QuickSearchScreen TheOtherForm = new QuickSearchScreen();
+            QuickSearchScreen TheOtherForm = new QuickSearchScreen(codigoReserva);
             TheOtherForm.ShowDialog();
             bool limpieza = cass.limpiarHabitacionTemporal();
             dataGridRoomsChosenRe.DataSource = cass.Obtener_habitacionesTemporales();
+            dataGridCustomerRe.ClearSelection();
+            dataGridHotelRe.ClearSelection();
+            dataGridRoomsRe.ClearSelection();
         }
 
         private void btnAddReser_Click(object sender, EventArgs e)
@@ -95,16 +123,6 @@ namespace Punto_de_Venta
             if (txtPeopleReservations.TextLength == 0)
             {
                 MessageBox.Show("Faltan campos por llenar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (fecha1 == fecha2)
-            {
-                MessageBox.Show("Las fechas no pueden ser iguales", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (fecha1 > fecha2)
-            {
-                MessageBox.Show("La primer fecha no puede ser mayor que la segunda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             if(cantPersonSoliInt > cantPersonInt)
@@ -162,6 +180,8 @@ namespace Punto_de_Venta
                 check1 = true;
                 rbDebitCardPayRe.Enabled = false;
                 rbTransferPayRe.Enabled = false;
+                metodoGlobal = "Trajeta de Credito";
+                credito = true;
             }
             else if (txtCreditCardPayRe.Enabled == true)
             {
@@ -170,6 +190,7 @@ namespace Punto_de_Venta
                 check1 = false;
                 rbDebitCardPayRe.Enabled = true;
                 rbTransferPayRe.Enabled = true;
+                credito = false;
             }
             checkButton();
         }
@@ -182,6 +203,8 @@ namespace Punto_de_Venta
                 check2 = true;
                 rbCreditCardPayRe.Enabled = false;
                 rbTransferPayRe.Enabled = false;
+                metodoGlobal = "Tarjeta de Debito";
+                debito = true;
             }
             else if (txtDebitCardPayRe.Enabled == true)
             {
@@ -190,6 +213,7 @@ namespace Punto_de_Venta
                 check2 = false;
                 rbCreditCardPayRe.Enabled = true;
                 rbTransferPayRe.Enabled = true;
+                debito = false;
             }
             checkButton();
         }
@@ -202,6 +226,8 @@ namespace Punto_de_Venta
                 check3 = true;
                 rbDebitCardPayRe.Enabled = false;
                 rbCreditCardPayRe.Enabled = false;
+                metodoGlobal = "Transferencia";
+                transferencia = true;
             }
             else if (txtTransferPayRe.Enabled == true)
             {
@@ -210,6 +236,7 @@ namespace Punto_de_Venta
                 check3 = false;
                 rbDebitCardPayRe.Enabled = true;
                 rbCreditCardPayRe.Enabled = true;
+                transferencia = false;
             }
             checkButton();
         }
@@ -304,6 +331,18 @@ namespace Punto_de_Venta
 
         private void btnSelectCityReservation_Click(object sender, EventArgs e)
         {
+            DateTime fecha1 = dtpLodgingReser.Value;
+            DateTime fecha2 = dtpLodgingReser2.Value;
+            if (fecha1 == fecha2)
+            {
+                MessageBox.Show("Las fechas no pueden ser iguales", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (fecha1 > fecha2)
+            {
+                MessageBox.Show("La primer fecha no puede ser mayor que la segunda", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             dataGridHotelRe.DataSource = cass.obtHotelesCiudad(cbCityReservations.Text);
         }
 

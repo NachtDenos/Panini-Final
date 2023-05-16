@@ -854,6 +854,64 @@ namespace Punto_de_Venta
             return Err;
         }
 
+        public bool InsertarReservaciones(Reservaciones param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "insert into reserva(id_reserva, client_name, p_lastname, m_lastname, hotel, city, " +
+                    "init_date, end_date, check_in, check_out, payment_method_a, advance_payment , date_register, hour_register, user_register) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', {8}, {9}, '{10}', '{11}', '{12}', '{13}', '{14}') if not exists; ";
+                query1 = string.Format(query1, param.codigo, param.nombreCliente, param.apellidoPCliente, param.apellidoMCliente, param.hotel, param.ciudad,
+                                        param.fechaInicial, param.fechaFinal, param.checkIn, param.checkOut, param.metodoDePago, param.anticipo, param.fechaDeRegistro, param.horaDeRegistro,
+                                        param.usuarioRegistro);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
+        public bool InsertarReservacionesDetalle(Reservaciones param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "insert into reserva_detalle(room, people_number, price, " +
+                    " id_reserva) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}') if not exists; ";
+                query1 = string.Format(query1, param.habitacion, param.cantidadPersonas, param.precio, param.codigo);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
         //public bool InsertUsers(users param)
         //{
         //    var Err = false; // SI no hay error

@@ -207,18 +207,18 @@ namespace Punto_de_Venta
             this.dataGridRoomsChosenRe.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridRoomsChosenRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridRoomsChosenRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRoomsChosenRe.Location = new System.Drawing.Point(463, 205);
+            this.dataGridRoomsChosenRe.Location = new System.Drawing.Point(463, 259);
             this.dataGridRoomsChosenRe.Name = "dataGridRoomsChosenRe";
             this.dataGridRoomsChosenRe.ReadOnly = true;
             this.dataGridRoomsChosenRe.RowHeadersWidth = 51;
-            this.dataGridRoomsChosenRe.Size = new System.Drawing.Size(436, 254);
+            this.dataGridRoomsChosenRe.Size = new System.Drawing.Size(436, 200);
             this.dataGridRoomsChosenRe.TabIndex = 116;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(586, 180);
+            this.label5.Location = new System.Drawing.Point(583, 234);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(211, 22);
             this.label5.TabIndex = 117;
@@ -263,7 +263,7 @@ namespace Punto_de_Venta
             this.btnAddReser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddReser.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReser.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnAddReser.Location = new System.Drawing.Point(158, 590);
+            this.btnAddReser.Location = new System.Drawing.Point(184, 531);
             this.btnAddReser.Name = "btnAddReser";
             this.btnAddReser.Size = new System.Drawing.Size(101, 29);
             this.btnAddReser.TabIndex = 160;
@@ -275,7 +275,7 @@ namespace Punto_de_Venta
             // 
             this.dtpLodgingReser.CustomFormat = "yyyy-MM-dd";
             this.dtpLodgingReser.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLodgingReser.Location = new System.Drawing.Point(45, 559);
+            this.dtpLodgingReser.Location = new System.Drawing.Point(511, 143);
             this.dtpLodgingReser.Name = "dtpLodgingReser";
             this.dtpLodgingReser.Size = new System.Drawing.Size(146, 20);
             this.dtpLodgingReser.TabIndex = 161;
@@ -284,7 +284,7 @@ namespace Punto_de_Venta
             // 
             this.dtpLodgingReser2.CustomFormat = "yyyy-MM-dd";
             this.dtpLodgingReser2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpLodgingReser2.Location = new System.Drawing.Point(237, 559);
+            this.dtpLodgingReser2.Location = new System.Drawing.Point(703, 143);
             this.dtpLodgingReser2.Name = "dtpLodgingReser2";
             this.dtpLodgingReser2.Size = new System.Drawing.Size(146, 20);
             this.dtpLodgingReser2.TabIndex = 162;
@@ -293,7 +293,7 @@ namespace Punto_de_Venta
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(108, 520);
+            this.label7.Location = new System.Drawing.Point(574, 104);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(207, 22);
             this.label7.TabIndex = 163;
@@ -375,7 +375,7 @@ namespace Punto_de_Venta
             this.btnSelectCityReservation.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelectCityReservation.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSelectCityReservation.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSelectCityReservation.Location = new System.Drawing.Point(621, 115);
+            this.btnSelectCityReservation.Location = new System.Drawing.Point(626, 173);
             this.btnSelectCityReservation.Name = "btnSelectCityReservation";
             this.btnSelectCityReservation.Size = new System.Drawing.Size(116, 29);
             this.btnSelectCityReservation.TabIndex = 171;
