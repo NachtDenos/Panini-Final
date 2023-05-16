@@ -98,19 +98,25 @@ client_name text,
 p_lastname text,
 m_lastname text,
 hotel text,
-room text,
 city text,
-people_number text,
 init_date date,
 end_date date,
-price text,
-status boolean,
+check_in boolean,
+check_out boolean,
 payment_method_a text,
 advance_payment text,
 date_register date,
 hour_register text,
 user_register text,
 PRIMARY KEY (id_reserva)
+);
+
+CREATE TABLE pia_hoteles.reserva_detalle(
+room text,
+people_number text,
+price text,
+id_reserva text,
+PRIMARY KEY ((room), id_reserva)
 );
 
 
@@ -173,14 +179,23 @@ PRIMARY KEY (status, id_user)
 
 
 CREATE TABLE pia_hoteles.cancelaciones (
-id_cancellations uuid,
-id_reservation uuid,
-refund float,
-date date,
-hour text,
+id_cancellations text,
+codigo_reservation text,
+date_cancellation date,
+hour_cancellation text,
 user_cancellation text,
-PRIMARY KEY (id_cancellations, user_cancellation)
+PRIMARY KEY (id_cancellations)
 );
+
+CREATE TABLE pia_hoteles.contadorcancel (
+nombre text,
+cont counter,
+PRIMARY KEY (nombre)
+);
+
+
+
+select * from cancelaciones;
 
 
 CREATE TABLE pia_hoteles.buscarcliente (
@@ -240,8 +255,9 @@ date_out date,
 PRIMARY KEY (type)
 );
 
-drop table habitacionTemporal;
-truncate habitacionTemporal;
+
+truncate reserva;
+truncate reserva_detalle;
 
 select * from usuario;
 select * from cliente;
@@ -249,6 +265,8 @@ select * from hotel;
 select * from habitacion;
 select * from buscarciudad;
 select * from habitacionTemporal;
+select * from reserva;
+select * from reserva_detalle;
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
 insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','123','Espinoza','Morales','2003-10-16','a','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
