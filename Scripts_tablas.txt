@@ -194,10 +194,6 @@ PRIMARY KEY (nombre)
 );
 
 
-
-select * from cancelaciones;
-
-
 CREATE TABLE pia_hoteles.buscarcliente (
 id_user uuid,
 name text,
@@ -255,9 +251,6 @@ date_out date,
 PRIMARY KEY (type)
 );
 
-
-truncate reserva;
-truncate reserva_detalle;
 
 select * from usuario;
 select * from cliente;
