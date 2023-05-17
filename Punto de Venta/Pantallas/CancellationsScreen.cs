@@ -7,17 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
     public partial class DiscountsScreen : Form
     {
+        EnlaceCassandra cass = new EnlaceCassandra();
+        string codigoReString;
+        Cancelaciones cancel = new Cancelaciones();
         
         public DiscountsScreen()
         {
             InitializeComponent();
-           
-          
+            
+
         }
 
         private void addDiscountBtton_Click(object sender, EventArgs e)
@@ -27,11 +31,26 @@ namespace Punto_de_Venta
                 MessageBox.Show("Falta de escribir el codigo de reservación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dateValidFuture(dtpDateCancel.Value.Date) == false)
-            {
-                MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
+            cass.incrementarContadorCancelacion();
+
+            string fechaReal = dtpDateCancel.Text;
+            String.Format("{0:yyyy-MM-dd}", fechaReal);
+            cancel.idCancelaciones = cass.obtenerContadorCancelacion();
+            cancel.codigoRe = codigoReString;
+            cancel.fechaCancelacion = fechaReal;
+            cancel.horaCancelacion = DateTime.Now.ToString("HH:mm:ss"); ;
+            cancel.usuarioCancelacion = "Kevin";
+            var success = cass.InsertarCancelacion(cancel);
+            if (success)
+                MessageBox.Show("Se cancelo la reservacion.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            txtCodeReservCancel.Text = "";
+            //if (dateValidFuture(dtpDateCancel.Value.Date) == false)
+            //{
+            //    MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
         }
 
         private void onlyNumbers(KeyPressEventArgs e)
@@ -57,5 +76,27 @@ namespace Punto_de_Venta
             return true;
         }
 
+        private void dataGridCancel_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridCancel.AllowUserToAddRows = false;
+                if (dataGridCancel.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridCancel.CurrentRow.Selected = true;
+                    codigoReString = dataGridCancel.Rows[e.RowIndex].Cells["codigo"].Value.ToString();
+                    
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSelectCodeCancel_Click(object sender, EventArgs e)
+        {
+            dataGridCancel.DataSource = cass.Obtener_reservaciones(txtCodeReservCancel.Text);
+        }
     }
 }

@@ -912,6 +912,123 @@ namespace Punto_de_Venta
             return Err;
         }
 
+        public List<Reservaciones> Obtener_reservaciones(string code)
+        {
+            string query = "select id_reserva, client_name, p_lastname, m_lastname, hotel, city, init_date, end_date, check_in, check_out, payment_method_a, advance_payment, date_register, hour_register, user_register from reserva where id_reserva='{0}' ALLOW FILTERING;";
+            query = string.Format(query, code);
+            List<Reservaciones> lista = new List<Reservaciones>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Reservaciones reservacion = new Reservaciones();
+                reservacion.codigo = row.GetValue<string>("id_reserva");
+                reservacion.nombreCliente = row.GetValue<string>("client_name");
+                reservacion.apellidoPCliente = row.GetValue<string>("p_lastname");
+                reservacion.apellidoMCliente = row.GetValue<string>("m_lastname");
+                reservacion.hotel = row.GetValue<string>("hotel");
+                reservacion.ciudad = row.GetValue<string>("city");
+                reservacion.fechaInicial = row.GetValue<object>("init_date") == null ? "" : row.GetValue<object>("init_date").ToString();
+                reservacion.fechaFinal = row.GetValue<object>("end_date") == null ? "" : row.GetValue<object>("end_date").ToString();
+                reservacion.checkIn = row.GetValue<Nullable<bool>>("check_in") == null ? false : row.GetValue<bool>("check_in");
+                reservacion.checkOut = row.GetValue<Nullable<bool>>("check_out") == null ? false : row.GetValue<bool>("check_out");
+                reservacion.metodoDePago = row.GetValue<string>("payment_method_a");
+                reservacion.anticipo = row.GetValue<string>("advance_payment");
+                reservacion.fechaDeRegistro = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
+                reservacion.horaDeRegistro = row.GetValue<string>("hour_register");
+                reservacion.usuarioRegistro = row.GetValue<string>("user_register");
+                lista.Add(reservacion);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public bool incrementarContadorCancelacion()
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "update contadorcancel set cont = cont + 1 WHERE nombre = 'mi_contador'";
+                query1 = string.Format(query1);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
+        public string obtenerContadorCancelacion()
+        {
+            string nuevoValor;
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "select cont from contadorcancel where nombre = 'mi_contador'";
+                query1 = string.Format(query1);
+                int i = -1;
+                var result = _session.Execute(query1);
+                nuevoValor = result.First().GetValue<long>("cont").ToString();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return nuevoValor;
+        }
+
+        public bool InsertarCancelacion(Cancelaciones param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "insert into cancelaciones(id_cancellations, codigo_reservation, date_cancellation, " +
+                    " hour_cancellation, user_cancellation) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}') if not exists; ";
+                query1 = string.Format(query1, param.idCancelaciones, param.codigoRe, param.fechaCancelacion, param.horaCancelacion, param.usuarioCancelacion);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
+
+
         //public bool InsertUsers(users param)
         //{
         //    var Err = false; // SI no hay error
