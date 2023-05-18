@@ -1100,6 +1100,32 @@ namespace Punto_de_Venta
 
         }
 
+        public bool reservacionCheckIn(Reservaciones param)
+        {
+            var err = true;
+            try
+            {
+                conectar();
+                var query = "update reserva set check_in='{0}' where id_reserva='{1}' if exists";
+                query = string.Format(query, param.checkIn, param.codigo);
+
+                _session.Execute(query);
+            }
+            catch (Exception E)
+            {
+                err = false;
+                MessageBox.Show(E.ToString());
+                return err;
+                throw;
+            }
+            finally
+            {
+                desconectar();
+            }
+            return err;
+        }
+
+
         //public bool InsertUsers(users param)
         //{
         //    var Err = false; // SI no hay error
