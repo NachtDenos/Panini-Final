@@ -42,9 +42,19 @@ namespace Punto_de_Venta
             cancel.horaCancelacion = DateTime.Now.ToString("HH:mm:ss"); ;
             cancel.usuarioCancelacion = "Kevin";
             var success = cass.InsertarCancelacion(cancel);
-            if (success)
+            var success2 = cass.Delete_Reservacion(codigoReString);
+            List<Reservaciones> habitacionesRe = cass.Obtener_reservacionesDetalle(codigoReString);
+
+            foreach (Reservaciones habitacionObt in habitacionesRe)
+            {
+                var success3 = cass.Delete_ReservacionDetalle(codigoReString, habitacionObt.habitacion);
+            }
+
+            if (success && success2)
                 MessageBox.Show("Se cancelo la reservacion.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+
+            dataGridCancel.DataSource = cass.Obtener_reservaciones("0");
             txtCodeReservCancel.Text = "";
             //if (dateValidFuture(dtpDateCancel.Value.Date) == false)
             //{

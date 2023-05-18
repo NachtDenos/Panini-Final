@@ -76,7 +76,7 @@ namespace Punto_de_Venta
             this.dataGridCheckIn.Name = "dataGridCheckIn";
             this.dataGridCheckIn.ReadOnly = true;
             this.dataGridCheckIn.RowHeadersWidth = 51;
-            this.dataGridCheckIn.Size = new System.Drawing.Size(452, 313);
+            this.dataGridCheckIn.Size = new System.Drawing.Size(430, 313);
             this.dataGridCheckIn.TabIndex = 134;
             // 
             // btnConfirmCheckIn

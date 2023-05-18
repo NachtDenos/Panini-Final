@@ -1027,7 +1027,78 @@ namespace Punto_de_Venta
             return Err;
         }
 
+        public bool Delete_Reservacion(string codigo)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "delete from reserva where id_reserva='{0}' if exists";
+                query1 = string.Format(query1, codigo);
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
 
+            }
+            return Err;
+        }
+
+        public bool Delete_ReservacionDetalle(string codigo, string habitacion)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "delete from reserva_detalle where id_reserva='{0}' AND room='{1}' if exists";
+                query1 = string.Format(query1, codigo, habitacion);
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
+        public List<Reservaciones> Obtener_reservacionesDetalle(string code)
+        {
+            string query = "select room, people_number, price, id_reserva from reserva_detalle where id_reserva='{0}' ALLOW FILTERING;";
+            query = string.Format(query, code);
+            List<Reservaciones> lista = new List<Reservaciones>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Reservaciones reservacion = new Reservaciones();
+                reservacion.codigo = row.GetValue<string>("id_reserva");
+                reservacion.habitacion = row.GetValue<string>("room");
+                reservacion.cantidadPersonas = row.GetValue<string>("people_number");
+                reservacion.precio = row.GetValue<string>("price");
+                
+                lista.Add(reservacion);
+            }
+
+            desconectar();
+            return lista;
+
+        }
 
         //public bool InsertUsers(users param)
         //{
