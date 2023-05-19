@@ -251,6 +251,22 @@ date_out date,
 PRIMARY KEY (type)
 );
 
+CREATE TABLE pia_hoteles.servicios_adicionales(
+	service text,
+	price_service text,
+	PRIMARY KEY (service)
+);
+
+CREATE TABLE pia_hoteles.servicios_temporales(
+	service text,
+	price_service text,
+	PRIMARY KEY (service)
+);
+
+insert into servicios_adicionales(service, price_service) values ('Gimnasio','200');
+insert into servicios_adicionales(service, price_service) values ('Gimnasio','50');
+insert into servicios_adicionales(service, price_service) values ('Servicio a cuarto','100');
+
 
 select * from usuario;
 select * from cliente;
@@ -260,6 +276,8 @@ select * from buscarciudad;
 select * from habitacionTemporal;
 select * from reserva;
 select * from reserva_detalle;
+select * from servicios_adicionales;
+select * from servicios_temporales;
 
 select * from cancelaciones;
 select * from contadorcancel;
@@ -267,6 +285,7 @@ truncate cancelaciones;
 truncate contadorcancel;
 truncate reserva;
 
+truncate servicios_temporales;
 
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');

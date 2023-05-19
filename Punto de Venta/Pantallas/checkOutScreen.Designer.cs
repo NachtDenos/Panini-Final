@@ -44,7 +44,7 @@ namespace Punto_de_Venta.Pantallas
             this.btnExtendCheckOut = new System.Windows.Forms.Button();
             this.btnSearchCheckOut = new System.Windows.Forms.Button();
             this.dataGridRoomsCheckOut = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSelectServicesCheckOut = new System.Windows.Forms.Button();
             this.dataGridServices2CheckOut = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@ namespace Punto_de_Venta.Pantallas
             this.labelTotal = new System.Windows.Forms.Label();
             this.labelAnticipo = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnConfirmServicesCheckOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridServicesCheckOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoomsCheckOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridServices2CheckOut)).BeginInit();
@@ -92,14 +93,16 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.dataGridServicesCheckOut.AllowUserToAddRows = false;
             this.dataGridServicesCheckOut.AllowUserToDeleteRows = false;
+            this.dataGridServicesCheckOut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridServicesCheckOut.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridServicesCheckOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridServicesCheckOut.Location = new System.Drawing.Point(48, 197);
+            this.dataGridServicesCheckOut.Location = new System.Drawing.Point(39, 196);
             this.dataGridServicesCheckOut.Name = "dataGridServicesCheckOut";
             this.dataGridServicesCheckOut.ReadOnly = true;
             this.dataGridServicesCheckOut.RowHeadersWidth = 51;
-            this.dataGridServicesCheckOut.Size = new System.Drawing.Size(117, 242);
+            this.dataGridServicesCheckOut.Size = new System.Drawing.Size(157, 242);
             this.dataGridServicesCheckOut.TabIndex = 141;
+            this.dataGridServicesCheckOut.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridServicesCheckOut_CellClick);
             // 
             // btnConfirmCheckOut
             // 
@@ -128,7 +131,7 @@ namespace Punto_de_Venta.Pantallas
             // rbDebitCardCheckOut
             // 
             this.rbDebitCardCheckOut.AutoSize = true;
-            this.rbDebitCardCheckOut.Location = new System.Drawing.Point(803, 385);
+            this.rbDebitCardCheckOut.Location = new System.Drawing.Point(824, 394);
             this.rbDebitCardCheckOut.Name = "rbDebitCardCheckOut";
             this.rbDebitCardCheckOut.Size = new System.Drawing.Size(108, 17);
             this.rbDebitCardCheckOut.TabIndex = 152;
@@ -139,7 +142,7 @@ namespace Punto_de_Venta.Pantallas
             // rbCreditCardCheckOut
             // 
             this.rbCreditCardCheckOut.AutoSize = true;
-            this.rbCreditCardCheckOut.Location = new System.Drawing.Point(654, 385);
+            this.rbCreditCardCheckOut.Location = new System.Drawing.Point(675, 394);
             this.rbCreditCardCheckOut.Name = "rbCreditCardCheckOut";
             this.rbCreditCardCheckOut.Size = new System.Drawing.Size(110, 17);
             this.rbCreditCardCheckOut.TabIndex = 151;
@@ -149,7 +152,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             // txtCreditCardCheckOut
             // 
-            this.txtCreditCardCheckOut.Location = new System.Drawing.Point(657, 408);
+            this.txtCreditCardCheckOut.Location = new System.Drawing.Point(678, 417);
             this.txtCreditCardCheckOut.Multiline = true;
             this.txtCreditCardCheckOut.Name = "txtCreditCardCheckOut";
             this.txtCreditCardCheckOut.Size = new System.Drawing.Size(107, 22);
@@ -158,7 +161,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             // txtDebitCardCheckOut
             // 
-            this.txtDebitCardCheckOut.Location = new System.Drawing.Point(803, 407);
+            this.txtDebitCardCheckOut.Location = new System.Drawing.Point(824, 416);
             this.txtDebitCardCheckOut.Multiline = true;
             this.txtDebitCardCheckOut.Name = "txtDebitCardCheckOut";
             this.txtDebitCardCheckOut.Size = new System.Drawing.Size(108, 22);
@@ -169,7 +172,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(696, 344);
+            this.label4.Location = new System.Drawing.Point(717, 353);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 22);
             this.label4.TabIndex = 144;
@@ -179,7 +182,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(424, 172);
+            this.label5.Location = new System.Drawing.Point(441, 172);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(108, 22);
             this.label5.TabIndex = 153;
@@ -219,25 +222,26 @@ namespace Punto_de_Venta.Pantallas
             this.dataGridRoomsCheckOut.AllowUserToDeleteRows = false;
             this.dataGridRoomsCheckOut.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridRoomsCheckOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridRoomsCheckOut.Location = new System.Drawing.Point(347, 197);
+            this.dataGridRoomsCheckOut.Location = new System.Drawing.Point(364, 197);
             this.dataGridRoomsCheckOut.Name = "dataGridRoomsCheckOut";
             this.dataGridRoomsCheckOut.ReadOnly = true;
             this.dataGridRoomsCheckOut.RowHeadersWidth = 51;
             this.dataGridRoomsCheckOut.Size = new System.Drawing.Size(274, 242);
             this.dataGridRoomsCheckOut.TabIndex = 159;
             // 
-            // button1
+            // btnSelectServicesCheckOut
             // 
-            this.button1.BackColor = System.Drawing.Color.Navy;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(48, 445);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 35);
-            this.button1.TabIndex = 161;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSelectServicesCheckOut.BackColor = System.Drawing.Color.Navy;
+            this.btnSelectServicesCheckOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectServicesCheckOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectServicesCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSelectServicesCheckOut.Location = new System.Drawing.Point(48, 445);
+            this.btnSelectServicesCheckOut.Name = "btnSelectServicesCheckOut";
+            this.btnSelectServicesCheckOut.Size = new System.Drawing.Size(117, 35);
+            this.btnSelectServicesCheckOut.TabIndex = 161;
+            this.btnSelectServicesCheckOut.Text = "Seleccionar";
+            this.btnSelectServicesCheckOut.UseVisualStyleBackColor = false;
+            this.btnSelectServicesCheckOut.Click += new System.EventHandler(this.btnSelectServicesCheckOut_Click);
             // 
             // dataGridServices2CheckOut
             // 
@@ -245,11 +249,11 @@ namespace Punto_de_Venta.Pantallas
             this.dataGridServices2CheckOut.AllowUserToDeleteRows = false;
             this.dataGridServices2CheckOut.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridServices2CheckOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridServices2CheckOut.Location = new System.Drawing.Point(192, 197);
+            this.dataGridServices2CheckOut.Location = new System.Drawing.Point(207, 197);
             this.dataGridServices2CheckOut.Name = "dataGridServices2CheckOut";
             this.dataGridServices2CheckOut.ReadOnly = true;
             this.dataGridServices2CheckOut.RowHeadersWidth = 51;
-            this.dataGridServices2CheckOut.Size = new System.Drawing.Size(117, 242);
+            this.dataGridServices2CheckOut.Size = new System.Drawing.Size(141, 242);
             this.dataGridServices2CheckOut.TabIndex = 160;
             // 
             // label6
@@ -276,7 +280,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(708, 258);
+            this.label8.Location = new System.Drawing.Point(728, 258);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 30);
             this.label8.TabIndex = 164;
@@ -306,7 +310,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(791, 258);
+            this.labelTotal.Location = new System.Drawing.Point(803, 258);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(59, 30);
             this.labelTotal.TabIndex = 167;
@@ -332,12 +336,27 @@ namespace Punto_de_Venta.Pantallas
             this.label13.TabIndex = 168;
             this.label13.Text = "Anticipo:";
             // 
+            // btnConfirmServicesCheckOut
+            // 
+            this.btnConfirmServicesCheckOut.BackColor = System.Drawing.Color.Green;
+            this.btnConfirmServicesCheckOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmServicesCheckOut.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmServicesCheckOut.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnConfirmServicesCheckOut.Location = new System.Drawing.Point(216, 445);
+            this.btnConfirmServicesCheckOut.Name = "btnConfirmServicesCheckOut";
+            this.btnConfirmServicesCheckOut.Size = new System.Drawing.Size(116, 35);
+            this.btnConfirmServicesCheckOut.TabIndex = 170;
+            this.btnConfirmServicesCheckOut.Text = "Confirmar";
+            this.btnConfirmServicesCheckOut.UseVisualStyleBackColor = false;
+            this.btnConfirmServicesCheckOut.Click += new System.EventHandler(this.btnConfirmServicesCheckOut_Click);
+            // 
             // checkOutScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.btnConfirmServicesCheckOut);
             this.Controls.Add(this.labelAnticipo);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.labelTotal);
@@ -346,7 +365,7 @@ namespace Punto_de_Venta.Pantallas
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSelectServicesCheckOut);
             this.Controls.Add(this.dataGridServices2CheckOut);
             this.Controls.Add(this.dataGridRoomsCheckOut);
             this.Controls.Add(this.btnSearchCheckOut);
@@ -389,7 +408,7 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Button btnExtendCheckOut;
         private System.Windows.Forms.Button btnSearchCheckOut;
         private System.Windows.Forms.DataGridView dataGridRoomsCheckOut;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSelectServicesCheckOut;
         private System.Windows.Forms.DataGridView dataGridServices2CheckOut;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -399,5 +418,6 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label labelAnticipo;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnConfirmServicesCheckOut;
     }
 }

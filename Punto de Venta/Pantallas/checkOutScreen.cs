@@ -18,8 +18,10 @@ namespace Punto_de_Venta.Pantallas
         bool check2 = false;
         EnlaceCassandra cass = new EnlaceCassandra();
         ReservacionesDetalle reservationDetalle = new ReservacionesDetalle();
+        Servicios serv = new Servicios();
         string personas;
         string precios;
+        string serviciosS;
         float totalHospedaje = 0;
         float totalServicios = 0;
         float anticipo = 0;
@@ -31,6 +33,8 @@ namespace Punto_de_Venta.Pantallas
             txtCreditCardCheckOut.Enabled = false;
             txtDebitCardCheckOut.Enabled = false;
             btnConfirmCheckOut.Enabled = false;
+            dataGridServicesCheckOut.DataSource = cass.Obtener_servicios();
+            btnSelectServicesCheckOut.Enabled = false;
         }
 
         private void btnEditDepartament_Click(object sender, EventArgs e)
@@ -184,6 +188,57 @@ namespace Punto_de_Venta.Pantallas
         private void btnConfirmCheckOut_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridServicesCheckOut_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dataGridServicesCheckOut.AllowUserToAddRows = false;
+                if (dataGridServicesCheckOut.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    dataGridServicesCheckOut.CurrentRow.Selected = true;
+                    
+                    btnSelectServicesCheckOut.Enabled = true;
+                }
+            }
+            catch (Exception ArgumentOutOfRangeException)
+            {
+                MessageBox.Show("Seleccione una celda valida.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSelectServicesCheckOut_Click(object sender, EventArgs e)
+        {
+            serv.Servicio = dataGridServicesCheckOut.CurrentRow.Cells[0].Value.ToString();
+            serv.PrecioDeServicio = dataGridServicesCheckOut.CurrentRow.Cells[1].Value.ToString();
+
+            var success = cass.InsertarServiciosTemporales(serv);
+            if (success)
+            {
+                MessageBox.Show("Se agrego el servicio adicional.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            dataGridServices2CheckOut.DataSource = cass.Obtener_serviciosTemp();
+
+            dataGridServicesCheckOut.ClearSelection();
+            btnSelectServicesCheckOut.Enabled = false;
+        }
+
+        private void btnConfirmServicesCheckOut_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in dataGridServices2CheckOut.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    serviciosS = row.Cells[1].Value.ToString();
+                    aux = float.Parse(serviciosS);
+                    totalServicios = totalServicios + aux;
+                    total = total + aux;
+                }
+            }
+            labelServices.Text = totalServicios.ToString();
+            labelTotal.Text = total.ToString();
         }
     }
 }

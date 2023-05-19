@@ -1124,6 +1124,71 @@ namespace Punto_de_Venta
             return err;
         }
 
+        public List<Servicios> Obtener_servicios()
+        {
+            string query = "select service, price_service from servicios_adicionales;";
+            List<Servicios> lista = new List<Servicios>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Servicios serviciosA = new Servicios();
+                serviciosA.Servicio = row.GetValue<string>("service");
+                serviciosA.PrecioDeServicio = row.GetValue<string>("price_service");
+                lista.Add(serviciosA);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Servicios> Obtener_serviciosTemp()
+        {
+            string query = "select service, price_service from servicios_temporales;";
+            List<Servicios> lista = new List<Servicios>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Servicios serviciosA = new Servicios();
+                serviciosA.Servicio = row.GetValue<string>("service");
+                serviciosA.PrecioDeServicio = row.GetValue<string>("price_service");
+                lista.Add(serviciosA);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public bool InsertarServiciosTemporales(Servicios param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "insert into servicios_temporales(service, price_service) " +
+                    "values ('{0}' ,'{1}') if not exists; ";
+                query1 = string.Format(query1, param.Servicio, param.PrecioDeServicio);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
 
         //public bool InsertUsers(users param)
         //{
