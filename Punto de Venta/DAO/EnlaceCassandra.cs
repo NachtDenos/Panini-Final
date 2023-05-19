@@ -890,8 +890,8 @@ namespace Punto_de_Venta
             try
             {
                 conectar();
-                var query1 = "insert into reserva_detalle(room, people_number, price, " +
-                    " id_reserva) " +
+                var query1 = "insert into reserva_detalle(room2, people_number2, price2, " +
+                    " id_reserva2) " +
                     "values ('{0}' ,'{1}', '{2}', '{3}') if not exists; ";
                 query1 = string.Format(query1, param.habitacion, param.cantidadPersonas, param.precio, param.codigo);
                 int i = -1;
@@ -1058,7 +1058,7 @@ namespace Punto_de_Venta
             try
             {
                 conectar();
-                var query1 = "delete from reserva_detalle where id_reserva='{0}' AND room='{1}' if exists";
+                var query1 = "delete from reserva_detalle where id_reserva2='{0}' AND room2='{1}' if exists";
                 query1 = string.Format(query1, codigo, habitacion);
                 _session.Execute(query1);
             }
@@ -1077,21 +1077,20 @@ namespace Punto_de_Venta
             return Err;
         }
 
-        public List<Reservaciones> Obtener_reservacionesDetalle(string code)
+        public List<ReservacionesDetalle> Obtener_reservacionesDetalle(string code)
         {
-            string query = "select room, people_number, price, id_reserva from reserva_detalle where id_reserva='{0}' ALLOW FILTERING;";
+            string query = "select room2, people_number2, price2, id_reserva2 from reserva_detalle where id_reserva2='{0}' ALLOW FILTERING;";
             query = string.Format(query, code);
-            List<Reservaciones> lista = new List<Reservaciones>();
+            List<ReservacionesDetalle> lista = new List<ReservacionesDetalle>();
             conectar();
             var ResultSet = _session.Execute(query);
             foreach (var row in ResultSet)
             {
-                Reservaciones reservacion = new Reservaciones();
-                reservacion.codigo = row.GetValue<string>("id_reserva");
-                reservacion.habitacion = row.GetValue<string>("room");
-                reservacion.cantidadPersonas = row.GetValue<string>("people_number");
-                reservacion.precio = row.GetValue<string>("price");
-                
+                ReservacionesDetalle reservacion = new ReservacionesDetalle();
+                reservacion.Cuarto = row.GetValue<string>("room2");
+                reservacion.Personas = row.GetValue<string>("people_number2");
+                reservacion.Costo = row.GetValue<string>("price2");
+                reservacion.Id = row.GetValue<string>("id_reserva2");
                 lista.Add(reservacion);
             }
 

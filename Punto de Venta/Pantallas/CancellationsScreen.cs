@@ -43,11 +43,11 @@ namespace Punto_de_Venta
             cancel.usuarioCancelacion = "Kevin";
             var success = cass.InsertarCancelacion(cancel);
             var success2 = cass.Delete_Reservacion(codigoReString);
-            List<Reservaciones> habitacionesRe = cass.Obtener_reservacionesDetalle(codigoReString);
+            List<ReservacionesDetalle> habitacionesRe = cass.Obtener_reservacionesDetalle(codigoReString);
 
-            foreach (Reservaciones habitacionObt in habitacionesRe)
+            foreach (ReservacionesDetalle habitacionObt in habitacionesRe)
             {
-                var success3 = cass.Delete_ReservacionDetalle(codigoReString, habitacionObt.habitacion);
+                var success3 = cass.Delete_ReservacionDetalle(codigoReString, habitacionObt.Cuarto);
             }
 
             if (success && success2)

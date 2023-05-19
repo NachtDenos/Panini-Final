@@ -15,6 +15,7 @@ namespace Punto_de_Venta.Pantallas
         bool bandera;
         bool check1 = false;
         bool check2 = false;
+        EnlaceCassandra cass = new EnlaceCassandra();
         public checkOutScreen()
         {
             InitializeComponent();
@@ -25,8 +26,11 @@ namespace Punto_de_Venta.Pantallas
 
         private void btnEditDepartament_Click(object sender, EventArgs e)
         {
-            WaytoPayScreen TheOtherForm = new WaytoPayScreen();
-            TheOtherForm.ShowDialog();
+            //POR MIENTRAS
+            //TODO: Esta cosa
+            //WaytoPayScreen TheOtherForm = new WaytoPayScreen();
+            //TheOtherForm.ShowDialog();
+            MessageBox.Show("En proceso...", ":)", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnSearchCheckOut_Click(object sender, EventArgs e)
@@ -36,6 +40,7 @@ namespace Punto_de_Venta.Pantallas
                 MessageBox.Show("Falta de escribir el codigo de reservación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            dataGridRoomsCheckOut.DataSource = cass.Obtener_reservacionesDetalle(txtCodeCheckOut.Text);
         }
 
         private void onlyNumbers(KeyPressEventArgs e)

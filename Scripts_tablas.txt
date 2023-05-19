@@ -112,11 +112,11 @@ PRIMARY KEY (id_reserva)
 );
 
 CREATE TABLE pia_hoteles.reserva_detalle(
-room text,
-people_number text,
-price text,
-id_reserva text,
-PRIMARY KEY ((room), id_reserva)
+room2 text,
+people_number2 text,
+price2 text,
+id_reserva2 text,
+PRIMARY KEY ((room2), id_reserva2)
 );
 
 
@@ -265,6 +265,7 @@ select * from cancelaciones;
 select * from contadorcancel;
 truncate cancelaciones;
 truncate contadorcancel;
+truncate reserva;
 
 
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
