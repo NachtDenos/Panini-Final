@@ -1106,7 +1106,7 @@ namespace Punto_de_Venta
             try
             {
                 conectar();
-                var query = "update reserva set check_in='{0}' where id_reserva='{1}' if exists";
+                var query = "update reserva set check_in={0} where id_reserva='{1}' if exists";
                 query = string.Format(query, param.checkIn, param.codigo);
 
                 _session.Execute(query);

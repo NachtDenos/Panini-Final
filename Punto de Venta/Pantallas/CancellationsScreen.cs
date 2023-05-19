@@ -20,7 +20,7 @@ namespace Punto_de_Venta
         public DiscountsScreen()
         {
             InitializeComponent();
-            
+            btnConfirmCancel.Enabled = false;
 
         }
 
@@ -56,6 +56,7 @@ namespace Punto_de_Venta
 
             dataGridCancel.DataSource = cass.Obtener_reservaciones("0");
             txtCodeReservCancel.Text = "";
+            btnConfirmCancel.Enabled = false;
             //if (dateValidFuture(dtpDateCancel.Value.Date) == false)
             //{
             //    MessageBox.Show("Fecha no valida", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -95,7 +96,7 @@ namespace Punto_de_Venta
                 {
                     dataGridCancel.CurrentRow.Selected = true;
                     codigoReString = dataGridCancel.Rows[e.RowIndex].Cells["codigo"].Value.ToString();
-                    
+                    btnConfirmCancel.Enabled = true;
                 }
             }
             catch (Exception ArgumentOutOfRangeException)

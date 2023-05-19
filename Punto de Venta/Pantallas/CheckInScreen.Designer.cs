@@ -34,6 +34,7 @@ namespace Punto_de_Venta
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridCheckIn = new System.Windows.Forms.DataGridView();
             this.btnConfirmCheckIn = new System.Windows.Forms.Button();
+            this.btnSelectCodeCheckIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridCheckIn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@ namespace Punto_de_Venta
             // 
             // txtCodeCheckIn
             // 
-            this.txtCodeCheckIn.Location = new System.Drawing.Point(310, 156);
+            this.txtCodeCheckIn.Location = new System.Drawing.Point(309, 111);
             this.txtCodeCheckIn.Multiline = true;
             this.txtCodeCheckIn.Name = "txtCodeCheckIn";
             this.txtCodeCheckIn.Size = new System.Drawing.Size(310, 22);
@@ -60,7 +61,7 @@ namespace Punto_de_Venta
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(306, 106);
+            this.label3.Location = new System.Drawing.Point(305, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(314, 22);
             this.label3.TabIndex = 135;
@@ -78,6 +79,7 @@ namespace Punto_de_Venta
             this.dataGridCheckIn.RowHeadersWidth = 51;
             this.dataGridCheckIn.Size = new System.Drawing.Size(430, 313);
             this.dataGridCheckIn.TabIndex = 134;
+            this.dataGridCheckIn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridCheckIn_CellClick);
             // 
             // btnConfirmCheckIn
             // 
@@ -93,12 +95,27 @@ namespace Punto_de_Venta
             this.btnConfirmCheckIn.UseVisualStyleBackColor = false;
             this.btnConfirmCheckIn.Click += new System.EventHandler(this.btnConfirmCheckIn_Click);
             // 
+            // btnSelectCodeCheckIn
+            // 
+            this.btnSelectCodeCheckIn.BackColor = System.Drawing.Color.Navy;
+            this.btnSelectCodeCheckIn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectCodeCheckIn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectCodeCheckIn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSelectCodeCheckIn.Location = new System.Drawing.Point(411, 139);
+            this.btnSelectCodeCheckIn.Name = "btnSelectCodeCheckIn";
+            this.btnSelectCodeCheckIn.Size = new System.Drawing.Size(116, 29);
+            this.btnSelectCodeCheckIn.TabIndex = 173;
+            this.btnSelectCodeCheckIn.Text = "Seleccionar";
+            this.btnSelectCodeCheckIn.UseVisualStyleBackColor = false;
+            this.btnSelectCodeCheckIn.Click += new System.EventHandler(this.btnSelectCodeCheckIn_Click);
+            // 
             // InventaryScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.btnSelectCodeCheckIn);
             this.Controls.Add(this.btnConfirmCheckIn);
             this.Controls.Add(this.txtCodeCheckIn);
             this.Controls.Add(this.label3);
@@ -118,5 +135,6 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridCheckIn;
         private System.Windows.Forms.Button btnConfirmCheckIn;
+        private System.Windows.Forms.Button btnSelectCodeCheckIn;
     }
 }
