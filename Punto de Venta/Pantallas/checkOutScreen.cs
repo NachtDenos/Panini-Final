@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta.Pantallas
 {
@@ -16,6 +17,14 @@ namespace Punto_de_Venta.Pantallas
         bool check1 = false;
         bool check2 = false;
         EnlaceCassandra cass = new EnlaceCassandra();
+        ReservacionesDetalle reservationDetalle = new ReservacionesDetalle();
+        string personas;
+        string precios;
+        float totalHospedaje = 0;
+        float totalServicios = 0;
+        float anticipo = 0;
+        float total = 0;
+        float aux = 0;
         public checkOutScreen()
         {
             InitializeComponent();
@@ -41,6 +50,32 @@ namespace Punto_de_Venta.Pantallas
                 return;
             }
             dataGridRoomsCheckOut.DataSource = cass.Obtener_reservacionesDetalle(txtCodeCheckOut.Text);
+
+            foreach (DataGridViewRow row in dataGridRoomsCheckOut.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    personas = row.Cells[2].Value.ToString();
+                    precios = row.Cells[3].Value.ToString();
+                    float personaf = float.Parse(personas);
+                    float preciof = float.Parse(precios);
+                    aux = personaf * preciof;
+                    totalHospedaje = totalHospedaje + aux;
+                }
+            }
+            List<Reservaciones> anticipoRe = cass.Obtener_reservaciones(txtCodeCheckOut.Text);
+            foreach (Reservaciones habitacionObt in anticipoRe)
+            {
+                string anticipoString = habitacionObt.anticipo.ToString();
+                anticipo = float.Parse(anticipoString);
+            }
+
+            total = totalHospedaje - anticipo;
+
+            labelTotal.Text = total.ToString();
+            labelAnticipo.Text = anticipo.ToString();
+            labelHospedaje.Text = totalHospedaje.ToString();
+
         }
 
         private void onlyNumbers(KeyPressEventArgs e)

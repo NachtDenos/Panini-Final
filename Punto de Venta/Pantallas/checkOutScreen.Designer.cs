@@ -49,10 +49,10 @@ namespace Punto_de_Venta.Pantallas
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.labelServices = new System.Windows.Forms.Label();
+            this.labelHospedaje = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelAnticipo = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridServicesCheckOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoomsCheckOut)).BeginInit();
@@ -282,45 +282,45 @@ namespace Punto_de_Venta.Pantallas
             this.label8.TabIndex = 164;
             this.label8.Text = "Total:";
             // 
-            // label9
+            // labelServices
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(520, 500);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 30);
-            this.label9.TabIndex = 165;
-            this.label9.Text = "0.00";
+            this.labelServices.AutoSize = true;
+            this.labelServices.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelServices.Location = new System.Drawing.Point(520, 500);
+            this.labelServices.Name = "labelServices";
+            this.labelServices.Size = new System.Drawing.Size(59, 30);
+            this.labelServices.TabIndex = 165;
+            this.labelServices.Text = "0.00";
             // 
-            // label10
+            // labelHospedaje
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(520, 460);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 30);
-            this.label10.TabIndex = 166;
-            this.label10.Text = "0.00";
+            this.labelHospedaje.AutoSize = true;
+            this.labelHospedaje.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelHospedaje.Location = new System.Drawing.Point(520, 460);
+            this.labelHospedaje.Name = "labelHospedaje";
+            this.labelHospedaje.Size = new System.Drawing.Size(59, 30);
+            this.labelHospedaje.TabIndex = 166;
+            this.labelHospedaje.Text = "0.00";
             // 
-            // label11
+            // labelTotal
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(791, 258);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 30);
-            this.label11.TabIndex = 167;
-            this.label11.Text = "0.00";
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(791, 258);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(59, 30);
+            this.labelTotal.TabIndex = 167;
+            this.labelTotal.Text = "0.00";
             // 
-            // label12
+            // labelAnticipo
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(520, 543);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 30);
-            this.label12.TabIndex = 169;
-            this.label12.Text = "0.00";
+            this.labelAnticipo.AutoSize = true;
+            this.labelAnticipo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAnticipo.Location = new System.Drawing.Point(520, 543);
+            this.labelAnticipo.Name = "labelAnticipo";
+            this.labelAnticipo.Size = new System.Drawing.Size(59, 30);
+            this.labelAnticipo.TabIndex = 169;
+            this.labelAnticipo.Text = "0.00";
             // 
             // label13
             // 
@@ -338,11 +338,11 @@ namespace Punto_de_Venta.Pantallas
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.labelAnticipo);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(this.labelHospedaje);
+            this.Controls.Add(this.labelServices);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -394,10 +394,10 @@ namespace Punto_de_Venta.Pantallas
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label labelServices;
+        private System.Windows.Forms.Label labelHospedaje;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelAnticipo;
         private System.Windows.Forms.Label label13;
     }
 }
