@@ -116,6 +116,8 @@ room2 text,
 people_number2 text,
 price2 text,
 id_reserva2 text,
+init_date2 date,
+end_date2 date,
 PRIMARY KEY ((room2), id_reserva2)
 );
 
@@ -284,6 +286,7 @@ select * from contadorcancel;
 truncate cancelaciones;
 truncate contadorcancel;
 truncate reserva;
+truncate reserva_detalle;
 
 truncate servicios_temporales;
 
