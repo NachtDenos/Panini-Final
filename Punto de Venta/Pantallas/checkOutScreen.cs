@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Punto_de_Venta.Clases;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Punto_de_Venta.Pantallas
 {
@@ -27,14 +30,21 @@ namespace Punto_de_Venta.Pantallas
         float anticipo = 0;
         float total = 0;
         float aux = 0;
+        string pagoGlobal = "";
+        string metodoGlobal = "";
+        bool debito;
+        bool credito;
+        bool puedePagar = false;
         public checkOutScreen()
         {
             InitializeComponent();
             txtCreditCardCheckOut.Enabled = false;
             txtDebitCardCheckOut.Enabled = false;
             btnConfirmCheckOut.Enabled = false;
+            btnConfirmServicesCheckOut.Enabled = false;
             dataGridServicesCheckOut.DataSource = cass.Obtener_servicios();
             btnSelectServicesCheckOut.Enabled = false;
+            dataGridServicesCheckOut.Enabled = false;
         }
 
         private void btnEditDepartament_Click(object sender, EventArgs e)
@@ -54,7 +64,11 @@ namespace Punto_de_Venta.Pantallas
                 return;
             }
             dataGridRoomsCheckOut.DataSource = cass.Obtener_reservacionesDetalle(txtCodeCheckOut.Text);
-
+            totalHospedaje = 0;
+            totalServicios = 0;
+            anticipo = 0;
+            total = 0;
+            aux = 0;
             foreach (DataGridViewRow row in dataGridRoomsCheckOut.Rows)
             {
                 if (!row.IsNewRow)
@@ -76,10 +90,14 @@ namespace Punto_de_Venta.Pantallas
 
             total = totalHospedaje - anticipo;
 
+            dataGridServicesCheckOut.Enabled = true;
             labelTotal.Text = total.ToString();
             labelAnticipo.Text = anticipo.ToString();
             labelHospedaje.Text = totalHospedaje.ToString();
-
+            labelServices.Text = totalServicios.ToString();
+            cass.limpiarServiciosTemporal();
+            dataGridServices2CheckOut.DataSource = cass.Obtener_serviciosTemp();
+            puedePagar = true;
         }
 
         private void onlyNumbers(KeyPressEventArgs e)
@@ -151,12 +169,17 @@ namespace Punto_de_Venta.Pantallas
             {
                 txtCreditCardCheckOut.Enabled = true;
                 check1 = true;
+                rbDebitCardCheckOut.Enabled = false;
+                metodoGlobal = "Trajeta de Credito";
+                credito = true;
             }
             else if (txtCreditCardCheckOut.Enabled == true)
             {
                 txtCreditCardCheckOut.Enabled = false;
                 txtCreditCardCheckOut.Text = "";
                 check1 = false;
+                rbDebitCardCheckOut.Enabled = true;
+                credito = false;
             }
             checkButton();
         }
@@ -167,12 +190,17 @@ namespace Punto_de_Venta.Pantallas
             {
                 txtDebitCardCheckOut.Enabled = true;
                 check2 = true;
+                rbCreditCardCheckOut.Enabled = false;
+                metodoGlobal = "Trajeta de Debito";
+                debito = true;
             }
             else if (txtDebitCardCheckOut.Enabled == true)
             {
                 txtDebitCardCheckOut.Enabled = false;
                 txtDebitCardCheckOut.Text = "";
                 check2 = false;
+                rbCreditCardCheckOut.Enabled = true;
+                debito = false;
             }
             checkButton();
         }
@@ -187,7 +215,46 @@ namespace Punto_de_Venta.Pantallas
 
         private void btnConfirmCheckOut_Click(object sender, EventArgs e)
         {
+            if(puedePagar == false)
+            {
+                MessageBox.Show("Falta de seleccionar el codigo de reservación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (credito == true)
+            {
+                pagoGlobal = txtCreditCardCheckOut.Text;
+            }
+            if (debito == true)
+            {
+                pagoGlobal = txtDebitCardCheckOut.Text;
+            }
 
+            string totalPagarString = labelTotal.Text;
+            float totalAPagar = float.Parse(totalPagarString);
+            float pagof = float.Parse(pagoGlobal);
+            if(totalAPagar > pagof || totalAPagar < pagof)
+            {
+                MessageBox.Show("Ingrese un monto valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            #region TICKET
+
+            #endregion
+
+            totalHospedaje = 0;
+            totalServicios = 0;
+            anticipo = 0;
+            total = 0;
+            aux = 0;
+            labelServices.Text = totalServicios.ToString();
+            labelHospedaje.Text = totalHospedaje.ToString();
+            labelAnticipo.Text = anticipo.ToString();
+            labelTotal.Text = total.ToString();
+            txtCodeCheckOut.Text = "";
+            dataGridRoomsCheckOut.DataSource = cass.Obtener_reservacionesDetalle("0");
+            cass.limpiarServiciosTemporal();
+            puedePagar = false;
         }
 
         private void dataGridServicesCheckOut_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -223,6 +290,7 @@ namespace Punto_de_Venta.Pantallas
 
             dataGridServicesCheckOut.ClearSelection();
             btnSelectServicesCheckOut.Enabled = false;
+            btnConfirmServicesCheckOut.Enabled = true; 
         }
 
         private void btnConfirmServicesCheckOut_Click(object sender, EventArgs e)
@@ -237,6 +305,9 @@ namespace Punto_de_Venta.Pantallas
                     total = total + aux;
                 }
             }
+            btnSelectServicesCheckOut.Enabled = false;
+            btnConfirmServicesCheckOut.Enabled = false;
+            dataGridServicesCheckOut.Enabled = false;
             labelServices.Text = totalServicios.ToString();
             labelTotal.Text = total.ToString();
         }

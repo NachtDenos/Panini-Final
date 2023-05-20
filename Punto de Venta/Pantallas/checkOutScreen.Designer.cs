@@ -131,7 +131,7 @@ namespace Punto_de_Venta.Pantallas
             // rbDebitCardCheckOut
             // 
             this.rbDebitCardCheckOut.AutoSize = true;
-            this.rbDebitCardCheckOut.Location = new System.Drawing.Point(824, 394);
+            this.rbDebitCardCheckOut.Location = new System.Drawing.Point(810, 394);
             this.rbDebitCardCheckOut.Name = "rbDebitCardCheckOut";
             this.rbDebitCardCheckOut.Size = new System.Drawing.Size(108, 17);
             this.rbDebitCardCheckOut.TabIndex = 152;
@@ -142,7 +142,7 @@ namespace Punto_de_Venta.Pantallas
             // rbCreditCardCheckOut
             // 
             this.rbCreditCardCheckOut.AutoSize = true;
-            this.rbCreditCardCheckOut.Location = new System.Drawing.Point(675, 394);
+            this.rbCreditCardCheckOut.Location = new System.Drawing.Point(661, 394);
             this.rbCreditCardCheckOut.Name = "rbCreditCardCheckOut";
             this.rbCreditCardCheckOut.Size = new System.Drawing.Size(110, 17);
             this.rbCreditCardCheckOut.TabIndex = 151;
@@ -152,7 +152,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             // txtCreditCardCheckOut
             // 
-            this.txtCreditCardCheckOut.Location = new System.Drawing.Point(678, 417);
+            this.txtCreditCardCheckOut.Location = new System.Drawing.Point(664, 417);
             this.txtCreditCardCheckOut.Multiline = true;
             this.txtCreditCardCheckOut.Name = "txtCreditCardCheckOut";
             this.txtCreditCardCheckOut.Size = new System.Drawing.Size(107, 22);
@@ -161,7 +161,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             // txtDebitCardCheckOut
             // 
-            this.txtDebitCardCheckOut.Location = new System.Drawing.Point(824, 416);
+            this.txtDebitCardCheckOut.Location = new System.Drawing.Point(810, 416);
             this.txtDebitCardCheckOut.Multiline = true;
             this.txtDebitCardCheckOut.Name = "txtDebitCardCheckOut";
             this.txtDebitCardCheckOut.Size = new System.Drawing.Size(108, 22);
@@ -172,7 +172,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(717, 353);
+            this.label4.Location = new System.Drawing.Point(703, 353);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 22);
             this.label4.TabIndex = 144;
@@ -280,7 +280,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(728, 258);
+            this.label8.Location = new System.Drawing.Point(702, 258);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 30);
             this.label8.TabIndex = 164;
@@ -310,7 +310,7 @@ namespace Punto_de_Venta.Pantallas
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(803, 258);
+            this.labelTotal.Location = new System.Drawing.Point(785, 258);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(59, 30);
             this.labelTotal.TabIndex = 167;
