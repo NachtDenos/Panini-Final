@@ -35,6 +35,7 @@ namespace Punto_de_Venta.Pantallas
         bool debito;
         bool credito;
         bool puedePagar = false;
+        int diasD;
         public checkOutScreen()
         {
             InitializeComponent();
@@ -63,7 +64,24 @@ namespace Punto_de_Venta.Pantallas
                 MessageBox.Show("Falta de escribir el codigo de reservación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            DateTime fecha1;
+            DateTime fecha2;
+            TimeSpan diferencia;
+            
             dataGridRoomsCheckOut.DataSource = cass.Obtener_reservacionesDetalle(txtCodeCheckOut.Text);
+            cass.Obtener_reservaciones(txtCodeCheckOut.Text);
+
+            List<Reservaciones> reservacionesRe = cass.Obtener_reservaciones(txtCodeCheckOut.Text);
+            foreach (Reservaciones reservacionObt in reservacionesRe)
+            {
+                fecha1 = DateTime.Parse(reservacionObt.fechaInicial);
+                fecha2 = DateTime.Parse(reservacionObt.fechaFinal);
+                diferencia = fecha2 - fecha1;
+                diasD = diferencia.Days; 
+            }
+
+            int hola = diasD;
+
             totalHospedaje = 0;
             totalServicios = 0;
             anticipo = 0;
@@ -73,11 +91,9 @@ namespace Punto_de_Venta.Pantallas
             {
                 if (!row.IsNewRow)
                 {
-                    personas = row.Cells[2].Value.ToString();
                     precios = row.Cells[3].Value.ToString();
-                    float personaf = float.Parse(personas);
                     float preciof = float.Parse(precios);
-                    aux = personaf * preciof;
+                    aux = diasD * preciof;
                     totalHospedaje = totalHospedaje + aux;
                 }
             }

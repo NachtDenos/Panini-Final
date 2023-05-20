@@ -116,10 +116,10 @@ room2 text,
 people_number2 text,
 price2 text,
 id_reserva2 text,
-init_date2 date,
-end_date2 date,
 PRIMARY KEY ((room2), id_reserva2)
 );
+
+drop table reserva_detalle;
 
 
 CREATE TABLE pia_hoteles.reportehotel(
