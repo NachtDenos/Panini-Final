@@ -10,11 +10,14 @@ using System.Windows.Forms;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using Punto_de_Venta.Clases;
 
 namespace Punto_de_Venta
 {
     public partial class ReturnScreen : Form
     {
+
+        EnlaceCassandra cass = new EnlaceCassandra();
 
         public ReturnScreen()
         {
@@ -51,6 +54,26 @@ namespace Punto_de_Venta
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnHotelReportSales_Click(object sender, EventArgs e)
+        {
+            dataGridSalesReport.DataSource = cass.obtReporteVentasNombre(txtHotelSalesR.Text);
+        }
+
+        private void btnCityReportSales_Click(object sender, EventArgs e)
+        {
+            dataGridSalesReport.DataSource = cass.obtReporteVentasCiudad(txtCitySalesR.Text);
+        }
+
+        private void btnCountryReportSales_Click(object sender, EventArgs e)
+        {
+            dataGridSalesReport.DataSource = cass.obtReporteVentasPais(txtCountrySalesR.Text);
+        }
+
+        private void btnYearReportSales_Click(object sender, EventArgs e)
+        {
+            dataGridSalesReport.DataSource = cass.obtReporteVentasAnio(txtYearSalesR.Text);
         }
     }
 }

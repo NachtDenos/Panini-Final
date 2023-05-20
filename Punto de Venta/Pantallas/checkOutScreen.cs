@@ -22,6 +22,7 @@ namespace Punto_de_Venta.Pantallas
         EnlaceCassandra cass = new EnlaceCassandra();
         ReservacionesDetalle reservationDetalle = new ReservacionesDetalle();
         Servicios serv = new Servicios();
+        Ventas venta = new Ventas();
         string personas;
         string precios;
         string serviciosS;
@@ -36,6 +37,7 @@ namespace Punto_de_Venta.Pantallas
         bool credito;
         bool puedePagar = false;
         int diasD;
+        string nombreC, paisC, ciudadC;
         public checkOutScreen()
         {
             InitializeComponent();
@@ -253,6 +255,37 @@ namespace Punto_de_Venta.Pantallas
                 MessageBox.Show("Ingrese un monto valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            List<Reservaciones> reservacionesA = cass.Obtener_reservaciones(txtCodeCheckOut.Text);
+            foreach (Reservaciones reservacionObt in reservacionesA)
+            {
+                nombreC = reservacionObt.hotel;
+                ciudadC = reservacionObt.ciudad;
+            }
+
+            List<Hoteles> hotelA = cass.Obtener_hotelesPais(nombreC);
+            foreach (Hoteles hotelObt in hotelA)
+            {
+                paisC = hotelObt.pais;
+            }
+
+            double hospedajeD = double.Parse(labelHospedaje.Text);
+            double serviciosD = double.Parse(labelServices.Text);
+            double totalD = double.Parse(labelTotal.Text);
+            cass.incrementarContadorCancelacion();
+
+            venta.idVentas = cass.obtenerContadorCancelacion();
+            venta.nombreHotel = nombreC;
+            venta.ciudad = ciudadC;
+            venta.pais = paisC;
+            venta.fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            venta.IngresosPorHospedaje = hospedajeD;
+            venta.IngresosPorServicios = serviciosD;
+            venta.IngresosTotales = totalD;
+
+            var success = cass.InsertarVentas(venta);
+            if(success)
+                MessageBox.Show("Se realizo el checkOut correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             #region TICKET
 

@@ -1214,6 +1214,164 @@ namespace Punto_de_Venta
             return Err;
         }
 
+        public bool InsertarVentas(Ventas param)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "insert into reporteventas(id_venta, name, city, " +
+                    " country, date_, lodging, services, total) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', {5}, {6}, {7}) if not exists; ";
+                query1 = string.Format(query1, param.idVentas, param.nombreHotel, param.ciudad, param.pais, param.fecha, param.IngresosPorHospedaje, param.IngresosPorServicios,
+                                        param.IngresosTotales);
+                int i = -1;
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
 
+            }
+            return Err;
+        }
+
+        public List<Hoteles> Obtener_hotelesPais(string nombre)
+        {
+            string query = "select name, country, city, state, floors_number, rooms_number, turistic_zone, services_add, beach, pool_number, events_room, operations_date, status from hotel where name='{0}' ALLOW FILTERING;";
+            query = string.Format(query, nombre);
+            List<Hoteles> lista = new List<Hoteles>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Hoteles hotel = new Hoteles();
+                hotel.hotel = row.GetValue<string>("name");
+                hotel.pais = row.GetValue<string>("country");
+                hotel.ciudad = row.GetValue<string>("city");
+                hotel.estado = row.GetValue<string>("state");
+                hotel.numeroPisos = row.GetValue<string>("floors_number");
+                hotel.cantidadHabitaciones = row.GetValue<string>("rooms_number");
+                hotel.zonaTuristica = row.GetValue<string>("turistic_zone");
+                hotel.serviciosAdicionales = row.GetValue<string>("services_add");
+                hotel.frentePlaya = row.GetValue<string>("beach");
+                hotel.cantidadPiscinas = row.GetValue<string>("pool_number");
+                hotel.salonesEventos = row.GetValue<string>("events_room");
+                hotel.inicioOperaciones = row.GetValue<object>("operations_date") == null ? "" : row.GetValue<object>("operations_date").ToString();
+                hotel.status = row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
+                lista.Add(hotel);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Ventas> obtReporteVentasNombre(string nombre)
+        {
+            string query = "select name, city, country, date_, SUM(lodging), SUM(services), SUM(total) from reporteventas where name='{0}' ALLOW FILTERING;";
+            query = string.Format(query, nombre);
+            List<Ventas> lista = new List<Ventas>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Ventas venta = new Ventas();
+                venta.nombreHotel = row.GetValue<string>("name");
+                venta.ciudad = row.GetValue<string>("city");
+                venta.pais = row.GetValue<string>("country");
+                venta.fecha = row.GetValue<object>("date_") == null ? "" : row.GetValue<object>("date_").ToString();
+                venta.IngresosPorHospedaje = (float)row.GetValue<float>(4);
+                venta.IngresosPorServicios = (float)row.GetValue<float>(5);
+                venta.IngresosTotales = (float)row.GetValue<float>(6);
+                lista.Add(venta);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Ventas> obtReporteVentasCiudad(string ciudad)
+        {
+            string query = "select name, city, country, date_, SUM(lodging), SUM(services), SUM(total) from reporteventas where city='{0}' ALLOW FILTERING;";
+            query = string.Format(query, ciudad);
+            List<Ventas> lista = new List<Ventas>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Ventas venta = new Ventas();
+                venta.nombreHotel = row.GetValue<string>("name");
+                venta.ciudad = row.GetValue<string>("city");
+                venta.pais = row.GetValue<string>("country");
+                venta.fecha = row.GetValue<object>("date_") == null ? "" : row.GetValue<object>("date_").ToString();
+                venta.IngresosPorHospedaje = (float)row.GetValue<float>(4);
+                venta.IngresosPorServicios = (float)row.GetValue<float>(5);
+                venta.IngresosTotales = (float)row.GetValue<float>(6);
+                lista.Add(venta);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Ventas> obtReporteVentasPais(string pais)
+        {
+            string query = "select name, city, country, date_, SUM(lodging), SUM(services), SUM(total) from reporteventas where country='{0}' ALLOW FILTERING;";
+            query = string.Format(query, pais);
+            List<Ventas> lista = new List<Ventas>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Ventas venta = new Ventas();
+                venta.nombreHotel = row.GetValue<string>("name");
+                venta.ciudad = row.GetValue<string>("city");
+                venta.pais = row.GetValue<string>("country");
+                venta.fecha = row.GetValue<object>("date_") == null ? "" : row.GetValue<object>("date_").ToString();
+                venta.IngresosPorHospedaje = (float)row.GetValue<float>(4);
+                venta.IngresosPorServicios = (float)row.GetValue<float>(5);
+                venta.IngresosTotales = (float)row.GetValue<float>(6);
+                lista.Add(venta);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Ventas> obtReporteVentasAnio(string anio)
+        {
+            string query = "select name, city, country, date_, SUM(lodging), SUM(services), SUM(total) from reporteventas where date_='{0}' ALLOW FILTERING;";
+            query = string.Format(query, anio);
+            List<Ventas> lista = new List<Ventas>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Ventas venta = new Ventas();
+                venta.nombreHotel = row.GetValue<string>("name");
+                venta.ciudad = row.GetValue<string>("city");
+                venta.pais = row.GetValue<string>("country");
+                venta.fecha = row.GetValue<object>("date_") == null ? "" : row.GetValue<object>("date_").ToString();
+                venta.IngresosPorHospedaje = (float)row.GetValue<float>(4);
+                venta.IngresosPorServicios = (float)row.GetValue<float>(5);
+                venta.IngresosTotales = (float)row.GetValue<float>(6);
+                lista.Add(venta);
+            }
+
+            desconectar();
+            return lista;
+
+        }
     }
 }

@@ -136,6 +136,7 @@ PRIMARY KEY ((name), city, country, date_)
 
 
 CREATE TABLE pia_hoteles.reporteventas(
+id_venta text,
 name text,
 city text,
 country text,
@@ -143,9 +144,16 @@ date_ date,
 lodging float,
 services float,
 total float,
-PRIMARY KEY ((name), city, country, date_)
+PRIMARY KEY ((id_venta), name, city, country, date_)
 );
 
+select * from reserva;
+
+insert into reporteventas(id_venta, name, city, country, date_, lodging, services, total) values ('1' ,'Maya', 'Monterrey', 'Mexico', '2003-10-16', 2.0, 3.0, 8.0);
+select name, city, country, date_, SUM(lodging), SUM(services), SUM(total) from reporteventas where name = 'Felices los cuatro' ALLOW FILTERING; //asi para agrupar
+select * from reporteventas;
+truncate reporteventas;
+drop table reporteventas;
 
 CREATE TABLE pia_hoteles.historialcliente(
 id_customer uuid,
