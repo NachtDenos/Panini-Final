@@ -20,8 +20,11 @@ status boolean,
 register_date date,
 date_register date,
 time_register text,
+rol int,
 PRIMARY KEY (email)
 );
+
+drop table usuario;
 
 CREATE TABLE pia_hoteles.contrasenias (
 id_user uuid,
@@ -123,21 +126,29 @@ id_reserva2 text,
 PRIMARY KEY ((room2), id_reserva2)
 );
 
-drop table reserva_detalle;
 
 
 CREATE TABLE pia_hoteles.reportehotel(
-name text,
+idreporte text,
 city text,
 country text,
-rooms_number int,
+name_hotel text,
 date_ date,
-type_room text,
-ocupattion float,
-guests text,
-PRIMARY KEY ((name), city, country, date_)
+rooms_number int,
+ocupattion int,
+people_lodging int,
+PRIMARY KEY ((idreporte),name_hotel, city, country, date_)
 );
 
+CREATE TABLE pia_hoteles.reportehotel2(
+idreporte2 text,
+city2 text,
+country2 text,
+name_hotel2 text,
+date_2 date,
+ocupattion2 int,
+PRIMARY KEY ((idreporte2),name_hotel2, city2, country2, date_2)
+);
 
 CREATE TABLE pia_hoteles.reporteventas(
 id_venta text,
@@ -157,6 +168,7 @@ id_historial text,
 name_customer text,
 lastp_customer text,
 lastm_customer text,
+email_customer text,
 city text,
 hotel text,
 type_room text,
@@ -170,11 +182,9 @@ advance_pay float,
 lodging float,
 services float,
 total float,
-PRIMARY KEY ((id_historial),date_reservation, lastp_customer)
+PRIMARY KEY ((id_historial),date_reservation, email_customer)
 );
 
-select * from historialcliente;
-drop table historialcliente;
 
 
 CREATE TABLE pia_hoteles.activarusuario (
@@ -273,12 +283,14 @@ CREATE TABLE pia_hoteles.servicios_temporales(
 	PRIMARY KEY (service)
 );
 
+
 insert into servicios_adicionales(service, price_service) values ('Gimnasio','200');
 insert into servicios_adicionales(service, price_service) values ('Gimnasio','50');
 insert into servicios_adicionales(service, price_service) values ('Servicio a cuarto','100');
 
 
 select * from usuario;
+truncate usuario;
 select * from cliente;
 select * from hotel;
 select * from habitacion;
@@ -300,6 +312,6 @@ truncate servicios_temporales;
 
 insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
 insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
-insert into usuario(name, password, p_lastname, m_lastname, birthdate, email, payroll_number, address, phone_home, phone_personal,status,register_date) values ('Isaac','123','Espinoza','Morales','2003-10-16','a','16000','Col.Puerta del Norte','811092121', '8184714186' , true, '2020-05-16');
 
-INSERT INTO hotel (name,beach,city,country,date_register,events_room,floors_number,hour_register,id_hotel,operations_date,pool_number,register_date,rooms_number,services_add,state,status,turistic_zone,user_register) VALUES ('Edshotel',true,'ciupapa','de las maravillas',null,true,'2',null,null,'2023-05-09','2',null,'2','WiFi Renta de DVD Masajes Restaurantes','pasivo',null,'Activo',null);
+
+insert into usuario(name, password, email, p_lastname, m_lastname, birthdate,payroll_number, address, phone_home, phone_personal, status, date_register, time_register, rol) values ('Empleado2' ,'123', 'c', 'Empleado2', 'Empleado2', '2023-05-09', '1234', '4123', '4123', '321', true, '2023-05-09', '123213', 1) if not exists;

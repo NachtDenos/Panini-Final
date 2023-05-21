@@ -74,6 +74,7 @@ namespace Punto_de_Venta
             sus.FechaNacimiento = fechaReal;
             sus.FechaIngreso = DateTime.Now.ToString("yyyy-MM-dd");
             sus.horaderegistro = DateTime.Now.ToString("HH:mm:ss");
+            sus.rol = 1;
             var success = cass.InsertarOperativos(sus);
             if (success)
                 MessageBox.Show("Se agrego al usuario.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -127,7 +127,20 @@ namespace Punto_de_Venta
             }
             return Err;
         }
-        public bool login(string email, string pass)
+        public bool login(string email, string pass, int rol)
+        {
+            List<Usuario> lista = Obtener_usuarios();
+            foreach (Usuario row in lista)
+            {
+                if (email == row.correo && pass == row.contrasena && rol == row.rol)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool login2(string email, string pass)
         {
             List<Usuario> lista = Obtener_usuarios();
             foreach (Usuario row in lista)
@@ -139,25 +152,7 @@ namespace Punto_de_Venta
             }
             return false;
         }
-        public bool login2(string email, string pass)
-        {
-            string query = "select email, password from usuario where email='{0}' AND password='{1}';";
-            query = string.Format(query, email, pass);
-            int contador = 0;
-            conectar();
-            var ResultSet = _session.Execute(query);
-            foreach (var row in ResultSet)
-            {
-                contador++;
-            }
-            desconectar();
-            if (contador == 0)
-            {
-                return false;
-            }
-            return true;
 
-        }
         public bool ObtenerUsuarios()
         {
             try
@@ -212,10 +207,11 @@ namespace Punto_de_Venta
                 conectar();
                 //Cambie algo en las tablas
                 var query1 = "insert into usuario(name, password, email, p_lastname, m_lastname, birthdate, " +
-                    "payroll_number, address, phone_home, phone_personal, status, date_register, time_register) " +
-                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}') if not exists; ";
+                    "payroll_number, address, phone_home, phone_personal, status, date_register, time_register, rol) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', {10}, '{11}', '{12}', {13}) if not exists; ";
                 query1 = string.Format(query1, param.nombre, param.contrasena, param.correo, param.apellidoP, param.apellidoM, 
-                    param.FechaNacimiento, param.nomina, param.direccion, param.telefonoCasa, param.telefono, param.status, param.FechaIngreso, param.horaderegistro);
+                    param.FechaNacimiento, param.nomina, param.direccion, param.telefonoCasa, param.telefono, param.status, param.FechaIngreso, param.horaderegistro,
+                    param.rol);
                 int i = -1;
                 _session.Execute(query1);
             }

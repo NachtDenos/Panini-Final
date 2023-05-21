@@ -22,5 +22,6 @@ namespace Punto_de_Venta.Clases
         public string contrasena { get; set; }
         public string direccion { get; set; }
         public bool status { get; set; }
+        public int rol { get; set; }
     }
 }

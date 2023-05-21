@@ -51,7 +51,7 @@ namespace Punto_de_Venta
                 if (indexBox == 1)
                 {
                     // int claveUserI = Int32.Parse(UserNameSQLSideTextBox.Text);
-                    if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text))
+                    if (cass.login2(txtUserNameLogin.Text, txtPassLogin.Text))
                     {
                         Pantallas.UserrMainScreen cashierMainScreen = new Pantallas.UserrMainScreen();
                         this.Hide();
@@ -62,7 +62,7 @@ namespace Punto_de_Venta
                 if (indexBox == 0)
                 {
                     //Administrador
-                    if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text))
+                    if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text, indexBox))
                     {
                         Pantallas.MainAdminScreen TheOtherForm = new Pantallas.MainAdminScreen();
                         this.Hide();
