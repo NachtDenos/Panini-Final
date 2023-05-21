@@ -34,6 +34,7 @@ namespace Punto_de_Venta
 
             reservation.checkIn = true;
             reservation.codigo = codigoReString;
+            reservation.fechaCheckIn = DateTime.Now.ToString("yyyy-MM-dd");
             var succes = cass.reservacionCheckIn(reservation);
             if(succes)
                 MessageBox.Show("Se realizó el CheckIn.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);

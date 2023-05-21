@@ -23,6 +23,7 @@ namespace Punto_de_Venta.Pantallas
         ReservacionesDetalle reservationDetalle = new ReservacionesDetalle();
         Servicios serv = new Servicios();
         Ventas venta = new Ventas();
+        Historial historia = new Historial();
         string personas;
         string precios;
         string serviciosS;
@@ -272,6 +273,7 @@ namespace Punto_de_Venta.Pantallas
             double hospedajeD = double.Parse(labelHospedaje.Text);
             double serviciosD = double.Parse(labelServices.Text);
             double totalD = double.Parse(labelTotal.Text);
+            double anticipoD = double.Parse(labelAnticipo.Text);
             cass.incrementarContadorCancelacion();
 
             venta.idVentas = cass.obtenerContadorCancelacion();
@@ -286,6 +288,30 @@ namespace Punto_de_Venta.Pantallas
             var success = cass.InsertarVentas(venta);
             if(success)
                 MessageBox.Show("Se realizo el checkOut correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            historia.idHistorial = cass.obtenerContadorCancelacion();
+            historia.nombreCliente = "";
+            historia.apellidoPCliente = "";
+            historia.apellidoMCliente = "";
+            historia.hotel = nombreC;
+            historia.ciudad = ciudadC;
+            historia.tipoHabitacion = "";
+            historia.cantidadPersonas = "";
+            historia.codigoReservacion = "";
+            historia.fechaReservacion = "";
+            historia.fechaCheckIn = "";
+            historia.fechaCheckOut = "";
+            historia.estatusReservacion = false;
+            historia.anticipo = anticipoD;
+            historia.hospedaje = hospedajeD;
+            historia.servicios = serviciosD;
+            historia.total = totalD;
+
+
+
+
+            var succes2 = cass.InsertarHistorial(historia);
 
             #region TICKET
 

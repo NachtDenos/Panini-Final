@@ -108,6 +108,10 @@ advance_payment text,
 date_register date,
 hour_register text,
 user_register text,
+email_client text,
+date_checkin date,
+date_checkout date,
+status_reserva boolean,
 PRIMARY KEY (id_reserva)
 );
 
@@ -147,34 +151,30 @@ total float,
 PRIMARY KEY ((id_venta), name, city, country, date_)
 );
 
-select * from reserva;
-
-insert into reporteventas(id_venta, name, city, country, date_, lodging, services, total) values ('1' ,'Maya', 'Monterrey', 'Mexico', '2003-10-16', 2.0, 3.0, 8.0);
-select name, city, country, date_, SUM(lodging), SUM(services), SUM(total) from reporteventas where name = 'Felices los cuatro' ALLOW FILTERING; //asi para agrupar
-select * from reporteventas;
-truncate reporteventas;
-drop table reporteventas;
 
 CREATE TABLE pia_hoteles.historialcliente(
-id_customer uuid,
+id_historial text,
 name_customer text,
 lastp_customer text,
 lastm_customer text,
 city text,
 hotel text,
 type_room text,
-people_number int,
-code_reservation int,
+people_number text,
+code_reservation text,
 date_reservation date,
 date_checkin date,
 date_checkout date,
-status_reservation text,
-advance float,
+status_reservation boolean,
+advance_pay float,
 lodging float,
 services float,
 total float,
-PRIMARY KEY (date_reservation, lastp_customer)
+PRIMARY KEY ((id_historial),date_reservation, lastp_customer)
 );
+
+select * from historialcliente;
+drop table historialcliente;
 
 
 CREATE TABLE pia_hoteles.activarusuario (

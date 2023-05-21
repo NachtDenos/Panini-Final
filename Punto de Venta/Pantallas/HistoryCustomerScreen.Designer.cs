@@ -32,25 +32,12 @@ namespace Punto_de_Venta
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridHistoryReport = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Personas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Código = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Estatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anticipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hospedaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Servicios = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtCustomerHistory = new System.Windows.Forms.TextBox();
             this.txtYearHistory = new System.Windows.Forms.TextBox();
+            this.btnCustomerHistory = new System.Windows.Forms.Button();
+            this.btnYearHistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridHistoryReport)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +45,7 @@ namespace Punto_de_Venta
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(336, 136);
+            this.label3.Location = new System.Drawing.Point(333, 113);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 22);
             this.label3.TabIndex = 88;
@@ -80,117 +67,11 @@ namespace Punto_de_Venta
             this.dataGridHistoryReport.AllowUserToDeleteRows = false;
             this.dataGridHistoryReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridHistoryReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridHistoryReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Nombre,
-            this.Ciudad,
-            this.Hotel,
-            this.Tipo,
-            this.numero,
-            this.Personas,
-            this.Código,
-            this.fecha,
-            this.checkIn,
-            this.CheckOut,
-            this.Estatus,
-            this.Anticipo,
-            this.Hospedaje,
-            this.Servicios,
-            this.Total});
             this.dataGridHistoryReport.Location = new System.Drawing.Point(94, 228);
             this.dataGridHistoryReport.Name = "dataGridHistoryReport";
             this.dataGridHistoryReport.ReadOnly = true;
             this.dataGridHistoryReport.Size = new System.Drawing.Size(758, 316);
             this.dataGridHistoryReport.TabIndex = 85;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
-            this.Ciudad.ReadOnly = true;
-            // 
-            // Hotel
-            // 
-            this.Hotel.HeaderText = "Hotel";
-            this.Hotel.Name = "Hotel";
-            this.Hotel.ReadOnly = true;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo Habitación";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // numero
-            // 
-            this.numero.HeaderText = "Número Habitación";
-            this.numero.Name = "numero";
-            this.numero.ReadOnly = true;
-            // 
-            // Personas
-            // 
-            this.Personas.HeaderText = "Personas Hospedadas";
-            this.Personas.Name = "Personas";
-            this.Personas.ReadOnly = true;
-            // 
-            // Código
-            // 
-            this.Código.HeaderText = "Código R.";
-            this.Código.Name = "Código";
-            this.Código.ReadOnly = true;
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha R.";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
-            // 
-            // checkIn
-            // 
-            this.checkIn.HeaderText = "CheckIn";
-            this.checkIn.Name = "checkIn";
-            this.checkIn.ReadOnly = true;
-            // 
-            // CheckOut
-            // 
-            this.CheckOut.HeaderText = "CheckOut";
-            this.CheckOut.Name = "CheckOut";
-            this.CheckOut.ReadOnly = true;
-            // 
-            // Estatus
-            // 
-            this.Estatus.HeaderText = "Estatus R.";
-            this.Estatus.Name = "Estatus";
-            this.Estatus.ReadOnly = true;
-            // 
-            // Anticipo
-            // 
-            this.Anticipo.HeaderText = "Anticipo";
-            this.Anticipo.Name = "Anticipo";
-            this.Anticipo.ReadOnly = true;
-            // 
-            // Hospedaje
-            // 
-            this.Hospedaje.HeaderText = "Monto Hospedaje";
-            this.Hospedaje.Name = "Hospedaje";
-            this.Hospedaje.ReadOnly = true;
-            // 
-            // Servicios
-            // 
-            this.Servicios.HeaderText = "Monto Servicios";
-            this.Servicios.Name = "Servicios";
-            this.Servicios.ReadOnly = true;
-            // 
-            // Total
-            // 
-            this.Total.HeaderText = "Total Factura";
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
             // 
             // label2
             // 
@@ -206,7 +87,7 @@ namespace Punto_de_Venta
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(569, 136);
+            this.label4.Location = new System.Drawing.Point(554, 113);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 22);
             this.label4.TabIndex = 90;
@@ -214,7 +95,7 @@ namespace Punto_de_Venta
             // 
             // txtCustomerHistory
             // 
-            this.txtCustomerHistory.Location = new System.Drawing.Point(312, 174);
+            this.txtCustomerHistory.Location = new System.Drawing.Point(309, 151);
             this.txtCustomerHistory.Name = "txtCustomerHistory";
             this.txtCustomerHistory.Size = new System.Drawing.Size(123, 20);
             this.txtCustomerHistory.TabIndex = 106;
@@ -222,11 +103,37 @@ namespace Punto_de_Venta
             // 
             // txtYearHistory
             // 
-            this.txtYearHistory.Location = new System.Drawing.Point(520, 174);
+            this.txtYearHistory.Location = new System.Drawing.Point(517, 151);
             this.txtYearHistory.Name = "txtYearHistory";
-            this.txtYearHistory.Size = new System.Drawing.Size(134, 20);
+            this.txtYearHistory.Size = new System.Drawing.Size(123, 20);
             this.txtYearHistory.TabIndex = 107;
             this.txtYearHistory.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtYearHistory_KeyPress);
+            // 
+            // btnCustomerHistory
+            // 
+            this.btnCustomerHistory.BackColor = System.Drawing.Color.Navy;
+            this.btnCustomerHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCustomerHistory.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomerHistory.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCustomerHistory.Location = new System.Drawing.Point(309, 177);
+            this.btnCustomerHistory.Name = "btnCustomerHistory";
+            this.btnCustomerHistory.Size = new System.Drawing.Size(123, 31);
+            this.btnCustomerHistory.TabIndex = 161;
+            this.btnCustomerHistory.Text = "Buscar";
+            this.btnCustomerHistory.UseVisualStyleBackColor = false;
+            // 
+            // btnYearHistory
+            // 
+            this.btnYearHistory.BackColor = System.Drawing.Color.Navy;
+            this.btnYearHistory.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnYearHistory.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYearHistory.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnYearHistory.Location = new System.Drawing.Point(517, 177);
+            this.btnYearHistory.Name = "btnYearHistory";
+            this.btnYearHistory.Size = new System.Drawing.Size(123, 31);
+            this.btnYearHistory.TabIndex = 162;
+            this.btnYearHistory.Text = "Buscar";
+            this.btnYearHistory.UseVisualStyleBackColor = false;
             // 
             // SalesReportScreen
             // 
@@ -234,6 +141,8 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.btnYearHistory);
+            this.Controls.Add(this.btnCustomerHistory);
             this.Controls.Add(this.txtYearHistory);
             this.Controls.Add(this.txtCustomerHistory);
             this.Controls.Add(this.label4);
@@ -257,20 +166,7 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtCustomerHistory;
         private System.Windows.Forms.TextBox txtYearHistory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hotel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Personas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Código;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn checkIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CheckOut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Estatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Anticipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hospedaje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Servicios;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.Button btnCustomerHistory;
+        private System.Windows.Forms.Button btnYearHistory;
     }
 }

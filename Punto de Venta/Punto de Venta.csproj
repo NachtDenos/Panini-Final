@@ -136,6 +136,7 @@
     <Compile Include="Clases\Clientes.cs" />
     <Compile Include="Clases\Habitaciones.cs" />
     <Compile Include="Clases\HabitacionesTemporales.cs" />
+    <Compile Include="Clases\Historial.cs" />
     <Compile Include="Clases\Hoteles.cs" />
     <Compile Include="Clases\Reservaciones.cs" />
     <Compile Include="Clases\ReservacionesDetalle.cs" />

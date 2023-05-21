@@ -26,5 +26,10 @@ namespace Punto_de_Venta.Clases
         public string fechaDeRegistro { get; set; }
         public string horaDeRegistro { get; set; }
         public string usuarioRegistro { get; set; }
+        public string correoCliente { get; set; }
+        public string fechaCheckIn { get; set; }
+        public string fechaCheckOut { get; set; }
+        public bool EstatusReservacion { get; set; }
+
     }
 }

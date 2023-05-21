@@ -62,10 +62,12 @@ namespace Punto_de_Venta
             reservation.nombreCliente = dataGridCustomerRe.CurrentRow.Cells[0].Value.ToString();
             reservation.apellidoPCliente = dataGridCustomerRe.CurrentRow.Cells[1].Value.ToString();
             reservation.apellidoMCliente = dataGridCustomerRe.CurrentRow.Cells[2].Value.ToString();
+            reservation.correoCliente = dataGridCustomerRe.CurrentRow.Cells[4].Value.ToString();
             reservation.ciudad = cbCityReservations.Text;
             reservation.hotel = dataGridHotelRe.CurrentRow.Cells[0].Value.ToString();
             reservation.checkIn = false;
             reservation.checkOut = false;
+            reservation.EstatusReservacion = true; 
             string fechaReal1 = dtpLodgingReser.Text;
             String.Format("{0:yyyy-MM-dd}", fechaReal1);
             string fechaReal2 = dtpLodgingReser2.Text;
