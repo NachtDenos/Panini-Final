@@ -138,6 +138,8 @@
     <Compile Include="Clases\HabitacionesTemporales.cs" />
     <Compile Include="Clases\Historial.cs" />
     <Compile Include="Clases\Hoteles.cs" />
+    <Compile Include="Clases\Ocupacion.cs" />
+    <Compile Include="Clases\Ocupacion2.cs" />
     <Compile Include="Clases\Reservaciones.cs" />
     <Compile Include="Clases\ReservacionesDetalle.cs" />
     <Compile Include="Clases\Servicios.cs" />

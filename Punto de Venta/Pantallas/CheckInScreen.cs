@@ -16,7 +16,14 @@ namespace Punto_de_Venta
 
         EnlaceCassandra cass = new EnlaceCassandra();
         Reservaciones reservation = new Reservaciones();
+        Ocupacion ocupado = new Ocupacion();
+        Ocupacion2 ocupado2 = new Ocupacion2();
         string codigoReString;
+        string cantidadPersonasT;
+        string ciudadT;
+        string hotelT;
+        string paisT;
+        int contador = 0;
 
         public InventaryScreen()
         {
@@ -38,6 +45,49 @@ namespace Punto_de_Venta
             var succes = cass.reservacionCheckIn(reservation);
             if(succes)
                 MessageBox.Show("Se realizó el CheckIn.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            List<ReservacionesDetalle> reservacionesA = cass.Obtener_reservacionesDetalle(codigoReString);
+            foreach (ReservacionesDetalle reservacionObt in reservacionesA)
+            {
+                cantidadPersonasT = reservacionObt.Personas;
+                contador++;
+            }
+
+            List<Reservaciones> reservacionesB = cass.Obtener_reservaciones(codigoReString);
+            foreach (Reservaciones reservacionAga in reservacionesB)
+            {
+                ciudadT = reservacionAga.ciudad;
+                hotelT = reservacionAga.hotel;
+            }
+            List<Hoteles> hotelA = cass.Obtener_hotelesPais(hotelT);
+            foreach (Hoteles hotelObt in hotelA)
+            {
+                paisT = hotelObt.pais;
+            }
+
+            int cantPersonasInt = int.Parse(cantidadPersonasT);
+            cass.incrementarContadorCancelacion();
+
+            ocupado.idReporte = cass.obtenerContadorCancelacion();
+            ocupado.ciudad = ciudadT;
+            ocupado.pais = paisT;
+            ocupado.nombreHotel = hotelT;
+            ocupado.fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            ocupado.cantidadHabitaciones = contador;
+            ocupado.ocupacion = cantPersonasInt;
+            ocupado.personasHospedadas = cantPersonasInt;
+
+            ocupado2.idReporte = cass.obtenerContadorCancelacion();
+            ocupado2.ciudad = ciudadT;
+            ocupado2.pais = paisT;
+            ocupado2.nombreHotel = hotelT;
+            ocupado2.fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            ocupado2.ocupacion = cantPersonasInt;
+            
+
+            cass.InsertarOcupacion(ocupado);
+            cass.InsertarOcupacion2(ocupado2);
+
             dataGridCheckIn.DataSource = cass.Obtener_reservaciones("0");
             btnConfirmCheckIn.Enabled = false;
 

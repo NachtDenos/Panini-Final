@@ -35,13 +35,6 @@ namespace Punto_de_Venta
             this.label3 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dataGridOccupancyReport = new System.Windows.Forms.DataGridView();
-            this.city = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ocupation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -49,17 +42,17 @@ namespace Punto_de_Venta
             this.txtCityOccupancy = new System.Windows.Forms.TextBox();
             this.txtYearOccupancy = new System.Windows.Forms.TextBox();
             this.dataGridOccupancyReport2 = new System.Windows.Forms.DataGridView();
-            this.city2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameHotel2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ocupacion2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCountryOcup = new System.Windows.Forms.Button();
+            this.btnYearOcup = new System.Windows.Forms.Button();
+            this.btnCityOcup = new System.Windows.Forms.Button();
+            this.btnHotelOcup = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOccupancyReport)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOccupancyReport2)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCountryOccupancy
             // 
-            this.txtCountryOccupancy.Location = new System.Drawing.Point(147, 183);
+            this.txtCountryOccupancy.Location = new System.Drawing.Point(147, 152);
             this.txtCountryOccupancy.Name = "txtCountryOccupancy";
             this.txtCountryOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtCountryOccupancy.TabIndex = 116;
@@ -69,7 +62,7 @@ namespace Punto_de_Venta
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(514, 148);
+            this.label4.Location = new System.Drawing.Point(514, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 22);
             this.label4.TabIndex = 113;
@@ -79,7 +72,7 @@ namespace Punto_de_Venta
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(191, 148);
+            this.label3.Location = new System.Drawing.Point(191, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 22);
             this.label3.TabIndex = 112;
@@ -102,61 +95,11 @@ namespace Punto_de_Venta
             this.dataGridOccupancyReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridOccupancyReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridOccupancyReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridOccupancyReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.city,
-            this.NameHotel,
-            this.date,
-            this.typeRoom,
-            this.numRoom,
-            this.ocupation,
-            this.clientes});
             this.dataGridOccupancyReport.Location = new System.Drawing.Point(147, 219);
             this.dataGridOccupancyReport.Name = "dataGridOccupancyReport";
             this.dataGridOccupancyReport.ReadOnly = true;
             this.dataGridOccupancyReport.Size = new System.Drawing.Size(640, 265);
             this.dataGridOccupancyReport.TabIndex = 110;
-            // 
-            // city
-            // 
-            this.city.HeaderText = "Ciudad";
-            this.city.Name = "city";
-            this.city.ReadOnly = true;
-            // 
-            // NameHotel
-            // 
-            this.NameHotel.HeaderText = "Nombre del Hotel";
-            this.NameHotel.Name = "NameHotel";
-            this.NameHotel.ReadOnly = true;
-            // 
-            // date
-            // 
-            this.date.HeaderText = "Año-Mes";
-            this.date.Name = "date";
-            this.date.ReadOnly = true;
-            // 
-            // typeRoom
-            // 
-            this.typeRoom.HeaderText = "Tipo de Habitación";
-            this.typeRoom.Name = "typeRoom";
-            this.typeRoom.ReadOnly = true;
-            // 
-            // numRoom
-            // 
-            this.numRoom.HeaderText = "Cantidad de Habitaciones";
-            this.numRoom.Name = "numRoom";
-            this.numRoom.ReadOnly = true;
-            // 
-            // ocupation
-            // 
-            this.ocupation.HeaderText = "Ocupación";
-            this.ocupation.Name = "ocupation";
-            this.ocupation.ReadOnly = true;
-            // 
-            // clientes
-            // 
-            this.clientes.HeaderText = "Personas Hospedadas";
-            this.clientes.Name = "clientes";
-            this.clientes.ReadOnly = true;
             // 
             // label2
             // 
@@ -172,7 +115,7 @@ namespace Punto_de_Venta
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(693, 148);
+            this.label1.Location = new System.Drawing.Point(693, 117);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 22);
             this.label1.TabIndex = 108;
@@ -182,7 +125,7 @@ namespace Punto_de_Venta
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(362, 148);
+            this.label5.Location = new System.Drawing.Point(362, 117);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 22);
             this.label5.TabIndex = 119;
@@ -190,14 +133,14 @@ namespace Punto_de_Venta
             // 
             // txtHotelOccupancy
             // 
-            this.txtHotelOccupancy.Location = new System.Drawing.Point(664, 183);
+            this.txtHotelOccupancy.Location = new System.Drawing.Point(664, 152);
             this.txtHotelOccupancy.Name = "txtHotelOccupancy";
             this.txtHotelOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtHotelOccupancy.TabIndex = 120;
             // 
             // txtCityOccupancy
             // 
-            this.txtCityOccupancy.Location = new System.Drawing.Point(492, 183);
+            this.txtCityOccupancy.Location = new System.Drawing.Point(492, 152);
             this.txtCityOccupancy.Name = "txtCityOccupancy";
             this.txtCityOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtCityOccupancy.TabIndex = 121;
@@ -205,7 +148,7 @@ namespace Punto_de_Venta
             // 
             // txtYearOccupancy
             // 
-            this.txtYearOccupancy.Location = new System.Drawing.Point(323, 183);
+            this.txtYearOccupancy.Location = new System.Drawing.Point(323, 152);
             this.txtYearOccupancy.Name = "txtYearOccupancy";
             this.txtYearOccupancy.Size = new System.Drawing.Size(123, 20);
             this.txtYearOccupancy.TabIndex = 122;
@@ -218,40 +161,67 @@ namespace Punto_de_Venta
             this.dataGridOccupancyReport2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridOccupancyReport2.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridOccupancyReport2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridOccupancyReport2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.city2,
-            this.nameHotel2,
-            this.date2,
-            this.ocupacion2});
             this.dataGridOccupancyReport2.Location = new System.Drawing.Point(147, 503);
             this.dataGridOccupancyReport2.Name = "dataGridOccupancyReport2";
             this.dataGridOccupancyReport2.ReadOnly = true;
             this.dataGridOccupancyReport2.Size = new System.Drawing.Size(640, 116);
             this.dataGridOccupancyReport2.TabIndex = 123;
             // 
-            // city2
+            // btnCountryOcup
             // 
-            this.city2.HeaderText = "Ciudad";
-            this.city2.Name = "city2";
-            this.city2.ReadOnly = true;
+            this.btnCountryOcup.BackColor = System.Drawing.Color.Navy;
+            this.btnCountryOcup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCountryOcup.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCountryOcup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCountryOcup.Location = new System.Drawing.Point(147, 178);
+            this.btnCountryOcup.Name = "btnCountryOcup";
+            this.btnCountryOcup.Size = new System.Drawing.Size(123, 31);
+            this.btnCountryOcup.TabIndex = 162;
+            this.btnCountryOcup.Text = "Buscar";
+            this.btnCountryOcup.UseVisualStyleBackColor = false;
+            this.btnCountryOcup.Click += new System.EventHandler(this.btnCountryOcup_Click);
             // 
-            // nameHotel2
+            // btnYearOcup
             // 
-            this.nameHotel2.HeaderText = "Nombre del Hotel";
-            this.nameHotel2.Name = "nameHotel2";
-            this.nameHotel2.ReadOnly = true;
+            this.btnYearOcup.BackColor = System.Drawing.Color.Navy;
+            this.btnYearOcup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnYearOcup.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnYearOcup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnYearOcup.Location = new System.Drawing.Point(323, 178);
+            this.btnYearOcup.Name = "btnYearOcup";
+            this.btnYearOcup.Size = new System.Drawing.Size(123, 31);
+            this.btnYearOcup.TabIndex = 163;
+            this.btnYearOcup.Text = "Buscar";
+            this.btnYearOcup.UseVisualStyleBackColor = false;
+            this.btnYearOcup.Click += new System.EventHandler(this.btnYearOcup_Click);
             // 
-            // date2
+            // btnCityOcup
             // 
-            this.date2.HeaderText = "Año-Mes";
-            this.date2.Name = "date2";
-            this.date2.ReadOnly = true;
+            this.btnCityOcup.BackColor = System.Drawing.Color.Navy;
+            this.btnCityOcup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCityOcup.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCityOcup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCityOcup.Location = new System.Drawing.Point(492, 178);
+            this.btnCityOcup.Name = "btnCityOcup";
+            this.btnCityOcup.Size = new System.Drawing.Size(123, 31);
+            this.btnCityOcup.TabIndex = 164;
+            this.btnCityOcup.Text = "Buscar";
+            this.btnCityOcup.UseVisualStyleBackColor = false;
+            this.btnCityOcup.Click += new System.EventHandler(this.btnCityOcup_Click);
             // 
-            // ocupacion2
+            // btnHotelOcup
             // 
-            this.ocupacion2.HeaderText = "Porcentaje de Ocupación";
-            this.ocupacion2.Name = "ocupacion2";
-            this.ocupacion2.ReadOnly = true;
+            this.btnHotelOcup.BackColor = System.Drawing.Color.Navy;
+            this.btnHotelOcup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHotelOcup.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHotelOcup.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnHotelOcup.Location = new System.Drawing.Point(664, 178);
+            this.btnHotelOcup.Name = "btnHotelOcup";
+            this.btnHotelOcup.Size = new System.Drawing.Size(123, 31);
+            this.btnHotelOcup.TabIndex = 165;
+            this.btnHotelOcup.Text = "Buscar";
+            this.btnHotelOcup.UseVisualStyleBackColor = false;
+            this.btnHotelOcup.Click += new System.EventHandler(this.btnHotelOcup_Click);
             // 
             // CashRegisterScreen
             // 
@@ -259,6 +229,10 @@ namespace Punto_de_Venta
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(934, 631);
+            this.Controls.Add(this.btnHotelOcup);
+            this.Controls.Add(this.btnCityOcup);
+            this.Controls.Add(this.btnYearOcup);
+            this.Controls.Add(this.btnCountryOcup);
             this.Controls.Add(this.dataGridOccupancyReport2);
             this.Controls.Add(this.txtYearOccupancy);
             this.Controls.Add(this.txtCityOccupancy);
@@ -288,13 +262,6 @@ namespace Punto_de_Venta
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridOccupancyReport;
-        private System.Windows.Forms.DataGridViewTextBoxColumn city;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameHotel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ocupation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clientes;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
@@ -302,9 +269,9 @@ namespace Punto_de_Venta
         private System.Windows.Forms.TextBox txtCityOccupancy;
         private System.Windows.Forms.TextBox txtYearOccupancy;
         private System.Windows.Forms.DataGridView dataGridOccupancyReport2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn city2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameHotel2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ocupacion2;
+        private System.Windows.Forms.Button btnCountryOcup;
+        private System.Windows.Forms.Button btnYearOcup;
+        private System.Windows.Forms.Button btnCityOcup;
+        private System.Windows.Forms.Button btnHotelOcup;
     }
 }

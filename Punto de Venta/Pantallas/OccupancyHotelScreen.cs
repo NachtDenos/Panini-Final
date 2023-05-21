@@ -12,6 +12,7 @@ namespace Punto_de_Venta
 {
     public partial class CashRegisterScreen : Form
     {
+        EnlaceCassandra cass = new EnlaceCassandra();
         public CashRegisterScreen()
         {
             InitializeComponent();
@@ -47,6 +48,30 @@ namespace Punto_de_Venta
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnHotelOcup_Click(object sender, EventArgs e)
+        {
+            dataGridOccupancyReport.DataSource = cass.obtReporteOcupacionhotel(txtHotelOccupancy.Text);
+            dataGridOccupancyReport2.DataSource = cass.obtReporteOcupacionhotel2(txtHotelOccupancy.Text);
+        }
+
+        private void btnCityOcup_Click(object sender, EventArgs e)
+        {
+            dataGridOccupancyReport.DataSource = cass.obtReporteOcupacionciudad(txtCityOccupancy.Text);
+            dataGridOccupancyReport2.DataSource = cass.obtReporteOcupacionciudad2(txtCityOccupancy.Text);
+        }
+
+        private void btnYearOcup_Click(object sender, EventArgs e)
+        {
+            dataGridOccupancyReport.DataSource = cass.obtReporteOcupacionanio(txtYearOccupancy.Text);
+            dataGridOccupancyReport2.DataSource = cass.obtReporteOcupacionanio2(txtYearOccupancy.Text);
+        }
+
+        private void btnCountryOcup_Click(object sender, EventArgs e)
+        {
+            dataGridOccupancyReport.DataSource = cass.obtReporteOcupacionpais(txtCountryOccupancy.Text);
+            dataGridOccupancyReport2.DataSource = cass.obtReporteOcupacionpais2(txtCountryOccupancy.Text);
         }
     }
 }

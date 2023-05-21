@@ -137,7 +137,7 @@ namespace Punto_de_Venta
             cuartoTemp.numeroCamas = dataGridRoomsRe.CurrentRow.Cells[2].Value.ToString();
             cuartoTemp.tiposCama = dataGridRoomsRe.CurrentRow.Cells[3].Value.ToString();
             cuartoTemp.precioPorNoche = dataGridRoomsRe.CurrentRow.Cells[4].Value.ToString();
-            cuartoTemp.cantidadPersonas = dataGridRoomsRe.CurrentRow.Cells[5].Value.ToString();
+            cuartoTemp.cantidadPersonas = txtPeopleReservations.Text;
             cuartoTemp.nivelHabitacion = dataGridRoomsRe.CurrentRow.Cells[6].Value.ToString();
             cuartoTemp.frenteA = dataGridRoomsRe.CurrentRow.Cells[7].Value.ToString();
             cuartoTemp.caracteristicas = dataGridRoomsRe.CurrentRow.Cells[8].Value.ToString();

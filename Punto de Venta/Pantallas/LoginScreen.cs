@@ -51,10 +51,13 @@ namespace Punto_de_Venta
                 if (indexBox == 1)
                 {
                     // int claveUserI = Int32.Parse(UserNameSQLSideTextBox.Text);
-                    Pantallas.UserrMainScreen cashierMainScreen = new Pantallas.UserrMainScreen();
-                    this.Hide();
-                    cashierMainScreen.ShowDialog();
-                    this.Show();
+                    if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text))
+                    {
+                        Pantallas.UserrMainScreen cashierMainScreen = new Pantallas.UserrMainScreen();
+                        this.Hide();
+                        cashierMainScreen.ShowDialog();
+                        this.Show();
+                    }
                 }
                 if (indexBox == 0)
                 {
