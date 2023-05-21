@@ -121,6 +121,7 @@ namespace Punto_de_Venta
             this.btnCustomerHistory.TabIndex = 161;
             this.btnCustomerHistory.Text = "Buscar";
             this.btnCustomerHistory.UseVisualStyleBackColor = false;
+            this.btnCustomerHistory.Click += new System.EventHandler(this.btnCustomerHistory_Click);
             // 
             // btnYearHistory
             // 
@@ -134,6 +135,7 @@ namespace Punto_de_Venta
             this.btnYearHistory.TabIndex = 162;
             this.btnYearHistory.Text = "Buscar";
             this.btnYearHistory.UseVisualStyleBackColor = false;
+            this.btnYearHistory.Click += new System.EventHandler(this.btnYearHistory_Click);
             // 
             // SalesReportScreen
             // 

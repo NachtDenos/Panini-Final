@@ -38,7 +38,9 @@ namespace Punto_de_Venta.Pantallas
         bool credito;
         bool puedePagar = false;
         int diasD;
-        string nombreC, paisC, ciudadC;
+        string nombreC, paisC, ciudadC, nombreClientC, apellPC, apellMC, fechaCIn, fechaReC, correoC;
+        string tipoHabiTemp;
+        string cantPersTemp;
         public checkOutScreen()
         {
             InitializeComponent();
@@ -262,6 +264,12 @@ namespace Punto_de_Venta.Pantallas
             {
                 nombreC = reservacionObt.hotel;
                 ciudadC = reservacionObt.ciudad;
+                nombreClientC = reservacionObt.nombreCliente;
+                apellPC = reservacionObt.apellidoPCliente;
+                apellMC = reservacionObt.apellidoMCliente;
+                fechaCIn = reservacionObt.fechaCheckIn;
+                fechaReC = reservacionObt.fechaDeRegistro;
+                correoC = reservacionObt.correoCliente;
             }
 
             List<Hoteles> hotelA = cass.Obtener_hotelesPais(nombreC);
@@ -289,19 +297,29 @@ namespace Punto_de_Venta.Pantallas
             if(success)
                 MessageBox.Show("Se realizo el checkOut correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            
+            foreach (DataGridViewRow row in dataGridRoomsCheckOut.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    tipoHabiTemp = row.Cells[0].Value.ToString();
+                    cantPersTemp = row.Cells[2].Value.ToString();
+                }
+            }
 
             historia.idHistorial = cass.obtenerContadorCancelacion();
-            historia.nombreCliente = "";
-            historia.apellidoPCliente = "";
-            historia.apellidoMCliente = "";
+            historia.nombreCliente = nombreClientC;
+            historia.apellidoPCliente = apellPC;
+            historia.apellidoMCliente = apellMC;
+            historia.correoCliente = correoC;
             historia.hotel = nombreC;
             historia.ciudad = ciudadC;
-            historia.tipoHabitacion = "";
-            historia.cantidadPersonas = "";
-            historia.codigoReservacion = "";
-            historia.fechaReservacion = "";
-            historia.fechaCheckIn = "";
-            historia.fechaCheckOut = "";
+            historia.tipoHabitacion = tipoHabiTemp;
+            historia.cantidadPersonas = cantPersTemp;
+            historia.codigoReservacion = txtCodeCheckOut.Text;
+            historia.fechaReservacion = fechaReC;
+            historia.fechaCheckIn = fechaCIn;
+            historia.fechaCheckOut = DateTime.Now.ToString("yyyy-MM-dd");
             historia.estatusReservacion = false;
             historia.anticipo = anticipoD;
             historia.hospedaje = hospedajeD;

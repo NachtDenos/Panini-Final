@@ -914,7 +914,7 @@ namespace Punto_de_Venta
 
         public List<Reservaciones> Obtener_reservaciones(string code)
         {
-            string query = "select id_reserva, client_name, p_lastname, m_lastname, hotel, city, init_date, end_date, check_in, check_out, payment_method_a, advance_payment, date_register, hour_register, user_register from reserva where id_reserva='{0}' ALLOW FILTERING;";
+            string query = "select id_reserva, client_name, p_lastname, m_lastname, hotel, city, init_date, end_date, check_in, check_out, payment_method_a, advance_payment, date_register, hour_register, user_register, date_checkin, email_client from reserva where id_reserva='{0}' ALLOW FILTERING;";
             query = string.Format(query, code);
             List<Reservaciones> lista = new List<Reservaciones>();
             conectar();
@@ -937,6 +937,8 @@ namespace Punto_de_Venta
                 reservacion.fechaDeRegistro = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
                 reservacion.horaDeRegistro = row.GetValue<string>("hour_register");
                 reservacion.usuarioRegistro = row.GetValue<string>("user_register");
+                reservacion.correoCliente = row.GetValue<string>("email_client");
+                reservacion.fechaCheckIn = row.GetValue<object>("date_checkin") == null ? "" : row.GetValue<object>("date_checkin").ToString();
                 lista.Add(reservacion);
             }
 
@@ -1381,11 +1383,11 @@ namespace Punto_de_Venta
             {
                 conectar();
                 var query1 = "insert into historialcliente(id_historial, name_customer, lastp_customer, " +
-                    " lastm_customer, city, hotel, type_room, people_number, code_reservation, date_reservation, date_checkin, date_checkout, status_reservation, advance_pay, lodging, services, total) " +
-                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', {12}, {13}, {14}, {15}, {16}) if not exists; ";
+                    " lastm_customer, city, hotel, type_room, people_number, code_reservation, date_reservation, date_checkin, date_checkout, status_reservation, advance_pay, lodging, services, total, email_customer) " +
+                    "values ('{0}' ,'{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', {12}, {13}, {14}, {15}, {16}, '{17}') if not exists; ";
                 query1 = string.Format(query1, param.idHistorial, param.nombreCliente, param.apellidoPCliente, param.apellidoMCliente, param.ciudad, param.hotel, param.tipoHabitacion,
                                         param.cantidadPersonas, param.codigoReservacion, param.fechaReservacion, param.fechaCheckIn, param.fechaCheckOut, param.estatusReservacion,
-                                        param.anticipo, param.hospedaje, param.servicios, param.total);
+                                        param.anticipo, param.hospedaje, param.servicios, param.total, param.correoCliente);
                 int i = -1;
                 _session.Execute(query1);
             }
@@ -1402,6 +1404,82 @@ namespace Punto_de_Venta
 
             }
             return Err;
+        }
+
+        public List<Historial> obtReporteHistorialEmail(string email)
+        {
+            string query = "select id_historial, name_customer, lastp_customer, lastm_customer, email_customer, city, hotel, " +
+                            "type_room, people_number, code_reservation, date_reservation, date_checkin, date_checkout, status_reservation, " +
+                            "advance_pay, lodging, services, total from historialcliente where email_customer = '{0}' ALLOW FILTERING;";
+            query = string.Format(query, email);
+            List<Historial> lista = new List<Historial>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Historial historia = new Historial();
+                historia.idHistorial = row.GetValue<string>("id_historial");
+                historia.nombreCliente = row.GetValue<string>("name_customer");
+                historia.apellidoPCliente = row.GetValue<string>("lastp_customer");
+                historia.apellidoMCliente = row.GetValue<string>("lastm_customer");
+                historia.correoCliente = row.GetValue<string>("email_customer");
+                historia.ciudad = row.GetValue<string>("city");
+                historia.hotel = row.GetValue<string>("hotel");
+                historia.tipoHabitacion = row.GetValue<string>("type_room");
+                historia.cantidadPersonas = row.GetValue<string>("people_number");
+                historia.codigoReservacion = row.GetValue<string>("code_reservation");
+                historia.fechaReservacion = row.GetValue<object>("date_reservation") == null ? "" : row.GetValue<object>("date_reservation").ToString();
+                historia.fechaCheckIn = row.GetValue<object>("date_checkin") == null ? "" : row.GetValue<object>("date_checkin").ToString();
+                historia.fechaCheckOut = row.GetValue<object>("date_checkout") == null ? "" : row.GetValue<object>("date_checkout").ToString();
+                historia.estatusReservacion = row.GetValue<Nullable<bool>>("status_reservation") == null ? false : row.GetValue<bool>("status_reservation");
+                historia.anticipo = (float)row.GetValue<float>(14);
+                historia.hospedaje = (float)row.GetValue<float>(15);
+                historia.servicios = (float)row.GetValue<float>(16);
+                historia.total = (float)row.GetValue<float>(17);
+                lista.Add(historia);
+            }
+
+            desconectar();
+            return lista;
+
+        }
+
+        public List<Historial> obtReporteHistorialFecha(string fecha)
+        {
+            string query = "select id_historial, name_customer, lastp_customer, lastm_customer, email_customer, city, hotel, " +
+                            "type_room, people_number, code_reservation, date_reservation, date_checkin, date_checkout, status_reservation, " +
+                            "advance_pay, lodging, services, total from historialcliente where date_checkout = '{0}' ALLOW FILTERING;";
+            query = string.Format(query, fecha);
+            List<Historial> lista = new List<Historial>();
+            conectar();
+            var ResultSet = _session.Execute(query);
+            foreach (var row in ResultSet)
+            {
+                Historial historia = new Historial();
+                historia.idHistorial = row.GetValue<string>("id_historial");
+                historia.nombreCliente = row.GetValue<string>("name_customer");
+                historia.apellidoPCliente = row.GetValue<string>("lastp_customer");
+                historia.apellidoMCliente = row.GetValue<string>("lastm_customer");
+                historia.correoCliente = row.GetValue<string>("email_customer");
+                historia.ciudad = row.GetValue<string>("city");
+                historia.hotel = row.GetValue<string>("hotel");
+                historia.tipoHabitacion = row.GetValue<string>("type_room");
+                historia.cantidadPersonas = row.GetValue<string>("people_number");
+                historia.codigoReservacion = row.GetValue<string>("code_reservation");
+                historia.fechaReservacion = row.GetValue<object>("date_reservation") == null ? "" : row.GetValue<object>("date_reservation").ToString();
+                historia.fechaCheckIn = row.GetValue<object>("date_checkin") == null ? "" : row.GetValue<object>("date_checkin").ToString();
+                historia.fechaCheckOut = row.GetValue<object>("date_checkout") == null ? "" : row.GetValue<object>("date_checkout").ToString();
+                historia.estatusReservacion = row.GetValue<Nullable<bool>>("status_reservation") == null ? false : row.GetValue<bool>("status_reservation");
+                historia.anticipo = (float)row.GetValue<float>(14);
+                historia.hospedaje = (float)row.GetValue<float>(15);
+                historia.servicios = (float)row.GetValue<float>(16);
+                historia.total = (float)row.GetValue<float>(17);
+                lista.Add(historia);
+            }
+
+            desconectar();
+            return lista;
+
         }
     }
 }

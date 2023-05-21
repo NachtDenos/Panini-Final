@@ -12,6 +12,7 @@ namespace Punto_de_Venta.Clases
         public string nombreCliente { get; set; }
         public string apellidoPCliente { get; set; }
         public string apellidoMCliente { get; set; }
+        public string correoCliente { get; set; }
         public string ciudad { get; set; }
         public string hotel { get; set; }
         public string tipoHabitacion { get; set; }

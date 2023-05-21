@@ -12,6 +12,8 @@ namespace Punto_de_Venta
 {
     public partial class SalesReportScreen : Form
     {
+
+        EnlaceCassandra cass = new EnlaceCassandra();
         public SalesReportScreen()
         {
             InitializeComponent();
@@ -42,6 +44,16 @@ namespace Punto_de_Venta
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnCustomerHistory_Click(object sender, EventArgs e)
+        {
+            dataGridHistoryReport.DataSource = cass.obtReporteHistorialEmail(txtCustomerHistory.Text);
+        }
+
+        private void btnYearHistory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
