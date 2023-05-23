@@ -290,7 +290,6 @@ insert into servicios_adicionales(service, price_service) values ('Servicio a cu
 
 
 select * from usuario;
-truncate usuario;
 select * from cliente;
 select * from hotel;
 select * from habitacion;
@@ -303,15 +302,25 @@ select * from servicios_temporales;
 
 select * from cancelaciones;
 select * from contadorcancel;
-truncate cancelaciones;
-truncate contadorcancel;
-truncate reserva;
-truncate reserva_detalle;
 
-truncate servicios_temporales;
+//usuario
+INSERT INTO usuario (email,address,birthdate,date_register,id_user,m_lastname,name,p_lastname,password,payroll_number,phone_home,phone_personal,register_date,rol,status,time_register) VALUES ('a','4123','2023-05-09','2023-05-09',null,'Admin','Admin','Admin','123','1234','4123','321',null,0,true,'123213');
+INSERT INTO usuario (email,address,birthdate,date_register,id_user,m_lastname,name,p_lastname,password,payroll_number,phone_home,phone_personal,register_date,rol,status,time_register) VALUES ('c','4123','2023-05-09','2023-05-09',null,'Empleado2','Empleado2','Empleado2','123','1234','4123','321',null,1,true,'123213');
+INSERT INTO usuario (email,address,birthdate,date_register,id_user,m_lastname,name,p_lastname,password,payroll_number,phone_home,phone_personal,register_date,rol,status,time_register) VALUES ('b','4123','2023-05-09','2023-05-09',null,'Empleado','Empleado','Empleado','321','1234','4123','321',null,1,true,'123213');
 
-insert into usuario(name, password, email) values ('Edson','123','hola@gmail.com');
-insert into usuario(name, password, email) values ('Kevin','puto el que lo ponga','Pepeeltroncatoro@gmail.com');
+//cliente
+INSERT INTO cliente (email,name,rfc,address,birthdate,last_updater,m_lastname,marital_status,p_lastname,payroll_number,phone_home,phone_personal,references,register_date,register_hour,status) VALUES ('frijol@gmail.com','Aylin','21412525','Cumbres 1920','2001-11-09',null,'Acosta','Felih','Galindo','123','8140','8140','Recomendacion','2023-05-15','15:45:39','Activo');
+INSERT INTO cliente (email,name,rfc,address,birthdate,last_updater,m_lastname,marital_status,p_lastname,payroll_number,phone_home,phone_personal,references,register_date,register_hour,status) VALUES ('e@hotmail.com','Edson','0909213','Janos 1924','2002-02-03',null,'Tienda','Felih','Arguello','123','8123','8123','Otro','2023-05-15','15:44:47','Activo');
 
 
-insert into usuario(name, password, email, p_lastname, m_lastname, birthdate,payroll_number, address, phone_home, phone_personal, status, date_register, time_register, rol) values ('Empleado2' ,'123', 'c', 'Empleado2', 'Empleado2', '2023-05-09', '1234', '4123', '4123', '321', true, '2023-05-09', '123213', 1) if not exists;
+//hotel
+INSERT INTO hotel (name,city,beach,country,date_register,events_room,floors_number,hour_register,operations_date,pool_number,rooms_number,services_add,state,status,turistic_zone,user_register) VALUES ('Piedaras','Monterrey','Si','Mexico','2023-05-14','1','23','18:54:43','2023-05-14','2','80','Gimnasio WiFi','Nuevo Leon',true,'Activo',null);
+INSERT INTO hotel (name,city,beach,country,date_register,events_room,floors_number,hour_register,operations_date,pool_number,rooms_number,services_add,state,status,turistic_zone,user_register) VALUES ('Felices los cuatro','Cancun','Si','Mexico','2023-05-14','2','13','18:54:01','2023-05-14','1','234','Gimnasio','Quintana',true,'Activo',null);
+INSERT INTO hotel (name,city,beach,country,date_register,events_room,floors_number,hour_register,operations_date,pool_number,rooms_number,services_add,state,status,turistic_zone,user_register) VALUES ('Maya','Cancun','Si','Mexico','2023-05-14','2','13','18:53:16','2023-05-14','8','13','Gimnasio','Quintana',true,'Activo',null);
+
+
+//habitacion
+INSERT INTO habitacion (type,hotel,amenities,beds_number,beds_type,date_register,details,frontof,hour_register,people_number,price,room_level,status,user_register) VALUES ('Feis','Piedaras','SeguridadWiFi','4','King Size','2023-05-15','Esta feis','Piscina','11:46:45','4','20','Suite',true,null);
+INSERT INTO habitacion (type,hotel,amenities,beds_number,beds_type,date_register,details,frontof,hour_register,people_number,price,room_level,status,user_register) VALUES ('Felih','Felices los cuatro','WiFi','1','King Size','2023-05-15','Felices los 4','Piscina','11:45:02','4','300','Lujo',true,null);
+INSERT INTO habitacion (type,hotel,amenities,beds_number,beds_type,date_register,details,frontof,hour_register,people_number,price,room_level,status,user_register) VALUES ('Tolteca','Maya','WiFi','3','Individual','2023-05-15','Si','Jardin','11:45:58','4','700','Estandar ',true,null);
+INSERT INTO habitacion (type,hotel,amenities,beds_number,beds_type,date_register,details,frontof,hour_register,people_number,price,room_level,status,user_register) VALUES ('Bonis','Piedaras','SeguridadWiFi','2','Individual','2023-05-15','Es bonis','Playa','11:44:28','2','300','Estandar ',true,null);
