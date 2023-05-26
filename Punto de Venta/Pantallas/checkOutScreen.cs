@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Punto_de_Venta.Clases;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
 using System.IO;
 
 namespace Punto_de_Venta.Pantallas
@@ -236,7 +237,7 @@ namespace Punto_de_Venta.Pantallas
 
         private void btnConfirmCheckOut_Click(object sender, EventArgs e)
         {
-            if(puedePagar == false)
+            if (puedePagar == false)
             {
                 MessageBox.Show("Falta de seleccionar el codigo de reservación.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -253,7 +254,7 @@ namespace Punto_de_Venta.Pantallas
             string totalPagarString = labelTotal.Text;
             float totalAPagar = float.Parse(totalPagarString);
             float pagof = float.Parse(pagoGlobal);
-            if(totalAPagar > pagof || totalAPagar < pagof)
+            if (totalAPagar > pagof || totalAPagar < pagof)
             {
                 MessageBox.Show("Ingrese un monto valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -294,9 +295,34 @@ namespace Punto_de_Venta.Pantallas
             venta.IngresosTotales = totalD;
 
             var success = cass.InsertarVentas(venta);
-            if(success)
-                MessageBox.Show("Se realizo el checkOut correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+            if (success) {
+                SaveFileDialog guardar = new SaveFileDialog();
+                guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";
+                string paginahtml_texto = Properties.Resources.plantilla.ToString();
+                paginahtml_texto = paginahtml_texto.Replace("@HOTEL", nombreC);
+                paginahtml_texto = paginahtml_texto.Replace("@CIUDAD", ciudadC);
+                paginahtml_texto = paginahtml_texto.Replace("@HOSPEDAJE", hospedajeD.ToString("C"));
+                paginahtml_texto = paginahtml_texto.Replace("@SERVICIOS", serviciosD.ToString("C"));
+                paginahtml_texto = paginahtml_texto.Replace("@TOTAL", totalD.ToString("C"));
+                paginahtml_texto = paginahtml_texto.Replace("@FECHA", DateTime.Now.ToString("yyyy-MM-dd"));
+                if (guardar.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                    {
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        pdfDoc.Add(new Phrase(""));
+                        using (StringReader sr = new StringReader(paginahtml_texto))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+                        pdfDoc.Close();
+                        stream.Close();
+                    }
+                }
+                    MessageBox.Show("Se realizo el checkOut correctamente.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             
             foreach (DataGridViewRow row in dataGridRoomsCheckOut.Rows)
             {
