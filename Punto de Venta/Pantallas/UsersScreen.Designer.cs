@@ -84,7 +84,7 @@ namespace Punto_de_Venta
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(330, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 44);
+            this.label2.Size = new System.Drawing.Size(215, 44);
             this.label2.TabIndex = 3;
             this.label2.Text = "Operativos";
             // 
@@ -281,8 +281,10 @@ namespace Punto_de_Venta
             this.dataGridUsers.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUsers.Location = new System.Drawing.Point(440, 120);
+            this.dataGridUsers.MultiSelect = false;
             this.dataGridUsers.Name = "dataGridUsers";
             this.dataGridUsers.ReadOnly = true;
+            this.dataGridUsers.RowHeadersVisible = false;
             this.dataGridUsers.RowHeadersWidth = 51;
             this.dataGridUsers.Size = new System.Drawing.Size(453, 377);
             this.dataGridUsers.TabIndex = 25;

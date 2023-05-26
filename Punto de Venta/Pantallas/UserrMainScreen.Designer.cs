@@ -45,7 +45,6 @@
             this.panelChildFormSales = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelLeftSales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelChildFormSales.SuspendLayout();
@@ -245,10 +244,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            // 
-            // timer2
-            // 
-            this.timer2.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // UserrMainScreen
             // 
@@ -284,7 +280,6 @@
         private System.Windows.Forms.Panel panelChildFormSales;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.Label labelDateUserMain;
         private System.Windows.Forms.Button btnCustomersUserMain;

@@ -20,6 +20,7 @@ namespace Punto_de_Venta
         {
             InitializeComponent();
             dataGridHotels.DataSource = cass.Obtener_hoteles();
+            dataGridHotels.Columns["horaderegistro"].Visible = false;
             btnEditHotels.Enabled = false;
             btnDeleteHotels.Enabled = false;
             dataGridHotels.ClearSelection();

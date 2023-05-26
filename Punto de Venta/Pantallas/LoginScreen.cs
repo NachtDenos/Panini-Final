@@ -51,12 +51,16 @@ namespace Punto_de_Venta
                 if (indexBox == 1)
                 {
                     // int claveUserI = Int32.Parse(UserNameSQLSideTextBox.Text);
-                    if (cass.login2(txtUserNameLogin.Text, txtPassLogin.Text))
+                    if (cass.login(txtUserNameLogin.Text, txtPassLogin.Text, indexBox))
                     {
                         Pantallas.UserrMainScreen cashierMainScreen = new Pantallas.UserrMainScreen();
                         this.Hide();
                         cashierMainScreen.ShowDialog();
                         this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Credenciales incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (indexBox == 0)
@@ -68,6 +72,10 @@ namespace Punto_de_Venta
                         this.Hide();
                         TheOtherForm.ShowDialog();
                         this.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Credenciales incorrectas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

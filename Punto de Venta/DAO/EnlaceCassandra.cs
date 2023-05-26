@@ -48,7 +48,7 @@ namespace Punto_de_Venta
         }
         public List<Usuario> Obtener_usuarios()
         {
-            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status from usuario;";
+            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status, rol from usuario;";
             List<Usuario> lista= new List<Usuario>();
             conectar();
             var ResultSet = _session.Execute(query);
@@ -66,6 +66,7 @@ namespace Punto_de_Venta
                 usuarios.telefonoCasa = row.GetValue<string>("phone_home");
                 usuarios.telefono = row.GetValue<string>("phone_personal");
                 usuarios.status=row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
+                usuarios.rol = row.GetValue<int>("rol");
                 //usuarios.FechaIngreso = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
                 //usuarios.horaderegistro = row.GetValue<string>("time_register");
                 lista.Add(usuarios);

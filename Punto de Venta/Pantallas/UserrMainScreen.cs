@@ -66,5 +66,11 @@ namespace Punto_de_Venta.Pantallas
         {
             openChildForm(new SellerReportScreen());
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            labelDateUserMain.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            labelHourCashierMain.Text = DateTime.Now.ToString("HH:mm");
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.txtPassLogin = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.cbUserLogin = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             this.label1.Location = new System.Drawing.Point(280, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 32);
+            this.label1.Size = new System.Drawing.Size(217, 32);
             this.label1.TabIndex = 1;
             this.label1.Text = "Inicio de Sesión";
             // 
@@ -143,6 +144,7 @@
             // 
             // cbUserLogin
             // 
+            this.cbUserLogin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbUserLogin.FormattingEnabled = true;
             this.cbUserLogin.Items.AddRange(new object[] {
             "Administrador",
@@ -151,8 +153,18 @@
             this.cbUserLogin.Name = "cbUserLogin";
             this.cbUserLogin.Size = new System.Drawing.Size(162, 21);
             this.cbUserLogin.TabIndex = 7;
-            this.cbUserLogin.Text = "Seleccione su puesto";
             this.cbUserLogin.SelectedIndexChanged += new System.EventHandler(this.comboBoxUser_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(247, 58);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Puesto";
             // 
             // LoginScreenWnD
             // 
@@ -160,6 +172,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(233)))), ((int)(((byte)(227)))));
             this.ClientSize = new System.Drawing.Size(598, 379);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cbUserLogin);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassLogin);
@@ -195,5 +208,6 @@
         private System.Windows.Forms.TextBox txtPassLogin;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.ComboBox cbUserLogin;
+        private System.Windows.Forms.Label label4;
     }
 }

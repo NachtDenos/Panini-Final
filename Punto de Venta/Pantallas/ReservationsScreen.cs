@@ -54,7 +54,16 @@ namespace Punto_de_Venta
             //    MessageBox.Show("Seleccione una ciudad a visitar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
-
+            if (dataGridCustomerRe.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No ha seleccionado ningún cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(dataGridHotelRe.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No ha seleccionado ningún hotel", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             int codeInt = random.Next(1 , 10001);
             string codigoReserva = codeInt.ToString();
             //EN PROCESO, ES PARA DAR DE ALTA LA RESERVACION
@@ -115,6 +124,11 @@ namespace Punto_de_Venta
 
         private void btnAddReser_Click(object sender, EventArgs e)
         {
+            if (dataGridRoomsRe.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No has seleccionado ninguna habitación", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DateTime fecha1 = dtpLodgingReser.Value;
             DateTime fecha2 = dtpLodgingReser2.Value;
             string cantPerson = dataGridRoomsRe.CurrentRow.Cells[5].Value.ToString();
@@ -313,21 +327,41 @@ namespace Punto_de_Venta
 
         private void btnSelectReservation_Click(object sender, EventArgs e)
         {
+            if(dataGridHotelRe.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("No ha seleccionado ningún hotel", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             dataGridRoomsRe.DataSource = cass.obtHabitacionesHotel(dataGridHotelRe.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void btnSearchNameReservation_Click(object sender, EventArgs e)
         {
+            if (txtCustomerReservation.Text == "")
+            {
+                MessageBox.Show("Tienes que ingresar algo en 'Cliente'", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             dataGridCustomerRe.DataSource = cass.obtClientesNombre(txtCustomerReservation.Text);
         }
 
         private void btnSearchRFCReservation_Click(object sender, EventArgs e)
         {
+            if (txtCustomerReservation.Text == "")
+            {
+                MessageBox.Show("Tienes que ingresar algo en 'Cliente'", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             dataGridCustomerRe.DataSource = cass.obtClientesRFC(txtCustomerReservation.Text);
         }
 
         private void btnSearchEmailReservation_Click(object sender, EventArgs e)
         {
+            if (txtCustomerReservation.Text == "")
+            {
+                MessageBox.Show("Tienes que ingresar algo en 'Cliente'", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             dataGridCustomerRe.DataSource = cass.obtClientesEmail(txtCustomerReservation.Text);
         }
 

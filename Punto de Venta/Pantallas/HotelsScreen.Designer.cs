@@ -129,7 +129,7 @@ namespace Punto_de_Venta
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(386, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 44);
+            this.label2.Size = new System.Drawing.Size(152, 44);
             this.label2.TabIndex = 30;
             this.label2.Text = "Hoteles";
             // 
@@ -156,11 +156,14 @@ namespace Punto_de_Venta
             // 
             this.dataGridHotels.AllowUserToAddRows = false;
             this.dataGridHotels.AllowUserToDeleteRows = false;
+            this.dataGridHotels.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridHotels.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridHotels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridHotels.Location = new System.Drawing.Point(455, 120);
+            this.dataGridHotels.MultiSelect = false;
             this.dataGridHotels.Name = "dataGridHotels";
             this.dataGridHotels.ReadOnly = true;
+            this.dataGridHotels.RowHeadersVisible = false;
             this.dataGridHotels.RowHeadersWidth = 51;
             this.dataGridHotels.Size = new System.Drawing.Size(452, 389);
             this.dataGridHotels.TabIndex = 98;

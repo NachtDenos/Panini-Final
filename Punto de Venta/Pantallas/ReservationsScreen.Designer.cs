@@ -73,7 +73,7 @@ namespace Punto_de_Venta
             this.label8.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(545, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(281, 44);
+            this.label8.Size = new System.Drawing.Size(280, 44);
             this.label8.TabIndex = 38;
             this.label8.Text = "Reservaciones";
             // 
@@ -85,8 +85,10 @@ namespace Punto_de_Venta
             this.dataGridCustomerRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridCustomerRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridCustomerRe.Location = new System.Drawing.Point(14, 79);
+            this.dataGridCustomerRe.MultiSelect = false;
             this.dataGridCustomerRe.Name = "dataGridCustomerRe";
             this.dataGridCustomerRe.ReadOnly = true;
+            this.dataGridCustomerRe.RowHeadersVisible = false;
             this.dataGridCustomerRe.RowHeadersWidth = 51;
             this.dataGridCustomerRe.Size = new System.Drawing.Size(436, 96);
             this.dataGridCustomerRe.TabIndex = 59;
@@ -142,8 +144,10 @@ namespace Punto_de_Venta
             this.dataGridHotelRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridHotelRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridHotelRe.Location = new System.Drawing.Point(14, 205);
+            this.dataGridHotelRe.MultiSelect = false;
             this.dataGridHotelRe.Name = "dataGridHotelRe";
             this.dataGridHotelRe.ReadOnly = true;
+            this.dataGridHotelRe.RowHeadersVisible = false;
             this.dataGridHotelRe.RowHeadersWidth = 51;
             this.dataGridHotelRe.Size = new System.Drawing.Size(436, 113);
             this.dataGridHotelRe.TabIndex = 65;
@@ -193,8 +197,10 @@ namespace Punto_de_Venta
             this.dataGridRoomsRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridRoomsRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRoomsRe.Location = new System.Drawing.Point(12, 382);
+            this.dataGridRoomsRe.MultiSelect = false;
             this.dataGridRoomsRe.Name = "dataGridRoomsRe";
             this.dataGridRoomsRe.ReadOnly = true;
+            this.dataGridRoomsRe.RowHeadersVisible = false;
             this.dataGridRoomsRe.RowHeadersWidth = 51;
             this.dataGridRoomsRe.Size = new System.Drawing.Size(436, 111);
             this.dataGridRoomsRe.TabIndex = 115;
@@ -208,8 +214,10 @@ namespace Punto_de_Venta
             this.dataGridRoomsChosenRe.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridRoomsChosenRe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridRoomsChosenRe.Location = new System.Drawing.Point(463, 259);
+            this.dataGridRoomsChosenRe.MultiSelect = false;
             this.dataGridRoomsChosenRe.Name = "dataGridRoomsChosenRe";
             this.dataGridRoomsChosenRe.ReadOnly = true;
+            this.dataGridRoomsChosenRe.RowHeadersVisible = false;
             this.dataGridRoomsChosenRe.RowHeadersWidth = 51;
             this.dataGridRoomsChosenRe.Size = new System.Drawing.Size(436, 200);
             this.dataGridRoomsChosenRe.TabIndex = 116;

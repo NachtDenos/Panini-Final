@@ -22,6 +22,7 @@ namespace Punto_de_Venta
             cbHotelBedrooms.DataSource = hotel;
             cbHotelBedrooms.DisplayMember = "hotel";
             dataGridBedrooms.DataSource = cass.Obtener_habitaciones();
+            dataGridBedrooms.Columns["horaderegistro"].Visible = false;
             btnEditBedrooms.Enabled = false;
             btnDeleteBedrooms.Enabled = false;
         }

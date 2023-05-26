@@ -24,6 +24,7 @@ namespace Punto_de_Venta
         {
             InitializeComponent();
             dataGridUsers.DataSource = cass.Obtener_usuarios();
+            dataGridUsers.Columns["horaderegistro"].Visible = false ;
             btnEditUsers.Enabled = false;
             btnDeleteUsers.Enabled = false;
             dataGridUsers.ClearSelection();

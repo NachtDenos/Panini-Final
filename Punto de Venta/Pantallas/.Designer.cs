@@ -107,7 +107,7 @@ namespace Punto_de_Venta
             this.label2.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(361, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(256, 44);
+            this.label2.Size = new System.Drawing.Size(255, 44);
             this.label2.TabIndex = 61;
             this.label2.Text = "Habitaciones";
             // 
@@ -275,11 +275,14 @@ namespace Punto_de_Venta
             // 
             this.dataGridBedrooms.AllowUserToAddRows = false;
             this.dataGridBedrooms.AllowUserToDeleteRows = false;
+            this.dataGridBedrooms.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridBedrooms.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridBedrooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridBedrooms.Location = new System.Drawing.Point(454, 137);
+            this.dataGridBedrooms.MultiSelect = false;
             this.dataGridBedrooms.Name = "dataGridBedrooms";
             this.dataGridBedrooms.ReadOnly = true;
+            this.dataGridBedrooms.RowHeadersVisible = false;
             this.dataGridBedrooms.RowHeadersWidth = 51;
             this.dataGridBedrooms.Size = new System.Drawing.Size(452, 389);
             this.dataGridBedrooms.TabIndex = 131;
