@@ -23,5 +23,13 @@ namespace Punto_de_Venta.Clases
         public string direccion { get; set; }
         public bool status { get; set; }
         public int rol { get; set; }
+
+        public int cantError { get; set; }
+
+        public int setCantError(int errCant)
+        {
+            cantError += errCant;
+            return cantError;
+        }
     }
 }

@@ -14,6 +14,8 @@ namespace Punto_de_Venta
 {
     public class EnlaceCassandra
     {
+
+        Usuario usCantLog = new Usuario();
         //Soy un comentario y puedo dejar en claro que el webito con frijoles es lo maximo
         static private string _dbServer { set; get; }
         static private string _dbKeySpace { set; get; }
@@ -48,7 +50,8 @@ namespace Punto_de_Venta
         }
         public List<Usuario> Obtener_usuarios()
         {
-            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status, rol from usuario;";
+           // string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status, rol from usuario;";
+            string query = "select name, password, email, p_lastname, m_lastname, birthdate, payroll_number, address, phone_home, phone_personal, status from usuario;";
             List<Usuario> lista= new List<Usuario>();
             conectar();
             var ResultSet = _session.Execute(query);
@@ -66,7 +69,7 @@ namespace Punto_de_Venta
                 usuarios.telefonoCasa = row.GetValue<string>("phone_home");
                 usuarios.telefono = row.GetValue<string>("phone_personal");
                 usuarios.status=row.GetValue<Nullable<bool>>("status") == null ? false : row.GetValue<bool>("status");
-                usuarios.rol = row.GetValue<int>("rol");
+               // usuarios.rol = row.GetValue<int>("rol");
                 //usuarios.FechaIngreso = row.GetValue<object>("date_register") == null ? "" : row.GetValue<object>("date_register").ToString();
                 //usuarios.horaderegistro = row.GetValue<string>("time_register");
                 lista.Add(usuarios);
@@ -130,16 +133,60 @@ namespace Punto_de_Venta
         }
         public bool login(string email, string pass, int rol)
         {
+            int logAttempts = 0;
+           
+            usCantLog.cantError = 0;
             List<Usuario> lista = Obtener_usuarios();
             foreach (Usuario row in lista)
             {
+                if (usCantLog.cantError == 3)
+                {
+                    MessageBox.Show("Credenciales incorrectas demasiadas veces", "DESACTIVANDO");
+                    Desac_Usuarios(row, email);
+                    usCantLog.cantError = 0;
+                }
+
                 if (email == row.correo && pass == row.contrasena && rol == row.rol)
                 {
                     return true;
                 }
+                else
+                {
+                    logAttempts++;
+                    
+                }
             }
+            usCantLog.setCantError(1);
+            usCantLog.cantError++;
             return false;
         }
+
+        public bool Desac_Usuarios(Usuario param, string email)
+        {
+            var Err = true; // SI no hay error
+            try
+            {
+                conectar();
+                var query1 = "update usuario  set " +
+                    "status='{0}' where email='{1}' if exists";
+                query1 = string.Format(query1, param.status =false, email);
+                _session.Execute(query1);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                Err = false;
+                throw e;
+            }
+            finally
+            {
+                // desconectar o cerrar la conexión
+                desconectar();
+
+            }
+            return Err;
+        }
+
 
         public bool login2(string email, string pass)
         {
