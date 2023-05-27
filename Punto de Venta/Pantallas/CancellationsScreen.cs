@@ -32,6 +32,12 @@ namespace Punto_de_Venta
                 return;
             }
 
+            if ((bool)((DataGridViewRow)dataGridCancel.SelectedRows[0]).Cells["checkIn"].Value)
+            {
+                MessageBox.Show("No se puede cancelar si ya se realizó el CheckIn","Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             cass.incrementarContadorCancelacion();
 
             string fechaReal = dtpDateCancel.Text;

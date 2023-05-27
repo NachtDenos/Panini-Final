@@ -250,7 +250,11 @@ namespace Punto_de_Venta.Pantallas
             {
                 pagoGlobal = txtDebitCardCheckOut.Text;
             }
-
+            if (pagoGlobal == "")
+            {
+                MessageBox.Show("No ingresó ningún monto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string totalPagarString = labelTotal.Text;
             float totalAPagar = float.Parse(totalPagarString);
             float pagof = float.Parse(pagoGlobal);
@@ -301,10 +305,17 @@ namespace Punto_de_Venta.Pantallas
                 string paginahtml_texto = Properties.Resources.plantilla.ToString();
                 paginahtml_texto = paginahtml_texto.Replace("@HOTEL", nombreC);
                 paginahtml_texto = paginahtml_texto.Replace("@CIUDAD", ciudadC);
-                paginahtml_texto = paginahtml_texto.Replace("@HOSPEDAJE", hospedajeD.ToString("C"));
-                paginahtml_texto = paginahtml_texto.Replace("@SERVICIOS", serviciosD.ToString("C"));
-                paginahtml_texto = paginahtml_texto.Replace("@TOTAL", totalD.ToString("C"));
-                paginahtml_texto = paginahtml_texto.Replace("@FECHA", DateTime.Now.ToString("yyyy-MM-dd"));
+                paginahtml_texto = paginahtml_texto.Replace("@PAIS", paisC);
+                paginahtml_texto = paginahtml_texto.Replace("@HOSPEDAJE", hospedajeD.ToString());
+                paginahtml_texto = paginahtml_texto.Replace("@SERVICIOS", serviciosD.ToString());
+                paginahtml_texto = paginahtml_texto.Replace("@TOTAL", totalD.ToString());
+                paginahtml_texto = paginahtml_texto.Replace("@ANTICIPO", anticipoD.ToString());
+                paginahtml_texto = paginahtml_texto.Replace("@NOMBREC", nombreClientC+" "+apellPC+" "+apellMC);
+                paginahtml_texto = paginahtml_texto.Replace("@CORREOC", correoC);
+                paginahtml_texto = paginahtml_texto.Replace("@CODIGOREC", txtCodeCheckOut.Text);
+                paginahtml_texto = paginahtml_texto.Replace("@FECHAREC", fechaReC);
+                paginahtml_texto = paginahtml_texto.Replace("@FECHACIN", fechaCIn);
+                paginahtml_texto = paginahtml_texto.Replace("@FECHACOUT", DateTime.Now.ToString("yyyy-MM-dd"));
                 if (guardar.ShowDialog() == DialogResult.OK)
                 {
                     using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
